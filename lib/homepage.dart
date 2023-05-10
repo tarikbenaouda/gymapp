@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
         // ignore: prefer_const_literals_to_create_immutables
         children: [
           const Text(
-            "Hello, you're logged in §§fvndudbd ",
+            "Hello, you're logged in §§fvndudbd tarik ",
             style: TextStyle(fontSize: 25),
           ),
           SizedBox(height: 10),
