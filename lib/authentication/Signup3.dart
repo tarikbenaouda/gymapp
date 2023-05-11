@@ -151,31 +151,38 @@ class _Signup3State extends State<Signup3> {
                   ),
                   onPressed: () async {
                     if (shouldCheck != false) {
-                      try {
-                        await controller
-                            .signupMethod(
-                          context: context,
-                          email: emailController.text,
-                          password: passwordController.text,
-                        )
-                            .then((value) {
-                          return controller.storeUserData(
+                      if (passwordController.text ==
+                          confirmPasswordController.text) {
+                        try {
+                          await controller
+                              .signupMethod(
+                            context: context,
                             email: emailController.text,
                             password: passwordController.text,
-                            fullName: fullNameController.text,
-                            username: usernameController.text,
-                            phoneNumber: phoneNumberController.text,
-                            age: ageController.text,
-                            weight: weightController.text,
-                            height: heightController.text,
-                          );
-                        }).then((value) {
-                          VxToast.show(context, msg: "Logged in successfully");
-                          Get.offAll(() => HomeView());
-                        });
-                      } catch (e) {
-                        auth.signOut();
-                        VxToast.show(context, msg: e.toString());
+                          )
+                              .then((value) {
+                            return controller.storeUserData(
+                              email: emailController.text,
+                              password: passwordController.text,
+                              fullName: fullNameController.text,
+                              username: usernameController.text,
+                              phoneNumber: phoneNumberController.text,
+                              age: ageController.text,
+                              weight: weightController.text,
+                              height: heightController.text,
+                            );
+                          }).then((value) {
+                            VxToast.show(context,
+                                msg: "Logged in successfully");
+                            Get.offAll(() => HomeView());
+                          });
+                        } catch (e) {
+                          auth.signOut();
+                          VxToast.show(context, msg: e.toString());
+                        }
+                      } else {
+                        VxToast.show(context,
+                            msg: "Password confiramtion incorrect!");
                       }
                     }
                   },
