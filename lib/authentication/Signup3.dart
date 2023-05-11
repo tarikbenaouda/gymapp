@@ -156,36 +156,42 @@ class _Signup3State extends State<Signup3> {
                                 : Color.fromARGB(255, 255, 184, 179),
                           ),
                           onPressed: () async {
-                            if (shouldCheck != false) {
-                              controller.isloading(true);
-                              try {
-                                await controller
-                                    .signupMethod(
-                                  context: context,
-                                  email: emailController.text,
-                                  password: passwordController.text,
-                                )
-                                    .then((value) {
-                                  return controller.storeUserData(
+                            if (passwordController.text ==
+                                confirmPasswordController.text) {
+                              if (shouldCheck != false) {
+                                controller.isloading(true);
+                                try {
+                                  await controller
+                                      .signupMethod(
+                                    context: context,
                                     email: emailController.text,
                                     password: passwordController.text,
-                                    fullName: fullNameController.text,
-                                    username: usernameController.text,
-                                    phoneNumber: phoneNumberController.text,
-                                    age: ageController.text,
-                                    weight: weightController.text,
-                                    height: heightController.text,
-                                  );
-                                }).then((value) {
-                                  VxToast.show(context,
-                                      msg: "Logged in successfully");
-                                  Get.offAll(() => HomeScreen());
-                                });
-                              } catch (e) {
-                                auth.signOut();
-                                VxToast.show(context, msg: e.toString());
-                                controller.isloading(false);
+                                  )
+                                      .then((value) {
+                                    return controller.storeUserData(
+                                      email: emailController.text,
+                                      password: passwordController.text,
+                                      fullName: fullNameController.text,
+                                      username: usernameController.text,
+                                      phoneNumber: phoneNumberController.text,
+                                      age: ageController.text,
+                                      weight: weightController.text,
+                                      height: heightController.text,
+                                    );
+                                  }).then((value) {
+                                    VxToast.show(context,
+                                        msg: "Logged in successfully");
+                                    Get.offAll(() => HomeView());
+                                  });
+                                } catch (e) {
+                                  auth.signOut();
+                                  VxToast.show(context, msg: e.toString());
+                                  controller.isloading(false);
+                                }
                               }
+                            } else {
+                              VxToast.show(context,
+                                  msg: "Confirm password error");
                             }
                           },
                           child: Text(
