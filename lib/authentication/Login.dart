@@ -44,50 +44,6 @@ class _LoginState extends State<Login> {
                           fontSize: 40,
                           fontWeight: FontWeight.w500),
                     ),
-<<<<<<< HEAD
-                    InkWell(
-                      onTap: () {},
-                      child: Text(
-                        " Get Help",
-                        style:
-                            TextStyle(color: Color(0xFFFF1E0F), fontSize: 17),
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                //Login button
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 80, vertical: 20),
-                  child: Container(
-                    width: 122,
-                    height: 60,
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25)),
-                            backgroundColor: Color(0xFFFF1E0F)),
-                        onPressed: () async {
-                          await controller
-                              .loginMethod(context: context)
-                              .then((value) {
-                            if (value != null) {
-                              VxToast.show(context,
-                                  msg: "Logged in Successfully");
-                              Get.offAll(() => const HomeView());
-                            }
-                          });
-                        },
-                        child: Text(
-                          "Login",
-                          style: TextStyle(
-                              fontSize: 25, fontWeight: FontWeight.w700),
-                        )),
-=======
->>>>>>> hossem1
                   ),
                   SizedBox(
                     height: 80,
