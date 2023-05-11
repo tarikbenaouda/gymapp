@@ -164,7 +164,7 @@ class _Signup3State extends State<Signup3> {
                             password: passwordController.text,
                             fullName: fullNameController.text,
                             username: usernameController.text,
-                            phoneNumber: passwordController.text,
+                            phoneNumber: phoneNumberController.text,
                             age: ageController.text,
                             weight: weightController.text,
                             height: heightController.text,
