@@ -28,7 +28,7 @@ class _ModifyAboutState extends State<ModifyAbout> {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage("images/modify about background.jpg"),
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             ),
           ),
           padding: EdgeInsets.all(16.0),
