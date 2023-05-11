@@ -385,7 +385,8 @@ class _HomeViewState extends State<HomeView> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => HomeView()),
+                                      builder: (context) =>
+                                          DemandForCoaching()),
                                 );
                               },
                               child: Container(
