@@ -7,6 +7,8 @@ import 'package:gymapp/consts/consts.dart';
 import '../consts/firebase_consts.dart';
 
 class AuthController extends GetxController {
+  var isloading = false.obs;
+
   //text controllers
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
@@ -60,6 +62,7 @@ class AuthController extends GetxController {
       'email': email,
       'password': password,
       'imageUrl': '',
+      'id': currentUser!.uid,
     });
   }
 
