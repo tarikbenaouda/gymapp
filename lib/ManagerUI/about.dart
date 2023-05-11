@@ -20,7 +20,7 @@ class _AboutState extends State<About> {
           width: double.infinity,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/images/modify about background.jpg"),
+              image: AssetImage("images/modify about background.jpg"),
               fit: BoxFit.cover,
             ),
           ),
