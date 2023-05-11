@@ -104,7 +104,7 @@ class _LoginState extends State<Login> {
                             if (value != null) {
                               VxToast.show(context,
                                   msg: "Logged in Successfully");
-                              Get.offAll(() => const HomeScreen());
+                              Get.offAll(() => const HomeView());
                             }
                           });
                         },

@@ -174,7 +174,7 @@ class _Signup3State extends State<Signup3> {
                           }).then((value) {
                             VxToast.show(context,
                                 msg: "Logged in successfully");
-                            Get.offAll(() => HomeScreen());
+                            Get.offAll(() => HomeView());
                           });
                         } catch (e) {
                           auth.signOut();
