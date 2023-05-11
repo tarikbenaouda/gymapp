@@ -415,7 +415,7 @@ class _HomeViewState extends State<HomeView> {
                           borderRadius: BorderRadius.circular(17.0),
                           image: DecorationImage(
                             image: AssetImage(
-                              "/images/admin-home pic4.jpg",
+                              "images/admin-home pic4.jpg",
                             ),
                             fit: BoxFit.fill,
                           ),

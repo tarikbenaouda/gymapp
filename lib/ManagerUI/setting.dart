@@ -23,7 +23,7 @@ class _SettingState extends State<Setting> {
           width: double.infinity,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/images/admin settings background.jpg"),
+              image: AssetImage("images/admin settings background.jpg"),
               fit: BoxFit.fill,
             ),
           ),
@@ -208,7 +208,7 @@ class _SettingState extends State<Setting> {
                 ),
               ),
               SizedBox(
-                height: 80,
+                height: 30,
               ),
               Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
                 GestureDetector(
@@ -260,10 +260,11 @@ class _SettingState extends State<Setting> {
                 ),
               ]),
               SizedBox(
-                height: 110,
+                height: 60,
               ),
               Center(
                 child: SizedBox(
+                  height: 50,
                   width: 195,
                   child: ElevatedButton(
                     onPressed: () {},

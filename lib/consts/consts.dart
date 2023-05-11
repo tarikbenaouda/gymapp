@@ -5,7 +5,7 @@ export 'package:gymapp/Chronometer.dart';
 export 'package:gymapp/ManagerUI/DemandCoaching.dart';
 export 'package:gymapp/authentication/Getstarted.dart';
 export 'package:gymapp/authentication/Login.dart';
-export 'package:gymapp/ManagerUI/OurstateAthlete.dart';
+
 export 'package:gymapp/ManagerUI/OurStateShop.dart';
 export 'package:gymapp/ManagerUI/ProfileCoach.dart';
 export 'package:gymapp/authentication/Signup1.dart';
