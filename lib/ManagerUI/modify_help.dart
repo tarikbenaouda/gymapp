@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'help_sending.dart';
+import 'home_page.dart';
 
 class ModifyHelp extends StatefulWidget {
   @override
@@ -9,6 +10,14 @@ class ModifyHelp extends StatefulWidget {
 
 class _ModifyHelpState extends State<ModifyHelp> {
   String number = '', email = '', facebook = '';
+  TextEditingController textField1Controller1 = TextEditingController();
+  TextEditingController textField2Controller2 = TextEditingController();
+  TextEditingController textField3Controller3 = TextEditingController();
+  _onPressed() {
+    number = textField1Controller1.text;
+    email = textField2Controller2.text;
+    facebook = textField3Controller3.text;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +28,8 @@ class _ModifyHelpState extends State<ModifyHelp> {
           width: double.infinity,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(
-                  "images/modify about and help mini background.jpg"),
-              fit: BoxFit.cover,
+              image: AssetImage("assets/images/modify about background.jpg"),
+              fit: BoxFit.fill,
             ),
           ),
           padding: EdgeInsets.all(16.0),
@@ -53,162 +61,137 @@ class _ModifyHelpState extends State<ModifyHelp> {
               SizedBox(
                 height: 20,
               ),
-              Stack(
-                children: [
-                  SingleChildScrollView(
-                    child: Container(
-                      height: 650,
-                      width: 380,
-                      decoration: BoxDecoration(
-                        color: Color(0xFF4F4F4F),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            'To See The Help Sendind From Users',
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                          SizedBox(height: 10.0),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => HelpSecding()));
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 20.0, vertical: 10.0),
-                              child: Text('Tap Here',
-                                  style: TextStyle(color: Colors.black)),
-                            ),
-                          ),
-                          SizedBox(height: 20.0),
-                          Text(
-                            'Information To Contact ',
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                          SizedBox(height: 10.0),
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: TextField(
-                              onChanged: (text) {
-                                setState(() {
-                                  number = text;
-                                });
-                              },
-                              decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Colors.white,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                ),
-                                hintText: 'number',
-                                suffixIcon: Icon(
-                                  Icons.call,
-                                  color: Colors.black,
-                                ),
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 20.0, horizontal: 6.0),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: TextField(
-                              onChanged: (text) {
-                                setState(() {
-                                  email = text;
-                                });
-                              },
-                              decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Colors.white,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                ),
-                                hintText: 'Email',
-                                suffixIcon: Icon(
-                                  Icons.mail,
-                                  color: Colors.black,
-                                ),
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 20.0, horizontal: 6.0),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: TextField(
-                              onChanged: (text) {
-                                setState(() {
-                                  facebook = text;
-                                });
-                              },
-                              decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Colors.white,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                ),
-                                hintText: 'Facebook Acount',
-                                suffixIcon: Icon(
-                                  Icons.facebook,
-                                  color: Colors.black,
-                                ),
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 20.0, horizontal: 6.0),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: TextField(
-                              onChanged: (text) {
-                                setState(() {});
-                              },
-                              decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Colors.white,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                ),
-                                hintText: 'Enter text here',
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 20.0, horizontal: 6.0),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 100,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                primary: Color(0xFFFD372A),
-                              ),
-                              onPressed: null,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('Save'),
-                                  Icon(Icons.done, color: Colors.white),
-                                ],
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 10.0),
-                        ],
+              Container(
+                height: (MediaQuery.of(context).size.height) * 0.8,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                        "assets/images/help and about mini background.jpg"),
+                    fit: BoxFit.fill,
+                  ),
+                  color: Color(0xFF4F4F4F),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Text(
+                      ' To See The Help Sendind From Users',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                    SizedBox(height: 10.0),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HelpSecding()));
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 20.0, vertical: 10.0),
+                        child: Text('Tap Here',
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 17)),
                       ),
                     ),
-                  ),
-                ],
+                    SizedBox(height: 20.0),
+                    Text(
+                      'Modify Contact Information ',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                    SizedBox(height: 10.0),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: TextField(
+                        style: TextStyle(fontSize: 20),
+                        controller: textField1Controller1,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          hintText: 'number',
+                          suffixIcon: Icon(
+                            Icons.call,
+                            color: Colors.black,
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 20.0, horizontal: 6.0),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: TextField(
+                        style: TextStyle(fontSize: 20),
+                        controller: textField2Controller2,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          hintText: 'Email',
+                          suffixIcon: Icon(
+                            Icons.mail,
+                            color: Colors.black,
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 20.0, horizontal: 6.0),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: TextField(
+                        style: TextStyle(fontSize: 20),
+                        controller: textField3Controller3,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          hintText: 'Facebook Acount',
+                          suffixIcon: Icon(
+                            Icons.facebook,
+                            color: Colors.black,
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 20.0, horizontal: 6.0),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 100,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Color(0xFFFD372A),
+                        ),
+                        onPressed: () {
+                          _onPressed;
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('Save'),
+                            Icon(Icons.done, color: Colors.white),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                  ],
+                ),
               )
             ],
           ),
