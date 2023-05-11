@@ -28,7 +28,7 @@ class _ModifyHelpState extends State<ModifyHelp> {
           width: double.infinity,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/images/modify about background.jpg"),
+              image: AssetImage("images/modify about background.jpg"),
               fit: BoxFit.fill,
             ),
           ),
@@ -66,8 +66,8 @@ class _ModifyHelpState extends State<ModifyHelp> {
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(
-                        "assets/images/help and about mini background.jpg"),
+                    image:
+                        AssetImage("images/help and about mini background.jpg"),
                     fit: BoxFit.fill,
                   ),
                   color: Color(0xFF4F4F4F),

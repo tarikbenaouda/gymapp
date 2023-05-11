@@ -1,14 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class OurstateAthlete extends StatefulWidget {
-  const OurstateAthlete({super.key});
+void main() => runApp(OurstateAthlete());
 
-  @override
-  State<OurstateAthlete> createState() => _OurstateAthleteState();
-}
-
-class _OurstateAthleteState extends State<OurstateAthlete> {
+class OurstateAthlete extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
@@ -19,127 +14,197 @@ class _OurstateAthleteState extends State<OurstateAthlete> {
         width: screenwidth,
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("images/20.jpg"), fit: BoxFit.cover)),
-        child: ListView(
+                image: AssetImage("images/our stats background.jpg"),
+                fit: BoxFit.fill)),
+        child: Column(
           children: [
+            SizedBox(
+              height: 30,
+            ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Icon(
-                  Icons.keyboard_double_arrow_left_outlined,
-                  color: Colors.red,
-                  size: 35,
+                InkWell(
+                  onTap: () {},
+                  child: Icon(
+                    Icons.keyboard_double_arrow_left_outlined,
+                    color: Color(0xFFFD372A),
+                    size: 35,
+                  ),
                 ),
-                Text(
-                  "Our Stats",
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                ),
-                Icon(Icons.star_rate)
               ],
             ),
             SizedBox(
-              height: 100,
+              height: 18,
+            ),
+            Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Our Stats",
+                    style: TextStyle(
+                        color: Color(0xFFD9D9D9),
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Icon(
+                    Icons.pie_chart_outline_outlined,
+                    color: Color(0xFFE6E6E6),
+                    size: 25,
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 30,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Container(
-                width: (double.infinity) - 40,
+                width: (double.infinity) - 10,
                 height: 500,
                 decoration: BoxDecoration(
-                    image: DecorationImage(image: AssetImage("images/21.jpg"))),
+                    borderRadius: BorderRadius.circular(25),
+                    image: DecorationImage(image: AssetImage("images/18.jpg"))),
                 child: Column(
                   children: [
+                    SizedBox(
+                      height: 8,
+                    ),
                     Text(
-                      "Our Athletes  ddfbbMonthly Stats",
-                      style: TextStyle(color: Colors.white, fontSize: 17),
+                      "Our Athletes Monthly Stats",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
-                      height: 4,
+                      height: 8,
                     ),
                     Container(
-                        height: 40,
-                        width: 100,
+                        height: 50,
+                        width: 130,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(14),
                         ),
                         child: Row(
                           children: [
-                            Text(" Month :"),
+                            Text(
+                              " Month :",
+                              style: TextStyle(fontSize: 16),
+                            ),
 
-                            Text("April"), //variable of  mounth
+                            Text("Variable"), //variable of  mounth
                           ],
                         )),
                     SizedBox(
-                      height: 5,
+                      height: 15,
                     ),
-                    Container(
-                      height: 40,
-                      width: (double.infinity) - 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.black,
-                      ),
-                      child: Row(children: [
-                        Text(
-                          "Monthly income : ",
-                          style: TextStyle(color: Colors.white, fontSize: 18),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Container(
+                        height: 50,
+                        width: (double.infinity) - 60,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Color(0xFFE6E6E6),
                         ),
-                        //variable of income
-                      ]),
+                        child: Row(children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 5, vertical: 10),
+                            child: Text(
+                              "Monthly income : ",
+                              style: TextStyle(
+                                  color: Color(0xFF252525), fontSize: 18),
+                            ),
+                          ),
+                          //variable of income
+                        ]),
+                      ),
                     ),
                     SizedBox(
                       height: 8,
                     ),
-                    Container(
-                      height: 40,
-                      width: (double.infinity) - 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.black,
-                      ),
-                      child: Row(children: [
-                        Text(
-                          " Net Profits : ",
-                          style: TextStyle(color: Colors.white, fontSize: 18),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Container(
+                        height: 50,
+                        width: (double.infinity) - 60,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Color(0xFFE6E6E6),
                         ),
-                        //variable of income
-                      ]),
+                        child: Row(children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 5, vertical: 10),
+                            child: Text(
+                              " Net Profits : ",
+                              style: TextStyle(
+                                  color: Color(0xFF252525), fontSize: 18),
+                            ),
+                          ),
+                          //variable of income
+                        ]),
+                      ),
                     ),
                     SizedBox(
                       height: 8,
                     ),
-                    Container(
-                      height: 40,
-                      width: (double.infinity) - 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.black,
-                      ),
-                      child: Row(children: [
-                        Text(
-                          " This Mounth Stats Are  : ",
-                          style: TextStyle(color: Colors.white, fontSize: 18),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Container(
+                        height: 50,
+                        width: (double.infinity) - 60,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Color(0xFFE6E6E6),
                         ),
-                        //variable of income
-                      ]),
+                        child: Row(children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 5, vertical: 10),
+                            child: Text(
+                              " This Mounth Stats Are  : ",
+                              style: TextStyle(
+                                  color: Color(0xFF252525), fontSize: 18),
+                            ),
+                          ),
+                          //variable of income
+                        ]),
+                      ),
                     ),
                     SizedBox(
                       height: 8,
                     ),
-                    Container(
-                      height: 40,
-                      width: (double.infinity) - 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.black,
-                      ),
-                      child: Row(children: [
-                        Text(
-                          " Number Of New Athletes  : ",
-                          style: TextStyle(color: Colors.white, fontSize: 18),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Container(
+                        height: 50,
+                        width: (double.infinity) - 60,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Color(0xFFE6E6E6),
                         ),
-                        //variable of income
-                      ]),
+                        child: Row(children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 5, vertical: 10),
+                            child: Text(
+                              " Number Of New Athletes  : ",
+                              style: TextStyle(
+                                  color: Color(0xFF252525), fontSize: 18),
+                            ),
+                          ),
+                          //variable of income
+                        ]),
+                      ),
                     ),
                     SizedBox(
                       height: 8,
@@ -156,15 +221,20 @@ class _OurstateAthleteState extends State<OurstateAthlete> {
                               height: 80,
                               width: 120,
                               decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(18),
                                   image: DecorationImage(
-                                      image: AssetImage("images/13.jpg"),
-                                      fit: BoxFit.cover)),
-                              child: Text(
-                                " Total The Year Stats",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
+                                      image:
+                                          AssetImage("images/background2.jpg"),
+                                      fit: BoxFit.fill)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(10),
+                                child: Text(
+                                  " Total The Year Stats",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
                             )),
                         TextButton(
@@ -173,15 +243,20 @@ class _OurstateAthleteState extends State<OurstateAthlete> {
                               height: 80,
                               width: 120,
                               decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(18),
                                   image: DecorationImage(
-                                      image: AssetImage("images/13.jpg"),
-                                      fit: BoxFit.cover)),
-                              child: Text(
-                                " To See Last Mounth Stats",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
+                                      image:
+                                          AssetImage("images/background2.jpg"),
+                                      fit: BoxFit.fill)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(10),
+                                child: Text(
+                                  " To See Last Mounth Stats",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
                             )),
                       ],

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const Getstarted(),
+      home: const HomeView(),
       routes: {
         //  "/": (context) => Auth(),
         "welcome": (context) => const Unboarding(),
