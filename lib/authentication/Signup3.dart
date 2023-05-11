@@ -196,86 +196,6 @@ class _Signup3State extends State<Signup3> {
                             ),
                           ),
                         ),
-<<<<<<< HEAD
-                        Text(
-                          " and",
-                          style: TextStyle(color: Color(0xFFFF1E0F)),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 6,
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: Text(
-                        "Privacy Policy",
-                        style: TextStyle(
-                            color: Colors.white,
-                            decoration: TextDecoration.underline),
-                      ),
-                    )
-                  ],
-                )
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 10),
-              child: Container(
-                height: 50,
-                width: 100,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    backgroundColor: shouldCheck == true
-                        ? Color(0xFFFF1E0F)
-                        : Color.fromARGB(255, 255, 184, 179),
-                  ),
-                  onPressed: () async {
-                    if (shouldCheck != false) {
-                      if (passwordController.text ==
-                          confirmPasswordController.text) {
-                        try {
-                          await controller
-                              .signupMethod(
-                            context: context,
-                            email: emailController.text,
-                            password: passwordController.text,
-                          )
-                              .then((value) {
-                            return controller.storeUserData(
-                              email: emailController.text,
-                              password: passwordController.text,
-                              fullName: fullNameController.text,
-                              username: usernameController.text,
-                              phoneNumber: phoneNumberController.text,
-                              age: ageController.text,
-                              weight: weightController.text,
-                              height: heightController.text,
-                            );
-                          }).then((value) {
-                            VxToast.show(context,
-                                msg: "Logged in successfully");
-                            Get.offAll(() => HomeView());
-                          });
-                        } catch (e) {
-                          auth.signOut();
-                          VxToast.show(context, msg: e.toString());
-                        }
-                      } else {
-                        VxToast.show(context,
-                            msg: "Password confiramtion incorrect!");
-                      }
-                    }
-                  },
-                  child: Text(
-                    "Sign Up",
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w700,
-=======
                 ),
               ),
               SizedBox(
@@ -304,7 +224,6 @@ class _Signup3State extends State<Signup3> {
                           fontSize: 20,
                           fontWeight: FontWeight.w900,
                           color: Color(0xFFFF1E0F)),
->>>>>>> hossem1
                     ),
                   ),
                 ),
