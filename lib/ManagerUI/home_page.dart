@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:gymapp/ManagerUI/DemandCoaching.dart';
-import 'package:gymapp/ManagerUI/edit_our_offers.dart';
-import 'package:gymapp/ManagerUI/edit_our_shop.dart';
-import 'package:gymapp/ManagerUI/edit_schedule.dart';
-import 'package:gymapp/ManagerUI/listathletes.dart';
 import 'package:gymapp/ManagerUI/setting.dart';
 import 'package:intl/intl.dart';
 
-import 'about.dart';
-import 'help.dart';
+import 'modify_about.dart';
 import 'modify_events.dart';
+import 'modify_help.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({
@@ -22,6 +17,9 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
+    String admin = '';
+    int athletes = 0, coaches = 0;
+
     var now = DateTime.now();
     var formatter = DateFormat('dd/ MMMM');
     String formattedDate = formatter.format(now);
@@ -29,17 +27,13 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       key: _scaffoldKey,
       endDrawerEnableOpenDragGesture: false,
-      // appBar: AppBar(
-      //     backgroundColor: Color(0xFF111112),
-      //     elevation: 0.0,
-      //   ),
       body: SafeArea(
         child: Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: const BoxDecoration(
-            image: const DecorationImage(
-              image: const AssetImage("images/admin home back ground.jpg"),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("images/admin home back ground.jpg"),
               fit: BoxFit.fill,
             ),
           ),
@@ -48,55 +42,39 @@ class _HomeViewState extends State<HomeView> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: 18,
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: IconButton(
+                    icon: Icon(Icons.menu, color: Colors.white),
+                    onPressed: () => _scaffoldKey.currentState?.openDrawer(),
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: Text(
-                        "Welcome  ",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                          letterSpacing: 1.3,
-                        ),
+                    Text(
+                      "Welcome  ",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                        letterSpacing: 1.3,
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: Text(
-                        "Manager ",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Color(0xFFFD372A),
-                          letterSpacing: 1.8,
-                        ),
+                    Text(
+                      "Manager ",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Color(0xFFFD372A),
+                        letterSpacing: 1.8,
                       ),
                     ),
                   ],
                 ),
-                Row(
-                  children: [
-                    IconButton(
-                      icon: Icon(Icons.menu, color: Colors.white),
-                      onPressed: () => _scaffoldKey.currentState?.openDrawer(),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 100.0),
-                      child: Text(
-                        "Managername",
+                Center(
+                    child: Text("$admin  ",
                         style: TextStyle(
                           fontSize: 20,
-                          color: Colors.white,
-                          letterSpacing: 1.3,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                        ))),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -104,7 +82,6 @@ class _HomeViewState extends State<HomeView> {
                       decoration: BoxDecoration(
                         color: Color(0xFFFD372A),
                         borderRadius: BorderRadius.circular(20.0),
-                        border: Border.all(color: Colors.black, width: 2.0),
                       ),
                       padding: EdgeInsets.symmetric(
                           horizontal: 20.0, vertical: 10.0),
@@ -116,13 +93,12 @@ class _HomeViewState extends State<HomeView> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Edit_schedule()));
+                                builder: (context) => HomeView()));
                       },
                       child: Container(
                         decoration: BoxDecoration(
                           color: Color(0xFFFD372A),
                           borderRadius: BorderRadius.circular(20.0),
-                          border: Border.all(color: Colors.black, width: 2.0),
                         ),
                         padding: EdgeInsets.symmetric(
                             horizontal: 20.0, vertical: 10.0),
@@ -130,623 +106,669 @@ class _HomeViewState extends State<HomeView> {
                             style: TextStyle(color: Colors.white)),
                       ),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Color(0xFFFD372A),
-                        borderRadius: BorderRadius.circular(20.0),
-                        border: Border.all(color: Colors.black, width: 2.0),
+                  ],
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
+                  child: Container(
+                    child: Center(
+                      child: Text(
+                        'ADS',
+                        style: TextStyle(fontSize: 50, color: Colors.black),
                       ),
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 20.0, vertical: 10.0),
-                      child:
-                          Text('Rating', style: TextStyle(color: Colors.white)),
+                    ),
+                    width: (double.infinity),
+                    height: 200,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFD9D9D9),
+                      borderRadius: BorderRadius.circular(17.0),
+                    ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      width: 150,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(17.0),
+                        color: Colors.black,
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(17.0),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 14, top: 7),
+                          child: Text(
+                            softWrap: false,
+                            'Athletes Number\n           $athletes',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 150,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        //border:  Border.all(color: Colors.grey, width: 2),
+                        borderRadius: BorderRadius.circular(17.0),
+                        color: Colors.black,
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(17.0),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 15, top: 7),
+                          child: Text(
+                            softWrap: false,
+                            'Coach Number\n         $coaches ',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 15,
-                ),
-                Center(
-                  child: Container(
-                      width: 340,
-                      height: 200,
-                      decoration: BoxDecoration(
-                        // border:  Border.all(color: Colors.grey, width: 2),
-                        borderRadius: BorderRadius.circular(17.0),
-                        image: DecorationImage(
-                          image: AssetImage(
-                            "assets/images/background2.jpg",
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 7),
+                      child: Container(
+                        width: (double.infinity),
+                        height: 160,
+                        decoration: BoxDecoration(
+                          // border:  Border.all(color: Colors.grey, width: 2),
+                          borderRadius: BorderRadius.circular(17.0),
+                          image: DecorationImage(
+                            image: AssetImage(
+                              "images/admin-home pic3.jpg",
+                            ),
+                            fit: BoxFit.fill,
                           ),
-                          fit: BoxFit.cover,
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeView()),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17.0),
+                            ),
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                softWrap: false,
+                                'Shop Income',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                      child: Stack(
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    Container(
-                                      width: 150,
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                        // border:  Border.all(color: Colors.grey, width: 2),
-                                        borderRadius:
-                                            BorderRadius.circular(17.0),
-                                        color: Colors.black,
-                                      ),
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(17.0),
-                                          color: Colors.black.withOpacity(0.5),
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsets.only(left: 14, top: 7),
-                                          child: Text(
-                                            softWrap: false,
-                                            'Athletes nomber\n           var',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 17,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      width: 150,
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                        //border:  Border.all(color: Colors.grey, width: 2),
-                                        borderRadius:
-                                            BorderRadius.circular(17.0),
-                                        color: Colors.black,
-                                      ),
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(17.0),
-                                          color: Colors.black.withOpacity(0.5),
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsets.only(left: 15, top: 7),
-                                          child: Text(
-                                            softWrap: false,
-                                            'Coach nomber\n         var  ',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 17,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Container(
-                                    width: 150,
-                                    height: 70,
-                                    decoration: BoxDecoration(
-                                      // border:  Border.all(color: Colors.grey, width: 2),
-                                      borderRadius: BorderRadius.circular(17.0),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                          "images/shop_income.jpg",
-                                        ),
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(17.0),
-                                        color: Colors.black.withOpacity(0.5),
-                                      ),
-                                      child: Padding(
-                                        padding:
-                                            EdgeInsets.only(left: 22, top: 7),
-                                        child: Text(
-                                          softWrap: false,
-                                          'Shop income \n \n        var DA',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 150,
-                                    height: 70,
-                                    decoration: BoxDecoration(
-                                      //border:  Border.all(color: Colors.grey, width: 2),
-                                      borderRadius: BorderRadius.circular(17.0),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                          "images/athletes_income.jpg",
-                                        ),
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(17.0),
-                                        color: Colors.black.withOpacity(0.5),
-                                      ),
-                                      child: Padding(
-                                        padding:
-                                            EdgeInsets.only(left: 17, top: 10),
-                                        child: Text(
-                                          softWrap: false,
-                                          'Athletes Income \n \n       var DA',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 7),
+                      child: Container(
+                        width: (double.infinity),
+                        height: 160,
+                        decoration: BoxDecoration(
+                          // border:  Border.all(color: Colors.grey, width: 2),
+                          borderRadius: BorderRadius.circular(17.0),
+                          image: DecorationImage(
+                            image: AssetImage(
+                              "images/admin-home pic2.jpg",
+                            ),
+                            fit: BoxFit.fill,
                           ),
-                        ],
-                      )),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                            width: 170,
-                            height: 110,
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeView()),
+                            );
+                          },
+                          child: Container(
                             decoration: BoxDecoration(
-                              // border:  Border.all(color: Colors.grey, width: 2),
                               borderRadius: BorderRadius.circular(17.0),
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "images/athletes_list.jpg",
-                                ),
-                                fit: BoxFit.fill,
-                              ),
                             ),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Listathletes()),
-                                );
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(17.0),
-                                  color: Colors.black.withOpacity(0.5),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.only(
-                                    left: 20,
-                                    top: 10,
-                                  ),
-                                  child: Text(
-                                    softWrap: false,
-                                    'Our Atheletes List',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                softWrap: false,
+                                ' Athletes Income',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
                           ),
-                          Container(
-                            width: 170,
-                            height: 110,
-                            decoration: BoxDecoration(
-                              // border:  Border.all(color: Colors.grey, width: 2),
-                              borderRadius: BorderRadius.circular(17.0),
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "images/demends_athletes.jpg",
-                                ),
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          DemandForCoaching()),
-                                );
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(17.0),
-                                  color: Colors.black.withOpacity(0.5),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.only(left: 20, top: 70),
-                                  child: Text(
-                                    softWrap: false,
-                                    'Demands Athletes',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
-                      SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                            width: 170,
-                            height: 110,
-                            decoration: BoxDecoration(
-                              // border:  Border.all(color: Colors.grey, width: 2),
-                              borderRadius: BorderRadius.circular(17.0),
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "images/edit_offer.jpg",
-                                ),
-                                fit: BoxFit.fill,
-                              ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 7),
+                      child: Container(
+                        width: (double.infinity),
+                        height: 160,
+                        decoration: BoxDecoration(
+                          // border:  Border.all(color: Colors.grey, width: 2),
+                          borderRadius: BorderRadius.circular(17.0),
+                          image: DecorationImage(
+                            image: AssetImage(
+                              "images/admin-home pic5.jpg",
                             ),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => edit_our_offres()),
-                                );
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(17.0),
-                                  color: Colors.black.withOpacity(0.5),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.only(left: 20, top: 80),
-                                  child: Text(
-                                    softWrap: false,
-                                    'Edit Our Offers',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeView()),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17.0),
+                            ),
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                softWrap: false,
+                                'Our Atheletes List',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
                           ),
-                          Container(
-                            width: 170,
-                            height: 110,
-                            decoration: BoxDecoration(
-                              //border:  Border.all(color: Colors.grey, width: 2),
-                              borderRadius: BorderRadius.circular(17.0),
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "images/coach_demand.jpg",
-                                ),
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          DemandForCoaching()),
-                                );
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(17.0),
-                                  color: Colors.black.withOpacity(0.5),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.only(left: 20, top: 10),
-                                  child: Text(
-                                    softWrap: false,
-                                    'Coaching Demands',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
-                      SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                            width: 170,
-                            height: 110,
-                            decoration: BoxDecoration(
-                              // border:  Border.all(color: Colors.grey, width: 2),
-                              borderRadius: BorderRadius.circular(17.0),
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "images/edit_schedule.jpg",
-                                ),
-                                fit: BoxFit.fill,
-                              ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 7),
+                      child: Container(
+                        width: (double.infinity),
+                        height: 160,
+                        decoration: BoxDecoration(
+                          // border:  Border.all(color: Colors.grey, width: 2),
+                          borderRadius: BorderRadius.circular(17.0),
+                          image: DecorationImage(
+                            image: AssetImage(
+                              "images/admin-home pic7.jpg",
                             ),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Edit_schedule()),
-                                );
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(17.0),
-                                  color: Colors.black.withOpacity(0.5),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.only(left: 20, top: 10),
-                                  child: Text(
-                                    softWrap: false,
-                                    'Edit Our Schedule',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeView()),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17.0),
+                            ),
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                softWrap: false,
+                                'Demands Athletes',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
                           ),
-                          Container(
-                            width: 170,
-                            height: 110,
-                            decoration: BoxDecoration(
-                              // border:  Border.all(color: Colors.grey, width: 2),
-                              borderRadius: BorderRadius.circular(17.0),
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "images/edit_shop.jpg",
-                                ),
-                                fit: BoxFit.fill,
-                              ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 7),
+                      child: Container(
+                        width: (double.infinity),
+                        height: 160,
+                        decoration: BoxDecoration(
+                          // border:  Border.all(color: Colors.grey, width: 2),
+                          borderRadius: BorderRadius.circular(17.0),
+                          image: DecorationImage(
+                            image: AssetImage(
+                              "images/admin-home pic6.jpg",
                             ),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => edit_our_shop()),
-                                );
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(17.0),
-                                  color: Colors.black.withOpacity(0.5),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.only(left: 55, top: 80),
-                                  child: Text(
-                                    'Edit Our Shop',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeView()),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17.0),
+                            ),
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                softWrap: false,
+                                'Edit Our Offers',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
                           ),
-                        ],
+                        ),
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                            width: 170,
-                            height: 110,
-                            decoration: BoxDecoration(
-                              // border:  Border.all(color: Colors.grey, width: 2),
-                              borderRadius: BorderRadius.circular(17.0),
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "images/athletes_list.jpg",
-                                ),
-                                fit: BoxFit.fill,
-                              ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 7),
+                      child: Container(
+                        width: (double.infinity),
+                        height: 160,
+                        decoration: BoxDecoration(
+                          //border:  Border.all(color: Colors.grey, width: 2),
+                          borderRadius: BorderRadius.circular(17.0),
+                          image: DecorationImage(
+                            image: AssetImage(
+                              "/images/admin-home pic4.jpg",
                             ),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ModifyEvents()),
-                                );
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(17.0),
-                                  color: Colors.black.withOpacity(0.5),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.only(
-                                    left: 20,
-                                    top: 10,
-                                  ),
-                                  child: Text(
-                                    softWrap: false,
-                                    'Modify Events',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeView()),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17.0),
+                            ),
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                softWrap: false,
+                                'Coaching Demands',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
                           ),
-                        ],
+                        ),
                       ),
-                      SizedBox(
-                        height: 20,
-                      )
-                    ],
-                  ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 7),
+                      child: Container(
+                        width: (double.infinity),
+                        height: 160,
+                        decoration: BoxDecoration(
+                          // border:  Border.all(color: Colors.grey, width: 2),
+                          borderRadius: BorderRadius.circular(17.0),
+                          image: DecorationImage(
+                            image: AssetImage(
+                              "images/admin-home pic1.jpg",
+                            ),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeView()),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17.0),
+                            ),
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                softWrap: false,
+                                'Edit Our Schedule',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 7),
+                      child: Container(
+                        width: (double.infinity),
+                        height: 160,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(17.0),
+                          image: DecorationImage(
+                            image: AssetImage(
+                              "images/admin-home pic.jpg",
+                            ),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeView()),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17.0),
+                            ),
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                'Edit Our Shop',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 7),
+                      child: Container(
+                        width: (double.infinity),
+                        height: 160,
+                        decoration: BoxDecoration(
+                          // border:  Border.all(color: Colors.grey, width: 2),
+                          borderRadius: BorderRadius.circular(17.0),
+                          image: DecorationImage(
+                            image: AssetImage(
+                              "images/admin-home pic8.jpg",
+                            ),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ModifyEvents()),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17.0),
+                            ),
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                softWrap: false,
+                                'Modify Events',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    )
+                  ],
                 )
               ],
             ),
           ),
         ),
       ),
-      drawer: SizedBox(
-        height: 720,
-        width: 225,
-        child: Drawer(
-          child: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("images/background1.jpg"),
-                fit: BoxFit.fill,
+      bottomNavigationBar: Container(
+        height: 60,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 90.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeView()),
+                  );
+                },
+                child: Container(
+                  child: Icon(
+                    Icons.home,
+                  ),
+                ),
               ),
             ),
-            // color: Color(0xFF232323),
-            child: Column(
-              children: [
-                ListTile(
-                  leading: Icon(
-                    Icons.menu,
-                    color: Colors.white,
+            Padding(
+              padding: const EdgeInsets.only(right: 90.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeView()),
+                  );
+                },
+                child: Container(
+                  child: Icon(
+                    Icons.settings_applications,
                   ),
-                  title: Text('Menu',
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                      )),
                 ),
-                SizedBox(
-                  height: 30,
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeView()),
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.grey, width: 1),
                 ),
-                ListTile(
-                  leading: Icon(
-                    Icons.home,
-                    color: Colors.white,
+                child: Icon(
+                  Icons.shopping_cart,
+                  size: 22,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 90.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Setting()),
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.grey, width: 1),
                   ),
-                  title: Text('Home',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                      )),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomeView()),
-                    );
-                  },
+                  child: Icon(Icons.settings),
                 ),
-                ListTile(
-                  leading: Icon(
-                    Icons.settings,
-                    color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ),
+      drawer: SafeArea(
+        child: FractionallySizedBox(
+          widthFactor: 0.6,
+          child: Drawer(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30.0),
+            ),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0),
+                image: DecorationImage(
+                  image: AssetImage("images/drawor (admin).jpg"),
+                  fit: BoxFit.fill,
+                ),
+              ),
+              // color: Color(0xFF232323),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 40,
                   ),
-                  title: Text('Settings',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                      )),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Setting()),
-                    );
-                  },
-                ),
-                ListTile(
-                  leading: Icon(
-                    Icons.help,
-                    color: Colors.white,
+                  ListTile(
+                    leading: Icon(
+                      Icons.menu,
+                      color: Colors.white,
+                    ),
+                    title: Text('Menu',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                        )),
                   ),
-                  title: Text('Help',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                      )),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Help()),
-                    );
-                  },
-                ),
-                ListTile(
-                  leading: Icon(
-                    Icons.info,
-                    color: Colors.white,
+                  SizedBox(
+                    height: 60,
                   ),
-                  title: Text('About',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                      )),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => About('')),
-                    );
-                  },
-                ),
-              ],
+                  ListTile(
+                    leading: Icon(
+                      Icons.home,
+                      color: Colors.white,
+                    ),
+                    title: Text('Home',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                        )),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeView()),
+                      );
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.settings,
+                      color: Colors.white,
+                    ),
+                    title: Text('Settings',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                        )),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Setting()),
+                      );
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.help,
+                      color: Colors.white,
+                    ),
+                    title: Text('Help',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                        )),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ModifyHelp()),
+                      );
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.info,
+                      color: Colors.white,
+                    ),
+                    title: Text('About',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                        )),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ModifyAbout()),
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),

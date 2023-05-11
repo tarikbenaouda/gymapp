@@ -1,6 +1,5 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-
-import 'about.dart';
 
 class ModifyAbout extends StatefulWidget {
   @override
@@ -10,18 +9,10 @@ class ModifyAbout extends StatefulWidget {
 class _ModifyAboutState extends State<ModifyAbout> {
   String _textField1 = '';
   String _textField2 = '';
-  String _inputText1 = '';
-  String _inputText2 = '';
 
-  void _onPressed() {
-    setState(() {
-      _inputText1 = _textEditingController1.text;
-      _inputText2 = _textEditingController2.text;
-    });
-  }
-
-  onClick() {
-    MaterialPageRoute(builder: (BuildContext context) => About(_textField1));
+  _onPressed() {
+    _textField1 = _textEditingController1.text;
+    _textField2 = _textEditingController2.text;
   }
 
   final TextEditingController _textEditingController1 = TextEditingController();
@@ -32,11 +23,11 @@ class _ModifyAboutState extends State<ModifyAbout> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          height: double.infinity,
-          width: double.infinity,
+          height: (MediaQuery.of(context).size.height) * 0.8,
+          width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("images/modify about background.jpg"),
+              image: AssetImage("assets/images/modify about background.jpg"),
               fit: BoxFit.cover,
             ),
           ),
@@ -49,7 +40,7 @@ class _ModifyAboutState extends State<ModifyAbout> {
                   Padding(
                       padding: const EdgeInsets.only(top: 25.0),
                       child: Text(
-                        "Modify About",
+                        "Modify About ",
                         style: TextStyle(
                           fontSize: 30,
                           color: Colors.white,
@@ -69,95 +60,99 @@ class _ModifyAboutState extends State<ModifyAbout> {
               SizedBox(
                 height: 20,
               ),
-              Stack(
-                children: [
-                  SingleChildScrollView(
-                    child: Container(
-                      height: 650,
-                      width: 380,
-                      decoration: BoxDecoration(
-                        color: Color(0xFF4F4F4F),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 10,
+              Container(
+                height: 670,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                        "assets/images/help and about mini background.jpg"),
+                    fit: BoxFit.fill,
+                  ),
+                  color: Color(0xFF4F4F4F),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      'About The Gym :',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                    SizedBox(height: 10.0),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: TextField(
+                        style: TextStyle(fontSize: 22),
+                        scrollPhysics: ScrollPhysics(),
+                        maxLines: 3,
+                        controller: _textEditingController1,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
                           ),
-                          Text(
-                            'About The Gym :',
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                          SizedBox(height: 10.0),
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: TextField(
-                              onChanged: (text) {
-                                setState(() {
-                                  _textField1 = text;
-                                });
-                              },
-                              decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Colors.white,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                ),
-                                hintText: 'Enter text here',
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 70.0, horizontal: 6.0),
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 10.0),
-                          Text(
-                            'About The Gym :',
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                          SizedBox(height: 10.0),
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: TextField(
-                              onChanged: (text) {
-                                setState(() {
-                                  _textField2 = text;
-                                });
-                              },
-                              decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Colors.white,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                ),
-                                hintText: 'Enter text here',
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 70.0, horizontal: 6.0),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 100,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                primary: Color(0xFFFD372A),
-                              ),
-                              onPressed: onClick,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('Save'),
-                                  Icon(Icons.done, color: Colors.white),
-                                ],
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 10.0),
-                          Text('You entered: $_textField1 and $_textField2'),
-                        ],
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 70.0, horizontal: 6.0),
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                    SizedBox(height: 10.0),
+                    Text(
+                      'About The App :',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                    SizedBox(height: 10.0),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: TextField(
+                        textAlign: TextAlign.start,
+                        style: TextStyle(fontSize: 22),
+                        scrollPhysics: ScrollPhysics(),
+                        maxLines: 3,
+                        controller: _textEditingController2,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 70.0, horizontal: 6.0),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 160,
+                      height: 50,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Color(0xFFFD372A),
+                        ),
+                        onPressed: _onPressed,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Save ',
+                              style: TextStyle(
+                                  fontSize: 22, fontWeight: FontWeight.bold),
+                            ),
+                            Icon(
+                              Icons.check_circle_rounded,
+                              color: Colors.white,
+                              size: 28,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                  ],
+                ),
               )
             ],
           ),
