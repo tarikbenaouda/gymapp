@@ -11,357 +11,285 @@ class Setting extends StatefulWidget {
 }
 
 class _SettingState extends State<Setting> {
+  String nameVariable = '';
+  String mailVariable = '';
+  String PhoneVariable = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Stack(children: [
-          Container(
-            height: double.infinity,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("images/admin settings background.jpg"),
-                fit: BoxFit.fill,
-              ),
+        child: Container(
+          height: double.infinity,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/images/admin settings background.jpg"),
+              fit: BoxFit.fill,
             ),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 5),
+                child: GestureDetector(
+                  child: Icon(
+                    Icons.keyboard_double_arrow_left_outlined,
+                    size: 37,
+                    color: Color(0xFFFD372A),
+                  ),
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomeView()));
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                          padding: const EdgeInsets.only(top: 25.0),
-                          child: Text(
-                            "Admin Settings",
-                            style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.white,
-                              letterSpacing: 1.3,
-                            ),
-                          )),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 25.0),
-                        child: Icon(
-                          Icons.settings,
-                          size: 37,
-                          color: Color(0xFFFD372A),
-                        ),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 35,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 240.0),
-                          child: Text("Admin Name :",
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                letterSpacing: 1.3,
-                              )),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          height: 55,
-                          padding: EdgeInsets.symmetric(horizontal: 20.0),
-                          decoration: BoxDecoration(
-                            color: Color(0xFFFD372A),
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "nameVariable",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16.0,
-                                ),
-                              ),
-                              Icon(
-                                Icons.person,
-                                size: 40,
-                                color: Colors.white,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                  Text(
+                    "Admin Settings",
+                    style: TextStyle(
+                      fontSize: 30,
+                      color: Colors.white,
+                      letterSpacing: 1.3,
                     ),
                   ),
-                  SizedBox(
-                    height: 10,
+                  Icon(
+                    Icons.settings,
+                    size: 37,
+                    color: Color(0xFFFD372A),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 240.0),
-                          child: Text("Admin Mail :",
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                letterSpacing: 1.3,
-                              )),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          height: 55,
-                          padding: EdgeInsets.symmetric(horizontal: 20.0),
-                          decoration: BoxDecoration(
-                            color: Color(0xFFFD372A),
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "mailVariable",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16.0,
-                                ),
-                              ),
-                              Icon(
-                                Icons.person,
-                                size: 40,
-                                color: Colors.white,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 160.0),
-                          child: Text(
-                            "Admin Phone Number :",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white,
-                              letterSpacing: 1.3,
-                            ),
-                            softWrap: false,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          height: 60,
-                          padding: EdgeInsets.symmetric(horizontal: 20.0),
-                          decoration: BoxDecoration(
-                            color: Color(0xFFFD372A),
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Variable",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16.0,
-                                ),
-                              ),
-                              Icon(
-                                Icons.person,
-                                size: 40,
-                                color: Colors.white,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 240.0),
-                          child: Text("Admin  :",
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                letterSpacing: 1.3,
-                              )),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          height: 60,
-                          padding: EdgeInsets.symmetric(horizontal: 20.0),
-                          decoration: BoxDecoration(
-                            color: Color(0xFFFD372A),
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Variable",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16.0,
-                                ),
-                              ),
-                              Icon(
-                                Icons.person,
-                                size: 40,
-                                color: Colors.white,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 80,
-                  ),
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Setting()));
-                          },
-                          child: Container(
-                            height: 60,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFFD372A),
-                              borderRadius: BorderRadius.circular(10.0),
-                              border:
-                                  Border.all(color: Colors.black, width: 2.0),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Add Admin',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 20),
-                                ),
-                                Icon(Icons.add, size: 30, color: Colors.white),
-                              ],
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ModifyHelp()));
-                          },
-                          child: Container(
-                            height: 60,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFFD372A),
-                              borderRadius: BorderRadius.circular(10.0),
-                              border:
-                                  Border.all(color: Colors.black, width: 2.0),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text('Modify Help  ',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 20)),
-                                Icon(Icons.help, size: 30, color: Colors.white),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ]),
-                  SizedBox(
-                    height: 40,
-                  ),
-                  Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ModifyAbout()));
-                      },
-                      child: Container(
-                        height: 60,
-                        width: 160,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFFD372A),
-                          borderRadius: BorderRadius.circular(10.0),
-                          border: Border.all(color: Colors.black, width: 2.0),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Modify About',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
-                            ),
-                            Icon(Icons.info, size: 30, color: Colors.white),
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
                 ],
               ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 30.0, top: 20),
-            child: GestureDetector(
-              child: Icon(
-                Icons.arrow_back_ios_new,
-                size: 37,
-                color: Color(0xFFFD372A),
+              SizedBox(
+                height: 35,
               ),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomeView()));
-              },
-            ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 240.0),
+                      child: Text("Admin Name :",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            letterSpacing: 1.3,
+                          )),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      height: 55,
+                      padding: EdgeInsets.symmetric(horizontal: 20.0),
+                      decoration: BoxDecoration(
+                        color: Color(0xFFD9D9D9),
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "$nameVariable",
+                            style: TextStyle(
+                              color: Color(0xFF252525),
+                              fontSize: 20.0,
+                            ),
+                          ),
+                          Icon(
+                            Icons.person,
+                            size: 40,
+                            color: Color(0xFF252525),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 240.0),
+                      child: Text("Admin Mail :",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            letterSpacing: 1.3,
+                          )),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      height: 55,
+                      padding: EdgeInsets.symmetric(horizontal: 20.0),
+                      decoration: BoxDecoration(
+                        color: Color(0xFFD9D9D9),
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "$mailVariable",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20.0,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 160.0),
+                      child: Text(
+                        "Admin Phone Number :",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          letterSpacing: 1.3,
+                        ),
+                        softWrap: false,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      height: 60,
+                      padding: EdgeInsets.symmetric(horizontal: 20.0),
+                      decoration: BoxDecoration(
+                        color: Color(0xFFD9D9D9),
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "$PhoneVariable",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20.0,
+                            ),
+                          ),
+                          Icon(
+                            Icons.call,
+                            size: 40,
+                            color: Color(0xFF252525),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 80,
+              ),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ModifyAbout()));
+                  },
+                  child: Container(
+                    height: 60,
+                    width: 160,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFD9D9D9),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Modify About ',
+                          style: TextStyle(color: Colors.black, fontSize: 20),
+                        ),
+                        Icon(Icons.info, size: 30, color: Color(0xFF252525)),
+                      ],
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ModifyHelp()));
+                  },
+                  child: Container(
+                    height: 60,
+                    width: 160,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFD9D9D9),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Modify Help  ',
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 20)),
+                        Icon(Icons.help, size: 30, color: Color(0xFF252525)),
+                      ],
+                    ),
+                  ),
+                ),
+              ]),
+              SizedBox(
+                height: 110,
+              ),
+              Center(
+                child: SizedBox(
+                  width: 195,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFFFD372A), //
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        side: BorderSide(color: Colors.white),
+                      ), // Change the background color
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.home_outlined),
+                        SizedBox(width: 8.0),
+                        Text('Log out',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 20)),
+                      ],
+                    ),
+                  ),
+                ),
+              )
+            ],
           ),
-        ]),
+        ),
       ),
       drawer: SizedBox(
         height: 720,
