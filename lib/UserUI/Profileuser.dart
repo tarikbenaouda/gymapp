@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:gymapp/widgetselectorsignup2.dart';
+import 'package:gymapp/common_widgets/my_textformfield.dart';
 
 class ProfileUser extends StatefulWidget {
   const ProfileUser({super.key});
@@ -197,174 +196,25 @@ class _ProfileUserState extends State<ProfileUser> {
                 SizedBox(
                   height: 4,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  child: Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                      alignment: Alignment.centerLeft,
-                      height: 40,
-                      width: 200,
-                      decoration: BoxDecoration(
-                          color: Color(0xFFE6E6E6),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Age  :",
-                            style: TextStyle(
-                                color: Color(0xFF252525),
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800),
-                          ),
-                          // variable of email
-                          Text(
-                            "variable of email ",
-                            style: TextStyle(
-                                color: Color(0xFF252525),
-                                fontSize: 18,
-                                fontWeight: FontWeight.w800),
-                          ),
-                        ],
-                      )),
-                ),
+                MyInfos(Textinput: "age", Textinput2: "variable of age"),
                 SizedBox(
                   height: 4,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  child: Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                      alignment: Alignment.centerLeft,
-                      height: 40,
-                      width: 200,
-                      decoration: BoxDecoration(
-                          color: Color(0xFFE6E6E6),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "FullName :",
-                            style: TextStyle(
-                                color: Color(0xFF252525),
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800),
-                          ),
-                          // variable of email
-                          Text(
-                            "variable of email ",
-                            style: TextStyle(
-                                color: Color(0xFF252525),
-                                fontSize: 18,
-                                fontWeight: FontWeight.w800),
-                          ),
-                        ],
-                      )),
-                ),
-                SizedBox(
-                  height: 2,
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  child: Container(
-                      padding: EdgeInsets.all(10),
-                      alignment: Alignment.centerLeft,
-                      height: 40,
-                      width: 200,
-                      decoration: BoxDecoration(
-                          color: Color(0xFFE6E6E6),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            " UserName :",
-                            style: TextStyle(
-                                color: Color(0xFF252525),
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800),
-                          ),
-                          // variable of email
-                          Text(
-                            "variable   ",
-                            style: TextStyle(
-                                color: Color(0xFF252525),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w800),
-                          ),
-                        ],
-                      )),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  child: Container(
-                      padding: EdgeInsets.all(10),
-                      alignment: Alignment.centerLeft,
-                      height: 40,
-                      width: 200,
-                      decoration: BoxDecoration(
-                          color: Color(0xFFE6E6E6),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            " Email:",
-                            style: TextStyle(
-                                color: Color(0xFF252525),
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800),
-                          ),
-                          // variable of email
-                          Text(
-                            "variable of offer ",
-                            style: TextStyle(
-                                color: Color(0xFF252525),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w800),
-                          ),
-                          Icon(Icons.email)
-                        ],
-                      )),
-                ),
+                MyInfos(
+                    Textinput: "FullName", Textinput2: "variable of Fullname"),
                 SizedBox(
                   height: 4,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  child: Container(
-                      padding: EdgeInsets.all(10),
-                      alignment: Alignment.centerLeft,
-                      height: 40,
-                      width: 80,
-                      decoration: BoxDecoration(
-                          color: Color(0xFFE6E6E6),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            " Phone Number ",
-                            style: TextStyle(
-                                color: Color(0xFF252525),
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800),
-                          ),
-                          // variable of email
-                          Text(
-                            "function calcul",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w800),
-                          ),
-                          Icon(Icons.phone)
-                        ],
-                      )),
+                MyInfos(
+                    Textinput: "UserName", Textinput2: "variable of Username"),
+                SizedBox(
+                  height: 4,
                 ),
+                MyInfos(Textinput: "Email", Textinput2: "variable of Email"),
+                SizedBox(
+                  height: 4,
+                ),
+                MyInfos(Textinput: "Phone Number", Textinput2: "variable "),
                 TextButton(
                     onPressed: (() {}),
                     child: Container(
