@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../common_widgets/my_textformfield.dart';
+
 class OurstateShop extends StatefulWidget {
   const OurstateShop({super.key});
 
@@ -111,107 +113,24 @@ class _OurstateShopState extends State<OurstateShop> {
                     SizedBox(
                       height: 15,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Container(
-                        height: 50,
-                        width: (double.infinity) - 60,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color(0xFFE6E6E6),
-                        ),
-                        child: Row(children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 5, vertical: 10),
-                            child: Text(
-                              "Monthly income : ",
-                              style: TextStyle(
-                                  color: Color(0xFF252525), fontSize: 18),
-                            ),
-                          ),
-                          //variable of income
-                        ]),
-                      ),
-                    ),
+                    MyInfos(
+                        Textinput: " Monthly Income", Textinput2: "variable"),
                     SizedBox(
                       height: 8,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Container(
-                        height: 50,
-                        width: (double.infinity) - 60,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color(0xFFE6E6E6),
-                        ),
-                        child: Row(children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 5, vertical: 10),
-                            child: Text(
-                              " Net Profits : ",
-                              style: TextStyle(
-                                  color: Color(0xFF252525), fontSize: 18),
-                            ),
-                          ),
-                          //variable of income
-                        ]),
-                      ),
-                    ),
+                    MyInfos(Textinput: " Net Profits", Textinput2: "variable"),
                     SizedBox(
                       height: 8,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Container(
-                        height: 50,
-                        width: (double.infinity) - 60,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color(0xFFE6E6E6),
-                        ),
-                        child: Row(children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 5, vertical: 10),
-                            child: Text(
-                              " This Mounth Stats Are  : ",
-                              style: TextStyle(
-                                  color: Color(0xFF252525), fontSize: 18),
-                            ),
-                          ),
-                          //variable of income
-                        ]),
-                      ),
-                    ),
+                    MyInfos(
+                        Textinput: " THis Mounth Stats Are",
+                        Textinput2: "variable"),
                     SizedBox(
                       height: 8,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Container(
-                        height: 50,
-                        width: (double.infinity) - 60,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color(0xFFE6E6E6),
-                        ),
-                        child: Row(children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 5, vertical: 10),
-                            child: Text(
-                              " Number Of Products Sold  : ",
-                              style: TextStyle(
-                                  color: Color(0xFF252525), fontSize: 18),
-                            ),
-                          ),
-                          //variable of income
-                        ]),
-                      ),
-                    ),
+                    MyInfos(
+                        Textinput: " Number of product sold",
+                        Textinput2: "variable"),
                     SizedBox(
                       height: 8,
                     ),

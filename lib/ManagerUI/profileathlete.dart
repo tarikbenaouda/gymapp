@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../common_widgets/my_textformfield.dart';
 //import 'package:gymapp/makeselectorprofileathlete.dart';
 
 class Profileathlete extends StatefulWidget {
@@ -157,110 +159,18 @@ class _ProfileathleteState extends State<Profileathlete> {
                     style: TextStyle(color: Color(0xFFE6E6E6), fontSize: 18),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Container(
-                      padding: EdgeInsets.all(10),
-                      alignment: Alignment.centerLeft,
-                      height: 40,
-                      width: 200,
-                      decoration: BoxDecoration(
-                          color: Color(0xFFE6E6E6),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Email:",
-                            style: TextStyle(
-                                color: Color(0xFF252525),
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800),
-                          ),
-                          // variable of email
-                          Text(
-                            "variable of email ",
-                            style: TextStyle(
-                                color: Color(0xFF252525),
-                                fontSize: 18,
-                                fontWeight: FontWeight.w800),
-                          ),
-                          Icon(Icons.email)
-                        ],
-                      )),
-                ),
+                MyInfos(Textinput: " Email ", Textinput2: "variable"),
                 SizedBox(
                   height: 2,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Container(
-                      padding: EdgeInsets.all(10),
-                      alignment: Alignment.centerLeft,
-                      height: 40,
-                      width: 200,
-                      decoration: BoxDecoration(
-                          color: Color(0xFFE6E6E6),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Number :",
-                            style: TextStyle(
-                                color: Color(0xFF252525),
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800),
-                          ),
-                          // variable of email
-                          Text(
-                            "variable of numberofphone ",
-                            style: TextStyle(
-                                color: Color(0xFF252525),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w800),
-                          ),
-                          Icon(Icons.phone)
-                        ],
-                      )),
-                ),
+                MyInfos(Textinput: " Number Phone", Textinput2: "variable"),
                 Center(
                   child: Text(
                     "The Athlete Payement",
                     style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 18),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Container(
-                      padding: EdgeInsets.all(10),
-                      alignment: Alignment.centerLeft,
-                      height: 40,
-                      width: 200,
-                      decoration: BoxDecoration(
-                          color: Color(0xFFE6E6E6),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            " The Paid Offer:",
-                            style: TextStyle(
-                                color: Color(0xFF252525),
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800),
-                          ),
-                          // variable of email
-                          Text(
-                            "variable of offer ",
-                            style: TextStyle(
-                                color: Color(0xFF252525),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w800),
-                          ),
-                        ],
-                      )),
-                ),
+                MyInfos(Textinput: " Offer Paid", Textinput2: "variable"),
                 SizedBox(
                   height: 4,
                 ),
