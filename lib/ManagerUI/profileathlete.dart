@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 //import 'package:gymapp/makeselectorprofileathlete.dart';
-import 'package:gymapp/widgetselectorsignup2.dart';
 
 class Profileathlete extends StatefulWidget {
   const Profileathlete({super.key});
