@@ -251,9 +251,9 @@ class _ProfileUserState extends State<ProfileUser> {
                                 fontSize: 20,
                                 fontWeight: FontWeight.w800),
                           ),
-                          // variable of email
+                          // variable of fullName
                           Text(
-                            "variable of email ",
+                            "variable of fullName ",
                             style: TextStyle(
                                 color: Color(0xFF252525),
                                 fontSize: 18,
