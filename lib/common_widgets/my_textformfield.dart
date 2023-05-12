@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:gymapp/consts/consts.dart';
 
 Widget myTextformfield(
@@ -18,6 +19,10 @@ Widget myTextformfield(
         controller: controller,
         obscureText: obsecure ?? false,
         keyboardType: type,
+        inputFormatters: [
+          FilteringTextInputFormatter.digitsOnly,
+          LengthLimitingTextInputFormatter(2),
+        ],
         decoration: InputDecoration(
           suffixIcon: icon,
           hintText: hint,
