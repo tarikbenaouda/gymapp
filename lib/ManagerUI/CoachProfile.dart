@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
+//import 'package:gymapp/makeselectorCoachProfile.dart';
 
-import '../common_widgets/my_textformfield.dart';
-//import 'package:gymapp/makeselectorprofileathlete.dart';
-
-class Profileathlete extends StatefulWidget {
-  const Profileathlete({super.key});
+class CoachProfile extends StatefulWidget {
+  const CoachProfile({super.key});
 
   @override
-  State<Profileathlete> createState() => _ProfileathleteState();
+  State<CoachProfile> createState() => _CoachProfileState();
 }
 
-class _ProfileathleteState extends State<Profileathlete> {
+class _CoachProfileState extends State<CoachProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +34,7 @@ class _ProfileathleteState extends State<Profileathlete> {
                       size: 35,
                     ),
                     Text(
-                      " The Athlete Profile",
+                      " The Coach Profile",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 23,
@@ -155,22 +153,108 @@ class _ProfileathleteState extends State<Profileathlete> {
                 ),
                 Center(
                   child: Text(
-                    "For Contact The Athlete",
+                    "For Contact The Coach",
                     style: TextStyle(color: Color(0xFFE6E6E6), fontSize: 18),
                   ),
                 ),
-                MyInfos(Textinput: " Email ", Textinput2: "variable"),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                      padding: EdgeInsets.all(10),
+                      alignment: Alignment.centerLeft,
+                      height: 40,
+                      width: 200,
+                      decoration: BoxDecoration(
+                          color: Color(0xFFE6E6E6),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Email:",
+                            style: TextStyle(
+                                color: Color(0xFF252525),
+                                fontSize: 20,
+                                fontWeight: FontWeight.w800),
+                          ),
+                          // variable of email
+                          Text(
+                            "variable of email ",
+                            style: TextStyle(
+                                color: Color(0xFF252525),
+                                fontSize: 18,
+                                fontWeight: FontWeight.w800),
+                          ),
+                          Icon(Icons.email)
+                        ],
+                      )),
+                ),
                 SizedBox(
                   height: 2,
                 ),
-                MyInfos(Textinput: " Number Phone", Textinput2: "variable"),
-                Center(
-                  child: Text(
-                    "The Athlete Payement",
-                    style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 18),
-                  ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                      padding: EdgeInsets.all(10),
+                      alignment: Alignment.centerLeft,
+                      height: 40,
+                      width: 200,
+                      decoration: BoxDecoration(
+                          color: Color(0xFFE6E6E6),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Number :",
+                            style: TextStyle(
+                                color: Color(0xFF252525),
+                                fontSize: 20,
+                                fontWeight: FontWeight.w800),
+                          ),
+                          // variable of email
+                          Text(
+                            "variable of numberofphone ",
+                            style: TextStyle(
+                                color: Color(0xFF252525),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w800),
+                          ),
+                          Icon(Icons.phone)
+                        ],
+                      )),
                 ),
-                MyInfos(Textinput: " Offer Paid", Textinput2: "variable"),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                      padding: EdgeInsets.all(10),
+                      alignment: Alignment.centerLeft,
+                      height: 40,
+                      width: 200,
+                      decoration: BoxDecoration(
+                          color: Color(0xFFE6E6E6),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            " Full Name:",
+                            style: TextStyle(
+                                color: Color(0xFF252525),
+                                fontSize: 20,
+                                fontWeight: FontWeight.w800),
+                          ),
+                          // variable of email
+                          Text(
+                            "variable  ",
+                            style: TextStyle(
+                                color: Color(0xFF252525),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w800),
+                          ),
+                        ],
+                      )),
+                ),
                 SizedBox(
                   height: 4,
                 ),
@@ -188,7 +272,7 @@ class _ProfileathleteState extends State<Profileathlete> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            " Payement End: ",
+                            "  Coaching during: ",
                             style: TextStyle(
                                 color: Color(0xFF252525),
                                 fontSize: 20,
@@ -208,21 +292,6 @@ class _ProfileathleteState extends State<Profileathlete> {
                 TextButton(
                     onPressed: (() {}),
                     child: Container(
-                      alignment: Alignment.center,
-                      height: 40,
-                      width: 160,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(15)),
-                      child: Text(
-                        "Update Payement",
-                        style:
-                            TextStyle(color: Color(0xFFFF1E0F), fontSize: 18),
-                      ),
-                    )),
-                TextButton(
-                    onPressed: (() {}),
-                    child: Container(
                       height: 40,
                       width: 160,
                       decoration: BoxDecoration(
@@ -233,7 +302,7 @@ class _ProfileathleteState extends State<Profileathlete> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Delete Athlete",
+                            "Delete Coach",
                             style: TextStyle(color: Colors.white, fontSize: 18),
                           ),
                           Icon(

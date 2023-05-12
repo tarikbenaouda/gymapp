@@ -184,6 +184,7 @@ class _LoginState extends State<Login> {
                               child: Image.asset(
                                 socialIconList[index],
                                 width: 30,
+                                fit: BoxFit.fill,
                               ),
                             ),
                           )),
