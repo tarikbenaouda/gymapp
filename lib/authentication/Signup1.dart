@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:gymapp/consts/consts.dart';
 
 class Signup1 extends StatefulWidget {
@@ -54,6 +55,8 @@ class _Signup1State extends State<Signup1> {
               hint: "Phone Number",
               type: TextInputType.phone,
               controller: phoneNumberController,
+              filter: FilteringTextInputFormatter.digitsOnly,
+              limit: 10,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 48),

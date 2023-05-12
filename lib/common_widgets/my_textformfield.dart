@@ -1,12 +1,15 @@
 import 'package:flutter/services.dart';
 import 'package:gymapp/consts/consts.dart';
 
-Widget myTextformfield(
-    {String? hint,
-    bool? obsecure,
-    TextInputType? type,
-    controller,
-    Icon? icon}) {
+Widget myTextformfield({
+  String? hint,
+  bool? obsecure,
+  TextInputType? type,
+  controller,
+  Icon? icon,
+  TextInputFormatter? filter,
+  int? limit,
+}) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 25),
     child: Container(
@@ -18,8 +21,8 @@ Widget myTextformfield(
         obscureText: obsecure ?? false,
         keyboardType: type,
         inputFormatters: [
-          FilteringTextInputFormatter.digitsOnly,
-          LengthLimitingTextInputFormatter(2),
+          filter ?? FilteringTextInputFormatter.singleLineFormatter,
+          LengthLimitingTextInputFormatter(limit),
         ],
         decoration: InputDecoration(
           suffixIcon: icon,
