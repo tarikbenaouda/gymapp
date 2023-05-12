@@ -6,6 +6,7 @@ import 'package:gymapp/ManagerUI/ProfileCoach.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/consts/consts.dart';
 import 'package:gymapp/ManagerUI/listofcoach.dart';
+import 'package:gymapp/ManagerUI/listofcoach.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
         "ProfileCoachdemand": (context) => ProfileCoach(),
         "Demandcoaching": (context) => DemandForCoaching(),
         "HomePage": (context) => HomeView(),
-        "CoachProfile": (context) => CoachProfile(),
+        //"CoachProfile": (context) =>  CoachProfile(),
       },
     );
   }
