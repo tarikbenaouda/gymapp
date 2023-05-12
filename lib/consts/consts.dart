@@ -1,7 +1,6 @@
 export 'package:flutter/material.dart';
 export 'package:get/get.dart';
 export 'package:velocity_x/velocity_x.dart';
-export 'package:gymapp/Chronometer.dart';
 export 'package:gymapp/ManagerUI/DemandCoaching.dart';
 export 'package:gymapp/authentication/Getstarted.dart';
 export 'package:gymapp/authentication/Login.dart';
