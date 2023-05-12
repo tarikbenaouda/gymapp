@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:custom_check_box/custom_check_box.dart';
+import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/consts/consts.dart';
 import 'package:gymapp/controlllers/auth_controller.dart';
 
@@ -181,7 +182,7 @@ class _Signup3State extends State<Signup3> {
                                   }).then((value) {
                                     VxToast.show(context,
                                         msg: "Logged in successfully");
-                                    Get.offAll(() => HomeView());
+                                    Get.offAll(() => ProfileUser());
                                   });
                                 } catch (e) {
                                   auth.signOut();

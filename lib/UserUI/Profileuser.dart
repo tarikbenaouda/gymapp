@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gymapp/common_widgets/my_textformfield.dart';
 
+
 class ProfileUser extends StatefulWidget {
   const ProfileUser({super.key});
 
@@ -200,8 +201,42 @@ class _ProfileUserState extends State<ProfileUser> {
                 SizedBox(
                   height: 4,
                 ),
+
                 MyInfos(
                     Textinput: "FullName", Textinput2: "variable of Fullname"),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  child: Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      alignment: Alignment.centerLeft,
+                      height: 40,
+                      width: 200,
+                      decoration: BoxDecoration(
+                          color: Color(0xFFE6E6E6),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "FullName :",
+                            style: TextStyle(
+                                color: Color(0xFF252525),
+                                fontSize: 20,
+                                fontWeight: FontWeight.w800),
+                          ),
+                          // variable of fullName
+                          Text(
+                            "variable of fullName ",
+                            style: TextStyle(
+                                color: Color(0xFF252525),
+                                fontSize: 18,
+                                fontWeight: FontWeight.w800),
+                          ),
+                        ],
+                      )),
+                ),
+
                 SizedBox(
                   height: 4,
                 ),
