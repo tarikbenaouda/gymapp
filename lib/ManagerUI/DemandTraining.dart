@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../common_widgets/my_textformfield.dart';
 
+import '../common_widgets/my_textformfield.dart';
 
 class ProfileCoach extends StatefulWidget {
   const ProfileCoach({super.key});
@@ -81,11 +81,11 @@ class _ProfileCoachState extends State<ProfileCoach> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 4,
+                    height: 8,
                   ),
                   Center(
                     child: Text(
-                      "Informations In The Demand Formule",
+                      "Informations Of Athletes ",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 18,
@@ -93,7 +93,7 @@ class _ProfileCoachState extends State<ProfileCoach> {
                     ),
                   ),
                   SizedBox(
-                    height: 3,
+                    height: 4,
                   ),
                   MyInfos(Textinput: " FullName ", Textinput2: "variable"),
                   SizedBox(
@@ -111,15 +111,11 @@ class _ProfileCoachState extends State<ProfileCoach> {
                   SizedBox(
                     height: 3,
                   ),
-                  MyInfos(Textinput: " Old Training ", Textinput2: "variable"),
+                  MyInfos(Textinput: " Email ", Textinput2: "variable"),
                   SizedBox(
                     height: 3,
                   ),
                   MyInfos(Textinput: " Phone Number ", Textinput2: "variable"),
-                  SizedBox(
-                    height: 3,
-                  ),
-                  MyInfos(Textinput: " Email ", Textinput2: "variable"),
                 ],
               ),
             ),

@@ -173,6 +173,25 @@ class _LoginState extends State<Login> {
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),
+
+                    )
+                  ],
+                ),
+                10.heightBox,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                      2,
+                      (index) => Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              radius: 25,
+                              child: Image.asset(
+                                socialIconList[index],
+                                width: 30,
+                                fit: BoxFit.fill,
+
                       Container(
                         height: 1,
                         width: 120,
@@ -196,6 +215,7 @@ class _LoginState extends State<Login> {
                                   socialIconList[index],
                                   width: 30,
                                 ),
+
                               ),
                             )),
                   ),
