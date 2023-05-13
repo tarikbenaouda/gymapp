@@ -27,3 +27,8 @@ export './firebase_consts.dart';
 export '../authentication/Signup1.dart';
 export '../authentication/Signup2.dart';
 export '../authentication/Signup3.dart';
+export './images.dart';
+export './Colors.dart';
+export '../common_widgets/applogo_widget.dart';
+export '../UserUI/Profileuser.dart';
+export '../authentication/splash_screen.dart';
