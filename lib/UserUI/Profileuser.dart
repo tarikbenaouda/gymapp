@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gymapp/common_widgets/my_textformfield.dart';
 
-
 class ProfileUser extends StatefulWidget {
   const ProfileUser({super.key});
 
@@ -111,7 +110,6 @@ class _ProfileUserState extends State<ProfileUser> {
                           TextButton(
                               onPressed: (() {}),
                               child: Container(
-                                alignment: Alignment.center,
                                 height: 40,
                                 width: 200,
                                 decoration: BoxDecoration(
@@ -121,9 +119,9 @@ class _ProfileUserState extends State<ProfileUser> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      "Send Demand Training ",
+                                      "Send Demand Training",
                                       style: TextStyle(
-                                          color: Colors.black, fontSize: 14),
+                                          color: Colors.black, fontSize: 13),
                                     ),
                                     IconButton(
                                         onPressed: () {},
@@ -201,7 +199,6 @@ class _ProfileUserState extends State<ProfileUser> {
                 SizedBox(
                   height: 4,
                 ),
-
                 MyInfos(
                     Textinput: "FullName", Textinput2: "variable of Fullname"),
                 Padding(
@@ -236,7 +233,6 @@ class _ProfileUserState extends State<ProfileUser> {
                         ],
                       )),
                 ),
-
                 SizedBox(
                   height: 4,
                 ),
