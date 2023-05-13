@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../common_widgets/my_textformfield.dart';
 
-class ProfileCoach extends StatefulWidget {
-  const ProfileCoach({super.key});
+class DemandTrainnig extends StatefulWidget {
+  const DemandTrainnig({super.key});
 
   @override
-  State<ProfileCoach> createState() => _ProfileCoachState();
+  State<DemandTrainnig> createState() => _DemandTrainnigState();
 }
 
-class _ProfileCoachState extends State<ProfileCoach> {
+class _DemandTrainnigState extends State<DemandTrainnig> {
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;

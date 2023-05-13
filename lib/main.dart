@@ -1,19 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:gymapp/ManagerUI/CoachProfile.dart';
-
+import 'package:gymapp/ManagerUI/DemandTraining.dart';
 import 'package:gymapp/UserUI/CoachInformation.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
+import 'package:gymapp/UserUI/home_view.dart';
 import 'package:gymapp/consts/consts.dart';
 import 'package:gymapp/ManagerUI/listofcoach.dart';
-
-import 'package:gymapp/ManagerUI/listofcoach.dart';
-import 'package:gymapp/ManagerUI/ProfileCoach.dart';
-import 'package:gymapp/UserUI/Profileuser.dart';
-import 'package:gymapp/consts/consts.dart';
-import 'package:gymapp/ManagerUI/listofcoach.dart';
-import 'package:gymapp/ManagerUI/listofcoach.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,11 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-
-      home: ProfileCoach(),
-
-      home: Getstarted(),
-
+      home: HomeViewAthlete(),
       routes: {
         //  "/": (context) => Auth(),
         "welcome": (context) => const Unboarding(),
@@ -51,7 +40,7 @@ class MyApp extends StatelessWidget {
         "ProfileCoachdemand": (context) => ProfileCoach(),
         "Demandcoaching": (context) => DemandForCoaching(),
         "HomePage": (context) => HomeView(),
-        //"CoachProfile": (context) =>  CoachProfile(),
+        "CoachProfile": (context) => CoachProfile(),
       },
     );
   }
