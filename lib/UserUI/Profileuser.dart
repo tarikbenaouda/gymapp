@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_const, prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:gymapp/common_widgets/my_textformfield.dart';
 
@@ -88,19 +90,19 @@ class _ProfileUserState extends State<ProfileUser> {
                                 height: 40,
                                 width: 200,
                                 decoration: BoxDecoration(
-                                    color: Color(0xFFFF1E0F),
+                                    color: const Color(0xFFFF1E0F),
                                     borderRadius: BorderRadius.circular(15)),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Text(
+                                    const Text(
                                       "Change Picture",
                                       style: TextStyle(
                                           color: Colors.black, fontSize: 16),
                                     ),
                                     IconButton(
                                         onPressed: () {},
-                                        icon: Icon(
+                                        icon: const Icon(
                                           Icons.edit,
                                           color: Colors.black,
                                         )),
@@ -113,19 +115,19 @@ class _ProfileUserState extends State<ProfileUser> {
                                 height: 40,
                                 width: 200,
                                 decoration: BoxDecoration(
-                                    color: Color(0xFFE6E6E6),
+                                    color: const Color(0xFFE6E6E6),
                                     borderRadius: BorderRadius.circular(15)),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Text(
+                                    const Text(
                                       "Send Demand Training",
                                       style: TextStyle(
                                           color: Colors.black, fontSize: 13),
                                     ),
                                     IconButton(
                                         onPressed: () {},
-                                        icon: Icon(
+                                        icon: const Icon(
                                           Icons.send,
                                           color: Colors.black,
                                         ))
@@ -134,13 +136,12 @@ class _ProfileUserState extends State<ProfileUser> {
                               )),
                         ],
                       ),
-
-                      //
                     ],
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -148,7 +149,7 @@ class _ProfileUserState extends State<ProfileUser> {
                           height: 40,
                           width: 150,
                           decoration: BoxDecoration(
-                              color: Color(0xFFE6E6E6),
+                              color: const Color(0xFFE6E6E6),
                               borderRadius: BorderRadius.circular(20)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -156,66 +157,67 @@ class _ProfileUserState extends State<ProfileUser> {
                               Center(
                                 child: Text(
                                   'Height:',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      color: Color(0xFF252525),
+                                      color: const Color(0xFF252525),
                                       fontSize: 20),
                                 ),
                               ),
-                              Text("VARIABLE")
+                              const Text("VARIABLE")
                             ],
                           )),
-                      SizedBox(
+                      const SizedBox(
                         width: 7,
                       ),
                       Container(
                           height: 40,
                           width: 150,
                           decoration: BoxDecoration(
-                              color: Color(0xFFE6E6E6),
+                              color: const Color(0xFFE6E6E6),
                               borderRadius: BorderRadius.circular(20)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Center(
-                                child: Text(
+                                child: const Text(
                                   'Weight:',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Color(0xFF252525),
                                       fontSize: 20),
                                 ),
                               ),
-                              Text("VARIABLE")
+                              const Text("VARIABLE")
                             ],
                           )),
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 4,
                 ),
                 MyInfos(Textinput: "age", Textinput2: "variable of age"),
-                SizedBox(
+                const SizedBox(
                   height: 4,
                 ),
                 MyInfos(
                     Textinput: "FullName", Textinput2: "variable of Fullname"),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 5),
                       alignment: Alignment.centerLeft,
                       height: 40,
                       width: 200,
                       decoration: BoxDecoration(
-                          color: Color(0xFFE6E6E6),
+                          color: const Color(0xFFE6E6E6),
                           borderRadius: BorderRadius.circular(20)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
+                          const Text(
                             "FullName :",
                             style: TextStyle(
                                 color: Color(0xFF252525),
@@ -223,7 +225,7 @@ class _ProfileUserState extends State<ProfileUser> {
                                 fontWeight: FontWeight.w800),
                           ),
                           // variable of fullName
-                          Text(
+                          const Text(
                             "variable of fullName ",
                             style: TextStyle(
                                 color: Color(0xFF252525),
@@ -233,16 +235,16 @@ class _ProfileUserState extends State<ProfileUser> {
                         ],
                       )),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 4,
                 ),
                 MyInfos(
                     Textinput: "UserName", Textinput2: "variable of Username"),
-                SizedBox(
+                const SizedBox(
                   height: 4,
                 ),
                 MyInfos(Textinput: "Email", Textinput2: "variable of Email"),
-                SizedBox(
+                const SizedBox(
                   height: 4,
                 ),
                 MyInfos(Textinput: "Phone Number", Textinput2: "variable "),
@@ -265,7 +267,7 @@ class _ProfileUserState extends State<ProfileUser> {
                               style:
                                   TextStyle(color: Colors.white, fontSize: 16),
                             ),
-                            Icon(
+                            const Icon(
                               Icons.settings,
                               color: Colors.white,
                             ),
