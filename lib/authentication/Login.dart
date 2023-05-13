@@ -32,7 +32,7 @@ class _LoginState extends State<Login> {
               fit: BoxFit.fill,
             )),
             child: Obx(
-              () => ListView(
+              () => Column(
                 children: [
                   SizedBox(
                     height: 80,
