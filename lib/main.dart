@@ -9,7 +9,6 @@ import 'package:gymapp/consts/consts.dart';
 import 'package:gymapp/ManagerUI/listofcoach.dart';
 import 'package:gymapp/UserUI/Coaching_demand.dart';
 
-
 import 'package:gymapp/ManagerUI/listofcoach.dart';
 import 'package:gymapp/ManagerUI/ProfileCoach.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
@@ -36,11 +35,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-
-      home: HomeViewAthlete(),
-
       home: const SplashScreen(),
-
       routes: {
         //  "/": (context) => Auth(),
         "welcome": (context) => const Unboarding(),
