@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../common_widgets/my_textformfield.dart';
+import '../consts/Colors.dart';
+
 class Offer {
   String type_offre;
-  int month;
-  int sessions;
-  int price;
+  String month;
+  String sessions;
+  String price;
 
   Offer(
       {required this.type_offre,
@@ -19,479 +22,497 @@ class edit_our_offres extends StatefulWidget {
 }
 
 class edit_our_offres_State extends State<edit_our_offres> {
-  List<Offer> offers = [
+  String ValueChooseOffre = "normal offre";
+  int current = 0;
+  List<Offer> list_offres = [
     Offer(
       type_offre: 'Normal offre',
-      month: 10,
-      price: 10,
-      sessions: 10,
+      month: "10 months",
+      price: "2000 DA",
+      sessions: "9 Sessions",
+    ),
+    Offer(
+      type_offre: 'Normal Offre',
+      month: "10 months",
+      price: "1000 DA",
+      sessions: "10 Sessions",
+    ),
+    Offer(
+      type_offre: 'Special Offre',
+      month: "4 months ",
+      price: "2500 DA",
+      sessions: "2 Sessions",
+    ),
+    Offer(
+      type_offre: 'Special Offre',
+      month: "4 months ",
+      price: "2500 DA",
+      sessions: "2 Sessions",
+    ),
+    Offer(
+      type_offre: 'Special Offre',
+      month: "4 months ",
+      price: "2500 DA",
+      sessions: "2 Sessions",
     ),
   ];
-  Color r = Colors.red;
-  Color w = Colors.white;
-
-  int number_offres = 0;
-  bool _showContainer = false;
-  String ValueChooseOffre = "normal offre";
 
   @override
   Widget build(BuildContext context) {
+    double statusBarHeight = MediaQuery.of(context).padding.top;
+    double screenwidth = MediaQuery.of(context).size.width;
+    double screenheight = MediaQuery.of(context).size.height;
+    double statusBarBottom = MediaQuery.of(context).padding.bottom;
+    TextEditingController month_controller =
+        TextEditingController(); // Create a new instance of TextEditingController
+    month_controller.text = "";
+    TextEditingController price_controller =
+        TextEditingController(); // Create a new instance of TextEditingController
+    price_controller.text = "";
+    TextEditingController type_offre_controller =
+        TextEditingController(); // Create a new instance of TextEditingController
+    type_offre_controller.text = "";
+    TextEditingController sessions_controller =
+        TextEditingController(); // Create a new instance of TextEditingController
+    sessions_controller.text = "";
+
     return Scaffold(
         body: SingleChildScrollView(
-      child: SafeArea(
-          child: Stack(children: [
-        Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("images/edit offers back ground.jpg"),
-                fit: BoxFit.fill,
-              ),
+            child: SafeArea(
+                child: Stack(children: [
+      Container(
+          height: screenheight,
+          width: screenwidth,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("images/training offer background.jpg"),
+              fit: BoxFit.fill,
             ),
-            child: Column(children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  IconButton(
-                    padding: EdgeInsets.only(top: 30),
-                    iconSize: 40,
-                    icon: const Icon(Icons.keyboard_double_arrow_left_rounded),
-                    color: r,
-                    onPressed: () {},
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Edit Our Offres",
-                    style: TextStyle(
-                      color: w,
-                      fontSize: 20,
-                    ),
-                  ),
-                  Icon(
-                    Icons.attach_money,
-                    color: w,
-                    size: 20,
-                  )
-                ],
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(
-                        "images/edit offers mini background.jpg",
-                      ),
-                      fit: BoxFit.fill),
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: r, width: 1),
-                ),
-                height: 600,
-                width: 400,
-                margin: EdgeInsets.all(10),
-                child: GridView.builder(
-                    itemCount: number_offres + 1,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2),
-                    itemBuilder: (contex, index) {
-                      if (number_offres == index)
-                        return GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                print(index);
-                                number_offres += 1;
-                              });
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Color.fromARGB(255, 92, 81, 81),
-                              ),
-                              margin: EdgeInsets.all(10),
-                              height: 70,
-                              width: 70,
-                              child: Center(
-                                child: Icon(
-                                  Icons.add_circle_outline_sharp,
-                                  color: w,
-                                  size: 50,
-                                ),
-                              ),
-                            ));
-                      else
-                        return GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: r,
-                            ),
-                            margin: EdgeInsets.all(5),
-                            height: 70,
-                            width: 70,
-                            child: Column(
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    IconButton(
-                                      onPressed: () {
-                                        setState(() {});
-                                      },
-                                      icon: Icon(
-                                        Icons.cancel_outlined,
-                                        size: 25,
-                                        color: Colors.white,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                Center(
-                                    child: Container(
-                                  height: 20,
-                                  width: 110,
-                                  decoration: BoxDecoration(),
-                                  child: TextField(
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: Color.fromARGB(255, 84, 25, 180),
-                                        fontSize: 17),
-                                    decoration: InputDecoration(
-                                      hintText: "Type of offre",
-                                      border: InputBorder.none,
-                                      hintStyle: TextStyle(
-                                          color:
-                                              Color.fromARGB(255, 84, 25, 180),
-                                          fontSize: 17),
-                                    ),
-                                  ),
-                                )),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Center(
-                                    child: Container(
-                                  height: 30,
-                                  width: 150,
-                                  decoration: BoxDecoration(),
-                                  child: TextField(
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 17),
-                                    decoration: InputDecoration(
-                                      hintText: "Months",
-                                      border: InputBorder.none,
-                                      hintStyle: TextStyle(
-                                          color: Colors.white, fontSize: 17),
-                                    ),
-                                  ),
-                                )),
-                                Center(
-                                    child: Container(
-                                  height: 30,
-                                  width: 150,
-                                  decoration: BoxDecoration(),
-                                  child: TextField(
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 17),
-                                    decoration: InputDecoration(
-                                      hintText: "Sessions",
-                                      border: InputBorder.none,
-                                      hintStyle: TextStyle(
-                                          color: Colors.white, fontSize: 17),
-                                    ),
-                                  ),
-                                )),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Center(
-                                    child: Container(
-                                  height: 30,
-                                  width: 150,
-                                  decoration: BoxDecoration(),
-                                  child: TextField(
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: Color.fromARGB(255, 84, 25, 180),
-                                        fontSize: 17),
-                                    decoration: InputDecoration(
-                                      hintText: "Price",
-                                      border: InputBorder.none,
-                                      hintStyle: TextStyle(
-                                          color:
-                                              Color.fromARGB(255, 84, 25, 180),
-                                          fontSize: 17),
-                                    ),
-                                  ),
-                                )),
-                              ],
-                            ),
-                          ),
-                        );
-                    }),
-              )
-            ])),
-        /* if (_showContainer)
-          Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Color.fromARGB(255, 179, 62, 62)),
-            margin: EdgeInsets.symmetric(vertical: 150, horizontal: 30),
-            height: 350,
-            width: 330,
-            child: Column(
+          ),
+          child: Column(children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    IconButton(
-                      icon: Icon(
-                        Icons.cancel_outlined,
-                        color: w,
-                        size: 40,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          _showContainer = !_showContainer;
-                        });
-                      },
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Edit The Offer",
-                      style: TextStyle(color: w, fontSize: 20),
-                    ),
-                    Icon(
-                      Icons.edit,
-                      color: w,
-                      size: 20,
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Container(
-                    height: 50,
-                    width: 140,
-                    child: TextField(
-                      style: TextStyle(color: w),
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.black45,
-                        hintStyle: TextStyle(
-                          color: w,
-                        ),
-                        hintText: "Mounth",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.red),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Container(
-                    height: 50,
-                    width: 140,
-                    child: TextField(
-                      style: TextStyle(color: w),
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.black45,
-                        hintStyle: TextStyle(
-                          color: w,
-                        ),
-                        hintText: "Sessions",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.red),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                    ),
-                  ),
-                ]),
-                SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  height: 50,
-                  width: 300,
-                  child: TextField(
-                    style: TextStyle(color: w),
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.black45,
-                      hintText: "Price",
-                      hintStyle: TextStyle(
-                        color: w,
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.red),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  height: 50,
-                  width: 300,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.black45,
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(
-                          color: r,
-                        )),
-                    height: 50,
-                    width: 300,
-                    child: DropdownButton(
-                      borderRadius: BorderRadius.circular(10),
-                      dropdownColor: r,
-                      value: ValueChooseOffre,
-                      icon: Icon(
-                        Icons.arrow_drop_down_sharp,
-                        size: 20,
-                        color: w,
-                      ),
-                      items: const [
-                        DropdownMenuItem(
-                            value: "normal offre",
-                            child: Text(
-                              "normal offre",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
-                            )),
-                        DropdownMenuItem(
-                            value: "special offre",
-                            child: Text(
-                              "spescail offre",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
-                            )),
-                        DropdownMenuItem(
-                            value: "event offre",
-                            child: Text(
-                              "event offre",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
-                            ))
-                      ],
-                      onChanged: (String? newvalue) {
-                        setState(() {
-                          ValueChooseOffre = newvalue!;
-                        });
-                      },
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      style: TextButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        backgroundColor: Colors.black45,
-                        padding: EdgeInsets.symmetric(horizontal: 30),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginScreen(),
-                          ),
-                        );
-                      },
-                      child: Row(
-                        children: [
-                          Text(
-                            "Delete",
-                            style: TextStyle(
-                              color: w,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w900,
-                            ),
-                          ),
-                          Icon(
-                            Icons.delete,
-                            color: w,
-                            size: 20,
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: 60,
-                    ),
-                    ElevatedButton(
-                      style: TextButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        backgroundColor: Colors.black45,
-                        padding: EdgeInsets.symmetric(horizontal: 30),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginScreen(),
-                          ),
-                        );
-                      },
-                      child: Row(
-                        children: [
-                          Text(
-                            "Save",
-                            style: TextStyle(
-                              color: w,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w900,
-                            ),
-                          ),
-                          Icon(
-                            Icons.save_alt,
-                            color: w,
-                            size: 20,
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
+                IconButton(
+                  padding: EdgeInsets.only(top: 10),
+                  iconSize: 40,
+                  icon: Icon(Icons.keyboard_double_arrow_left_rounded,
+                      size: 25 * (screenheight / screenwidth)),
+                  color: red,
+                  onPressed: () {},
                 ),
               ],
             ),
-          ),
-          */
-      ])),
-    ));
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Edit Our Offres",
+                  style: TextStyle(
+                    color: white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10 * (screenheight / screenwidth),
+                  ),
+                ),
+                Icon(
+                  Icons.price_change_outlined,
+                  color: red,
+                  size: 15 * (screenheight / screenwidth),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 160,
+            ),
+            Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: red, width: 1),
+                ),
+                height: 400,
+                width: 400,
+                margin: EdgeInsets.all(10),
+                child: ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: list_offres
+                        .length, // This list is defined at the beginning
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (ctx, index) {
+                      return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              current = index;
+                            });
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                    backgroundColor: Color(0xFF4F4F4F),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                    contentPadding: EdgeInsets.symmetric(
+                                      vertical: 50.0,
+                                    ),
+                                    title: Column(
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            IconButton(
+                                                icon: Icon(
+                                                  Icons.close,
+                                                  color: red,
+                                                  size: 20 *
+                                                      (screenheight /
+                                                          screenwidth),
+                                                ),
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                }),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "Edit The Offre",
+                                              style: TextStyle(
+                                                color: white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 10 *
+                                                    (screenheight /
+                                                        screenwidth),
+                                              ),
+                                            ),
+                                            Icon(
+                                              Icons.edit_calendar_outlined,
+                                              size: 15 *
+                                                  (screenheight / screenwidth),
+                                              color: red,
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    content: SingleChildScrollView(
+                                        child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        myTextformfield(
+                                          controller: TextEditingController(
+                                              text: list_offres[current]
+                                                  .type_offre),
+                                          hint: "Type of the offre",
+                                          icon: Icon(
+                                            Icons.edit,
+                                            color: red,
+                                          ),
+                                        ),
+                                        myTextformfield(
+                                          controller: TextEditingController(
+                                              text: list_offres[current].month),
+                                          hint: "Months",
+                                          icon: Icon(
+                                            Icons.edit,
+                                            color: red,
+                                          ),
+                                        ),
+                                        myTextformfield(
+                                          controller: TextEditingController(
+                                              text: list_offres[current]
+                                                  .sessions),
+                                          hint: "Sessions",
+                                          icon: Icon(
+                                            Icons.edit_outlined,
+                                            color: red,
+                                          ),
+                                        ),
+                                        myTextformfield(
+                                          controller: TextEditingController(
+                                              text: list_offres[current].price),
+                                          hint: "Price",
+                                          icon: Icon(
+                                            Icons.price_check_sharp,
+                                            color: red,
+                                          ),
+                                        ),
+                                      ],
+                                    )),
+                                    actions: <Widget>[
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Center(
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  color: white,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10)),
+                                              height: screenheight * 0.05,
+                                              width: screenwidth * 0.3,
+                                              child: TextButton(
+                                                  onPressed: () {},
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
+                                                        'Save',
+                                                        style: TextStyle(
+                                                          fontSize: 10 *
+                                                              (screenheight /
+                                                                  screenwidth),
+                                                          color: red,
+                                                        ),
+                                                      ),
+                                                      Icon(Icons.check_circle,
+                                                          color: red),
+                                                    ],
+                                                  )),
+                                            ),
+                                          ),
+                                          Center(
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  color: red,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10)),
+                                              height: screenheight * 0.05,
+                                              width: screenwidth * 0.3,
+                                              child: TextButton(
+                                                  onPressed: () {},
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
+                                                        'Delete',
+                                                        style: TextStyle(
+                                                          fontSize: 10 *
+                                                              (screenheight /
+                                                                  screenwidth),
+                                                          color: white,
+                                                        ),
+                                                      ),
+                                                      Icon(Icons.delete_forever,
+                                                          color: white),
+                                                    ],
+                                                  )),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ]);
+                              },
+                            );
+                          },
+                          child: Container(
+                            margin: EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 20),
+                            height: screenheight * 0.15,
+                            decoration: BoxDecoration(
+                              color: white,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "${list_offres[index].type_offre}",
+                                    style: TextStyle(
+                                        color: red,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            10 * (screenheight / screenwidth)),
+                                  ),
+                                  Text(
+                                    "${list_offres[index].month}",
+                                    style: TextStyle(
+                                        color: black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            10 * (screenheight / screenwidth)),
+                                  ),
+                                  Text(
+                                    "${list_offres[index].sessions}",
+                                    style: TextStyle(
+                                        color: black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            10 * (screenheight / screenwidth)),
+                                  ),
+                                  Text(
+                                    "${list_offres[index].price}",
+                                    style: TextStyle(
+                                        color: red,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            10 * (screenheight / screenwidth)),
+                                  ),
+                                ]),
+                          ));
+                    })),
+            FloatingActionButton(
+              backgroundColor: white,
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                        backgroundColor: Color(0xFF4F4F4F),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        contentPadding: EdgeInsets.symmetric(
+                          vertical: 50.0,
+                        ),
+                        title: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                IconButton(
+                                    icon: Icon(
+                                      Icons.close,
+                                      color: red,
+                                      size: 20 * (screenheight / screenwidth),
+                                    ),
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    }),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Add New Offre",
+                                  style: TextStyle(
+                                    color: white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 10 * (screenheight / screenwidth),
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.edit_calendar_outlined,
+                                  size: 15 * (screenheight / screenwidth),
+                                  color: red,
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                        content: SingleChildScrollView(
+                            child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            myTextformfield(
+                              controller: type_offre_controller,
+                              hint: "Type of the offre",
+                              icon: Icon(
+                                Icons.edit,
+                                color: red,
+                              ),
+                            ),
+                            myTextformfield(
+                              controller: month_controller,
+                              hint: "Months",
+                              icon: Icon(
+                                Icons.edit,
+                                color: red,
+                              ),
+                            ),
+                            myTextformfield(
+                              controller: sessions_controller,
+                              hint: "Sessions",
+                              icon: Icon(
+                                Icons.edit_outlined,
+                                color: red,
+                              ),
+                            ),
+                            myTextformfield(
+                              controller: price_controller,
+                              hint: "Price",
+                              icon: Icon(
+                                Icons.price_check_sharp,
+                                color: red,
+                              ),
+                            ),
+                          ],
+                        )),
+                        actions: <Widget>[
+                          Center(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: red,
+                                  borderRadius: BorderRadius.circular(10)),
+                              height: screenheight * 0.05,
+                              width: screenwidth * 0.3,
+                              child: TextButton(
+                                  onPressed: () {
+                                    if (!((price_controller == "") &
+                                        (month_controller == "") &
+                                        (type_offre_controller == "") &
+                                        (sessions_controller == ""))) {
+                                      setState(() {
+                                        list_offres.add(Offer(
+                                          type_offre:
+                                              type_offre_controller.text,
+                                          month: month_controller.text,
+                                          price: price_controller.text,
+                                          sessions: sessions_controller.text,
+                                        ));
+                                      });
+                                      Navigator.of(context).pop();
+                                    } else
+                                      showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: Text("Error"),
+                                            content: Text(
+                                                "Oops! Something went wrong."),
+                                          );
+                                        },
+                                      );
+                                  },
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Save',
+                                        style: TextStyle(
+                                          fontSize:
+                                              10 * (screenheight / screenwidth),
+                                          color: white,
+                                        ),
+                                      ),
+                                      Icon(Icons.check_circle, color: white),
+                                    ],
+                                  )),
+                            ),
+                          )
+                        ]);
+                  },
+                );
+              },
+              child: Icon(
+                Icons.add,
+                color: black,
+                size: 20 * (screenheight / screenwidth),
+              ),
+            )
+          ]))
+    ]))));
   }
 }

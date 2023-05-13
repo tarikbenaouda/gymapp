@@ -48,6 +48,7 @@ dependencies:
   firebase_core: ^2.11.0
   firebase_storage: ^11.1.2
   cloud_firestore: ^4.6.0
+   
   
   
 
@@ -79,46 +80,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - images/
-    #- images/1.jpg
-    #- images/2.jpg
-    #- images/3.png
-    
-
-    
-    
-    #- images/5.jpg
-    #- images/6.jpg
-    #- images/7.jpg
-    #- images/8.jpg
   
-    #- images/10.jpg
-    #- images/11.jpg
-    #- images/12.jpg
-    #- images/13.jpg
-    #- images/14.jpg
-    #- images/15.jpg
-    #- images/16.jpg
-    #- images/17.jpg
-    #- images/18.jpg
-    #- images/19.jpg
-    #- images/20.jpg
-    #- images/21.jpg
-    #- images/edit_schedule.jpg
-    #- images/edit offers back ground.jpg
-    #- images/edit offers mini background.jpg
-    #- images/edit shop mini back ground back ground.jpg
-    #- images/edit shop back ground.jpg
-    #- images/modify events background.jpg
-    #- images/admin settings background.jpg
-    #- images/admin home back ground.jpg
-    #- images/modify events background.jpg
-    #- images/background2.jpg
-    #- images/background1.jpg
-    #- images/athletes_income.jpg
-    #- images/athletes_list.jpg
-    #- images/coach_demand.jpg
-    #- images/edit_shop.jpg
-    #- images/demends_athletes.jpg
 
 
     
