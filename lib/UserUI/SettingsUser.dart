@@ -59,58 +59,46 @@ class _SettingsUserState extends State<SettingsUser> {
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(20)),
               child: Column(children: [
-                Padding(
-                  padding: const EdgeInsets.all(7.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 70,
-                        width: 70,
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
-                        ),
-                        //url of image
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      Column(
-                        children: [
-                          TextButton(
-                              onPressed: (() {}),
-                              child: Container(
-                                alignment: Alignment.center,
-                                height: 40,
-                                width: 200,
-                                decoration: BoxDecoration(
-                                    color: const Color(0xFFFF1E0F),
-                                    borderRadius: BorderRadius.circular(15)),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Text(
-                                      "Change Picture",
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 16),
-                                    ),
-                                    IconButton(
-                                        onPressed: () {
-                                          Get.find<ProfileController>()
-                                              .changeImage(context);
-                                        },
-                                        icon: const Icon(
-                                          Icons.edit,
-                                          color: Colors.black,
-                                        )),
-                                  ],
-                                ),
-                              )),
-                        ],
-                      ),
-                    ],
-                  ),
+                Image.asset(
+                  profileImg,
+                  width: 100,
+                  fit: BoxFit.cover,
+                ).box.roundedFull.clip(Clip.antiAlias).make(),
+                const SizedBox(
+                  width: 8,
+                ),
+                Column(
+                  children: [
+                    TextButton(
+                        onPressed: (() {}),
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 40,
+                          width: 200,
+                          decoration: BoxDecoration(
+                              color: const Color(0xFFFF1E0F),
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text(
+                                "Change Picture",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 16),
+                              ),
+                              IconButton(
+                                  onPressed: () {
+                                    Get.find<ProfileController>()
+                                        .changeImage(context);
+                                  },
+                                  icon: const Icon(
+                                    Icons.edit,
+                                    color: Colors.white,
+                                  )),
+                            ],
+                          ),
+                        )),
+                  ],
                 ),
                 myTextformfield(
                     hint: "weight    Kg ",
