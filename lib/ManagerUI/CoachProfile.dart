@@ -11,13 +11,18 @@ class CoachProfile extends StatefulWidget {
 class _CoachProfileState extends State<CoachProfile> {
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
+    double screenlength = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("images/20.jpg"), fit: BoxFit.cover)),
+                image: AssetImage("images/20.jpg"), fit: BoxFit.fill)),
         child: ListView(
           children: [
+            SizedBox(
+              height: 20,
+            ),
             InkWell(
               onTap: () {
                 Navigator.of(context).pushNamed("ListAthletes");
@@ -26,12 +31,14 @@ class _CoachProfileState extends State<CoachProfile> {
                 padding:
                     const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Icon(
                       Icons.keyboard_double_arrow_left_outlined,
                       color: Color(0xFFFF1E0F),
                       size: 35,
+                    ),
+                    SizedBox(
+                      width: 30,
                     ),
                     Text(
                       " The Coach Profile",
@@ -51,23 +58,18 @@ class _CoachProfileState extends State<CoachProfile> {
             ),
             Container(
               width: double.infinity,
-              height: 550,
+              height: screenlength * 0.7,
               margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(
-                        "images/21.jpg",
-                      ),
-                      fit: BoxFit.fill),
-                  borderRadius: BorderRadius.circular(20)),
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(20)),
               child: ListView(children: [
                 Padding(
                   padding: const EdgeInsets.all(7.0),
                   child: Row(
                     children: [
                       Container(
-                        height: 50,
-                        width: 50,
+                        height: 70,
+                        width: 70,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           shape: BoxShape.circle,
@@ -87,14 +89,17 @@ class _CoachProfileState extends State<CoachProfile> {
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18,
-                                fontWeight: FontWeight.w300),
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
                       //
 
                       Text("  , Year",
-                          style: TextStyle(color: Colors.white, fontSize: 15))
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold))
                     ],
                   ),
                 ),
@@ -117,7 +122,9 @@ class _CoachProfileState extends State<CoachProfile> {
                                 child: Text(
                                   'Height:',
                                   style: TextStyle(
-                                      color: Color(0xFF252525), fontSize: 20),
+                                      color: Color(0xFF252525),
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ),
                               Text("VARIABLE")
@@ -139,7 +146,9 @@ class _CoachProfileState extends State<CoachProfile> {
                                 child: Text(
                                   'Weight:',
                                   style: TextStyle(
-                                      color: Color(0xFF252525), fontSize: 20),
+                                      color: Color(0xFF252525),
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ),
                               Text("VARIABLE")
@@ -154,7 +163,10 @@ class _CoachProfileState extends State<CoachProfile> {
                 Center(
                   child: Text(
                     "For Contact The Coach",
-                    style: TextStyle(color: Color(0xFFE6E6E6), fontSize: 18),
+                    style: TextStyle(
+                        color: Color(0xFFE6E6E6),
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
                 Padding(
