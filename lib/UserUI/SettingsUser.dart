@@ -41,7 +41,7 @@ class _SettingsUserState extends State<SettingsUser> {
                     ),
                     Center(
                       child: Text(
-                        " Settign",
+                        " Settigns",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 32,
