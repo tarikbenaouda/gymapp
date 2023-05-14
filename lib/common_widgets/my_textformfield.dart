@@ -11,7 +11,7 @@ Widget myTextformfield({
   int? limit,
 }) {
   return Padding(
-    padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 25),
+    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
     child: Container(
       padding: const EdgeInsets.only(left: 15, right: 15),
       decoration: BoxDecoration(
@@ -25,13 +25,13 @@ Widget myTextformfield({
           LengthLimitingTextInputFormatter(limit),
         ],
         decoration: InputDecoration(
-          suffixIcon: icon,
-          hintText: hint,
-          hintStyle: const TextStyle(
-            color: Color(0xFF7A7A7A),
-          ),
-          border: InputBorder.none,
-        ),
+            suffixIcon: icon,
+            hintText: hint,
+            hintStyle: const TextStyle(
+              color: Color(0xFF7A7A7A),
+            ),
+            border: InputBorder.none,
+            labelStyle: TextStyle(fontSize: 24)),
       ),
     ),
   );

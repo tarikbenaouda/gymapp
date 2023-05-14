@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gymapp/consts/consts.dart';
 
 class DemandForCoaching extends StatefulWidget {
   const DemandForCoaching({super.key});
@@ -55,8 +56,8 @@ class _DemandForCoachingState extends State<DemandForCoaching> {
             ),
             Container(
               width: double.infinity,
-              height: 550,
-              margin: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+              height: screenlength * 0.7,
+              margin: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
               decoration: BoxDecoration(
                   image: DecorationImage(image: AssetImage("images/17.jpg")),
                   borderRadius: BorderRadius.circular(20)),
@@ -91,7 +92,7 @@ class _DemandForCoachingState extends State<DemandForCoaching> {
                       itemBuilder: (BuildContext context, int index) {
                         return InkWell(
                             onTap: () {
-                              Navigator.of(context).pushNamed("ProfileCoach");
+                              Get.to(() => ProfileCoach());
                             },
                             child: Container(
                                 margin: EdgeInsets.symmetric(
