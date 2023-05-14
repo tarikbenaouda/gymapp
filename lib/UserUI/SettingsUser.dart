@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/services.dart';
 import 'package:gymapp/consts/consts.dart';
 import 'package:gymapp/controlllers/profile_controller.dart';
@@ -12,8 +14,7 @@ class SettingsUser extends StatefulWidget {
 class _SettingsUserState extends State<SettingsUser> {
   @override
   Widget build(BuildContext context) {
-    double screenwidth = MediaQuery.of(context).size.width;
-    double screenlength = MediaQuery.of(context).size.height;
+    var controller = Get.find<ProfileController>();
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -52,97 +53,104 @@ class _SettingsUserState extends State<SettingsUser> {
                 ),
               ),
             ),
-            Column(children: [
-              Image.asset(
-                icGoogleLogo,
-                width: 100,
-                fit: BoxFit.fill,
-              ).box.roundedFull.clip(Clip.antiAlias).make(),
-              30.heightBox,
-              Column(
-                children: [
-                  TextButton(
-                      onPressed: (() {}),
-                      child: Container(
-                        alignment: Alignment.center,
-                        height: 40,
-                        width: 200,
-                        decoration: BoxDecoration(
-                            color: const Color(0xFFFF1E0F),
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text(
-                              "Change Picture",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 16),
-                            ),
-                            IconButton(
-                                onPressed: () {
-                                  Get.find<ProfileController>()
-                                      .changeImage(context);
-                                },
-                                icon: const Icon(
-                                  Icons.edit,
-                                  color: Colors.white,
-                                )),
-                          ],
-                        ),
-                      )),
-                ],
-              ),
-              myTextformfield(
-                  hint: "weight    Kg ",
+            Obx(
+              () => Column(children: [
+                controller.profileImgPath.isEmpty
+                    ? Image.asset(
+                        icGoogleLogo,
+                        width: 100,
+                        fit: BoxFit.cover,
+                      ).box.roundedFull.clip(Clip.antiAlias).make()
+                    : Image.file(
+                        File(controller.profileImgPath.value),
+                        width: 100,
+                        fit: BoxFit.cover,
+                      ).box.roundedFull.clip(Clip.antiAlias).make(),
+                30.heightBox,
+                Column(
+                  children: [
+                    TextButton(
+                        onPressed: (() {
+                          controller.changeImage(context);
+                        }),
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 40,
+                          width: 200,
+                          decoration: BoxDecoration(
+                              color: const Color(0xFFFF1E0F),
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text(
+                                "Change Picture",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 16),
+                              ),
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.edit,
+                                    color: Colors.white,
+                                  )),
+                            ],
+                          ),
+                        )),
+                  ],
+                ),
+                myTextformfield(
+                    hint: "weight    Kg ",
+                    icon: const Icon(Icons.edit),
+                    controller: null,
+                    limit: 3,
+                    type: TextInputType.number,
+                    filter: FilteringTextInputFormatter.digitsOnly),
+                myTextformfield(
+                    hint: "Height    cm ",
+                    icon: const Icon(Icons.edit),
+                    controller: null,
+                    limit: 3,
+                    filter: FilteringTextInputFormatter.digitsOnly,
+                    type: TextInputType.number),
+                myTextformfield(
+                    hint: "Age",
+                    icon: const Icon(Icons.edit),
+                    controller: null,
+                    limit: 2,
+                    filter: FilteringTextInputFormatter.digitsOnly,
+                    type: TextInputType.number),
+                const SizedBox(
+                  height: 4,
+                ),
+                myTextformfield(
+                  hint: "User NAme",
                   icon: const Icon(Icons.edit),
                   controller: null,
-                  limit: 3,
-                  type: TextInputType.number,
-                  filter: FilteringTextInputFormatter.digitsOnly),
-              myTextformfield(
-                  hint: "Height    cm ",
-                  icon: const Icon(Icons.edit),
-                  controller: null,
-                  limit: 3,
-                  filter: FilteringTextInputFormatter.digitsOnly,
-                  type: TextInputType.number),
-              myTextformfield(
-                  hint: "Age",
-                  icon: const Icon(Icons.edit),
-                  controller: null,
-                  limit: 2,
-                  filter: FilteringTextInputFormatter.digitsOnly,
-                  type: TextInputType.number),
-              const SizedBox(
-                height: 4,
-              ),
-              myTextformfield(
-                hint: "User NAme",
-                icon: const Icon(Icons.edit),
-                controller: null,
-                type: TextInputType.name,
-              ),
-              const SizedBox(
-                height: 4,
-              ),
-              myTextformfield(
-                  hint: " Email",
-                  icon: const Icon(Icons.edit),
-                  controller: null,
-                  type: TextInputType.emailAddress),
-              const SizedBox(
-                height: 4,
-              ),
-              myTextformfield(
-                  hint: "Phone Number",
-                  icon: const Icon(Icons.edit),
-                  controller: null,
-                  limit: 10,
-                  filter: FilteringTextInputFormatter.digitsOnly),
-              const SizedBox(
-                height: 4,
-              ),
-            ]),
+                  type: TextInputType.name,
+                ),
+                const SizedBox(
+                  height: 4,
+                ),
+                myTextformfield(
+                    hint: " Email",
+                    icon: const Icon(Icons.edit),
+                    controller: null,
+                    type: TextInputType.emailAddress),
+                const SizedBox(
+                  height: 4,
+                ),
+                myTextformfield(
+                    hint: "Phone Number",
+                    icon: const Icon(Icons.edit),
+                    controller: null,
+                    limit: 10,
+                    filter: FilteringTextInputFormatter.digitsOnly),
+                const SizedBox(
+                  height: 4,
+                ),
+              ]),
+            ),
             TextButton(
                 onPressed: (() {}),
                 child: Container(
