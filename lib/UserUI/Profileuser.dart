@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gymapp/common_widgets/my_textformfield.dart';
 import 'package:gymapp/consts/consts.dart';
+import 'package:gymapp/controlllers/profile_controller.dart';
 
 import 'SettingsUser.dart';
 
@@ -14,6 +15,8 @@ class ProfileUser extends StatefulWidget {
 class _ProfileUserState extends State<ProfileUser> {
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(ProfileController());
+
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(

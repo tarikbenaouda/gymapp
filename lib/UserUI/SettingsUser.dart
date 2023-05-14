@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:gymapp/consts/consts.dart';
+import 'package:gymapp/controlllers/profile_controller.dart';
 
 class SettingsUser extends StatefulWidget {
   const SettingsUser({super.key});
@@ -95,7 +96,10 @@ class _SettingsUserState extends State<SettingsUser> {
                                           color: Colors.black, fontSize: 16),
                                     ),
                                     IconButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Get.find<ProfileController>()
+                                              .changeImage(context);
+                                        },
                                         icon: const Icon(
                                           Icons.edit,
                                           color: Colors.black,
