@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:gymapp/ManagerUI/setting.dart';
 import 'package:intl/intl.dart';
 
+import '../authentication/Login.dart';
+import '../controlllers/auth_controller.dart';
 import 'modify_about.dart';
 import 'modify_events.dart';
 import 'modify_help.dart';
@@ -768,6 +772,38 @@ class _HomeViewState extends State<HomeView> {
                         MaterialPageRoute(builder: (context) => ModifyAbout()),
                       );
                     },
+                  ),
+                  const SizedBox(
+                    height: 140,
+                  ),
+                  Center(
+                    child: SizedBox(
+                      width: 195,
+                      child: ElevatedButton(
+                        onPressed: () async {
+                          await Get.put(AuthController())
+                              .signoutMethod(context);
+                          Get.offAll(() => const Login());
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF393939), //
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            side: const BorderSide(color: Colors.white),
+                          ), // Change the background color
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(Icons.logout),
+                            SizedBox(width: 8.0),
+                            Text('Log out',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20)),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),

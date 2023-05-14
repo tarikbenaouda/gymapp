@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:gymapp/ManagerUI/DemandCoaching.dart';
 import 'package:gymapp/ManagerUI/edit_schedule.dart';
 import 'package:gymapp/ManagerUI/help.dart';
 import 'package:gymapp/UserUI/Chronometer.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/UserUI/about.dart';
+
+import '../authentication/Login.dart';
+import '../controlllers/auth_controller.dart';
 
 class HomeViewAthlete extends StatefulWidget {
   const HomeViewAthlete({Key? key}) : super(key: key);
@@ -751,7 +756,11 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                     child: SizedBox(
                       width: 195,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () async {
+                          await Get.put(AuthController())
+                              .signoutMethod(context);
+                          Get.offAll(() => const Login());
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF393939), //
                           shape: RoundedRectangleBorder(
@@ -771,7 +780,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                         ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
