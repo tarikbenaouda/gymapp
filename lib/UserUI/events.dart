@@ -17,19 +17,19 @@ class _EventsCompetitionState extends State<EventsCompetition> {
         child: Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("images/Events background.jpg"),
               fit: BoxFit.fill,
             ),
           ),
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(right: 330),
+                padding: const EdgeInsets.only(right: 330),
                 child: GestureDetector(
-                  child: Icon(
+                  child: const Icon(
                     Icons.keyboard_double_arrow_left_outlined,
                     size: 40,
                     color: Color(0xFFFD372A),
@@ -38,11 +38,11 @@ class _EventsCompetitionState extends State<EventsCompetition> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => HomeViewAthlete()));
+                            builder: (context) => const HomeViewAthlete()));
                   },
                 ),
               ),
-              Text(
+              const Text(
                 "Gym Events",
                 style: TextStyle(
                   fontSize: 30,
@@ -50,14 +50,14 @@ class _EventsCompetitionState extends State<EventsCompetition> {
                   letterSpacing: 1.3,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 100,
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: 100,
                 decoration: BoxDecoration(
-                  color: Color(0xFFD9D9D9),
+                  color: const Color(0xFFD9D9D9),
                   borderRadius: BorderRadius.circular(17.0),
                 ),
                 child: Column(
@@ -66,15 +66,15 @@ class _EventsCompetitionState extends State<EventsCompetition> {
                         alignment: Alignment.topCenter,
                         child: Text(
                           "Ramadan Event $event",
-                          style: TextStyle(fontSize: 25),
+                          style: const TextStyle(fontSize: 25),
                         )),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Text(
+                        const Text(
                           "Begin ",
                           style: TextStyle(fontSize: 20),
                         ),
@@ -87,15 +87,15 @@ class _EventsCompetitionState extends State<EventsCompetition> {
                           child: Center(
                             child: Text(
                               "22/04$begin",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 20),
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 15,
                         ),
-                        Text(
+                        const Text(
                           "End ",
                           style: TextStyle(fontSize: 20),
                         ),
@@ -108,7 +108,7 @@ class _EventsCompetitionState extends State<EventsCompetition> {
                           child: Center(
                             child: Text(
                               "22/05$end",
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
                               ),
@@ -120,14 +120,14 @@ class _EventsCompetitionState extends State<EventsCompetition> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.3,
                 decoration: BoxDecoration(
-                  color: Color(0xFF252525),
+                  color: const Color(0xFF252525),
                   borderRadius: BorderRadius.circular(17.0),
                 ),
                 child: Column(
@@ -136,27 +136,28 @@ class _EventsCompetitionState extends State<EventsCompetition> {
                         alignment: Alignment.topCenter,
                         child: Text(
                           "Ramadan Event $event",
-                          style: TextStyle(fontSize: 25, color: Colors.white),
+                          style: const TextStyle(
+                              fontSize: 25, color: Colors.white),
                         )),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Align(
+                        const Align(
                             alignment: Alignment.topLeft,
                             child: Text("Training Offer ",
                                 style: TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        SizedBox(
+                        const SizedBox(
                           height: 4,
                         ),
                         Container(
                           height: 55,
-                          padding: EdgeInsets.symmetric(horizontal: 20.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
                           decoration: BoxDecoration(
-                            color: Color(0xFFD9D9D9),
+                            color: const Color(0xFFD9D9D9),
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           child: Row(
@@ -164,7 +165,7 @@ class _EventsCompetitionState extends State<EventsCompetition> {
                             children: [
                               Text(
                                 "14 Sessions$trainingOffer                  1500 DA",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Color(0xFF252525),
                                     fontSize: 20.0,
                                     fontWeight: FontWeight.bold),
@@ -172,24 +173,24 @@ class _EventsCompetitionState extends State<EventsCompetition> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Align(
+                        const Align(
                             alignment: Alignment.topLeft,
                             child: Text(
                               "Shop Reductions ",
                               style:
                                   TextStyle(fontSize: 20, color: Colors.white),
                             )),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
                         Container(
                           height: 55,
-                          padding: EdgeInsets.symmetric(horizontal: 20.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
                           decoration: BoxDecoration(
-                            color: Color(0xFFD9D9D9),
+                            color: const Color(0xFFD9D9D9),
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           child: Row(
@@ -197,7 +198,7 @@ class _EventsCompetitionState extends State<EventsCompetition> {
                             children: [
                               Text(
                                 "15% $reduction                All Production ",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Color(0xFF252525),
                                     fontSize: 20.0,
                                     fontWeight: FontWeight.bold),
@@ -218,7 +219,7 @@ class _EventsCompetitionState extends State<EventsCompetition> {
         height: 60,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(22),
-          color: Color(0xFFE1E1E1),
+          color: const Color(0xFFE1E1E1),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -227,12 +228,13 @@ class _EventsCompetitionState extends State<EventsCompetition> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomeViewAthlete()),
+                  MaterialPageRoute(
+                      builder: (context) => const HomeViewAthlete()),
                 );
               },
               child: Container(
-                padding: EdgeInsets.all(12),
-                decoration: BoxDecoration(),
+                padding: const EdgeInsets.all(12),
+                decoration: const BoxDecoration(),
                 child: Container(
                   width: 70,
                   height: 40,
@@ -240,8 +242,8 @@ class _EventsCompetitionState extends State<EventsCompetition> {
                     borderRadius: BorderRadius.circular(15.0),
                     color: Colors.red,
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
+                  child: const Padding(
+                    padding: EdgeInsets.only(left: 20.0),
                     child: Icon(
                       Icons.home_filled,
                       color: Colors.black,
@@ -255,12 +257,12 @@ class _EventsCompetitionState extends State<EventsCompetition> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ProfileUser()),
+                  MaterialPageRoute(builder: (context) => const ProfileUser()),
                 );
               },
               child: Container(
-                padding: EdgeInsets.all(12),
-                child: Icon(
+                padding: const EdgeInsets.all(12),
+                child: const Icon(
                   Icons.account_circle_outlined,
                   color: Colors.black,
                   size: 35,
@@ -271,12 +273,13 @@ class _EventsCompetitionState extends State<EventsCompetition> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomeViewAthlete()),
+                  MaterialPageRoute(
+                      builder: (context) => const HomeViewAthlete()),
                 );
               },
               child: Container(
-                padding: EdgeInsets.all(12),
-                child: Icon(
+                padding: const EdgeInsets.all(12),
+                child: const Icon(
                   Icons.storefront_outlined,
                   color: Colors.black,
                   size: 35,
@@ -288,12 +291,12 @@ class _EventsCompetitionState extends State<EventsCompetition> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => ProfileUser()), //Settings
+                      builder: (context) => const ProfileUser()), //Settings
                 );
               },
               child: Container(
-                padding: EdgeInsets.all(12),
-                child: Icon(
+                padding: const EdgeInsets.all(12),
+                child: const Icon(
                   Icons.settings,
                   color: Colors.black,
                   size: 35,

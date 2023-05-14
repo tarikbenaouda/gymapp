@@ -36,7 +36,7 @@ class coaching_demand_State extends State<coaching_demand> {
       Container(
           height: screenheight,
           width: screenwidth,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("images/training offer background.jpg"),
               fit: BoxFit.fill,
@@ -47,7 +47,7 @@ class coaching_demand_State extends State<coaching_demand> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 IconButton(
-                  padding: EdgeInsets.only(top: 10),
+                  padding: const EdgeInsets.only(top: 10),
                   iconSize: 40,
                   icon: Icon(Icons.keyboard_double_arrow_left_rounded,
                       size: 25 * (screenheight / screenwidth)),
@@ -79,7 +79,7 @@ class coaching_demand_State extends State<coaching_demand> {
             ),
             Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
+                image: const DecorationImage(
                   image: AssetImage("images/edit_shop.jpg"),
                   fit: BoxFit.fill,
                 ),
@@ -88,7 +88,7 @@ class coaching_demand_State extends State<coaching_demand> {
               ),
               height: screenheight * 0.55,
               width: 400,
-              margin: EdgeInsets.all(10),
+              margin: const EdgeInsets.all(10),
               child: Column(
                 children: [
                   Center(

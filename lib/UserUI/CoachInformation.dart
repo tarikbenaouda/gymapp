@@ -18,11 +18,11 @@ class _CoachInforamtionState extends State<CoachInforamtion> {
       body: Container(
         height: screenlength,
         width: screenwidth,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("images/16.jpg"), fit: BoxFit.fill)),
         child: ListView(children: [
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
@@ -34,7 +34,7 @@ class _CoachInforamtionState extends State<CoachInforamtion> {
                   onTap: () {
                     Navigator.of(context).pushNamed("Demandcoaching");
                   },
-                  child: Icon(
+                  child: const Icon(
                     Icons.keyboard_double_arrow_left_outlined,
                     color: Colors.red,
                     size: 35,
@@ -43,10 +43,10 @@ class _CoachInforamtionState extends State<CoachInforamtion> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
-          Center(
+          const Center(
             child: Text(
               " Coach Information ",
               style: TextStyle(
@@ -62,15 +62,15 @@ class _CoachInforamtionState extends State<CoachInforamtion> {
               width: screenwidth - 30,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  image: DecorationImage(
+                  image: const DecorationImage(
                       image: AssetImage("images/18.jpg"), fit: BoxFit.fill)),
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 40),
                     child: ListTile(
                       autofocus: true,
                       leading: CircleAvatar(
@@ -83,31 +83,31 @@ class _CoachInforamtionState extends State<CoachInforamtion> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   MyInfos(Textinput: " FullName", Textinput2: "variable "),
-                  SizedBox(
+                  const SizedBox(
                     height: 3,
                   ),
                   MyInfos(Textinput: " Age", Textinput2: "variable "),
-                  SizedBox(
+                  const SizedBox(
                     height: 3,
                   ),
                   MyInfos(Textinput: " Email", Textinput2: "variable of Email"),
-                  SizedBox(
+                  const SizedBox(
                     height: 3,
                   ),
                   MyInfos(Textinput: " Phone Number", Textinput2: "variable"),
-                  SizedBox(
+                  const SizedBox(
                     height: 3,
                   ),
                   MyInfos(Textinput: " Height", Textinput2: "variable"),
-                  SizedBox(
+                  const SizedBox(
                     height: 3,
                   ),
                   MyInfos(Textinput: " Old Coching ", Textinput2: "variable"),
-                  SizedBox(
+                  const SizedBox(
                     height: 3,
                   ),
                   MyInfos(
@@ -116,7 +116,7 @@ class _CoachInforamtionState extends State<CoachInforamtion> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
         ]),

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/services.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/consts/consts.dart';
@@ -24,7 +22,7 @@ class _LoginState extends State<Login> {
           child: Container(
             height: screenlength,
             width: screenwidth,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
               image: AssetImage(
                 "images/8.jpg",
@@ -34,11 +32,11 @@ class _LoginState extends State<Login> {
             child: Obx(
               () => Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 80,
                   ),
 
-                  Center(
+                  const Center(
                     child: Text(
                       "Login",
                       style: TextStyle(
@@ -47,13 +45,13 @@ class _LoginState extends State<Login> {
                           fontWeight: FontWeight.w500),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 80,
                   ),
                   //Email field
                   myTextformfield(
                     hint: "Email",
-                    icon: Icon(Icons.email),
+                    icon: const Icon(Icons.email),
                     type: TextInputType.emailAddress,
                     controller: controller.emailController,
                   ),
@@ -61,14 +59,14 @@ class _LoginState extends State<Login> {
                   myTextformfield(
                     hint: "Password",
                     obsecure: true,
-                    icon: Icon(Icons.password_sharp),
+                    icon: const Icon(Icons.password_sharp),
                     type: TextInputType.visiblePassword,
                     controller: controller.passwordController,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "You forget your password ?",
                         style: TextStyle(
                             fontSize: 18,
@@ -77,7 +75,7 @@ class _LoginState extends State<Login> {
                       ),
                       InkWell(
                         onTap: () {},
-                        child: Text(
+                        child: const Text(
                           " Get Help",
                           style:
                               TextStyle(color: Color(0xFFFF1E0F), fontSize: 17),
@@ -85,7 +83,7 @@ class _LoginState extends State<Login> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   //Login button
@@ -96,7 +94,7 @@ class _LoginState extends State<Login> {
                       width: 122,
                       height: 60,
                       child: controller.isloading.value
-                          ? CircularProgressIndicator(
+                          ? const CircularProgressIndicator(
                               valueColor:
                                   AlwaysStoppedAnimation(Color(0xFFFF1E0F)),
                             )
@@ -104,7 +102,7 @@ class _LoginState extends State<Login> {
                               style: ElevatedButton.styleFrom(
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(25)),
-                                  backgroundColor: Color(0xFFFF1E0F)),
+                                  backgroundColor: const Color(0xFFFF1E0F)),
                               onPressed: () async {
                                 controller.isloading(true);
                                 await controller
@@ -119,32 +117,32 @@ class _LoginState extends State<Login> {
                                   }
                                 });
                               },
-                              child: Text(
+                              child: const Text(
                                 "Login",
                                 style: TextStyle(
                                     fontSize: 25, fontWeight: FontWeight.w700),
                               )),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Center(
                     child: Row(
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           width: 40,
                         ),
-                        Text(
+                        const Text(
                           "You don't have an account ? ",
                           style: TextStyle(fontSize: 20, color: Colors.white),
                         ),
                         InkWell(
                           onTap: () {
                             //Navigator.of(context).pushNamed("Signup1");
-                            Get.to(() => Signup1());
+                            Get.to(() => const Signup1());
                           },
-                          child: Text(
+                          child: const Text(
                             "Sign Up",
                             style: TextStyle(
                                 color: Color(0xFFFF1E0F), fontSize: 20),
@@ -153,7 +151,7 @@ class _LoginState extends State<Login> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
@@ -162,11 +160,11 @@ class _LoginState extends State<Login> {
                       Container(
                         height: 1,
                         width: 120,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.white,
                         ),
                       ),
-                      Text(
+                      const Text(
                         "  Or  ",
                         style: TextStyle(
                             fontSize: 26,
@@ -176,7 +174,7 @@ class _LoginState extends State<Login> {
                       Container(
                         height: 1,
                         width: 120,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.white,
                         ),
                       )

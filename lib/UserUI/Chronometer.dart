@@ -12,7 +12,7 @@ class Chronometer extends StatelessWidget {
         home: Scaffold(
             body: Container(
       padding: const EdgeInsets.only(top: 50),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage(
                 "images/13.jpg",
@@ -26,7 +26,7 @@ class Chronometer extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () {},
-                  child: Icon(
+                  child: const Icon(
                     Icons.keyboard_double_arrow_left_outlined,
                     size: 35,
                     color: Colors.red,
@@ -35,12 +35,12 @@ class Chronometer extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 80,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: const [
               Text(
                 "Chronometer",
                 style: TextStyle(color: Colors.white, fontSize: 28),
@@ -55,7 +55,7 @@ class Chronometer extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           NeonCircularTimer(
@@ -70,7 +70,7 @@ class Chronometer extends StatelessWidget {
               neumorphicEffect: true,
               outerStrokeColor: Colors.red,
               innerFillGradient:
-                  LinearGradient(colors: [Colors.black38, Colors.black]),
+                  const LinearGradient(colors: [Colors.black38, Colors.black]),
               neonGradient:
                   LinearGradient(colors: [Colors.black, Colors.red.shade400]),
               strokeCap: StrokeCap.round,
@@ -83,7 +83,7 @@ class Chronometer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   IconButton(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.play_arrow,
                         color: Colors.red,
                       ),
@@ -91,7 +91,7 @@ class Chronometer extends StatelessWidget {
                         controller.resume();
                       }),
                   IconButton(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.pause,
                         color: Colors.red,
                       ),
@@ -99,7 +99,7 @@ class Chronometer extends StatelessWidget {
                         controller.pause();
                       }),
                   IconButton(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.repeat,
                         color: Colors.red,
                       ),
