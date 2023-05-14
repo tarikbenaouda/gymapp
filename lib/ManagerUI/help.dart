@@ -15,20 +15,20 @@ class _HelpState extends State<Help> {
         child: Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("assets/images/modify about background.jpg"),
               fit: BoxFit.cover,
             ),
           ),
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: ListView(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Padding(
-                      padding: const EdgeInsets.only(top: 25.0),
+                      padding: EdgeInsets.only(top: 25.0),
                       child: Text(
                         "The Help",
                         style: TextStyle(
@@ -38,7 +38,7 @@ class _HelpState extends State<Help> {
                         ),
                       )),
                   Padding(
-                    padding: const EdgeInsets.only(top: 25.0),
+                    padding: EdgeInsets.only(top: 25.0),
                     child: Icon(
                       Icons.help,
                       size: 30,
@@ -47,7 +47,7 @@ class _HelpState extends State<Help> {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Stack(
@@ -57,19 +57,19 @@ class _HelpState extends State<Help> {
                       height: 650,
                       width: 380,
                       decoration: BoxDecoration(
-                        color: Color(0xFF4F4F4F),
+                        color: const Color(0xFF4F4F4F),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: Column(
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
-                          Text(
+                          const Text(
                             'Write Here in What You Need Help',
                             style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
-                          SizedBox(height: 10.0),
+                          const SizedBox(height: 10.0),
                           Padding(
                             padding: const EdgeInsets.all(10.0),
                             child: TextField(
@@ -85,38 +85,38 @@ class _HelpState extends State<Help> {
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 hintText: '.....',
-                                contentPadding: EdgeInsets.symmetric(
+                                contentPadding: const EdgeInsets.symmetric(
                                     vertical: 70.0, horizontal: 6.0),
                               ),
                             ),
                           ),
-                          SizedBox(height: 5.0),
+                          const SizedBox(height: 5.0),
                           SizedBox(
                             width: 100,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                primary: Color(0xFFFD372A),
+                                primary: const Color(0xFFFD372A),
                               ),
                               onPressed: null,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
+                                children: const [
                                   Text('Save'),
                                   Icon(Icons.send, color: Colors.black),
                                 ],
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 225.0),
+                          const Padding(
+                            padding: EdgeInsets.only(right: 225.0),
                             child: Text(
                               'To Contact Us : ',
                               style:
                                   TextStyle(color: Colors.white, fontSize: 20),
                             ),
                           ),
-                          SizedBox(height: 10.0),
-                          SizedBox(height: 10.0),
+                          const SizedBox(height: 10.0),
+                          const SizedBox(height: 10.0),
                         ],
                       ),
                     ),

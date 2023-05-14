@@ -18,11 +18,11 @@ class _DemandTrainnigState extends State<DemandTrainnig> {
       body: Container(
         height: screenlength,
         width: screenwidth,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("images/16.jpg"), fit: BoxFit.fill)),
         child: ListView(children: [
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
@@ -34,7 +34,7 @@ class _DemandTrainnigState extends State<DemandTrainnig> {
                   onTap: () {
                     Navigator.of(context).pushNamed("Demandcoaching");
                   },
-                  child: Icon(
+                  child: const Icon(
                     Icons.keyboard_double_arrow_left_outlined,
                     color: Colors.red,
                     size: 35,
@@ -43,10 +43,10 @@ class _DemandTrainnigState extends State<DemandTrainnig> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
-          Center(
+          const Center(
             child: Text(
               " Demand For Coaching ",
               style: TextStyle(
@@ -55,8 +55,8 @@ class _DemandTrainnigState extends State<DemandTrainnig> {
                   fontWeight: FontWeight.bold),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 60),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 60),
             child: ListTile(
               autofocus: true,
               leading: CircleAvatar(
@@ -76,14 +76,14 @@ class _DemandTrainnigState extends State<DemandTrainnig> {
               width: screenwidth - 30,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  image: DecorationImage(
+                  image: const DecorationImage(
                       image: AssetImage("images/18.jpg"), fit: BoxFit.fill)),
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
-                  Center(
+                  const Center(
                     child: Text(
                       "Informations Of Athletes ",
                       style: TextStyle(
@@ -92,27 +92,27 @@ class _DemandTrainnigState extends State<DemandTrainnig> {
                           fontWeight: FontWeight.bold),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 4,
                   ),
                   MyInfos(Textinput: " FullName ", Textinput2: "variable"),
-                  SizedBox(
+                  const SizedBox(
                     height: 3,
                   ),
                   MyInfos(Textinput: " Age ", Textinput2: "variable"),
-                  SizedBox(
+                  const SizedBox(
                     height: 3,
                   ),
                   MyInfos(Textinput: " Height ", Textinput2: "variable"),
-                  SizedBox(
+                  const SizedBox(
                     height: 3,
                   ),
                   MyInfos(Textinput: " Weigth ", Textinput2: "variable"),
-                  SizedBox(
+                  const SizedBox(
                     height: 3,
                   ),
                   MyInfos(Textinput: " Email ", Textinput2: "variable"),
-                  SizedBox(
+                  const SizedBox(
                     height: 3,
                   ),
                   MyInfos(Textinput: " Phone Number ", Textinput2: "variable"),
@@ -120,11 +120,11 @@ class _DemandTrainnigState extends State<DemandTrainnig> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 40),
+            padding: const EdgeInsets.symmetric(horizontal: 40),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -138,7 +138,7 @@ class _DemandTrainnigState extends State<DemandTrainnig> {
                           borderRadius: BorderRadius.circular(20)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                        children: const [
                           Center(
                             child: Text(
                               " Accepte ",
@@ -164,7 +164,7 @@ class _DemandTrainnigState extends State<DemandTrainnig> {
                           borderRadius: BorderRadius.circular(20)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                        children: const [
                           Center(
                             child: Text(
                               " Refuse ",
