@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gymapp/common_widgets/my_textformfield.dart';
 import 'package:gymapp/consts/consts.dart';
 
+import 'SettingsUser.dart';
+
 class ProfileUser extends StatefulWidget {
   const ProfileUser({super.key});
 
@@ -248,32 +250,36 @@ class _ProfileUserState extends State<ProfileUser> {
                 ),
                 MyInfos(Textinput: "Phone Number", Textinput2: "variable "),
                 TextButton(
-                    onPressed: (() {}),
-                    child: Container(
-                      alignment: Alignment.center,
-                      height: 40,
-                      width: 240,
-                      decoration: BoxDecoration(
-                          color: const Color(0xFFFF1E0F),
-                          borderRadius: BorderRadius.circular(15)),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
-                              "Go To Settings To Modify",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 16),
-                            ),
-                            Icon(
-                              Icons.settings,
-                              color: Colors.white,
-                            ),
-                          ],
-                        ),
+                  onPressed: () {
+                    Get.to(
+                      () => const SettingsUser(),
+                    );
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 40,
+                    width: 240,
+                    decoration: BoxDecoration(
+                        color: const Color(0xFFFF1E0F),
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: const [
+                          Text(
+                            "Go To Settings To Modify",
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
+                          Icon(
+                            Icons.settings,
+                            color: Colors.white,
+                          ),
+                        ],
                       ),
-                    )),
+                    ),
+                  ),
+                ),
               ]),
             ),
           ],
