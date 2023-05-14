@@ -4,7 +4,6 @@ import 'package:gymapp/ManagerUI/CoachProfile.dart';
 import 'package:gymapp/ManagerUI/DemandTraining.dart';
 import 'package:gymapp/UserUI/CoachInformation.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
-import 'package:gymapp/UserUI/SettingsUser.dart';
 import 'package:gymapp/UserUI/home_view.dart';
 import 'package:gymapp/consts/consts.dart';
 import 'package:gymapp/ManagerUI/listofcoach.dart';
@@ -36,23 +35,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-
-      home: const DemandForCoaching(),
-      //  home: const SplashScreen(),
-
+      home: const SplashScreen(),
       routes: {
         //  "/": (context) => Auth(),
         "welcome": (context) => const Unboarding(),
-        "Login": (context) => Login(),
-        "Signup1": (context) => Signup1(),
-        "Signup2": (context) => Signup2(),
-        "Signup3": (context) => Signup3(),
-        "Profile": (context) => Profileathlete(),
-        "ListAthletes": (context) => Listathletes(),
-        "ProfileCoachdemand": (context) => ProfileCoach(),
-        "Demandcoaching": (context) => DemandForCoaching(),
-        "HomePage": (context) => HomeView(),
-        "CoachProfile": (context) => CoachProfile(),
+        "Login": (context) => const Login(),
+        "Signup1": (context) => const Signup1(),
+        "Signup2": (context) => const Signup2(),
+        "Signup3": (context) => const Signup3(),
+        "Profile": (context) => const Profileathlete(),
+        "ListAthletes": (context) => const Listathletes(),
+        "ProfileCoachdemand": (context) => const ProfileCoach(),
+        "Demandcoaching": (context) => const DemandForCoaching(),
+        "HomePage": (context) => const HomeView(),
+        "CoachProfile": (context) => const CoachProfile(),
       },
     );
   }

@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_const, prefer_const_literals_to_create_immutables, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gymapp/common_widgets/my_textformfield.dart';
@@ -19,12 +17,12 @@ class _SettingsUserState extends State<SettingsUser> {
     double screenlength = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("images/20.jpg"), fit: BoxFit.fill)),
         child: ListView(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             InkWell(
@@ -33,7 +31,7 @@ class _SettingsUserState extends State<SettingsUser> {
                 padding:
                     const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
                 child: Row(
-                  children: [
+                  children: const [
                     Icon(
                       Icons.keyboard_double_arrow_left_outlined,
                       color: Color(0xFFFF1E0F),
@@ -58,7 +56,7 @@ class _SettingsUserState extends State<SettingsUser> {
             Container(
               width: double.infinity,
               height: screenlength * 0.7,
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(20)),
               child: Column(children: [
@@ -70,13 +68,13 @@ class _SettingsUserState extends State<SettingsUser> {
                       Container(
                         height: 70,
                         width: 70,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.white,
                           shape: BoxShape.circle,
                         ),
                         //url of image
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 8,
                       ),
                       Column(
@@ -114,21 +112,21 @@ class _SettingsUserState extends State<SettingsUser> {
                 ),
                 myTextformfield(
                     hint: "weight    Kg ",
-                    icon: Icon(Icons.edit),
+                    icon: const Icon(Icons.edit),
                     controller: null,
                     limit: 3,
                     type: TextInputType.number,
                     filter: FilteringTextInputFormatter.digitsOnly),
                 myTextformfield(
                     hint: "Height    cm ",
-                    icon: Icon(Icons.edit),
+                    icon: const Icon(Icons.edit),
                     controller: null,
                     limit: 3,
                     filter: FilteringTextInputFormatter.digitsOnly,
                     type: TextInputType.number),
                 myTextformfield(
                     hint: "Age",
-                    icon: Icon(Icons.edit),
+                    icon: const Icon(Icons.edit),
                     controller: null,
                     limit: 2,
                     filter: FilteringTextInputFormatter.digitsOnly,
@@ -138,7 +136,7 @@ class _SettingsUserState extends State<SettingsUser> {
                 ),
                 myTextformfield(
                   hint: "User NAme",
-                  icon: Icon(Icons.edit),
+                  icon: const Icon(Icons.edit),
                   controller: null,
                   type: TextInputType.name,
                 ),
@@ -147,7 +145,7 @@ class _SettingsUserState extends State<SettingsUser> {
                 ),
                 myTextformfield(
                     hint: " Email",
-                    icon: Icon(Icons.edit),
+                    icon: const Icon(Icons.edit),
                     controller: null,
                     type: TextInputType.emailAddress),
                 const SizedBox(
@@ -155,7 +153,7 @@ class _SettingsUserState extends State<SettingsUser> {
                 ),
                 myTextformfield(
                     hint: "Phone Number",
-                    icon: Icon(Icons.edit),
+                    icon: const Icon(Icons.edit),
                     controller: null,
                     limit: 10,
                     filter: FilteringTextInputFormatter.digitsOnly),
@@ -171,13 +169,13 @@ class _SettingsUserState extends State<SettingsUser> {
                   height: 40,
                   width: 240,
                   decoration: BoxDecoration(
-                      color: Color(0xFFFF1E0F),
+                      color: const Color(0xFFFF1E0F),
                       borderRadius: BorderRadius.circular(15)),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: const [
                         Text(
                           " Save The Changes",
                           style: TextStyle(color: Colors.white, fontSize: 16),
@@ -185,7 +183,7 @@ class _SettingsUserState extends State<SettingsUser> {
                         SizedBox(
                           width: 8,
                         ),
-                        const Icon(
+                        Icon(
                           Icons.settings,
                           color: Colors.white,
                         ),
