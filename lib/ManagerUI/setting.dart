@@ -13,7 +13,7 @@ class Setting extends StatefulWidget {
 class _SettingState extends State<Setting> {
   String nameVariable = '';
   String mailVariable = '';
-  String PhoneVariable = '';
+  String phoneVariable = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +21,7 @@ class _SettingState extends State<Setting> {
         child: Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("images/admin settings background.jpg"),
               fit: BoxFit.fill,
@@ -30,29 +30,31 @@ class _SettingState extends State<Setting> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Padding(
-                padding: EdgeInsets.only(left: 5),
+                padding: const EdgeInsets.only(left: 5),
                 child: GestureDetector(
-                  child: Icon(
+                  child: const Icon(
                     Icons.keyboard_double_arrow_left_outlined,
                     size: 37,
                     color: Color(0xFFFD372A),
                   ),
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomeView()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomeView()));
                   },
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Text(
                     "Admin Settings",
                     style: TextStyle(
@@ -68,15 +70,15 @@ class _SettingState extends State<Setting> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 35,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 10.0),
                 child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 240.0),
+                    const Padding(
+                      padding: EdgeInsets.only(right: 240.0),
                       child: Text("Admin Name :",
                           style: TextStyle(
                             fontSize: 20,
@@ -84,14 +86,14 @@ class _SettingState extends State<Setting> {
                             letterSpacing: 1.3,
                           )),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Container(
                       height: 55,
-                      padding: EdgeInsets.symmetric(horizontal: 20.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       decoration: BoxDecoration(
-                        color: Color(0xFFD9D9D9),
+                        color: const Color(0xFFD9D9D9),
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                       child: Row(
@@ -99,12 +101,12 @@ class _SettingState extends State<Setting> {
                         children: [
                           Text(
                             "$nameVariable",
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Color(0xFF252525),
                               fontSize: 20.0,
                             ),
                           ),
-                          Icon(
+                          const Icon(
                             Icons.person,
                             size: 40,
                             color: Color(0xFF252525),
@@ -115,15 +117,15 @@ class _SettingState extends State<Setting> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 10.0),
                 child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 240.0),
+                    const Padding(
+                      padding: EdgeInsets.only(right: 240.0),
                       child: Text("Admin Mail :",
                           style: TextStyle(
                             fontSize: 20,
@@ -131,14 +133,14 @@ class _SettingState extends State<Setting> {
                             letterSpacing: 1.3,
                           )),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Container(
                       height: 55,
-                      padding: EdgeInsets.symmetric(horizontal: 20.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       decoration: BoxDecoration(
-                        color: Color(0xFFD9D9D9),
+                        color: const Color(0xFFD9D9D9),
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                       child: Row(
@@ -146,7 +148,7 @@ class _SettingState extends State<Setting> {
                         children: [
                           Text(
                             "$mailVariable",
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black,
                               fontSize: 20.0,
                             ),
@@ -157,15 +159,15 @@ class _SettingState extends State<Setting> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 10.0),
                 child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 160.0),
+                    const Padding(
+                      padding: EdgeInsets.only(right: 160.0),
                       child: Text(
                         "Admin Phone Number :",
                         style: TextStyle(
@@ -176,27 +178,27 @@ class _SettingState extends State<Setting> {
                         softWrap: false,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Container(
                       height: 60,
-                      padding: EdgeInsets.symmetric(horizontal: 20.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       decoration: BoxDecoration(
-                        color: Color(0xFFD9D9D9),
+                        color: const Color(0xFFD9D9D9),
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "$PhoneVariable",
-                            style: TextStyle(
+                            "$phoneVariable",
+                            style: const TextStyle(
                               color: Colors.black,
                               fontSize: 20.0,
                             ),
                           ),
-                          Icon(
+                          const Icon(
                             Icons.call,
                             size: 40,
                             color: Color(0xFF252525),
@@ -207,7 +209,7 @@ class _SettingState extends State<Setting> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
@@ -220,12 +222,12 @@ class _SettingState extends State<Setting> {
                     height: 60,
                     width: 160,
                     decoration: BoxDecoration(
-                      color: Color(0xFFD9D9D9),
+                      color: const Color(0xFFD9D9D9),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: const [
                         Text(
                           'Modify About ',
                           style: TextStyle(color: Colors.black, fontSize: 20),
@@ -244,12 +246,12 @@ class _SettingState extends State<Setting> {
                     height: 60,
                     width: 160,
                     decoration: BoxDecoration(
-                      color: Color(0xFFD9D9D9),
+                      color: const Color(0xFFD9D9D9),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: const [
                         Text('Modify Help  ',
                             style:
                                 TextStyle(color: Colors.black, fontSize: 20)),
@@ -259,7 +261,7 @@ class _SettingState extends State<Setting> {
                   ),
                 ),
               ]),
-              SizedBox(
+              const SizedBox(
                 height: 60,
               ),
               Center(
@@ -269,15 +271,15 @@ class _SettingState extends State<Setting> {
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFFFD372A), //
+                      backgroundColor: const Color(0xFFFD372A), //
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
-                        side: BorderSide(color: Colors.white),
+                        side: const BorderSide(color: Colors.white),
                       ), // Change the background color
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: const [
                         Icon(Icons.home_outlined),
                         SizedBox(width: 8.0),
                         Text('Log out',
@@ -297,10 +299,10 @@ class _SettingState extends State<Setting> {
         width: 225,
         child: Drawer(
           child: Container(
-            color: Color(0xFF232323),
+            color: const Color(0xFF232323),
             child: Column(
               children: [
-                ListTile(
+                const ListTile(
                   leading: Icon(
                     Icons.menu,
                     color: Colors.white,
@@ -311,15 +313,15 @@ class _SettingState extends State<Setting> {
                         color: Colors.white,
                       )),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 ListTile(
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.home,
                     color: Colors.white,
                   ),
-                  title: Text('Home',
+                  title: const Text('Home',
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.white,
@@ -327,16 +329,16 @@ class _SettingState extends State<Setting> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Setting()),
+                      MaterialPageRoute(builder: (context) => const Setting()),
                     );
                   },
                 ),
                 ListTile(
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.settings,
                     color: Colors.white,
                   ),
-                  title: Text('Settings',
+                  title: const Text('Settings',
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.white,
@@ -344,16 +346,16 @@ class _SettingState extends State<Setting> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Setting()),
+                      MaterialPageRoute(builder: (context) => const Setting()),
                     );
                   },
                 ),
                 ListTile(
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.contact_phone,
                     color: Colors.white,
                   ),
-                  title: Text('Contact Us',
+                  title: const Text('Contact Us',
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.white,
@@ -361,11 +363,11 @@ class _SettingState extends State<Setting> {
                   onTap: () {},
                 ),
                 ListTile(
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.security,
                     color: Colors.white,
                   ),
-                  title: Text('Security',
+                  title: const Text('Security',
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.white,
@@ -373,11 +375,11 @@ class _SettingState extends State<Setting> {
                   onTap: () {},
                 ),
                 ListTile(
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.share,
                     color: Colors.white,
                   ),
-                  title: Text('Share',
+                  title: const Text('Share',
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.white,
@@ -385,11 +387,11 @@ class _SettingState extends State<Setting> {
                   onTap: () {},
                 ),
                 ListTile(
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.help,
                     color: Colors.white,
                   ),
-                  title: Text('Help',
+                  title: const Text('Help',
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.white,
@@ -397,11 +399,11 @@ class _SettingState extends State<Setting> {
                   onTap: () {},
                 ),
                 ListTile(
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.info,
                     color: Colors.white,
                   ),
-                  title: Text('About',
+                  title: const Text('About',
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.white,

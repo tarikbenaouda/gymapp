@@ -17,7 +17,7 @@ class _Edit_schedule_State extends State<Edit_schedule> {
       body: SafeArea(
         child: Container(
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("images/edit_schedule.jpg"),
               fit: BoxFit.fill,
@@ -29,7 +29,7 @@ class _Edit_schedule_State extends State<Edit_schedule> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   IconButton(
-                    padding: EdgeInsets.only(top: 30),
+                    padding: const EdgeInsets.only(top: 30),
                     iconSize: 40,
                     icon: const Icon(Icons.keyboard_double_arrow_left_rounded),
                     color: r,
@@ -43,7 +43,7 @@ class _Edit_schedule_State extends State<Edit_schedule> {
                   IconButton(
                     padding: const EdgeInsets.only(right: 50),
                     iconSize: 40,
-                    icon: Icon(Icons.list),
+                    icon: const Icon(Icons.list),
                     color: Colors.white,
                     onPressed: () {},
                   ),
@@ -60,7 +60,7 @@ class _Edit_schedule_State extends State<Edit_schedule> {
                     fontSize: 30,
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               AdvancedSwitch(
@@ -78,48 +78,49 @@ class _Edit_schedule_State extends State<Edit_schedule> {
                   style: TextStyle(color: r, fontSize: 20),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
-              Text(
+              const Text(
                 "Our Schedule",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 30,
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Container(
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 68, 68, 67),
+                  color: const Color.fromARGB(255, 68, 68, 67),
                   border: Border.all(color: r, width: 1),
                   borderRadius: BorderRadius.circular(10.0),
                 ),
-                padding: EdgeInsets.symmetric(vertical: 70, horizontal: 10),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 70, horizontal: 10),
                 child: Column(
                   children: [
                     Container(
-                      margin: EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         color: r,
                         border: Border.all(width: 1),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 60, horizontal: 10),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 60, horizontal: 10),
                     ),
                     Container(
-                      margin: EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         color: r,
                         border: Border.all(width: 1),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 60, horizontal: 10),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 60, horizontal: 10),
                     ),
                   ],
                 ),

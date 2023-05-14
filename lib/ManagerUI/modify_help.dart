@@ -26,20 +26,20 @@ class _ModifyHelpState extends State<ModifyHelp> {
         child: Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("images/modify about background.jpg"),
               fit: BoxFit.fill,
             ),
           ),
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: ListView(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Padding(
-                      padding: const EdgeInsets.only(top: 25.0),
+                      padding: EdgeInsets.only(top: 25.0),
                       child: Text(
                         "Modify The Help",
                         style: TextStyle(
@@ -49,7 +49,7 @@ class _ModifyHelpState extends State<ModifyHelp> {
                         ),
                       )),
                   Padding(
-                    padding: const EdgeInsets.only(top: 25.0),
+                    padding: EdgeInsets.only(top: 25.0),
                     child: Icon(
                       Icons.help,
                       size: 30,
@@ -58,31 +58,31 @@ class _ModifyHelpState extends State<ModifyHelp> {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
                 height: (MediaQuery.of(context).size.height) * 0.8,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
+                  image: const DecorationImage(
                     image:
                         AssetImage("images/help and about mini background.jpg"),
                     fit: BoxFit.fill,
                   ),
-                  color: Color(0xFF4F4F4F),
+                  color: const Color(0xFF4F4F4F),
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
-                    Text(
+                    const Text(
                       ' To See The Help Sendind From Users',
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
-                    SizedBox(height: 10.0),
+                    const SizedBox(height: 10.0),
                     GestureDetector(
                       onTap: () {
                         Navigator.push(
@@ -95,23 +95,23 @@ class _ModifyHelpState extends State<ModifyHelp> {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                             horizontal: 20.0, vertical: 10.0),
-                        child: Text('Tap Here',
+                        child: const Text('Tap Here',
                             style:
                                 TextStyle(color: Colors.black, fontSize: 17)),
                       ),
                     ),
-                    SizedBox(height: 20.0),
-                    Text(
+                    const SizedBox(height: 20.0),
+                    const Text(
                       'Modify Contact Information ',
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
-                    SizedBox(height: 10.0),
+                    const SizedBox(height: 10.0),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: TextField(
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                         controller: textField1Controller1,
                         decoration: InputDecoration(
                           filled: true,
@@ -120,11 +120,11 @@ class _ModifyHelpState extends State<ModifyHelp> {
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           hintText: 'number',
-                          suffixIcon: Icon(
+                          suffixIcon: const Icon(
                             Icons.call,
                             color: Colors.black,
                           ),
-                          contentPadding: EdgeInsets.symmetric(
+                          contentPadding: const EdgeInsets.symmetric(
                               vertical: 20.0, horizontal: 6.0),
                         ),
                       ),
@@ -132,7 +132,7 @@ class _ModifyHelpState extends State<ModifyHelp> {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: TextField(
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                         controller: textField2Controller2,
                         decoration: InputDecoration(
                           filled: true,
@@ -141,11 +141,11 @@ class _ModifyHelpState extends State<ModifyHelp> {
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           hintText: 'Email',
-                          suffixIcon: Icon(
+                          suffixIcon: const Icon(
                             Icons.mail,
                             color: Colors.black,
                           ),
-                          contentPadding: EdgeInsets.symmetric(
+                          contentPadding: const EdgeInsets.symmetric(
                               vertical: 20.0, horizontal: 6.0),
                         ),
                       ),
@@ -153,7 +153,7 @@ class _ModifyHelpState extends State<ModifyHelp> {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: TextField(
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                         controller: textField3Controller3,
                         decoration: InputDecoration(
                           filled: true,
@@ -162,11 +162,11 @@ class _ModifyHelpState extends State<ModifyHelp> {
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           hintText: 'Facebook Acount',
-                          suffixIcon: Icon(
+                          suffixIcon: const Icon(
                             Icons.facebook,
                             color: Colors.black,
                           ),
-                          contentPadding: EdgeInsets.symmetric(
+                          contentPadding: const EdgeInsets.symmetric(
                               vertical: 20.0, horizontal: 6.0),
                         ),
                       ),
@@ -175,21 +175,21 @@ class _ModifyHelpState extends State<ModifyHelp> {
                       width: 100,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: Color(0xFFFD372A),
+                          primary: const Color(0xFFFD372A),
                         ),
                         onPressed: () {
                           _onPressed;
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                          children: const [
                             Text('Save'),
                             Icon(Icons.done, color: Colors.white),
                           ],
                         ),
                       ),
                     ),
-                    SizedBox(height: 10.0),
+                    const SizedBox(height: 10.0),
                   ],
                 ),
               )
