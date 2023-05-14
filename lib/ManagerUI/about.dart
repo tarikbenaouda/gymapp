@@ -18,21 +18,21 @@ class _AboutState extends State<About> {
         child: Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("images/modify about background.jpg"),
               fit: BoxFit.fill,
             ),
           ),
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Padding(
-                      padding: const EdgeInsets.only(top: 25.0),
+                      padding: EdgeInsets.only(top: 25.0),
                       child: Text(
                         "About",
                         style: TextStyle(
@@ -42,7 +42,7 @@ class _AboutState extends State<About> {
                         ),
                       )),
                   Padding(
-                    padding: const EdgeInsets.only(top: 25.0),
+                    padding: EdgeInsets.only(top: 25.0),
                     child: Icon(
                       Icons.info,
                       size: 30,
@@ -51,7 +51,7 @@ class _AboutState extends State<About> {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Stack(
@@ -61,39 +61,40 @@ class _AboutState extends State<About> {
                       height: 650,
                       width: 380,
                       decoration: BoxDecoration(
-                        color: Color(0xFF4F4F4F),
+                        color: const Color(0xFF4F4F4F),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: Column(
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
-                          Text(
+                          const Text(
                             'About The Gym : ',
                             style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           Text(
                             name,
-                            style: TextStyle(color: Colors.white, fontSize: 20),
+                            style: const TextStyle(
+                                color: Colors.white, fontSize: 20),
                           ),
-                          SizedBox(height: 10.0),
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
+                          const SizedBox(height: 10.0),
+                          const Padding(
+                            padding: EdgeInsets.all(10.0),
                           ),
-                          SizedBox(height: 10.0),
-                          Text(
+                          const SizedBox(height: 10.0),
+                          const Text(
                             'About The Gym :',
                             style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
-                          SizedBox(height: 10.0),
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
+                          const SizedBox(height: 10.0),
+                          const Padding(
+                            padding: EdgeInsets.all(10.0),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 100,
                           ),
-                          SizedBox(height: 10.0),
+                          const SizedBox(height: 10.0),
                         ],
                       ),
                     ),

@@ -14,7 +14,7 @@ class _UnboardingState extends State<Unboarding> {
   _onIntroEnd(context) async {
     // Navigator.of(context)
     //    .push(MaterialPageRoute(builder: (context) => const Login()));
-    Get.to(() => Login());
+    Get.to(() => const Login());
   }
 
   _buildFullScreenImage() {
@@ -58,7 +58,7 @@ class _UnboardingState extends State<Unboarding> {
 
     return firstOpen
         ? IntroductionScreen(
-            globalBackgroundColor: Color(0xFF393939),
+            globalBackgroundColor: const Color(0xFF393939),
             globalHeader: Align(
               alignment: Alignment.topRight,
               child: SafeArea(
@@ -78,29 +78,29 @@ class _UnboardingState extends State<Unboarding> {
                       height: 400,
                       width: 400,
                       decoration: BoxDecoration(
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               color: Colors.white,
                               spreadRadius: 1,
                             )
                           ],
                           borderRadius: BorderRadius.circular(92),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                               image: AssetImage("images/11.jpg"),
                               fit: BoxFit.cover)),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 40,
                     ),
-                    Text(
+                    const Text(
                       "Welcome To Fire-Muscles Warrior ",
                       style: TextStyle(color: Colors.white, fontSize: 23),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Center(
                         child: Text(
                           "This app will help you to facilitate your training  and scommunication in our gym. ",
@@ -111,7 +111,7 @@ class _UnboardingState extends State<Unboarding> {
                   ],
                 ),
                 titleWidget: Container(
-                  child: Text(
+                  child: const Text(
                     "",
                     style: TextStyle(color: Colors.white),
                   ),
@@ -124,14 +124,14 @@ class _UnboardingState extends State<Unboarding> {
                       height: 400,
                       width: 400,
                       decoration: BoxDecoration(
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               color: Colors.white,
                               spreadRadius: 1,
                             )
                           ],
                           borderRadius: BorderRadius.circular(92),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                               image: AssetImage("images/12.jpg"),
                               fit: BoxFit.cover)),
                     ),
@@ -157,7 +157,7 @@ class _UnboardingState extends State<Unboarding> {
                   ],
                 ),
                 titleWidget: Container(
-                  child: Text(
+                  child: const Text(
                     "",
                     style: TextStyle(color: Colors.white),
                   ),
@@ -170,29 +170,29 @@ class _UnboardingState extends State<Unboarding> {
                       height: 400,
                       width: 400,
                       decoration: BoxDecoration(
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               color: Colors.white,
                               spreadRadius: 1,
                             )
                           ],
                           borderRadius: BorderRadius.circular(92),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                               image: AssetImage("images/1.jpg"),
                               fit: BoxFit.cover)),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 40,
                     ),
-                    Text(
+                    const Text(
                       "Views Training Offers And  Shop ",
                       style: TextStyle(color: Colors.white, fontSize: 23),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Center(
                         child: Text(
                           "You get the best offers to train and buy the finest supplements and protein ",
@@ -203,7 +203,7 @@ class _UnboardingState extends State<Unboarding> {
                   ],
                 ),
                 titleWidget: Container(
-                  child: Text(
+                  child: const Text(
                     "",
                     style: TextStyle(color: Colors.white),
                   ),
@@ -216,22 +216,22 @@ class _UnboardingState extends State<Unboarding> {
                       height: 400,
                       width: 400,
                       decoration: BoxDecoration(
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               color: Colors.white,
                               spreadRadius: 1,
                             )
                           ],
                           borderRadius: BorderRadius.circular(92),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                               image: AssetImage("images/2.jpg"),
                               fit: BoxFit.cover)),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Center(
                         child: Text(
                           "get training plans and participate in events and see more things that will help you... ",
@@ -239,7 +239,7 @@ class _UnboardingState extends State<Unboarding> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 35,
                     ),
                     Center(
@@ -253,12 +253,12 @@ class _UnboardingState extends State<Unboarding> {
                               style: ElevatedButton.styleFrom(
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(25)),
-                                  backgroundColor: Color(0xFFFF1E0F)),
+                                  backgroundColor: const Color(0xFFFF1E0F)),
                               onPressed: () {
                                 //Navigator.of(context).pushNamed("Login");
-                                Get.to(() => Signup1());
+                                Get.to(() => const Signup1());
                               },
-                              child: Text(
+                              child: const Text(
                                 "Go To Create Account ",
                                 style: TextStyle(
                                     fontSize: 20, fontWeight: FontWeight.w700),
@@ -269,7 +269,7 @@ class _UnboardingState extends State<Unboarding> {
                   ],
                 ),
                 titleWidget: Container(
-                  child: Text(
+                  child: const Text(
                     "",
                     style: TextStyle(color: Colors.white),
                   ),

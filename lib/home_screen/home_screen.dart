@@ -31,13 +31,13 @@ class HomeScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25),
                         ),
-                        backgroundColor: Color(0xFFFF1E0F),
+                        backgroundColor: const Color(0xFFFF1E0F),
                       ),
                       onPressed: () async {
                         await Get.put(AuthController()).signoutMethod(context);
-                        Get.offAll(() => Login());
+                        Get.offAll(() => const Login());
                       },
-                      child: Text(
+                      child: const Text(
                         "Sign Out",
                         style: TextStyle(
                           fontSize: 20,
