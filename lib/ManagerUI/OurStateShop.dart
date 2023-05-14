@@ -19,13 +19,13 @@ class _OurstateShopState extends State<OurstateShop> {
       body: Container(
         height: screenlength,
         width: screenwidth,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("images/our stats background.jpg"),
                 fit: BoxFit.fill)),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Row(
@@ -33,7 +33,7 @@ class _OurstateShopState extends State<OurstateShop> {
               children: [
                 InkWell(
                   onTap: () {},
-                  child: Icon(
+                  child: const Icon(
                     Icons.keyboard_double_arrow_left_outlined,
                     color: Color(0xFFFD372A),
                     size: 35,
@@ -41,13 +41,13 @@ class _OurstateShopState extends State<OurstateShop> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 18,
             ),
             Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Text(
                     "Our Stats",
                     style: TextStyle(
@@ -66,7 +66,7 @@ class _OurstateShopState extends State<OurstateShop> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Padding(
@@ -76,21 +76,21 @@ class _OurstateShopState extends State<OurstateShop> {
                 height: 500,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
-                    image: DecorationImage(
+                    image: const DecorationImage(
                         image: AssetImage("images/18.jpg"), fit: BoxFit.fill)),
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
-                    Text(
+                    const Text(
                       "Our Shop Monthly Stats",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
                     Container(
@@ -101,7 +101,7 @@ class _OurstateShopState extends State<OurstateShop> {
                           borderRadius: BorderRadius.circular(14),
                         ),
                         child: Row(
-                          children: [
+                          children: const [
                             Text(
                               " Month :",
                               style: TextStyle(fontSize: 16),
@@ -110,31 +110,31 @@ class _OurstateShopState extends State<OurstateShop> {
                             Text("Variable"), //variable of  mounth
                           ],
                         )),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     MyInfos(
                         Textinput: " Monthly Income", Textinput2: "variable"),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
                     MyInfos(Textinput: " Net Profits", Textinput2: "variable"),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
                     MyInfos(
                         Textinput: " THis Mounth Stats Are",
                         Textinput2: "variable"),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
                     MyInfos(
                         Textinput: " Number of product sold",
                         Textinput2: "variable"),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 50,
                     ),
                     Row(
@@ -147,12 +147,12 @@ class _OurstateShopState extends State<OurstateShop> {
                               width: 120,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(18),
-                                  image: DecorationImage(
+                                  image: const DecorationImage(
                                       image:
                                           AssetImage("images/background2.jpg"),
                                       fit: BoxFit.fill)),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10),
+                              child: const Padding(
+                                padding: EdgeInsets.all(10),
                                 child: Text(
                                   " Total The Year Stats",
                                   style: TextStyle(
@@ -169,12 +169,12 @@ class _OurstateShopState extends State<OurstateShop> {
                               width: 120,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(18),
-                                  image: DecorationImage(
+                                  image: const DecorationImage(
                                       image:
                                           AssetImage("images/background2.jpg"),
                                       fit: BoxFit.fill)),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10),
+                              child: const Padding(
+                                padding: EdgeInsets.all(10),
                                 child: Text(
                                   " To See Last Mounth Stats",
                                   style: TextStyle(

@@ -17,21 +17,23 @@ class _listofcoachsState extends State<listofcoachs> {
       body: Container(
         height: screenlength,
         width: screenwidth,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("images/16.jpg"), fit: BoxFit.fill)),
         child: ListView(
           children: [
             InkWell(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: ((context) => HomeView())));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) => const HomeView())));
               },
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
                 child: Row(
-                  children: [
+                  children: const [
                     Icon(
                       Icons.keyboard_double_arrow_left_outlined,
                       color: Color(0xFFFF1E0F),
@@ -43,7 +45,7 @@ class _listofcoachsState extends State<listofcoachs> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 //drawer
                 Text(
                   "Our Coachs",
@@ -51,19 +53,19 @@ class _listofcoachsState extends State<listofcoachs> {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [],
+              children: const [],
             ),
             Container(
               width: double.infinity,
               height: 550,
-              margin: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+              margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 22, 22, 22),
+                  color: const Color.fromARGB(255, 22, 22, 22),
                   borderRadius: BorderRadius.circular(20)),
               child: Column(
                 children: [
@@ -71,7 +73,7 @@ class _listofcoachsState extends State<listofcoachs> {
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: const [
                         Text(
                           "Coachs List",
                           style: TextStyle(
@@ -93,7 +95,7 @@ class _listofcoachsState extends State<listofcoachs> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Expanded(
@@ -105,14 +107,14 @@ class _listofcoachsState extends State<listofcoachs> {
                               Navigator.of(context).pushNamed("CoachProfile");
                             },
                             child: Container(
-                                margin: EdgeInsets.symmetric(
+                                margin: const EdgeInsets.symmetric(
                                     vertical: 5, horizontal: 5),
                                 width: (double.infinity) - 40,
                                 height: 50,
                                 decoration: BoxDecoration(
-                                    color: Color(0xFFE6E6E6),
+                                    color: const Color(0xFFE6E6E6),
                                     borderRadius: BorderRadius.circular(15)),
-                                child: ListTile(
+                                child: const ListTile(
                                   leading: null,
                                   title: null,
                                 )));

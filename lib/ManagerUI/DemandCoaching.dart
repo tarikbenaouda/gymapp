@@ -17,7 +17,7 @@ class _DemandForCoachingState extends State<DemandForCoaching> {
       body: Container(
         height: screenlength,
         width: screenwidth,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("images/16.jpg"), fit: BoxFit.fill)),
         child: ListView(
@@ -28,7 +28,7 @@ class _DemandForCoachingState extends State<DemandForCoaching> {
                 padding:
                     const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
                 child: Row(
-                  children: [
+                  children: const [
                     Icon(
                       Icons.keyboard_double_arrow_left_outlined,
                       color: Color(0xFFFF1E0F),
@@ -40,7 +40,7 @@ class _DemandForCoachingState extends State<DemandForCoaching> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 //drawer
                 Text(
                   "  Demand For Coaching In Our Gym  ",
@@ -51,21 +51,22 @@ class _DemandForCoachingState extends State<DemandForCoaching> {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Container(
               width: double.infinity,
               height: screenlength * 0.7,
-              margin: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+              margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
               decoration: BoxDecoration(
-                  image: DecorationImage(image: AssetImage("images/17.jpg")),
+                  image:
+                      const DecorationImage(image: AssetImage("images/17.jpg")),
                   borderRadius: BorderRadius.circular(20)),
               child: Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: const [
                       Text(
                         "coaching demand list",
                         style: TextStyle(
@@ -83,7 +84,7 @@ class _DemandForCoachingState extends State<DemandForCoaching> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Expanded(
@@ -92,17 +93,17 @@ class _DemandForCoachingState extends State<DemandForCoaching> {
                       itemBuilder: (BuildContext context, int index) {
                         return InkWell(
                             onTap: () {
-                              Get.to(() => ProfileCoach());
+                              Get.to(() => const ProfileCoach());
                             },
                             child: Container(
-                                margin: EdgeInsets.symmetric(
+                                margin: const EdgeInsets.symmetric(
                                     vertical: 5, horizontal: 5),
                                 width: (double.infinity) - 40,
                                 height: 50,
                                 decoration: BoxDecoration(
-                                    color: Color(0xFFE6E6E6),
+                                    color: const Color(0xFFE6E6E6),
                                     borderRadius: BorderRadius.circular(15)),
-                                child: ListTile(
+                                child: const ListTile(
                                   leading: null,
                                   title: null,
                                 )));

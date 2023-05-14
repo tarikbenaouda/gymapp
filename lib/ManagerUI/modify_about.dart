@@ -25,20 +25,20 @@ class _ModifyAboutState extends State<ModifyAbout> {
         child: Container(
           height: (MediaQuery.of(context).size.height) * 0.8,
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("images/modify about background.jpg"),
               fit: BoxFit.fill,
             ),
           ),
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: ListView(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Padding(
-                      padding: const EdgeInsets.only(top: 25.0),
+                      padding: EdgeInsets.only(top: 25.0),
                       child: Text(
                         "Modify About ",
                         style: TextStyle(
@@ -48,7 +48,7 @@ class _ModifyAboutState extends State<ModifyAbout> {
                         ),
                       )),
                   Padding(
-                    padding: const EdgeInsets.only(top: 25.0),
+                    padding: EdgeInsets.only(top: 25.0),
                     child: Icon(
                       Icons.info,
                       size: 30,
@@ -57,36 +57,36 @@ class _ModifyAboutState extends State<ModifyAbout> {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
                 height: 670,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
+                  image: const DecorationImage(
                     image:
                         AssetImage("images/help and about mini background.jpg"),
                     fit: BoxFit.fill,
                   ),
-                  color: Color(0xFF4F4F4F),
+                  color: const Color(0xFF4F4F4F),
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Text(
+                    const Text(
                       'About The Gym :',
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
-                    SizedBox(height: 10.0),
+                    const SizedBox(height: 10.0),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: TextField(
-                        style: TextStyle(fontSize: 22),
-                        scrollPhysics: ScrollPhysics(),
+                        style: const TextStyle(fontSize: 22),
+                        scrollPhysics: const ScrollPhysics(),
                         maxLines: 3,
                         controller: _textEditingController1,
                         decoration: InputDecoration(
@@ -95,23 +95,23 @@ class _ModifyAboutState extends State<ModifyAbout> {
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20.0),
                           ),
-                          contentPadding: EdgeInsets.symmetric(
+                          contentPadding: const EdgeInsets.symmetric(
                               vertical: 70.0, horizontal: 6.0),
                         ),
                       ),
                     ),
-                    SizedBox(height: 10.0),
-                    Text(
+                    const SizedBox(height: 10.0),
+                    const Text(
                       'About The App :',
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
-                    SizedBox(height: 10.0),
+                    const SizedBox(height: 10.0),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: TextField(
                         textAlign: TextAlign.start,
-                        style: TextStyle(fontSize: 22),
-                        scrollPhysics: ScrollPhysics(),
+                        style: const TextStyle(fontSize: 22),
+                        scrollPhysics: const ScrollPhysics(),
                         maxLines: 3,
                         controller: _textEditingController2,
                         decoration: InputDecoration(
@@ -120,7 +120,7 @@ class _ModifyAboutState extends State<ModifyAbout> {
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20.0),
                           ),
-                          contentPadding: EdgeInsets.symmetric(
+                          contentPadding: const EdgeInsets.symmetric(
                               vertical: 70.0, horizontal: 6.0),
                         ),
                       ),
@@ -130,12 +130,12 @@ class _ModifyAboutState extends State<ModifyAbout> {
                       height: 50,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: Color(0xFFFD372A),
+                          primary: const Color(0xFFFD372A),
                         ),
                         onPressed: _onPressed,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                          children: const [
                             Text(
                               'Save ',
                               style: TextStyle(
@@ -150,7 +150,7 @@ class _ModifyAboutState extends State<ModifyAbout> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 10.0),
+                    const SizedBox(height: 10.0),
                   ],
                 ),
               )
