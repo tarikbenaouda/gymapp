@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_const, prefer_const_literals_to_create_immutables, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:gymapp/common_widgets/my_textformfield.dart';
 import 'package:gymapp/consts/consts.dart';
@@ -16,12 +14,12 @@ class _ProfileUserState extends State<ProfileUser> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("images/20.jpg"), fit: BoxFit.cover)),
         child: ListView(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             InkWell(
@@ -32,7 +30,7 @@ class _ProfileUserState extends State<ProfileUser> {
                 padding:
                     const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
                 child: Row(
-                  children: [
+                  children: const [
                     Icon(
                       Icons.keyboard_double_arrow_left_outlined,
                       color: Color(0xFFFF1E0F),
@@ -57,9 +55,9 @@ class _ProfileUserState extends State<ProfileUser> {
             Container(
               width: double.infinity,
               height: 550,
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               decoration: BoxDecoration(
-                  image: DecorationImage(
+                  image: const DecorationImage(
                       image: AssetImage(
                         "images/21.jpg",
                       ),
@@ -73,13 +71,13 @@ class _ProfileUserState extends State<ProfileUser> {
                       Container(
                         height: 100,
                         width: 100,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.white,
                           shape: BoxShape.circle,
                         ),
                         //url of image
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 8,
                       ),
                       Column(
@@ -154,17 +152,17 @@ class _ProfileUserState extends State<ProfileUser> {
                               borderRadius: BorderRadius.circular(20)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                            children: const [
                               Center(
                                 child: Text(
                                   'Height:',
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      color: const Color(0xFF252525),
+                                      color: Color(0xFF252525),
                                       fontSize: 20),
                                 ),
                               ),
-                              const Text("VARIABLE")
+                              Text("VARIABLE")
                             ],
                           )),
                       const SizedBox(
@@ -178,17 +176,17 @@ class _ProfileUserState extends State<ProfileUser> {
                               borderRadius: BorderRadius.circular(20)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                            children: const [
                               Center(
-                                child: const Text(
+                                child: Text(
                                   'Weight:',
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Color(0xFF252525),
                                       fontSize: 20),
                                 ),
                               ),
-                              const Text("VARIABLE")
+                              Text("VARIABLE")
                             ],
                           )),
                     ],
@@ -217,8 +215,8 @@ class _ProfileUserState extends State<ProfileUser> {
                           borderRadius: BorderRadius.circular(20)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
+                        children: const [
+                          Text(
                             "FullName :",
                             style: TextStyle(
                                 color: Color(0xFF252525),
@@ -226,7 +224,7 @@ class _ProfileUserState extends State<ProfileUser> {
                                 fontWeight: FontWeight.w800),
                           ),
                           // variable of fullName
-                          const Text(
+                          Text(
                             "variable of fullName ",
                             style: TextStyle(
                                 color: Color(0xFF252525),
@@ -256,19 +254,19 @@ class _ProfileUserState extends State<ProfileUser> {
                       height: 40,
                       width: 240,
                       decoration: BoxDecoration(
-                          color: Color(0xFFFF1E0F),
+                          color: const Color(0xFFFF1E0F),
                           borderRadius: BorderRadius.circular(15)),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                             Text(
                               "Go To Settings To Modify",
                               style:
                                   TextStyle(color: Colors.white, fontSize: 16),
                             ),
-                            const Icon(
+                            Icon(
                               Icons.settings,
                               color: Colors.white,
                             ),
