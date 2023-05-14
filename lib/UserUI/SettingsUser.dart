@@ -41,7 +41,7 @@ class _SettingsUserState extends State<SettingsUser> {
                     ),
                     Center(
                       child: Text(
-                        " Settigns",
+                        " Settign",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 32,
@@ -52,106 +52,97 @@ class _SettingsUserState extends State<SettingsUser> {
                 ),
               ),
             ),
-            Container(
-              width: double.infinity,
-              height: screenlength * 0.7,
-              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(20)),
-              child: Column(children: [
-                Image.asset(
-                  profileImg,
-                  width: 100,
-                  fit: BoxFit.cover,
-                ).box.roundedFull.clip(Clip.antiAlias).make(),
-                const SizedBox(
-                  width: 8,
-                ),
-                Column(
-                  children: [
-                    TextButton(
-                        onPressed: (() {}),
-                        child: Container(
-                          alignment: Alignment.center,
-                          height: 40,
-                          width: 200,
-                          decoration: BoxDecoration(
-                              color: const Color(0xFFFF1E0F),
-                              borderRadius: BorderRadius.circular(15)),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Text(
-                                "Change Picture",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 16),
-                              ),
-                              IconButton(
-                                  onPressed: () {
-                                    Get.find<ProfileController>()
-                                        .changeImage(context);
-                                  },
-                                  icon: const Icon(
-                                    Icons.edit,
-                                    color: Colors.white,
-                                  )),
-                            ],
-                          ),
-                        )),
-                  ],
-                ),
-                myTextformfield(
-                    hint: "weight    Kg ",
-                    icon: const Icon(Icons.edit),
-                    controller: null,
-                    limit: 3,
-                    type: TextInputType.number,
-                    filter: FilteringTextInputFormatter.digitsOnly),
-                myTextformfield(
-                    hint: "Height    cm ",
-                    icon: const Icon(Icons.edit),
-                    controller: null,
-                    limit: 3,
-                    filter: FilteringTextInputFormatter.digitsOnly,
-                    type: TextInputType.number),
-                myTextformfield(
-                    hint: "Age",
-                    icon: const Icon(Icons.edit),
-                    controller: null,
-                    limit: 2,
-                    filter: FilteringTextInputFormatter.digitsOnly,
-                    type: TextInputType.number),
-                const SizedBox(
-                  height: 4,
-                ),
-                myTextformfield(
-                  hint: "User NAme",
+            Column(children: [
+              Image.asset(
+                icGoogleLogo,
+                width: 100,
+                fit: BoxFit.fill,
+              ).box.roundedFull.clip(Clip.antiAlias).make(),
+              30.heightBox,
+              Column(
+                children: [
+                  TextButton(
+                      onPressed: (() {}),
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 40,
+                        width: 200,
+                        decoration: BoxDecoration(
+                            color: const Color(0xFFFF1E0F),
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Change Picture",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 16),
+                            ),
+                            IconButton(
+                                onPressed: () {
+                                  Get.find<ProfileController>()
+                                      .changeImage(context);
+                                },
+                                icon: const Icon(
+                                  Icons.edit,
+                                  color: Colors.white,
+                                )),
+                          ],
+                        ),
+                      )),
+                ],
+              ),
+              myTextformfield(
+                  hint: "weight    Kg ",
                   icon: const Icon(Icons.edit),
                   controller: null,
-                  type: TextInputType.name,
-                ),
-                const SizedBox(
-                  height: 4,
-                ),
-                myTextformfield(
-                    hint: " Email",
-                    icon: const Icon(Icons.edit),
-                    controller: null,
-                    type: TextInputType.emailAddress),
-                const SizedBox(
-                  height: 4,
-                ),
-                myTextformfield(
-                    hint: "Phone Number",
-                    icon: const Icon(Icons.edit),
-                    controller: null,
-                    limit: 10,
-                    filter: FilteringTextInputFormatter.digitsOnly),
-                const SizedBox(
-                  height: 4,
-                ),
-              ]),
-            ),
+                  limit: 3,
+                  type: TextInputType.number,
+                  filter: FilteringTextInputFormatter.digitsOnly),
+              myTextformfield(
+                  hint: "Height    cm ",
+                  icon: const Icon(Icons.edit),
+                  controller: null,
+                  limit: 3,
+                  filter: FilteringTextInputFormatter.digitsOnly,
+                  type: TextInputType.number),
+              myTextformfield(
+                  hint: "Age",
+                  icon: const Icon(Icons.edit),
+                  controller: null,
+                  limit: 2,
+                  filter: FilteringTextInputFormatter.digitsOnly,
+                  type: TextInputType.number),
+              const SizedBox(
+                height: 4,
+              ),
+              myTextformfield(
+                hint: "User NAme",
+                icon: const Icon(Icons.edit),
+                controller: null,
+                type: TextInputType.name,
+              ),
+              const SizedBox(
+                height: 4,
+              ),
+              myTextformfield(
+                  hint: " Email",
+                  icon: const Icon(Icons.edit),
+                  controller: null,
+                  type: TextInputType.emailAddress),
+              const SizedBox(
+                height: 4,
+              ),
+              myTextformfield(
+                  hint: "Phone Number",
+                  icon: const Icon(Icons.edit),
+                  controller: null,
+                  limit: 10,
+                  filter: FilteringTextInputFormatter.digitsOnly),
+              const SizedBox(
+                height: 4,
+              ),
+            ]),
             TextButton(
                 onPressed: (() {}),
                 child: Container(
