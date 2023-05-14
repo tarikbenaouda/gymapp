@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gymapp/common_widgets/my_textformfield.dart';
 import 'package:gymapp/consts/consts.dart';
 
 class SettingsUser extends StatefulWidget {
