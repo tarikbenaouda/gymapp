@@ -177,8 +177,8 @@ class _ProfileUserState extends State<ProfileUser> {
                                     borderRadius: BorderRadius.circular(20)),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
-                                    Center(
+                                  children: [
+                                    const Center(
                                       child: Text(
                                         'Height:',
                                         style: TextStyle(
@@ -187,7 +187,7 @@ class _ProfileUserState extends State<ProfileUser> {
                                             fontSize: 20),
                                       ),
                                     ),
-                                    Text("VARIABLE")
+                                    Text("${data['height']} cm")
                                   ],
                                 )),
                             const SizedBox(
@@ -201,8 +201,8 @@ class _ProfileUserState extends State<ProfileUser> {
                                     borderRadius: BorderRadius.circular(20)),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
-                                    Center(
+                                  children: [
+                                    const Center(
                                       child: Text(
                                         'Weight:',
                                         style: TextStyle(
@@ -211,75 +211,49 @@ class _ProfileUserState extends State<ProfileUser> {
                                             fontSize: 20),
                                       ),
                                     ),
-                                    Text("VARIABLE")
+                                    Text("${data['weight']} Kg")
                                   ],
                                 )),
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        height: 4,
-                      ),
-                      MyInfos(Textinput: "age", Textinput2: "variable of age"),
-                      const SizedBox(
-                        height: 4,
-                      ),
+                      4.heightBox,
                       MyInfos(
-                          Textinput: "FullName",
-                          Textinput2: "variable of Fullname"),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 5),
-                        child: Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 5),
-                            alignment: Alignment.centerLeft,
-                            height: 40,
-                            width: 200,
-                            decoration: BoxDecoration(
-                                color: const Color(0xFFE6E6E6),
-                                borderRadius: BorderRadius.circular(20)),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
-                                Text(
-                                  "FullName :",
-                                  style: TextStyle(
-                                      color: Color(0xFF252525),
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w800),
-                                ),
-                                // variable of fullName
-                                Text(
-                                  "variable of fullName ",
-                                  style: TextStyle(
-                                      color: Color(0xFF252525),
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w800),
-                                ),
-                              ],
-                            )),
+                        Textinput: "age",
+                        Textinput2: "${data['age']} yo",
                       ),
-                      const SizedBox(
-                        height: 4,
-                      ),
+                      4.heightBox,
                       MyInfos(
-                          Textinput: "UserName",
-                          Textinput2: "variable of Username"),
-                      const SizedBox(
-                        height: 4,
+                        Textinput: "FullName",
+                        Textinput2: "${data['fullName']}",
                       ),
+                      4.heightBox,
                       MyInfos(
-                          Textinput: "Email", Textinput2: "variable of Email"),
-                      const SizedBox(
-                        height: 4,
+                        Textinput: "UserName",
+                        Textinput2: "${data['username']}",
                       ),
+                      4.heightBox,
                       MyInfos(
-                          Textinput: "Phone Number", Textinput2: "variable "),
+                        Textinput: "Email",
+                        Textinput2: "${data['email']}",
+                      ),
+                      4.heightBox,
+                      MyInfos(
+                        Textinput: "Phone Number",
+                        Textinput2: "${data['phoneNumber']}",
+                      ),
                       TextButton(
                         onPressed: () {
+                          controller.fullNameController.text = data['fullName'];
+                          controller.usernameController.text = data['username'];
+                          controller.phoneNumberController.text =
+                              data['phoneNumber'];
+                          controller.ageController.text = data['age'];
+                          controller.heightController.text = data['height'];
+                          controller.weightController.text = data['weight'];
+                          controller.passwordController.text = data['password'];
                           Get.to(
-                            () => const SettingsUser(),
+                            () => SettingsUser(data: data),
                           );
                         },
                         child: Container(

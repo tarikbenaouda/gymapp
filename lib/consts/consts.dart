@@ -31,3 +31,6 @@ export './Colors.dart';
 export '../common_widgets/applogo_widget.dart';
 export '../UserUI/Profileuser.dart';
 export '../authentication/splash_screen.dart';
+export '../controlllers/profile_controller.dart';
+export '../services/firestore_services.dart';
+export '../UserUI/SettingsUser.dart';
