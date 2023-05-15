@@ -259,24 +259,30 @@ class _ProfileUserState extends State<ProfileUser> {
                         ),
                       ),
                       */
-                      ourButton(
-                        color: red,
-                        title: "Edit",
-                        textColor: white,
-                        onPress: () {
-                          controller.fullNameController.text = data['fullName'];
-                          controller.usernameController.text = data['username'];
-                          controller.phoneNumberController.text =
-                              data['phoneNumber'];
-                          controller.ageController.text = data['age'];
-                          controller.heightController.text = data['height'];
-                          controller.weightController.text = data['weight'];
-                          controller.passwordController.text = data['password'];
-                          Get.to(
-                            () => SettingsUser(data: data),
-                          );
-                        },
-                      ).box.width(context.screenWidth - 200).make(),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 60),
+                        child: ourButton(
+                          color: red,
+                          title: "Edit",
+                          textColor: white,
+                          onPress: () {
+                            controller.fullNameController.text =
+                                data['fullName'];
+                            controller.usernameController.text =
+                                data['username'];
+                            controller.phoneNumberController.text =
+                                data['phoneNumber'];
+                            controller.ageController.text = data['age'];
+                            controller.heightController.text = data['height'];
+                            controller.weightController.text = data['weight'];
+                            controller.passwordController.text =
+                                data['password'];
+                            Get.to(
+                              () => SettingsUser(data: data),
+                            );
+                          },
+                        ).box.rounded.width(context.screenWidth - 70).make(),
+                      ),
                     ]),
                   ),
                 ],
