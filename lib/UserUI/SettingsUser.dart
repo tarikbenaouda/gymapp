@@ -151,7 +151,7 @@ class SettingsUser extends StatelessWidget {
                     filter: FilteringTextInputFormatter.digitsOnly),
                 4.heightBox,
                 myTextformfield(
-                  hint: "old Password",
+                  hint: "old Password (required)",
                   icon: const Icon(Icons.edit),
                   controller: controller.oldPasswordController,
                   limit: 16,
@@ -159,7 +159,7 @@ class SettingsUser extends StatelessWidget {
                 ),
                 4.heightBox,
                 myTextformfield(
-                  hint: "New Password",
+                  hint: "New Password (optional)",
                   icon: const Icon(Icons.edit),
                   controller: controller.newPasswordController,
                   limit: 16,
@@ -187,6 +187,16 @@ class SettingsUser extends StatelessWidget {
                           //data['password']
                           if (data['password'] ==
                               controller.oldPasswordController.text) {
+                            var password =
+                                controller.newPasswordController.text;
+                            if (controller.newPasswordController.text == "") {
+                              password = controller.oldPasswordController.text;
+                            }
+                            controller.changeAuthPassword(
+                                email: data['email'],
+                                password: controller.oldPasswordController.text,
+                                newpassword: password);
+
                             await controller.updateProfile(
                               imgUrl: controller.profileImageLink,
                               fullName: controller.fullNameController.text,
@@ -196,7 +206,7 @@ class SettingsUser extends StatelessWidget {
                               weight: controller.weightController.text,
                               phoneNumber:
                                   controller.phoneNumberController.text,
-                              password: controller.newPasswordController.text,
+                              password: password,
                             );
 
                             VxToast.show(context, msg: "Updated");
