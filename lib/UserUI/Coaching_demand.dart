@@ -3,19 +3,6 @@ import 'package:flutter/material.dart';
 import '../common_widgets/my_textformfield.dart';
 import '../consts/Colors.dart';
 
-class Offer {
-  String type_offre;
-  String month;
-  String sessions;
-  String price;
-
-  Offer(
-      {required this.type_offre,
-      required this.month,
-      required this.sessions,
-      required this.price});
-}
-
 class coaching_demand extends StatefulWidget {
   @override
   State<coaching_demand> createState() => coaching_demand_State();
@@ -38,7 +25,7 @@ class coaching_demand_State extends State<coaching_demand> {
           width: screenwidth,
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("images/training offer background.jpg"),
+              image: AssetImage("images/demand coaching background.jpg"),
               fit: BoxFit.fill,
             ),
           ),
@@ -64,31 +51,32 @@ class coaching_demand_State extends State<coaching_demand> {
                   style: TextStyle(
                     color: white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 10 * (screenheight / screenwidth),
+                    fontSize: 13 * (screenheight / screenwidth),
                   ),
                 ),
                 Icon(
                   Icons.person,
-                  color: red,
+                  color: white,
                   size: 15 * (screenheight / screenwidth),
                 )
               ],
             ),
             SizedBox(
-              height: 0.23 * (screenheight),
+              height: 0.03 * (screenheight),
             ),
             Container(
               decoration: BoxDecoration(
                 image: const DecorationImage(
-                  image: AssetImage("images/edit_shop.jpg"),
+                  image:
+                      AssetImage("images/demand coaching mini background.jpg"),
                   fit: BoxFit.fill,
                 ),
                 borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: red, width: 0.5),
+                border: Border.all(color: red, width: 0.1),
               ),
-              height: screenheight * 0.55,
-              width: 400,
-              margin: const EdgeInsets.all(10),
+              height: screenheight * 0.7,
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+              // margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
               child: Column(
                 children: [
                   Center(
@@ -96,7 +84,230 @@ class coaching_demand_State extends State<coaching_demand> {
                       "Demand Formula",
                       style: TextStyle(
                           color: white,
-                          fontSize: 10 * (screenheight / screenwidth)),
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 0.05 * screenheight,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Old coach:",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: red,
+                            fontSize: 23),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 0.03 * screenheight,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Coaching During :",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: red,
+                            fontSize: 23),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 0.03 * screenheight,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        height: screenheight * 0.05,
+                        width: 0.25 * screenwidth,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: white),
+                        child: TextField(
+                          keyboardType: TextInputType.numberWithOptions(),
+                          maxLength: 3,
+                          textAlign: TextAlign.center,
+                          maxLines: 1,
+                          cursorColor: red,
+                          style: TextStyle(color: black, fontSize: 25),
+                          decoration: InputDecoration(
+                            counterText: '',
+                            border: InputBorder.none,
+                          ),
+                        ),
+                      ),
+                      Text(
+                        "months",
+                        style: TextStyle(color: white, fontSize: 20),
+                      ),
+                      Container(
+                        height: screenheight * 0.05,
+                        width: 0.25 * screenwidth,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: white),
+                        child: TextField(
+                          maxLength: 3,
+                          keyboardType: TextInputType.numberWithOptions(),
+                          maxLines: 1,
+                          textAlign: TextAlign.center,
+                          cursorColor: red,
+                          style: TextStyle(color: black, fontSize: 25),
+                          decoration: InputDecoration(
+                              counterText: '',
+                              border: InputBorder.none,
+                              hintStyle: TextStyle(color: red, fontSize: 25)),
+                        ),
+                      ),
+                      Text(
+                        "years",
+                        style: TextStyle(color: white, fontSize: 20),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 0.03 * screenheight,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Why you want coaching here :",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: red,
+                            fontSize: 23),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 0.03 * screenheight,
+                  ),
+                  Container(
+                    height: screenheight * 0.15,
+                    width: 0.9 * screenwidth,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10), color: white),
+                    child: TextField(
+                      textAlign: TextAlign.start,
+                      cursorColor: red,
+                      maxLines: null,
+                      style: TextStyle(color: black, fontSize: 25),
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 0.07 * screenheight,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            contentPadding: EdgeInsets.zero,
+                            content: SingleChildScrollView(
+                              child: Container(
+                                width: screenwidth * 0.5,
+                                height: screenheight * 0.4,
+                                decoration: BoxDecoration(
+                                  image: const DecorationImage(
+                                    image: AssetImage(
+                                        "images/demand coaching mini background.jpg"),
+                                    fit: BoxFit.fill,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Your demand is sended',
+                                      style:
+                                          TextStyle(fontSize: 22, color: white),
+                                    ),
+                                    Text(
+                                      'to administrator',
+                                      style:
+                                          TextStyle(fontSize: 22, color: white),
+                                    ),
+                                    SizedBox(
+                                      height: screenheight * 0.05,
+                                    ),
+                                    Text(
+                                      'Wait for the answer',
+                                      style:
+                                          TextStyle(fontSize: 22, color: white),
+                                    ),
+                                    SizedBox(
+                                      height: 0.1 * screenheight,
+                                    ),
+                                    Container(
+                                      height: 0.05 * screenheight,
+                                      width: 0.4 * screenwidth,
+                                      decoration: BoxDecoration(
+                                          color: white,
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      child: TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          child: Text(
+                                            'Return to Home',
+                                            style: TextStyle(
+                                              fontSize: 10 *
+                                                  (screenheight / screenwidth),
+                                              color: red,
+                                            ),
+                                          )),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      height: screenheight * 0.05,
+                      width: screenwidth * 0.3,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Send",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+                          SizedBox(width: 0.03 * screenwidth),
+                          Icon(
+                            Icons.send,
+                            color: white,
+                            size: 30,
+                          ),
+                        ],
+                      ),
                     ),
                   )
                 ],
