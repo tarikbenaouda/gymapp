@@ -135,37 +135,37 @@ class SettingsUser extends StatelessWidget {
                     limit: 2,
                     filter: FilteringTextInputFormatter.digitsOnly,
                     type: TextInputType.number),
-                const SizedBox(
-                  height: 4,
-                ),
+                4.heightBox,
                 myTextformfield(
                   hint: "Username",
                   icon: const Icon(Icons.edit),
                   controller: controller.usernameController,
                   type: TextInputType.name,
                 ),
-                const SizedBox(
-                  height: 4,
-                ),
+                4.heightBox,
                 myTextformfield(
                     hint: "Phone Number",
                     icon: const Icon(Icons.edit),
                     controller: controller.phoneNumberController,
                     limit: 10,
                     filter: FilteringTextInputFormatter.digitsOnly),
-                const SizedBox(
-                  height: 4,
-                ),
+                4.heightBox,
                 myTextformfield(
-                  hint: "Password",
+                  hint: "old Password",
                   icon: const Icon(Icons.edit),
-                  controller: controller.passwordController,
+                  controller: controller.oldPasswordController,
                   limit: 16,
                   obsecure: true,
                 ),
-                const SizedBox(
-                  height: 4,
+                4.heightBox,
+                myTextformfield(
+                  hint: "New Password",
+                  icon: const Icon(Icons.edit),
+                  controller: controller.newPasswordController,
+                  limit: 16,
+                  obsecure: true,
                 ),
+                4.heightBox,
               ]),
             ),
             controller.isloading.value
@@ -177,19 +177,33 @@ class SettingsUser extends StatelessWidget {
                     child: TextButton(
                         onPressed: () async {
                           controller.isloading(true);
-                          await controller.uploadProfileImage();
-                          await controller.updateProfile(
-                            imgUrl: controller.profileImageLink,
-                            fullName: controller.fullNameController.text,
-                            username: controller.usernameController.text,
-                            age: controller.ageController.text,
-                            height: controller.heightController.text,
-                            weight: controller.weightController.text,
-                            phoneNumber: controller.phoneNumberController.text,
-                            password: controller.passwordController.text,
-                          );
+                          //if image is not selected
+                          if (controller.profileImgPath.value.isNotEmpty) {
+                            await controller.uploadProfileImage();
+                          } else {
+                            controller.profileImageLink = data['imageUrl'];
+                          }
+                          //if old password matches database
+                          //data['password']
+                          if (data['password'] ==
+                              controller.oldPasswordController.text) {
+                            await controller.updateProfile(
+                              imgUrl: controller.profileImageLink,
+                              fullName: controller.fullNameController.text,
+                              username: controller.usernameController.text,
+                              age: controller.ageController.text,
+                              height: controller.heightController.text,
+                              weight: controller.weightController.text,
+                              phoneNumber:
+                                  controller.phoneNumberController.text,
+                              password: controller.newPasswordController.text,
+                            );
 
-                          VxToast.show(context, msg: "Updated");
+                            VxToast.show(context, msg: "Updated");
+                          } else {
+                            VxToast.show(context, msg: "Wrong old password!");
+                            controller.isloading(false);
+                          }
                         },
                         child: Container(
                           alignment: Alignment.center,

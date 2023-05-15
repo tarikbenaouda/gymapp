@@ -217,48 +217,6 @@ class _ProfileUserState extends State<ProfileUser> {
                         Textinput: "Phone Number",
                         Textinput2: "${data['phoneNumber']}",
                       ),
-                      /*
-                      TextButton(
-                        onPressed: () {
-                          controller.fullNameController.text = data['fullName'];
-                          controller.usernameController.text = data['username'];
-                          controller.phoneNumberController.text =
-                              data['phoneNumber'];
-                          controller.ageController.text = data['age'];
-                          controller.heightController.text = data['height'];
-                          controller.weightController.text = data['weight'];
-                          controller.passwordController.text = data['password'];
-                          Get.to(
-                            () => SettingsUser(data: data),
-                          );
-                        },
-                        child: Container(
-                          alignment: Alignment.center,
-                          height: 40,
-                          width: 240,
-                          decoration: BoxDecoration(
-                              color: const Color(0xFFFF1E0F),
-                              borderRadius: BorderRadius.circular(15)),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 8),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
-                                Text(
-                                  "Edit",
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 16),
-                                ),
-                                Icon(
-                                  Icons.settings,
-                                  color: Colors.white,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      */
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 60),
                         child: ourButton(
@@ -275,8 +233,8 @@ class _ProfileUserState extends State<ProfileUser> {
                             controller.ageController.text = data['age'];
                             controller.heightController.text = data['height'];
                             controller.weightController.text = data['weight'];
-                            controller.passwordController.text =
-                                data['password'];
+                            //controller.passwordController.text =
+                            //    data['password'];
                             Get.to(
                               () => SettingsUser(data: data),
                             );

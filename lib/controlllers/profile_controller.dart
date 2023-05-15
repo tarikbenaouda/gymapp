@@ -20,7 +20,8 @@ class ProfileController extends GetxController {
   var ageController = TextEditingController();
   var heightController = TextEditingController();
   var weightController = TextEditingController();
-  var passwordController = TextEditingController();
+  var newPasswordController = TextEditingController();
+  var oldPasswordController = TextEditingController();
 
   changeImage(context) async {
     try {
