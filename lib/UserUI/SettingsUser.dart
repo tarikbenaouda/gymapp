@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:io';
 
 import 'package:flutter/services.dart';
@@ -64,26 +66,7 @@ class SettingsUser extends StatelessWidget {
                         width: 100,
                         fit: BoxFit.cover,
                       ).box.roundedFull.clip(Clip.antiAlias).make(),
-                TextButton(
-                  onPressed: () async {
-                    print("object");
-                    //controller.isloading(true);
-                    await controller.uploadProfileImage();
-                    await controller.updateProfile(
-                      imgUrl: controller.profileImageLink,
-                      fullName: controller.fullNameController.text,
-                      username: controller.usernameController.text,
-                      age: controller.ageController.text,
-                      height: controller.heightController.text,
-                      weight: controller.weightController.text,
-                      phoneNumber: controller.phoneNumberController.text,
-                      password: controller.passwordController.text,
-                    );
-
-                    VxToast.show(context, msg: "Updated");
-                  },
-                  child: Text('Click me!'),
-                ),
+                10.heightBox,
                 Column(
                   children: [
                     TextButton(
@@ -177,15 +160,14 @@ class SettingsUser extends StatelessWidget {
               ]),
             ),
             controller.isloading.value
-                ? CircularProgressIndicator(
+                ? const CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation(red),
                   )
                 : SizedBox(
                     width: context.screenWidth - 60,
                     child: TextButton(
                         onPressed: () async {
-                          print("object");
-                          //controller.isloading(true);
+                          controller.isloading(true);
                           await controller.uploadProfileImage();
                           await controller.updateProfile(
                             imgUrl: controller.profileImageLink,

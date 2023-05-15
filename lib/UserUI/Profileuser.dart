@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:gymapp/common_widgets/my_textformfield.dart';
@@ -87,49 +89,22 @@ class _ProfileUserState extends State<ProfileUser> {
                         padding: const EdgeInsets.all(7.0),
                         child: Row(
                           children: [
-                            Container(
-                              height: 100,
-                              width: 100,
-                              decoration: const BoxDecoration(
-                                color: Colors.white,
-                                shape: BoxShape.circle,
-                              ),
-                              //url of image
-                            ),
+                            controller.profileImgPath.isEmpty
+                                ? Image.asset(
+                                    icGoogleLogo,
+                                    width: 100,
+                                    fit: BoxFit.cover,
+                                  ).box.roundedFull.clip(Clip.antiAlias).make()
+                                : Image.file(
+                                    File(controller.profileImgPath.value),
+                                    width: 100,
+                                    fit: BoxFit.cover,
+                                  ).box.roundedFull.clip(Clip.antiAlias).make(),
                             const SizedBox(
                               width: 8,
                             ),
                             Column(
                               children: [
-                                TextButton(
-                                    onPressed: (() {}),
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      height: 40,
-                                      width: 200,
-                                      decoration: BoxDecoration(
-                                          color: const Color(0xFFFF1E0F),
-                                          borderRadius:
-                                              BorderRadius.circular(15)),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          const Text(
-                                            "Change Picture",
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 16),
-                                          ),
-                                          IconButton(
-                                              onPressed: () {},
-                                              icon: const Icon(
-                                                Icons.edit,
-                                                color: Colors.black,
-                                              )),
-                                        ],
-                                      ),
-                                    )),
                                 TextButton(
                                     onPressed: (() {}),
                                     child: Container(
