@@ -26,7 +26,7 @@ class _ProfileUserState extends State<ProfileUser> {
         stream: FirestoreServices.getUser(currentUser!.uid),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (!snapshot.hasData) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation(red),
               ),
@@ -44,7 +44,7 @@ class _ProfileUserState extends State<ProfileUser> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.of(context).pushNamed("Homeuser");
+                      Get.back();
                     },
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
@@ -61,7 +61,7 @@ class _ProfileUserState extends State<ProfileUser> {
                           ),
                           Center(
                             child: Text(
-                              " Profil",
+                              " Profile",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 32,
@@ -89,14 +89,14 @@ class _ProfileUserState extends State<ProfileUser> {
                         padding: const EdgeInsets.all(7.0),
                         child: Row(
                           children: [
-                            controller.profileImgPath.isEmpty
+                            data['imageUrl'] == ''
                                 ? Image.asset(
                                     icGoogleLogo,
                                     width: 100,
                                     fit: BoxFit.cover,
                                   ).box.roundedFull.clip(Clip.antiAlias).make()
-                                : Image.file(
-                                    File(controller.profileImgPath.value),
+                                : Image.network(
+                                    data['imageUrl'],
                                     width: 100,
                                     fit: BoxFit.cover,
                                   ).box.roundedFull.clip(Clip.antiAlias).make(),
@@ -217,6 +217,7 @@ class _ProfileUserState extends State<ProfileUser> {
                         Textinput: "Phone Number",
                         Textinput2: "${data['phoneNumber']}",
                       ),
+                      /*
                       TextButton(
                         onPressed: () {
                           controller.fullNameController.text = data['fullName'];
@@ -244,7 +245,7 @@ class _ProfileUserState extends State<ProfileUser> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: const [
                                 Text(
-                                  "Go To Settings To Modify",
+                                  "Edit",
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 16),
                                 ),
@@ -257,6 +258,25 @@ class _ProfileUserState extends State<ProfileUser> {
                           ),
                         ),
                       ),
+                      */
+                      ourButton(
+                        color: red,
+                        title: "Edit",
+                        textColor: white,
+                        onPress: () {
+                          controller.fullNameController.text = data['fullName'];
+                          controller.usernameController.text = data['username'];
+                          controller.phoneNumberController.text =
+                              data['phoneNumber'];
+                          controller.ageController.text = data['age'];
+                          controller.heightController.text = data['height'];
+                          controller.weightController.text = data['weight'];
+                          controller.passwordController.text = data['password'];
+                          Get.to(
+                            () => SettingsUser(data: data),
+                          );
+                        },
+                      ).box.width(context.screenWidth - 200).make(),
                     ]),
                   ),
                 ],

@@ -26,7 +26,9 @@ class SettingsUser extends StatelessWidget {
               height: 10,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Get.back();
+              },
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
@@ -55,17 +57,24 @@ class SettingsUser extends StatelessWidget {
             ),
             Obx(
               () => Column(children: [
-                controller.profileImgPath.isEmpty
+                data['imageUrl'] == '' && controller.profileImgPath.isEmpty
                     ? Image.asset(
                         icGoogleLogo,
                         width: 100,
                         fit: BoxFit.cover,
                       ).box.roundedFull.clip(Clip.antiAlias).make()
-                    : Image.file(
-                        File(controller.profileImgPath.value),
-                        width: 100,
-                        fit: BoxFit.cover,
-                      ).box.roundedFull.clip(Clip.antiAlias).make(),
+                    : data['imageUrl'] != '' &&
+                            controller.profileImgPath.isEmpty
+                        ? Image.network(
+                            data['imageUrl'],
+                            width: 100,
+                            fit: BoxFit.cover,
+                          ).box.roundedFull.clip(Clip.antiAlias).make()
+                        : Image.file(
+                            File(controller.profileImgPath.value),
+                            width: 100,
+                            fit: BoxFit.cover,
+                          ).box.roundedFull.clip(Clip.antiAlias).make(),
                 10.heightBox,
                 Column(
                   children: [
