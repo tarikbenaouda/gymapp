@@ -36,7 +36,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+
+      home: const SplashScreen(),
+
       routes: {
         //  "/": (context) => Auth(),
         "welcome": (context) => const Unboarding(),
