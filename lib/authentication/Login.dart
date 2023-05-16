@@ -113,7 +113,8 @@ class _LoginState extends State<Login> {
                                   if (value != null) {
                                     VxToast.show(context,
                                         msg: "Logged in Successfully");
-
+                                    User? user =
+                                        FirebaseAuth.instance.currentUser;
                                     String uid = user!.uid;
                                     (uid == "yXmxa3CA0ePjBgKq6i2G7sngV4t2")
                                         ? Get.offAll(() => const HomeView())
