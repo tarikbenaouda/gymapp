@@ -14,6 +14,7 @@ import 'package:gymapp/ManagerUI/ProfileCoach.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/consts/consts.dart';
 import 'package:gymapp/ManagerUI/listofcoach.dart';
+
 import 'package:gymapp/ManagerUI/listofcoach.dart';
 
 void main() async {
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
+      home: SplashScreen(),
       routes: {
         //  "/": (context) => Auth(),
         "welcome": (context) => const Unboarding(),
