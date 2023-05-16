@@ -11,12 +11,16 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   //creating method to change the screen
   changeScreen() {
+    String uid;
     Future.delayed(const Duration(seconds: 3), () {
       auth.authStateChanges().listen((User? user) {
         if (user == null && mounted) {
           Get.offAll(() => const Getstarted());
         } else {
-          Get.offAll(() => const ProfileUser());
+          uid = auth.currentUser!.uid;
+          (uid == "qPOsAO45uQh7jiHm0UIpJ9J6In22")
+              ? Get.offAll(() => const HomeView())
+              : Get.offAll(() => const ProfileUser());
         }
       });
     });

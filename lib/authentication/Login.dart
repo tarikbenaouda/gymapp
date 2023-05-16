@@ -110,17 +110,20 @@ class _LoginState extends State<Login> {
                                 await controller
                                     .loginMethod(context: context)
                                     .then((value) {
-                                  if (value != null) {
-                                    VxToast.show(context,
-                                        msg: "Logged in Successfully");
-                                    auth.authStateChanges();
-                                    uid = auth.currentUser!.uid;
-                                    (uid == "qPOsAO45uQh7jiHm0UIpJ9J6In22")
-                                        ? Get.offAll(() => const HomeView())
-                                        : Get.offAll(() => const ProfileUser());
-                                  } else {
-                                    controller.isloading(false);
-                                  }
+                                  auth.authStateChanges().listen((User? user) {
+                                    if (value != null) {
+                                      VxToast.show(context,
+                                          msg: "Logged in Successfully");
+                                      auth.authStateChanges();
+                                      uid = auth.currentUser!.uid;
+                                      (uid == "qPOsAO45uQh7jiHm0UIpJ9J6In22")
+                                          ? Get.offAll(() => const HomeView())
+                                          : Get.offAll(
+                                              () => const ProfileUser());
+                                    } else {
+                                      controller.isloading(false);
+                                    }
+                                  });
                                 });
                               },
                               child: const Text(
