@@ -1,5 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 import 'package:gymapp/UserUI/SettingsUser.dart';
 import 'package:gymapp/consts/consts.dart';
 
