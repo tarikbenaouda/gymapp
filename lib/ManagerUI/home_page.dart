@@ -10,6 +10,7 @@ import 'package:gymapp/consts/consts.dart';
 import 'package:intl/intl.dart';
 
 import '../authentication/Login.dart';
+import '../consts/firebase_consts.dart';
 import '../controlllers/auth_controller.dart';
 import 'OurStateShop.dart';
 import 'OurstateAthlete.dart';
@@ -727,8 +728,10 @@ class _HomeViewState extends State<HomeView> {
                       width: 195,
                       child: ElevatedButton(
                         onPressed: () async {
+                          auth.authStateChanges();
                           await Get.put(AuthController())
                               .signoutMethod(context);
+
                           Get.offAll(() => const Login());
                         },
                         style: ElevatedButton.styleFrom(
