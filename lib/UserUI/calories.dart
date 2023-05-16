@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:flutter/material.dart';
 import 'package:gymapp/UserUI/SettingsUser.dart';
 import 'package:gymapp/consts/consts.dart';
@@ -68,8 +70,7 @@ class _CaloriesState extends State<Calories> {
           width: double.infinity,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image:
-                  AssetImage("assets/images/calculate calories background.jpg"),
+              image: AssetImage("images/calculate calories background.jpg"),
               fit: BoxFit.fill,
             ),
           ), ///////// the image
@@ -87,8 +88,10 @@ class _CaloriesState extends State<Calories> {
                       color: Color(0xFFFD372A),
                     ),
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomeView()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HomeViewAthlete()));
                     },
                   ),
                 ),
@@ -124,8 +127,8 @@ class _CaloriesState extends State<Calories> {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         opacity: 0.7,
-                        image: AssetImage(
-                            "assets/images/calculate calories pic 1.jpg"),
+                        image:
+                            AssetImage("images/calculate calories pic 1.jpg"),
                         fit: BoxFit.fill,
                       ),
                     )),

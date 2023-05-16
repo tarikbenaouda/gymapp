@@ -27,8 +27,7 @@ class _EstimateState extends State<Estimate> {
             width: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(
-                    "assets/images/calculate calories background.jpg"),
+                image: AssetImage("images/calculate calories background.jpg"),
                 fit: BoxFit.fill,
               ),
             ), ///////// the image
@@ -90,8 +89,7 @@ class _EstimateState extends State<Estimate> {
                       borderRadius: BorderRadius.circular(30.0),
                       image: DecorationImage(
                         opacity: 0.7,
-                        image: AssetImage(
-                            "assets/images/caculate calories pic 2.jpg"),
+                        image: AssetImage("images/caculate calories pic 2.jpg"),
                         fit: BoxFit.fill,
                       ),
                     ),
