@@ -116,7 +116,7 @@ class _LoginState extends State<Login> {
                                           msg: "Logged in Successfully");
                                       auth.authStateChanges();
                                       uid = auth.currentUser!.uid;
-                                      (uid == "qPOsAO45uQh7jiHm0UIpJ9J6In22")
+                                      (uid == "kvqkjI1Jf5ZeJdkhoaJz0qZ7ukL2")
                                           ? Get.offAll(() => const HomeView())
                                           : Get.offAll(
                                               () => const ProfileUser());
