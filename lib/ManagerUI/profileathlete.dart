@@ -15,7 +15,7 @@ class _ProfileathleteState extends State<Profileathlete> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("images/20.jpg"), fit: BoxFit.cover)),
         child: ListView(
@@ -29,7 +29,7 @@ class _ProfileathleteState extends State<Profileathlete> {
                     const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: const [
                     Icon(
                       Icons.keyboard_double_arrow_left_outlined,
                       color: Color(0xFFFF1E0F),
@@ -54,9 +54,9 @@ class _ProfileathleteState extends State<Profileathlete> {
             Container(
               width: double.infinity,
               height: 550,
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               decoration: BoxDecoration(
-                  image: DecorationImage(
+                  image: const DecorationImage(
                       image: AssetImage(
                         "images/21.jpg",
                       ),
@@ -70,20 +70,20 @@ class _ProfileathleteState extends State<Profileathlete> {
                       Container(
                         height: 50,
                         width: 50,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.white,
                           shape: BoxShape.circle,
                         ),
                         //url of image
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 8,
                       ),
                       Container(
                         height: 60,
                         width: 170,
                         //username
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             "Hako Djerad fojdgdn",
                             style: TextStyle(
@@ -95,7 +95,7 @@ class _ProfileathleteState extends State<Profileathlete> {
                       ),
                       //
 
-                      Text("  , Year",
+                      const Text("  , Year",
                           style: TextStyle(color: Colors.white, fontSize: 15))
                     ],
                   ),
@@ -110,11 +110,11 @@ class _ProfileathleteState extends State<Profileathlete> {
                           height: 40,
                           width: 150,
                           decoration: BoxDecoration(
-                              color: Color(0xFFE6E6E6),
+                              color: const Color(0xFFE6E6E6),
                               borderRadius: BorderRadius.circular(20)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                            children: const [
                               Center(
                                 child: Text(
                                   'Height:',
@@ -125,18 +125,18 @@ class _ProfileathleteState extends State<Profileathlete> {
                               Text("VARIABLE")
                             ],
                           )),
-                      SizedBox(
+                      const SizedBox(
                         width: 7,
                       ),
                       Container(
                           height: 40,
                           width: 150,
                           decoration: BoxDecoration(
-                              color: Color(0xFFE6E6E6),
+                              color: const Color(0xFFE6E6E6),
                               borderRadius: BorderRadius.circular(20)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                            children: const [
                               Center(
                                 child: Text(
                                   'Weight:',
@@ -150,43 +150,43 @@ class _ProfileathleteState extends State<Profileathlete> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 4,
                 ),
-                Center(
+                const Center(
                   child: Text(
                     "For Contact The Athlete",
                     style: TextStyle(color: Color(0xFFE6E6E6), fontSize: 18),
                   ),
                 ),
                 MyInfos(Textinput: " Email ", Textinput2: "variable"),
-                SizedBox(
+                const SizedBox(
                   height: 2,
                 ),
                 MyInfos(Textinput: " Number Phone", Textinput2: "variable"),
-                Center(
+                const Center(
                   child: Text(
                     "The Athlete Payement",
                     style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 18),
                   ),
                 ),
                 MyInfos(Textinput: " Offer Paid", Textinput2: "variable"),
-                SizedBox(
+                const SizedBox(
                   height: 4,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Container(
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       alignment: Alignment.centerLeft,
                       height: 50,
                       width: 80,
                       decoration: BoxDecoration(
-                          color: Color(0xFFE6E6E6),
+                          color: const Color(0xFFE6E6E6),
                           borderRadius: BorderRadius.circular(20)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
+                        children: const [
                           Text(
                             " Payement End: ",
                             style: TextStyle(
@@ -214,7 +214,7 @@ class _ProfileathleteState extends State<Profileathlete> {
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(15)),
-                      child: Text(
+                      child: const Text(
                         "Update Payement",
                         style:
                             TextStyle(color: Color(0xFFFF1E0F), fontSize: 18),
@@ -227,11 +227,11 @@ class _ProfileathleteState extends State<Profileathlete> {
                       width: 160,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: Color(0xFFFF1E0F),
+                        color: const Color(0xFFFF1E0F),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                        children: const [
                           Text(
                             "Delete Athlete",
                             style: TextStyle(color: Colors.white, fontSize: 18),

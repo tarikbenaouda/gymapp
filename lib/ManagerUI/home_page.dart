@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:gymapp/ManagerUI/setting.dart';
 import 'package:intl/intl.dart';
 
+import '../authentication/Login.dart';
+import '../controlllers/auth_controller.dart';
 import 'modify_about.dart';
 import 'modify_events.dart';
 import 'modify_help.dart';
@@ -31,7 +35,7 @@ class _HomeViewState extends State<HomeView> {
         child: Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("images/admin home back ground.jpg"),
               fit: BoxFit.fill,
@@ -45,13 +49,13 @@ class _HomeViewState extends State<HomeView> {
                 Padding(
                   padding: const EdgeInsets.only(top: 20.0),
                   child: IconButton(
-                    icon: Icon(Icons.menu, color: Colors.white),
+                    icon: const Icon(Icons.menu, color: Colors.white),
                     onPressed: () => _scaffoldKey.currentState?.openDrawer(),
                   ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: const [
                     Text(
                       "Welcome  ",
                       style: TextStyle(
@@ -72,7 +76,7 @@ class _HomeViewState extends State<HomeView> {
                 ),
                 Center(
                     child: Text("$admin  ",
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 20,
                         ))),
                 Row(
@@ -80,29 +84,29 @@ class _HomeViewState extends State<HomeView> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: Color(0xFFFD372A),
+                        color: const Color(0xFFFD372A),
                         borderRadius: BorderRadius.circular(20.0),
                       ),
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                           horizontal: 20.0, vertical: 10.0),
                       child: Text('$formattedDate',
-                          style: TextStyle(color: Colors.white)),
+                          style: const TextStyle(color: Colors.white)),
                     ),
                     GestureDetector(
                       onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => HomeView()));
+                                builder: (context) => const HomeView()));
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Color(0xFFFD372A),
+                          color: const Color(0xFFFD372A),
                           borderRadius: BorderRadius.circular(20.0),
                         ),
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                             horizontal: 20.0, vertical: 10.0),
-                        child: Text('Edit Gym State',
+                        child: const Text('Edit Gym State',
                             style: TextStyle(color: Colors.white)),
                       ),
                     ),
@@ -112,7 +116,7 @@ class _HomeViewState extends State<HomeView> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
                   child: Container(
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         'ADS',
                         style: TextStyle(fontSize: 50, color: Colors.black),
@@ -121,7 +125,7 @@ class _HomeViewState extends State<HomeView> {
                     width: (double.infinity),
                     height: 200,
                     decoration: BoxDecoration(
-                      color: Color(0xFFD9D9D9),
+                      color: const Color(0xFFD9D9D9),
                       borderRadius: BorderRadius.circular(17.0),
                     ),
                   ),
@@ -141,11 +145,11 @@ class _HomeViewState extends State<HomeView> {
                           borderRadius: BorderRadius.circular(17.0),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.only(left: 14, top: 7),
+                          padding: const EdgeInsets.only(left: 14, top: 7),
                           child: Text(
                             softWrap: false,
                             'Athletes Number\n           $athletes',
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 17,
                               fontWeight: FontWeight.bold,
@@ -167,11 +171,11 @@ class _HomeViewState extends State<HomeView> {
                           borderRadius: BorderRadius.circular(17.0),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.only(left: 15, top: 7),
+                          padding: const EdgeInsets.only(left: 15, top: 7),
                           child: Text(
                             softWrap: false,
                             'Coach Number\n         $coaches ',
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 17,
                               fontWeight: FontWeight.bold,
@@ -193,7 +197,7 @@ class _HomeViewState extends State<HomeView> {
                         decoration: BoxDecoration(
                           // border:  Border.all(color: Colors.grey, width: 2),
                           borderRadius: BorderRadius.circular(17.0),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                             image: AssetImage(
                               "images/admin-home pic3.jpg",
                             ),
@@ -205,14 +209,14 @@ class _HomeViewState extends State<HomeView> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HomeView()),
+                                  builder: (context) => const HomeView()),
                             );
                           },
                           child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(17.0),
                             ),
-                            child: Align(
+                            child: const Align(
                               alignment: Alignment.bottomCenter,
                               child: Text(
                                 softWrap: false,
@@ -237,7 +241,7 @@ class _HomeViewState extends State<HomeView> {
                         decoration: BoxDecoration(
                           // border:  Border.all(color: Colors.grey, width: 2),
                           borderRadius: BorderRadius.circular(17.0),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                             image: AssetImage(
                               "images/admin-home pic2.jpg",
                             ),
@@ -249,14 +253,14 @@ class _HomeViewState extends State<HomeView> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HomeView()),
+                                  builder: (context) => const HomeView()),
                             );
                           },
                           child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(17.0),
                             ),
-                            child: Align(
+                            child: const Align(
                               alignment: Alignment.bottomCenter,
                               child: Text(
                                 softWrap: false,
@@ -281,7 +285,7 @@ class _HomeViewState extends State<HomeView> {
                         decoration: BoxDecoration(
                           // border:  Border.all(color: Colors.grey, width: 2),
                           borderRadius: BorderRadius.circular(17.0),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                             image: AssetImage(
                               "images/admin-home pic5.jpg",
                             ),
@@ -293,14 +297,14 @@ class _HomeViewState extends State<HomeView> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HomeView()),
+                                  builder: (context) => const HomeView()),
                             );
                           },
                           child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(17.0),
                             ),
-                            child: Align(
+                            child: const Align(
                               alignment: Alignment.bottomCenter,
                               child: Text(
                                 softWrap: false,
@@ -325,7 +329,7 @@ class _HomeViewState extends State<HomeView> {
                         decoration: BoxDecoration(
                           // border:  Border.all(color: Colors.grey, width: 2),
                           borderRadius: BorderRadius.circular(17.0),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                             image: AssetImage(
                               "images/admin-home pic7.jpg",
                             ),
@@ -337,14 +341,14 @@ class _HomeViewState extends State<HomeView> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HomeView()),
+                                  builder: (context) => const HomeView()),
                             );
                           },
                           child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(17.0),
                             ),
-                            child: Align(
+                            child: const Align(
                               alignment: Alignment.bottomCenter,
                               child: Text(
                                 softWrap: false,
@@ -369,7 +373,7 @@ class _HomeViewState extends State<HomeView> {
                         decoration: BoxDecoration(
                           // border:  Border.all(color: Colors.grey, width: 2),
                           borderRadius: BorderRadius.circular(17.0),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                             image: AssetImage(
                               "images/admin-home pic6.jpg",
                             ),
@@ -381,14 +385,14 @@ class _HomeViewState extends State<HomeView> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HomeView()),
+                                  builder: (context) => const HomeView()),
                             );
                           },
                           child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(17.0),
                             ),
-                            child: Align(
+                            child: const Align(
                               alignment: Alignment.bottomCenter,
                               child: Text(
                                 softWrap: false,
@@ -413,7 +417,7 @@ class _HomeViewState extends State<HomeView> {
                         decoration: BoxDecoration(
                           //border:  Border.all(color: Colors.grey, width: 2),
                           borderRadius: BorderRadius.circular(17.0),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                             image: AssetImage(
                               "images/admin-home pic4.jpg",
                             ),
@@ -425,14 +429,14 @@ class _HomeViewState extends State<HomeView> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HomeView()),
+                                  builder: (context) => const HomeView()),
                             );
                           },
                           child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(17.0),
                             ),
-                            child: Align(
+                            child: const Align(
                               alignment: Alignment.bottomCenter,
                               child: Text(
                                 softWrap: false,
@@ -457,7 +461,7 @@ class _HomeViewState extends State<HomeView> {
                         decoration: BoxDecoration(
                           // border:  Border.all(color: Colors.grey, width: 2),
                           borderRadius: BorderRadius.circular(17.0),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                             image: AssetImage(
                               "images/admin-home pic1.jpg",
                             ),
@@ -469,14 +473,14 @@ class _HomeViewState extends State<HomeView> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HomeView()),
+                                  builder: (context) => const HomeView()),
                             );
                           },
                           child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(17.0),
                             ),
-                            child: Align(
+                            child: const Align(
                               alignment: Alignment.bottomCenter,
                               child: Text(
                                 softWrap: false,
@@ -500,7 +504,7 @@ class _HomeViewState extends State<HomeView> {
                         height: 160,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(17.0),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                             image: AssetImage(
                               "images/admin-home pic.jpg",
                             ),
@@ -512,14 +516,14 @@ class _HomeViewState extends State<HomeView> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HomeView()),
+                                  builder: (context) => const HomeView()),
                             );
                           },
                           child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(17.0),
                             ),
-                            child: Align(
+                            child: const Align(
                               alignment: Alignment.bottomCenter,
                               child: Text(
                                 'Edit Our Shop',
@@ -543,7 +547,7 @@ class _HomeViewState extends State<HomeView> {
                         decoration: BoxDecoration(
                           // border:  Border.all(color: Colors.grey, width: 2),
                           borderRadius: BorderRadius.circular(17.0),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                             image: AssetImage(
                               "images/admin-home pic8.jpg",
                             ),
@@ -562,7 +566,7 @@ class _HomeViewState extends State<HomeView> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(17.0),
                             ),
-                            child: Align(
+                            child: const Align(
                               alignment: Alignment.bottomCenter,
                               child: Text(
                                 softWrap: false,
@@ -578,7 +582,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     )
                   ],
@@ -599,11 +603,11 @@ class _HomeViewState extends State<HomeView> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomeView()),
+                    MaterialPageRoute(builder: (context) => const HomeView()),
                   );
                 },
                 child: Container(
-                  child: Icon(
+                  child: const Icon(
                     Icons.home,
                   ),
                 ),
@@ -615,11 +619,11 @@ class _HomeViewState extends State<HomeView> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomeView()),
+                    MaterialPageRoute(builder: (context) => const HomeView()),
                   );
                 },
                 child: Container(
-                  child: Icon(
+                  child: const Icon(
                     Icons.settings_applications,
                   ),
                 ),
@@ -629,7 +633,7 @@ class _HomeViewState extends State<HomeView> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomeView()),
+                  MaterialPageRoute(builder: (context) => const HomeView()),
                 );
               },
               child: Container(
@@ -637,7 +641,7 @@ class _HomeViewState extends State<HomeView> {
                   shape: BoxShape.circle,
                   border: Border.all(color: Colors.grey, width: 1),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.shopping_cart,
                   size: 22,
                 ),
@@ -649,7 +653,7 @@ class _HomeViewState extends State<HomeView> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Setting()),
+                    MaterialPageRoute(builder: (context) => const Setting()),
                   );
                 },
                 child: Container(
@@ -657,7 +661,7 @@ class _HomeViewState extends State<HomeView> {
                     shape: BoxShape.circle,
                     border: Border.all(color: Colors.grey, width: 1),
                   ),
-                  child: Icon(Icons.settings),
+                  child: const Icon(Icons.settings),
                 ),
               ),
             ),
@@ -674,7 +678,7 @@ class _HomeViewState extends State<HomeView> {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0),
-                image: DecorationImage(
+                image: const DecorationImage(
                   image: AssetImage("images/drawor (admin).jpg"),
                   fit: BoxFit.fill,
                 ),
@@ -682,10 +686,10 @@ class _HomeViewState extends State<HomeView> {
               // color: Color(0xFF232323),
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
-                  ListTile(
+                  const ListTile(
                     leading: Icon(
                       Icons.menu,
                       color: Colors.white,
@@ -696,15 +700,15 @@ class _HomeViewState extends State<HomeView> {
                           color: Colors.white,
                         )),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 60,
                   ),
                   ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.home,
                       color: Colors.white,
                     ),
-                    title: Text('Home',
+                    title: const Text('Home',
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.white,
@@ -712,16 +716,17 @@ class _HomeViewState extends State<HomeView> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => HomeView()),
+                        MaterialPageRoute(
+                            builder: (context) => const HomeView()),
                       );
                     },
                   ),
                   ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.settings,
                       color: Colors.white,
                     ),
-                    title: Text('Settings',
+                    title: const Text('Settings',
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.white,
@@ -729,16 +734,17 @@ class _HomeViewState extends State<HomeView> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Setting()),
+                        MaterialPageRoute(
+                            builder: (context) => const Setting()),
                       );
                     },
                   ),
                   ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.help,
                       color: Colors.white,
                     ),
-                    title: Text('Help',
+                    title: const Text('Help',
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.white,
@@ -751,11 +757,11 @@ class _HomeViewState extends State<HomeView> {
                     },
                   ),
                   ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.info,
                       color: Colors.white,
                     ),
-                    title: Text('About',
+                    title: const Text('About',
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.white,
@@ -766,6 +772,38 @@ class _HomeViewState extends State<HomeView> {
                         MaterialPageRoute(builder: (context) => ModifyAbout()),
                       );
                     },
+                  ),
+                  const SizedBox(
+                    height: 140,
+                  ),
+                  Center(
+                    child: SizedBox(
+                      width: 195,
+                      child: ElevatedButton(
+                        onPressed: () async {
+                          await Get.put(AuthController())
+                              .signoutMethod(context);
+                          Get.offAll(() => const Login());
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF393939), //
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            side: const BorderSide(color: Colors.white),
+                          ), // Change the background color
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(Icons.logout),
+                            SizedBox(width: 8.0),
+                            Text('Log out',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20)),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),

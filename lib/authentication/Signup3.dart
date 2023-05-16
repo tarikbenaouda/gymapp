@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:custom_check_box/custom_check_box.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/consts/consts.dart';
@@ -38,7 +36,7 @@ class _Signup3State extends State<Signup3> {
                 child: Container(
           height: screenlength,
           width: screenwidth,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage(
                     "images/5.jpg",
@@ -46,10 +44,10 @@ class _Signup3State extends State<Signup3> {
                   fit: BoxFit.fill)),
           child: ListView(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 80,
               ),
-              Center(
+              const Center(
                 child: Text(
                   "Sign Up",
                   style: TextStyle(
@@ -58,7 +56,7 @@ class _Signup3State extends State<Signup3> {
                       fontWeight: FontWeight.w500),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 100,
               ),
               myTextformfield(
@@ -81,12 +79,12 @@ class _Signup3State extends State<Signup3> {
               Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(16.0),
                     child: CustomCheckBox(
                       value: shouldCheck,
                       shouldShowBorder: true,
-                      borderColor: Color(0xFFFF1E0F),
-                      checkedFillColor: Color(0xFFFF1E0F),
+                      borderColor: const Color(0xFFFF1E0F),
+                      checkedFillColor: const Color(0xFFFF1E0F),
                       borderRadius: 8,
                       borderWidth: 1,
                       checkBoxSize: 22,
@@ -102,31 +100,31 @@ class _Signup3State extends State<Signup3> {
                     children: [
                       Row(
                         children: [
-                          Text(
+                          const Text(
                             "You agree to our ",
                             style: TextStyle(color: Color(0xFFFF1E0F)),
                           ),
                           InkWell(
                             onTap: () {},
-                            child: Text(
+                            child: const Text(
                               "Termes of Services ",
                               style: TextStyle(
                                   color: Colors.white,
                                   decoration: TextDecoration.underline),
                             ),
                           ),
-                          Text(
+                          const Text(
                             " and",
                             style: TextStyle(color: Color(0xFFFF1E0F)),
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 6,
                       ),
                       InkWell(
                         onTap: () {},
-                        child: Text(
+                        child: const Text(
                           "Privacy Policy",
                           style: TextStyle(
                               color: Colors.white,
@@ -153,8 +151,8 @@ class _Signup3State extends State<Signup3> {
                               borderRadius: BorderRadius.circular(25),
                             ),
                             backgroundColor: shouldCheck == true
-                                ? Color(0xFFFF1E0F)
-                                : Color.fromARGB(255, 255, 184, 179),
+                                ? const Color(0xFFFF1E0F)
+                                : const Color.fromARGB(255, 255, 184, 179),
                           ),
                           onPressed: () async {
                             if (passwordController.text ==
@@ -182,7 +180,7 @@ class _Signup3State extends State<Signup3> {
                                   }).then((value) {
                                     VxToast.show(context,
                                         msg: "Logged in successfully");
-                                    Get.offAll(() => ProfileUser());
+                                    Get.offAll(() => const ProfileUser());
                                   });
                                 } catch (e) {
                                   auth.signOut();
@@ -195,7 +193,7 @@ class _Signup3State extends State<Signup3> {
                                   msg: "Confirm password error");
                             }
                           },
-                          child: Text(
+                          child: const Text(
                             "Sign Up",
                             style: TextStyle(
                               fontSize: 25,
@@ -205,7 +203,7 @@ class _Signup3State extends State<Signup3> {
                         ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Padding(
@@ -217,15 +215,14 @@ class _Signup3State extends State<Signup3> {
                   width: 120,
                   decoration: BoxDecoration(
                       color: Colors.white,
-                      border: Border.all(width: 2, color: Color(0xFFFF1E0F)),
+                      border:
+                          Border.all(width: 2, color: const Color(0xFFFF1E0F)),
                       borderRadius: BorderRadius.circular(15)),
                   child: InkWell(
                     onTap: () {
-                      //Navigator.of(context).pushNamed("Signup2");
-                      //Get.to(() => Signup2());
                       Get.back();
                     },
-                    child: Text(
+                    child: const Text(
                       "Back",
                       style: TextStyle(
                           fontSize: 20,

@@ -67,7 +67,7 @@ class edit_our_shop_State extends State<edit_our_shop> {
       child: Container(
           height: screenheight,
           width: screenwidth,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("images/edit shop back ground.jpg"),
               fit: BoxFit.fill,
@@ -78,7 +78,7 @@ class edit_our_shop_State extends State<edit_our_shop> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 IconButton(
-                  padding: EdgeInsets.only(top: 30),
+                  padding: const EdgeInsets.only(top: 30),
                   iconSize: 25 * (screenheight / screenwidth),
                   icon: const Icon(Icons.keyboard_double_arrow_left_rounded),
                   color: red,
@@ -141,7 +141,7 @@ class edit_our_shop_State extends State<edit_our_shop> {
                   ),
                   Container(
                       decoration: BoxDecoration(
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             image: AssetImage(
                                 "images/edit shop mini back ground back ground.jpg"),
                             fit: BoxFit.fill),
@@ -153,19 +153,20 @@ class edit_our_shop_State extends State<edit_our_shop> {
                           statusBarBottom -
                           statusBarHeight -
                           250,
-                      margin: EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(10),
                       child: GridView.builder(
                         itemCount:
                             product_map['${product_map.keys.toList()[current]}']
                                     ?.length ??
                                 0,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                         ),
                         itemBuilder: (BuildContext context, int index) {
                           return GestureDetector(
                             child: Container(
-                              margin: EdgeInsets.all(10),
+                              margin: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                   color: white,
                                   borderRadius: BorderRadius.circular(10)),
@@ -220,11 +221,11 @@ class edit_our_shop_State extends State<edit_our_shop> {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                              backgroundColor: Color(0xFF4F4F4F),
+                              backgroundColor: const Color(0xFF4F4F4F),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
-                              contentPadding: EdgeInsets.symmetric(
+                              contentPadding: const EdgeInsets.symmetric(
                                 vertical: 50.0,
                               ),
                               title: Column(
@@ -261,21 +262,21 @@ class edit_our_shop_State extends State<edit_our_shop> {
                                 children: [
                                   myTextformfield(
                                     hint: "Product Name",
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.edit,
                                       color: red,
                                     ),
                                   ),
                                   myTextformfield(
                                     hint: "Price",
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.price_check,
                                       color: red,
                                     ),
                                   ),
                                   myTextformfield(
                                     hint: "Our Quantity",
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.shopping_cart_outlined,
                                       color: red,
                                     ),
@@ -306,7 +307,7 @@ class edit_our_shop_State extends State<edit_our_shop> {
                                                 color: white,
                                               ),
                                             ),
-                                            Icon(Icons.check_circle,
+                                            const Icon(Icons.check_circle,
                                                 color: white),
                                           ],
                                         )),

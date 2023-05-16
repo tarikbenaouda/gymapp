@@ -31,20 +31,20 @@ class _HelpSecdingState extends State<HelpSecding> {
         child: Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("assets/images/background1.jpg"),
               fit: BoxFit.cover,
             ),
           ),
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: ListView(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Padding(
-                      padding: const EdgeInsets.only(top: 25.0),
+                      padding: EdgeInsets.only(top: 25.0),
                       child: Text(
                         "Modify The Help",
                         style: TextStyle(
@@ -54,7 +54,7 @@ class _HelpSecdingState extends State<HelpSecding> {
                         ),
                       )),
                   Padding(
-                    padding: const EdgeInsets.only(top: 25.0),
+                    padding: EdgeInsets.only(top: 25.0),
                     child: Icon(
                       Icons.help,
                       size: 30,
@@ -63,7 +63,7 @@ class _HelpSecdingState extends State<HelpSecding> {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Stack(
@@ -73,11 +73,11 @@ class _HelpSecdingState extends State<HelpSecding> {
                       height: 650,
                       width: 380,
                       decoration: BoxDecoration(
-                        color: Color(0xFF4F4F4F),
+                        color: const Color(0xFF4F4F4F),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: Column(
-                        children: [
+                        children: const [
                           SizedBox(
                             height: 10,
                           ),

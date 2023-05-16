@@ -1,8 +1,13 @@
-// ignore_for_file: unnecessary_const, prefer_const_literals_to_create_immutables, prefer_const_constructors
+import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:gymapp/common_widgets/my_textformfield.dart';
 import 'package:gymapp/consts/consts.dart';
+import 'package:gymapp/controlllers/profile_controller.dart';
+
+import '../services/firestore_services.dart';
+import 'SettingsUser.dart';
 
 class ProfileUser extends StatefulWidget {
   const ProfileUser({super.key});
@@ -14,272 +19,235 @@ class ProfileUser extends StatefulWidget {
 class _ProfileUserState extends State<ProfileUser> {
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(ProfileController());
+
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("images/20.jpg"), fit: BoxFit.cover)),
-        child: ListView(
-          children: [
-            SizedBox(
-              height: 10,
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.of(context).pushNamed("Homeuser");
-              },
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.keyboard_double_arrow_left_outlined,
-                      color: Color(0xFFFF1E0F),
-                      size: 35,
-                    ),
-                    SizedBox(
-                      width: 85,
-                    ),
-                    Center(
-                      child: Text(
-                        " Profil",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ],
-                ),
+      body: StreamBuilder(
+        stream: FirestoreServices.getUser(currentUser!.uid),
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (!snapshot.hasData) {
+            return const Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation(red),
               ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 550,
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-              decoration: BoxDecoration(
+            );
+          } else {
+            var data = snapshot.data!.docs[0];
+            return Container(
+              decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(
-                        "images/21.jpg",
-                      ),
-                      fit: BoxFit.fill),
-                  borderRadius: BorderRadius.circular(20)),
-              child: ListView(children: [
-                Padding(
-                  padding: const EdgeInsets.all(7.0),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 100,
-                        width: 100,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
-                        ),
-                        //url of image
-                      ),
-                      SizedBox(
-                        width: 8,
-                      ),
-                      Column(
-                        children: [
-                          TextButton(
-                              onPressed: (() {}),
-                              child: Container(
-                                alignment: Alignment.center,
-                                height: 40,
-                                width: 200,
-                                decoration: BoxDecoration(
-                                    color: const Color(0xFFFF1E0F),
-                                    borderRadius: BorderRadius.circular(15)),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Text(
-                                      "Change Picture",
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 16),
-                                    ),
-                                    IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.edit,
-                                          color: Colors.black,
-                                        )),
-                                  ],
-                                ),
-                              )),
-                          TextButton(
-                              onPressed: (() {}),
-                              child: Container(
-                                height: 40,
-                                width: 200,
-                                decoration: BoxDecoration(
-                                    color: const Color(0xFFE6E6E6),
-                                    borderRadius: BorderRadius.circular(15)),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Text(
-                                      "Send Demand Training",
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 13),
-                                    ),
-                                    IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.send,
-                                          color: Colors.black,
-                                        ))
-                                  ],
-                                ),
-                              )),
-                        ],
-                      ),
-                    ],
+                      image: AssetImage("images/20.jpg"), fit: BoxFit.cover)),
+              child: ListView(
+                children: [
+                  const SizedBox(
+                    height: 10,
                   ),
-                ),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                          height: 40,
-                          width: 150,
-                          decoration: BoxDecoration(
-                              color: const Color(0xFFE6E6E6),
-                              borderRadius: BorderRadius.circular(20)),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Center(
-                                child: Text(
-                                  'Height:',
-                                  style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: const Color(0xFF252525),
-                                      fontSize: 20),
-                                ),
-                              ),
-                              const Text("VARIABLE")
-                            ],
-                          )),
-                      const SizedBox(
-                        width: 7,
-                      ),
-                      Container(
-                          height: 40,
-                          width: 150,
-                          decoration: BoxDecoration(
-                              color: const Color(0xFFE6E6E6),
-                              borderRadius: BorderRadius.circular(20)),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Center(
-                                child: const Text(
-                                  'Weight:',
-                                  style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Color(0xFF252525),
-                                      fontSize: 20),
-                                ),
-                              ),
-                              const Text("VARIABLE")
-                            ],
-                          )),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 4,
-                ),
-                MyInfos(Textinput: "age", Textinput2: "variable of age"),
-                const SizedBox(
-                  height: 4,
-                ),
-                MyInfos(
-                    Textinput: "FullName", Textinput2: "variable of Fullname"),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  child: Container(
+                  InkWell(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 5),
-                      alignment: Alignment.centerLeft,
-                      height: 40,
-                      width: 200,
-                      decoration: BoxDecoration(
-                          color: const Color(0xFFE6E6E6),
-                          borderRadius: BorderRadius.circular(20)),
+                          vertical: 20, horizontal: 30),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            "FullName :",
-                            style: TextStyle(
-                                color: Color(0xFF252525),
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800),
+                        children: const [
+                          Icon(
+                            Icons.keyboard_double_arrow_left_outlined,
+                            color: Color(0xFFFF1E0F),
+                            size: 35,
                           ),
-                          // variable of fullName
-                          const Text(
-                            "variable of fullName ",
-                            style: TextStyle(
-                                color: Color(0xFF252525),
-                                fontSize: 18,
-                                fontWeight: FontWeight.w800),
+                          SizedBox(
+                            width: 85,
+                          ),
+                          Center(
+                            child: Text(
+                              " Profile",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 32,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ],
-                      )),
-                ),
-                const SizedBox(
-                  height: 4,
-                ),
-                MyInfos(
-                    Textinput: "UserName", Textinput2: "variable of Username"),
-                const SizedBox(
-                  height: 4,
-                ),
-                MyInfos(Textinput: "Email", Textinput2: "variable of Email"),
-                const SizedBox(
-                  height: 4,
-                ),
-                MyInfos(Textinput: "Phone Number", Textinput2: "variable "),
-                TextButton(
-                    onPressed: (() {}),
-                    child: Container(
-                      alignment: Alignment.center,
-                      height: 40,
-                      width: 240,
-                      decoration: BoxDecoration(
-                          color: Color(0xFFFF1E0F),
-                          borderRadius: BorderRadius.circular(15)),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Go To Settings To Modify",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 16),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 550,
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 15),
+                    decoration: BoxDecoration(
+                        image: const DecorationImage(
+                            image: AssetImage(
+                              "images/21.jpg",
                             ),
-                            const Icon(
-                              Icons.settings,
-                              color: Colors.white,
+                            fit: BoxFit.fill),
+                        borderRadius: BorderRadius.circular(20)),
+                    child: ListView(children: [
+                      Padding(
+                        padding: const EdgeInsets.all(7.0),
+                        child: Row(
+                          children: [
+                            data['imageUrl'] == ''
+                                ? Image.asset(
+                                    icGoogleLogo,
+                                    width: 100,
+                                    fit: BoxFit.cover,
+                                  ).box.roundedFull.clip(Clip.antiAlias).make()
+                                : Image.network(
+                                    data['imageUrl'],
+                                    width: 100,
+                                    fit: BoxFit.cover,
+                                  ).box.roundedFull.clip(Clip.antiAlias).make(),
+                            const SizedBox(
+                              width: 8,
+                            ),
+                            Column(
+                              children: [
+                                TextButton(
+                                    onPressed: (() {}),
+                                    child: Container(
+                                      height: 40,
+                                      width: 200,
+                                      decoration: BoxDecoration(
+                                          color: const Color(0xFFE6E6E6),
+                                          borderRadius:
+                                              BorderRadius.circular(15)),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          const Text(
+                                            "Send Demand Training",
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 13),
+                                          ),
+                                          IconButton(
+                                              onPressed: () {},
+                                              icon: const Icon(
+                                                Icons.send,
+                                                color: Colors.black,
+                                              ))
+                                        ],
+                                      ),
+                                    )),
+                              ],
                             ),
                           ],
                         ),
                       ),
-                    )),
-              ]),
-            ),
-          ],
-        ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 5),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                                height: 40,
+                                width: 150,
+                                decoration: BoxDecoration(
+                                    color: const Color(0xFFE6E6E6),
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const Center(
+                                      child: Text(
+                                        'Height:',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Color(0xFF252525),
+                                            fontSize: 20),
+                                      ),
+                                    ),
+                                    Text("${data['height']} cm")
+                                  ],
+                                )),
+                            const SizedBox(
+                              width: 7,
+                            ),
+                            Container(
+                                height: 40,
+                                width: 150,
+                                decoration: BoxDecoration(
+                                    color: const Color(0xFFE6E6E6),
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const Center(
+                                      child: Text(
+                                        'Weight:',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Color(0xFF252525),
+                                            fontSize: 20),
+                                      ),
+                                    ),
+                                    Text("${data['weight']} Kg")
+                                  ],
+                                )),
+                          ],
+                        ),
+                      ),
+                      4.heightBox,
+                      MyInfos(
+                        Textinput: "age",
+                        Textinput2: "${data['age']} yo",
+                      ),
+                      4.heightBox,
+                      MyInfos(
+                        Textinput: "FullName",
+                        Textinput2: "${data['fullName']}",
+                      ),
+                      4.heightBox,
+                      MyInfos(
+                        Textinput: "UserName",
+                        Textinput2: "${data['username']}",
+                      ),
+                      4.heightBox,
+                      MyInfos(
+                        Textinput: "Email",
+                        Textinput2: "${data['email']}",
+                      ),
+                      4.heightBox,
+                      MyInfos(
+                        Textinput: "Phone Number",
+                        Textinput2: "${data['phoneNumber']}",
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 60),
+                        child: ourButton(
+                          color: red,
+                          title: "Edit",
+                          textColor: white,
+                          onPress: () {
+                            controller.fullNameController.text =
+                                data['fullName'];
+                            controller.usernameController.text =
+                                data['username'];
+                            controller.phoneNumberController.text =
+                                data['phoneNumber'];
+                            controller.ageController.text = data['age'];
+                            controller.heightController.text = data['height'];
+                            controller.weightController.text = data['weight'];
+                            //controller.passwordController.text =
+                            //    data['password'];
+                            Get.to(
+                              () => SettingsUser(data: data),
+                            );
+                          },
+                        ).box.rounded.width(context.screenWidth - 70).make(),
+                      ),
+                    ]),
+                  ),
+                ],
+              ),
+            );
+          }
+        },
       ),
     );
   }

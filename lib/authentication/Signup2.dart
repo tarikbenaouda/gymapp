@@ -26,15 +26,15 @@ class _Signup2State extends State<Signup2> {
               child: Container(
         height: screenlength,
         width: screenwidth,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("images/6.jpg"), fit: BoxFit.fill)),
         child: ListView(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 80,
             ),
-            Center(
+            const Center(
               child: Text(
                 "Sign Up",
                 style: TextStyle(
@@ -43,7 +43,7 @@ class _Signup2State extends State<Signup2> {
                     fontWeight: FontWeight.w500),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             myTextformfield(
@@ -67,7 +67,7 @@ class _Signup2State extends State<Signup2> {
               filter: FilteringTextInputFormatter.digitsOnly,
               limit: 3,
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Padding(
@@ -81,14 +81,14 @@ class _Signup2State extends State<Signup2> {
                     width: 120,
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        border: Border.all(width: 2, color: Color(0xFFFF1E0F)),
+                        border: Border.all(
+                            width: 2, color: const Color(0xFFFF1E0F)),
                         borderRadius: BorderRadius.circular(15)),
                     child: InkWell(
                       onTap: () {
-                        //Navigator.of(context).pushNamed("Signup1");
                         Get.back();
                       },
-                      child: Text(
+                      child: const Text(
                         "Back",
                         style: TextStyle(
                             fontSize: 20,
@@ -102,13 +102,13 @@ class _Signup2State extends State<Signup2> {
                     height: 50,
                     width: 120,
                     decoration: BoxDecoration(
-                        color: Color(0xFFFF1E0F),
-                        border: Border.all(width: 1, color: Color(0xFFFF1E0F)),
+                        color: const Color(0xFFFF1E0F),
+                        border: Border.all(
+                            width: 1, color: const Color(0xFFFF1E0F)),
                         borderRadius: BorderRadius.circular(15)),
                     child: InkWell(
                       onTap: () {
-                        //Navigator.of(context).pushNamed("Signup3");
-                        Get.to(() => Signup3(), arguments: [
+                        Get.to(() => const Signup3(), arguments: [
                           fullNameController,
                           usernameController,
                           phoneNumberController,
@@ -117,7 +117,7 @@ class _Signup2State extends State<Signup2> {
                           heightController,
                         ]);
                       },
-                      child: Text(
+                      child: const Text(
                         "NEXT",
                         style: TextStyle(
                             fontSize: 20,
