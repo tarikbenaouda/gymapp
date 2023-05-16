@@ -75,11 +75,11 @@ class coaching_demand_State extends State<coaching_demand> {
                 border: Border.all(color: red, width: 0.1),
               ),
               height: screenheight * 0.7,
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
               // margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
               child: Column(
                 children: [
-                  Center(
+                  const Center(
                     child: Text(
                       "Demand Formula",
                       style: TextStyle(
@@ -93,7 +93,7 @@ class coaching_demand_State extends State<coaching_demand> {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+                    children: const [
                       Text(
                         "Old coach:",
                         style: TextStyle(
@@ -108,7 +108,7 @@ class coaching_demand_State extends State<coaching_demand> {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+                    children: const [
                       Text(
                         "Coaching During :",
                         style: TextStyle(
@@ -130,7 +130,7 @@ class coaching_demand_State extends State<coaching_demand> {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: white),
-                        child: TextField(
+                        child: const TextField(
                           keyboardType: TextInputType.numberWithOptions(),
                           maxLength: 3,
                           textAlign: TextAlign.center,
@@ -143,7 +143,7 @@ class coaching_demand_State extends State<coaching_demand> {
                           ),
                         ),
                       ),
-                      Text(
+                      const Text(
                         "months",
                         style: TextStyle(color: white, fontSize: 20),
                       ),
@@ -153,7 +153,7 @@ class coaching_demand_State extends State<coaching_demand> {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: white),
-                        child: TextField(
+                        child: const TextField(
                           maxLength: 3,
                           keyboardType: TextInputType.numberWithOptions(),
                           maxLines: 1,
@@ -166,7 +166,7 @@ class coaching_demand_State extends State<coaching_demand> {
                               hintStyle: TextStyle(color: red, fontSize: 25)),
                         ),
                       ),
-                      Text(
+                      const Text(
                         "years",
                         style: TextStyle(color: white, fontSize: 20),
                       ),
@@ -177,7 +177,7 @@ class coaching_demand_State extends State<coaching_demand> {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+                    children: const [
                       Text(
                         "Why you want coaching here :",
                         style: TextStyle(
@@ -195,7 +195,7 @@ class coaching_demand_State extends State<coaching_demand> {
                     width: 0.9 * screenwidth,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10), color: white),
-                    child: TextField(
+                    child: const TextField(
                       textAlign: TextAlign.start,
                       cursorColor: red,
                       maxLines: null,
@@ -233,12 +233,12 @@ class coaching_demand_State extends State<coaching_demand> {
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Text(
+                                    const Text(
                                       'Your demand is sended',
                                       style:
                                           TextStyle(fontSize: 22, color: white),
                                     ),
-                                    Text(
+                                    const Text(
                                       'to administrator',
                                       style:
                                           TextStyle(fontSize: 22, color: white),
@@ -246,7 +246,7 @@ class coaching_demand_State extends State<coaching_demand> {
                                     SizedBox(
                                       height: screenheight * 0.05,
                                     ),
-                                    Text(
+                                    const Text(
                                       'Wait for the answer',
                                       style:
                                           TextStyle(fontSize: 22, color: white),
@@ -292,7 +292,7 @@ class coaching_demand_State extends State<coaching_demand> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const Text(
                             "Send",
                             style: TextStyle(
                               color: Colors.white,
@@ -301,7 +301,7 @@ class coaching_demand_State extends State<coaching_demand> {
                             ),
                           ),
                           SizedBox(width: 0.03 * screenwidth),
-                          Icon(
+                          const Icon(
                             Icons.send,
                             color: white,
                             size: 30,
