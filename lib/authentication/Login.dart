@@ -14,7 +14,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
-    User? user = FirebaseAuth.instance.currentUser;
+    String uid;
     var controller = Get.put(AuthController());
     double screenwidth = MediaQuery.of(context).size.width;
     double screenlength = MediaQuery.of(context).size.height;
@@ -113,9 +113,8 @@ class _LoginState extends State<Login> {
                                   if (value != null) {
                                     VxToast.show(context,
                                         msg: "Logged in Successfully");
-                                    User? user =
-                                        FirebaseAuth.instance.currentUser;
-                                    String uid = user!.uid;
+                                    auth.authStateChanges();
+                                    uid = auth.currentUser!.uid;
                                     (uid == "yXmxa3CA0ePjBgKq6i2G7sngV4t2")
                                         ? Get.offAll(() => const HomeView())
                                         : Get.offAll(() => const ProfileUser());
