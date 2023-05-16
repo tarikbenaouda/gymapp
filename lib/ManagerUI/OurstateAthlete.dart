@@ -14,13 +14,13 @@ class OurstateAthlete extends StatelessWidget {
         body: Container(
       height: screenlength,
       width: screenwidth,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage("images/our stats background.jpg"),
               fit: BoxFit.fill)),
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Row(
@@ -28,7 +28,7 @@ class OurstateAthlete extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {},
-                child: Icon(
+                child: const Icon(
                   Icons.keyboard_double_arrow_left_outlined,
                   color: Color(0xFFFD372A),
                   size: 35,
@@ -36,13 +36,13 @@ class OurstateAthlete extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 18,
           ),
           Center(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 Text(
                   "Our Stats",
                   style: TextStyle(
@@ -61,7 +61,7 @@ class OurstateAthlete extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Padding(
@@ -71,19 +71,20 @@ class OurstateAthlete extends StatelessWidget {
               height: 500,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
-                  image: DecorationImage(image: AssetImage("images/18.jpg"))),
+                  image: const DecorationImage(
+                      image: AssetImage("images/18.jpg"))),
               child: Column(children: [
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
-                Text(
+                const Text(
                   "Our Athletes Monthly Stats",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
                 Container(
@@ -94,7 +95,7 @@ class OurstateAthlete extends StatelessWidget {
                       borderRadius: BorderRadius.circular(14),
                     ),
                     child: Row(
-                      children: [
+                      children: const [
                         Text(
                           " Month :",
                           style: TextStyle(fontSize: 16),
@@ -103,11 +104,11 @@ class OurstateAthlete extends StatelessWidget {
                         Text("Variable"), //variable of  mounth
                       ],
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 MyInfos(Textinput: " Monthly Income", Textinput2: "variable"),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
                 MyInfos(Textinput: " NEt Profis", Textinput2: "variable"),
@@ -115,15 +116,15 @@ class OurstateAthlete extends StatelessWidget {
               ]),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           MyInfos(Textinput: " The Mounth Stats are", Textinput2: "variable"),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           MyInfos(Textinput: " Number Of New Athletes", Textinput2: "variable"),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           Row(
@@ -136,11 +137,11 @@ class OurstateAthlete extends StatelessWidget {
                     width: 120,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(18),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             image: AssetImage("images/background2.jpg"),
                             fit: BoxFit.fill)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
+                    child: const Padding(
+                      padding: EdgeInsets.all(10),
                       child: Text(
                         " Total The Year Stats",
                         style: TextStyle(
@@ -157,11 +158,11 @@ class OurstateAthlete extends StatelessWidget {
                     width: 120,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(18),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             image: AssetImage("images/background2.jpg"),
                             fit: BoxFit.fill)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
+                    child: const Padding(
+                      padding: EdgeInsets.all(10),
                       child: Text(
                         " To See Last Mounth Stats",
                         style: TextStyle(

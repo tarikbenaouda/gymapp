@@ -9,11 +9,11 @@ class _ModifyEventsState extends State<ModifyEvents> {
   late String textField1, textField2, textField3, textField4, textField5;
 
   List<Widget> _containers = [];
-  TextEditingController textField1Controller1 = new TextEditingController();
-  TextEditingController textField2Controller2 = new TextEditingController();
-  TextEditingController textField3Controller3 = new TextEditingController();
-  TextEditingController textField4Controller4 = new TextEditingController();
-  TextEditingController textField5Controller5 = new TextEditingController();
+  TextEditingController textField1Controller1 = TextEditingController();
+  TextEditingController textField2Controller2 = TextEditingController();
+  TextEditingController textField3Controller3 = TextEditingController();
+  TextEditingController textField4Controller4 = TextEditingController();
+  TextEditingController textField5Controller5 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class _ModifyEventsState extends State<ModifyEvents> {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("images/modify events background.jpg"),
             fit: BoxFit.fill,
@@ -36,7 +36,7 @@ class _ModifyEventsState extends State<ModifyEvents> {
                   return Column(
                     children: [
                       _containers[index],
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                     ],
                   );
                 },
@@ -48,27 +48,29 @@ class _ModifyEventsState extends State<ModifyEvents> {
                 width: 180,
                 height: 50,
                 child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Color(0xFF232323)),
+                  style: ElevatedButton.styleFrom(
+                      primary: const Color(0xFF232323)),
                   onPressed: () {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
-                          backgroundColor: Color(0xFF4F4F4F),
+                          backgroundColor: const Color(0xFF4F4F4F),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.0),
                           ),
-                          contentPadding: EdgeInsets.symmetric(vertical: 40.0),
+                          contentPadding:
+                              const EdgeInsets.symmetric(vertical: 40.0),
                           title: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
+                              const Text(
                                 'Add New Event',
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 20),
                               ),
                               IconButton(
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.close,
                                     color: Color(0xFFFD372A),
                                     size: 40,
@@ -82,7 +84,7 @@ class _ModifyEventsState extends State<ModifyEvents> {
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                Text(
+                                const Text(
                                   'Event Name',
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 20),
@@ -101,12 +103,12 @@ class _ModifyEventsState extends State<ModifyEvents> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
+                                    const Text(
                                       'Begin',
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 20),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 5,
                                     ),
                                     Expanded(
@@ -121,12 +123,12 @@ class _ModifyEventsState extends State<ModifyEvents> {
                                             ),
                                           )),
                                     ),
-                                    Text(
+                                    const Text(
                                       'End',
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 20),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 5,
                                     ),
                                     Expanded(
@@ -143,7 +145,7 @@ class _ModifyEventsState extends State<ModifyEvents> {
                                     ),
                                   ],
                                 ),
-                                Text(
+                                const Text(
                                   'Training Offer',
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 20),
@@ -158,7 +160,7 @@ class _ModifyEventsState extends State<ModifyEvents> {
                                     ),
                                   ),
                                 ),
-                                Text(
+                                const Text(
                                   'Shop Reductions',
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 20),
@@ -179,7 +181,7 @@ class _ModifyEventsState extends State<ModifyEvents> {
                           actions: <Widget>[
                             TextButton(
                               child: Row(
-                                children: [
+                                children: const [
                                   Text(
                                     'Save ',
                                     style: TextStyle(
@@ -208,7 +210,7 @@ class _ModifyEventsState extends State<ModifyEvents> {
                                           height: 480,
                                           width: 100,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFF232323),
+                                            color: const Color(0xFF232323),
                                             borderRadius:
                                                 BorderRadius.circular(10.0),
                                           ),
@@ -218,17 +220,17 @@ class _ModifyEventsState extends State<ModifyEvents> {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              SizedBox(
+                                              const SizedBox(
                                                 height: 10,
                                               ),
-                                              Center(
+                                              const Center(
                                                   child: Text(
                                                 'The Published Event :',
                                                 style: TextStyle(
                                                     color: Colors.white,
                                                     fontSize: 20),
                                               )),
-                                              SizedBox(height: 10.0),
+                                              const SizedBox(height: 10.0),
                                               Center(
                                                 child: Container(
                                                     height: 55,
@@ -242,12 +244,12 @@ class _ModifyEventsState extends State<ModifyEvents> {
                                                     child: Center(
                                                         child: Text(
                                                       '$textField1',
-                                                      style: TextStyle(
+                                                      style: const TextStyle(
                                                           color: Colors.black,
                                                           fontSize: 20),
                                                     ))),
                                               ),
-                                              SizedBox(height: 10.0),
+                                              const SizedBox(height: 10.0),
                                               Padding(
                                                 padding:
                                                     const EdgeInsets.all(13),
@@ -256,7 +258,7 @@ class _ModifyEventsState extends State<ModifyEvents> {
                                                       MainAxisAlignment
                                                           .spaceBetween,
                                                   children: [
-                                                    Text(
+                                                    const Text(
                                                       'Begin',
                                                       style: TextStyle(
                                                           color: Colors.white,
@@ -276,12 +278,13 @@ class _ModifyEventsState extends State<ModifyEvents> {
                                                         child: Center(
                                                             child: Text(
                                                           '$textField2',
-                                                          style: TextStyle(
-                                                              color:
-                                                                  Colors.black,
-                                                              fontSize: 20),
+                                                          style:
+                                                              const TextStyle(
+                                                                  color: Colors
+                                                                      .black,
+                                                                  fontSize: 20),
                                                         ))),
-                                                    Text(
+                                                    const Text(
                                                       'End ',
                                                       style: TextStyle(
                                                           color: Colors.white,
@@ -301,20 +304,20 @@ class _ModifyEventsState extends State<ModifyEvents> {
                                                         child: Center(
                                                             child: Text(
                                                           '$textField3',
-                                                          style: TextStyle(
-                                                              color:
-                                                                  Colors.black,
-                                                              fontSize: 20),
+                                                          style:
+                                                              const TextStyle(
+                                                                  color: Colors
+                                                                      .black,
+                                                                  fontSize: 20),
                                                         )))
                                                   ],
                                                 ),
                                               ),
-                                              SizedBox(
+                                              const SizedBox(
                                                 height: 10,
                                               ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(13),
+                                              const Padding(
+                                                padding: EdgeInsets.all(13),
                                                 child: Text(
                                                   'Training Offer',
                                                   style: TextStyle(
@@ -335,14 +338,13 @@ class _ModifyEventsState extends State<ModifyEvents> {
                                                     child: Center(
                                                         child: Text(
                                                       '$textField4',
-                                                      style: TextStyle(
+                                                      style: const TextStyle(
                                                           color: Colors.black,
                                                           fontSize: 20),
                                                     ))),
                                               ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(13),
+                                              const Padding(
+                                                padding: EdgeInsets.all(13),
                                                 child: Text(
                                                   'Shop Reductions',
                                                   style: TextStyle(
@@ -363,12 +365,12 @@ class _ModifyEventsState extends State<ModifyEvents> {
                                                     child: Center(
                                                         child: Text(
                                                       '$textField5',
-                                                      style: TextStyle(
+                                                      style: const TextStyle(
                                                           color: Colors.black,
                                                           fontSize: 20),
                                                     ))),
                                               ),
-                                              SizedBox(
+                                              const SizedBox(
                                                 height: 10,
                                               ),
                                               Padding(
@@ -384,8 +386,8 @@ class _ModifyEventsState extends State<ModifyEvents> {
                                                       child: ElevatedButton(
                                                         style: ElevatedButton
                                                             .styleFrom(
-                                                          primary:
-                                                              Color(0xFFFD372A),
+                                                          primary: const Color(
+                                                              0xFFFD372A),
                                                         ),
                                                         onPressed: null,
                                                         child: Row(
@@ -395,7 +397,7 @@ class _ModifyEventsState extends State<ModifyEvents> {
                                                           crossAxisAlignment:
                                                               CrossAxisAlignment
                                                                   .center,
-                                                          children: [
+                                                          children: const [
                                                             Text('Save',
                                                                 style: TextStyle(
                                                                     color: Colors
@@ -414,8 +416,8 @@ class _ModifyEventsState extends State<ModifyEvents> {
                                                     ElevatedButton(
                                                       style: ElevatedButton
                                                           .styleFrom(
-                                                        primary:
-                                                            Color(0xFFFD372A),
+                                                        primary: const Color(
+                                                            0xFFFD372A),
                                                       ),
                                                       onPressed: () {
                                                         setState(() {
@@ -423,7 +425,7 @@ class _ModifyEventsState extends State<ModifyEvents> {
                                                               .removeLast();
                                                         });
                                                       },
-                                                      child: Text(
+                                                      child: const Text(
                                                         'Delete',
                                                         style: TextStyle(
                                                             color: Colors.white,
@@ -433,7 +435,7 @@ class _ModifyEventsState extends State<ModifyEvents> {
                                                   ],
                                                 ),
                                               ),
-                                              SizedBox(height: 10.0),
+                                              const SizedBox(height: 10.0),
                                             ],
                                           ),
                                         ),
@@ -449,7 +451,7 @@ class _ModifyEventsState extends State<ModifyEvents> {
                     );
                   },
                   child: Row(
-                    children: [
+                    children: const [
                       Text(
                         'Add New Event ',
                         style: TextStyle(fontSize: 18),

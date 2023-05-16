@@ -31,7 +31,7 @@ Widget myTextformfield({
               color: Color(0xFF7A7A7A),
             ),
             border: InputBorder.none,
-            labelStyle: TextStyle(fontSize: 24)),
+            labelStyle: const TextStyle(fontSize: 24)),
       ),
     ),
   );
@@ -40,20 +40,21 @@ Widget myTextformfield({
 Widget MyInfos(
     {String? Textinput, String? Textinput2, controller, Icon? icon}) {
   return Padding(
-    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
     child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         alignment: Alignment.centerLeft,
         height: 40,
         width: double.infinity,
         decoration: BoxDecoration(
-            color: Color(0xFFE6E6E6), borderRadius: BorderRadius.circular(20)),
+            color: const Color(0xFFE6E6E6),
+            borderRadius: BorderRadius.circular(20)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               " $Textinput:",
-              style: TextStyle(
+              style: const TextStyle(
                   color: Color(0xFF252525),
                   fontSize: 20,
                   fontWeight: FontWeight.w800),
@@ -61,7 +62,7 @@ Widget MyInfos(
             // variable of email
             Text(
               "$Textinput2 ",
-              style: TextStyle(
+              style: const TextStyle(
                   color: Color(0xFF252525),
                   fontSize: 18,
                   fontWeight: FontWeight.w800),

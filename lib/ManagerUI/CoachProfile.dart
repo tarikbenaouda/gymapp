@@ -15,12 +15,12 @@ class _CoachProfileState extends State<CoachProfile> {
     double screenlength = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("images/20.jpg"), fit: BoxFit.fill)),
         child: ListView(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             InkWell(
@@ -31,7 +31,7 @@ class _CoachProfileState extends State<CoachProfile> {
                 padding:
                     const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
                 child: Row(
-                  children: [
+                  children: const [
                     Icon(
                       Icons.keyboard_double_arrow_left_outlined,
                       color: Color(0xFFFF1E0F),
@@ -59,7 +59,7 @@ class _CoachProfileState extends State<CoachProfile> {
             Container(
               width: double.infinity,
               height: screenlength * 0.7,
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(20)),
               child: ListView(children: [
@@ -70,20 +70,20 @@ class _CoachProfileState extends State<CoachProfile> {
                       Container(
                         height: 70,
                         width: 70,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.white,
                           shape: BoxShape.circle,
                         ),
                         //url of image
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 8,
                       ),
                       Container(
                         height: 60,
                         width: 170,
                         //username
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             "Hako Djerad fojdgdn",
                             style: TextStyle(
@@ -95,7 +95,7 @@ class _CoachProfileState extends State<CoachProfile> {
                       ),
                       //
 
-                      Text("  , Year",
+                      const Text("  , Year",
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 18,
@@ -113,11 +113,11 @@ class _CoachProfileState extends State<CoachProfile> {
                           height: 40,
                           width: 150,
                           decoration: BoxDecoration(
-                              color: Color(0xFFE6E6E6),
+                              color: const Color(0xFFE6E6E6),
                               borderRadius: BorderRadius.circular(20)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                            children: const [
                               Center(
                                 child: Text(
                                   'Height:',
@@ -127,21 +127,21 @@ class _CoachProfileState extends State<CoachProfile> {
                                       fontWeight: FontWeight.bold),
                                 ),
                               ),
-                              Text("VARIABLE")
+                              const Text("VARIABLE")
                             ],
                           )),
-                      SizedBox(
+                      const SizedBox(
                         width: 7,
                       ),
                       Container(
                           height: 40,
                           width: 150,
                           decoration: BoxDecoration(
-                              color: Color(0xFFE6E6E6),
+                              color: const Color(0xFFE6E6E6),
                               borderRadius: BorderRadius.circular(20)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                            children: const [
                               Center(
                                 child: Text(
                                   'Weight:',
@@ -157,10 +157,10 @@ class _CoachProfileState extends State<CoachProfile> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 4,
                 ),
-                Center(
+                const Center(
                   child: Text(
                     "For Contact The Coach",
                     style: TextStyle(
@@ -172,16 +172,16 @@ class _CoachProfileState extends State<CoachProfile> {
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Container(
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       alignment: Alignment.centerLeft,
                       height: 40,
                       width: 200,
                       decoration: BoxDecoration(
-                          color: Color(0xFFE6E6E6),
+                          color: const Color(0xFFE6E6E6),
                           borderRadius: BorderRadius.circular(20)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
+                        children: const [
                           Text(
                             "Email:",
                             style: TextStyle(
@@ -201,22 +201,22 @@ class _CoachProfileState extends State<CoachProfile> {
                         ],
                       )),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 2,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Container(
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       alignment: Alignment.centerLeft,
                       height: 40,
                       width: 200,
                       decoration: BoxDecoration(
-                          color: Color(0xFFE6E6E6),
+                          color: const Color(0xFFE6E6E6),
                           borderRadius: BorderRadius.circular(20)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
+                        children: const [
                           Text(
                             "Number :",
                             style: TextStyle(
@@ -239,16 +239,16 @@ class _CoachProfileState extends State<CoachProfile> {
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Container(
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       alignment: Alignment.centerLeft,
                       height: 40,
                       width: 200,
                       decoration: BoxDecoration(
-                          color: Color(0xFFE6E6E6),
+                          color: const Color(0xFFE6E6E6),
                           borderRadius: BorderRadius.circular(20)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
+                        children: const [
                           Text(
                             " Full Name:",
                             style: TextStyle(
@@ -267,22 +267,22 @@ class _CoachProfileState extends State<CoachProfile> {
                         ],
                       )),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 4,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Container(
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       alignment: Alignment.centerLeft,
                       height: 50,
                       width: 80,
                       decoration: BoxDecoration(
-                          color: Color(0xFFE6E6E6),
+                          color: const Color(0xFFE6E6E6),
                           borderRadius: BorderRadius.circular(20)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
+                        children: const [
                           Text(
                             "  Coaching during: ",
                             style: TextStyle(
@@ -308,11 +308,11 @@ class _CoachProfileState extends State<CoachProfile> {
                       width: 160,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: Color(0xFFFF1E0F),
+                        color: const Color(0xFFFF1E0F),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                        children: const [
                           Text(
                             "Delete Coach",
                             style: TextStyle(color: Colors.white, fontSize: 18),

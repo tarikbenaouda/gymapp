@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:gymapp/ManagerUI/DemandCoaching.dart';
 import 'package:gymapp/ManagerUI/edit_schedule.dart';
 import 'package:gymapp/ManagerUI/help.dart';
 import 'package:gymapp/UserUI/Chronometer.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/UserUI/about.dart';
+
+import '../authentication/Login.dart';
+import '../controlllers/auth_controller.dart';
 
 class HomeViewAthlete extends StatefulWidget {
   const HomeViewAthlete({Key? key}) : super(key: key);
@@ -25,7 +30,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
         child: Container(
             height: double.infinity,
             width: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("images/user home background.jpg"),
                 fit: BoxFit.fill,
@@ -40,15 +45,15 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                   Padding(
                     padding: const EdgeInsets.only(top: 20.0),
                     child: IconButton(
-                      icon: Icon(Icons.menu, color: Colors.white),
+                      icon: const Icon(Icons.menu, color: Colors.white),
                       onPressed: () => _scaffoldKey.currentState?.openDrawer(),
                     ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: const [
                       Padding(
-                        padding: const EdgeInsets.only(top: 10),
+                        padding: EdgeInsets.only(top: 10),
                         child: Text(
                           "Welcome   ",
                           style: TextStyle(
@@ -59,7 +64,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 10),
+                        padding: EdgeInsets.only(top: 10),
                         child: Text(
                           "Warrior ",
                           style: TextStyle(
@@ -75,11 +80,11 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                     child: Column(
                       children: [
                         Text(" username$username",
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 20,
                               color: Colors.white,
                             )),
-                        Text("Athlet",
+                        const Text("Athlet",
                             style: TextStyle(
                               fontSize: 20,
                               color: Colors.white,
@@ -87,7 +92,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
@@ -98,49 +103,49 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => HomeViewAthlete()),
+                                builder: (context) => const HomeViewAthlete()),
                           );
                         },
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Color(0xFFFD372A),
+                            color: const Color(0xFFFD372A),
                             borderRadius: BorderRadius.circular(20.0),
                           ),
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 20.0, vertical: 8.0),
-                          child: Text('Today\'s Training',
+                          child: const Text('Today\'s Training',
                               style: TextStyle(color: Colors.white)),
                         ),
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          color: Color(0xFFFD372A),
+                          color: const Color(0xFFFD372A),
                           borderRadius: BorderRadius.circular(20.0),
                         ),
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                             horizontal: 20.0, vertical: 8.0),
                         child: Text('Time Limit : $timelimit ',
-                            style: TextStyle(color: Colors.white)),
+                            style: const TextStyle(color: Colors.white)),
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          color: Color(0xFFFD372A),
+                          color: const Color(0xFFFD372A),
                           borderRadius: BorderRadius.circular(20.0),
                         ),
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                             horizontal: 20.0, vertical: 8.0),
-                        child: Text('Gym State',
+                        child: const Text('Gym State',
                             style: TextStyle(color: Colors.white)),
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: const [
                         Text(
                           "Fire-",
                           style: TextStyle(
@@ -162,7 +167,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                     padding:
                         const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
                     child: Container(
-                      child: Center(
+                      child: const Center(
                           child: Text(
                         "ADS",
                         style: TextStyle(fontSize: 30),
@@ -170,7 +175,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       width: (double.infinity),
                       height: 200,
                       decoration: BoxDecoration(
-                        color: Color(0xFFD9D9D9),
+                        color: const Color(0xFFD9D9D9),
                         borderRadius: BorderRadius.circular(17.0),
                       ),
                     ),
@@ -183,7 +188,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       height: 160,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(17.0),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage(
                             "images/Reach For Coach.jpg",
                           ),
@@ -196,7 +201,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(17.0),
                           ),
-                          child: Align(
+                          child: const Align(
                             alignment: Alignment.bottomCenter,
                             child: Text(
                               'Reach For Coach ',
@@ -211,7 +216,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Padding(
@@ -222,7 +227,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       height: 160,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(17.0),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage(
                             "images/Gym Schedule.jpg",
                           ),
@@ -241,7 +246,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(17.0),
                           ),
-                          child: Align(
+                          child: const Align(
                             alignment: Alignment.bottomCenter,
                             child: Text(
                               'Gym Schedule',
@@ -256,7 +261,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Padding(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
@@ -265,7 +270,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       height: 160,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(17.0),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage(
                             "images/Training Offers.jpg",
                           ),
@@ -278,7 +283,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(17.0),
                           ),
-                          child: Align(
+                          child: const Align(
                             alignment: Alignment.bottomCenter,
                             child: Text(
                               'Training Offers',
@@ -302,7 +307,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       decoration: BoxDecoration(
                         //border:  Border.all(color: Colors.grey, width: 2),
                         borderRadius: BorderRadius.circular(17.0),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage(
                             "images/Chronometer.jpg",
                           ),
@@ -315,7 +320,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(17.0),
                           ),
-                          child: Align(
+                          child: const Align(
                             alignment: Alignment.bottomCenter,
                             child: Text(
                               'Chronometer',
@@ -330,7 +335,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Padding(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
@@ -339,7 +344,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       height: 160,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(17.0),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage(
                             "images/Coaching Demand.jpg",
                           ),
@@ -351,14 +356,15 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => DemandForCoaching()),
+                                builder: (context) =>
+                                    const DemandForCoaching()),
                           );
                         },
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(17.0),
                           ),
-                          child: Align(
+                          child: const Align(
                             alignment: Alignment.bottomCenter,
                             child: Text(
                               'Coaching  Demand',
@@ -381,7 +387,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       height: 160,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(17.0),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage(
                             "images/Shop.jpg",
                           ),
@@ -400,7 +406,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(17.0),
                           ),
-                          child: Align(
+                          child: const Align(
                             alignment: Alignment.bottomCenter,
                             child: Text(
                               'Shop',
@@ -415,7 +421,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Padding(
@@ -426,7 +432,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       height: 160,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(17.0),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage(
                             "images/My Training Schedule.jpg",
                           ),
@@ -439,7 +445,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(17.0),
                           ),
-                          child: Align(
+                          child: const Align(
                             alignment: Alignment.bottomCenter,
                             child: Text(
                               'My Training Schedule',
@@ -462,7 +468,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       height: 160,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(17.0),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage(
                             "images/Competition Events.jpg",
                           ),
@@ -475,7 +481,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(17.0),
                           ),
-                          child: Align(
+                          child: const Align(
                             alignment: Alignment.bottomCenter,
                             child: Text(
                               'Competition Events',
@@ -498,7 +504,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       height: 160,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(17.0),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage(
                             "images/Sports Plans.jpg",
                           ),
@@ -511,7 +517,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(17.0),
                           ),
-                          child: Align(
+                          child: const Align(
                             alignment: Alignment.bottomCenter,
                             child: Text(
                               'Sports Plans',
@@ -534,7 +540,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       height: 160,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(17.0),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage(
                             "images/Calculate Calories .jpg",
                           ),
@@ -547,7 +553,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(17.0),
                           ),
-                          child: Align(
+                          child: const Align(
                             alignment: Alignment.bottomCenter,
                             child: Text(
                               'Calculate Caloris',
@@ -570,7 +576,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
         height: 60,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(22),
-          color: Color(0xFFE1E1E1),
+          color: const Color(0xFFE1E1E1),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -579,12 +585,13 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomeViewAthlete()),
+                  MaterialPageRoute(
+                      builder: (context) => const HomeViewAthlete()),
                 );
               },
               child: Container(
-                padding: EdgeInsets.all(12),
-                decoration: BoxDecoration(),
+                padding: const EdgeInsets.all(12),
+                decoration: const BoxDecoration(),
                 child: Container(
                   width: 70,
                   height: 40,
@@ -592,8 +599,8 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                     borderRadius: BorderRadius.circular(15.0),
                     color: Colors.red,
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
+                  child: const Padding(
+                    padding: EdgeInsets.only(left: 20.0),
                     child: Icon(
                       Icons.home_filled,
                       color: Colors.black,
@@ -607,12 +614,12 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ProfileUser()),
+                  MaterialPageRoute(builder: (context) => const ProfileUser()),
                 );
               },
               child: Container(
-                padding: EdgeInsets.all(12),
-                child: Icon(
+                padding: const EdgeInsets.all(12),
+                child: const Icon(
                   Icons.account_circle_outlined,
                   color: Colors.black,
                   size: 35,
@@ -622,8 +629,8 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
             GestureDetector(
               onTap: () {},
               child: Container(
-                padding: EdgeInsets.all(12),
-                child: Icon(
+                padding: const EdgeInsets.all(12),
+                child: const Icon(
                   Icons.storefront_outlined,
                   color: Colors.black,
                   size: 35,
@@ -635,8 +642,8 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                 //
               },
               child: Container(
-                padding: EdgeInsets.all(12),
-                child: Icon(
+                padding: const EdgeInsets.all(12),
+                child: const Icon(
                   Icons.settings,
                   color: Colors.black,
                   size: 35,
@@ -653,37 +660,37 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.0),
-                color: Color(0xFF393939),
+                color: const Color(0xFF393939),
               ),
               child: Column(
                 children: [
                   Center(
                       child: Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 100,
                       ),
                       Text("username$username",
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20,
                             color: Color(0xFFFD372A),
                           )),
                       Text("usereamil$email",
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20,
                             color: Colors.white,
                           )),
                     ],
                   )),
-                  SizedBox(
+                  const SizedBox(
                     height: 70,
                   ),
                   ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.home,
                       color: Colors.white,
                     ),
-                    title: Text('Home',
+                    title: const Text('Home',
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.white,
@@ -692,16 +699,16 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => HomeViewAthlete()),
+                            builder: (context) => const HomeViewAthlete()),
                       );
                     },
                   ),
                   ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.settings,
                       color: Colors.white,
                     ),
-                    title: Text('Settings',
+                    title: const Text('Settings',
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.white,
@@ -709,11 +716,11 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                     onTap: () {},
                   ),
                   ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.help,
                       color: Colors.white,
                     ),
-                    title: Text('Help',
+                    title: const Text('Help',
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.white,
@@ -726,11 +733,11 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                     },
                   ),
                   ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.info,
                       color: Colors.white,
                     ),
-                    title: Text('About',
+                    title: const Text('About',
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.white,
@@ -742,24 +749,28 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       );
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 140,
                   ),
                   Center(
                     child: SizedBox(
                       width: 195,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () async {
+                          await Get.put(AuthController())
+                              .signoutMethod(context);
+                          Get.offAll(() => const Login());
+                        },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF393939), //
+                          backgroundColor: const Color(0xFF393939), //
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0),
-                            side: BorderSide(color: Colors.white),
+                            side: const BorderSide(color: Colors.white),
                           ), // Change the background color
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                          children: const [
                             Icon(Icons.logout),
                             SizedBox(width: 8.0),
                             Text('Log out',
@@ -769,7 +780,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                         ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

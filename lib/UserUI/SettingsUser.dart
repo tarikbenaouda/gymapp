@@ -1,39 +1,39 @@
-// ignore_for_file: unnecessary_const, prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: use_build_context_synchronously
 
-import 'package:flutter/material.dart';
+import 'dart:io';
+
 import 'package:flutter/services.dart';
-import 'package:gymapp/common_widgets/my_textformfield.dart';
 import 'package:gymapp/consts/consts.dart';
+import 'package:gymapp/controlllers/profile_controller.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
-class SettingsUser extends StatefulWidget {
-  const SettingsUser({super.key});
+class SettingsUser extends StatelessWidget {
+  final dynamic data;
+  const SettingsUser({Key? key, this.data}) : super(key: key);
 
-  @override
-  State<SettingsUser> createState() => _SettingsUserState();
-}
-
-class _SettingsUserState extends State<SettingsUser> {
   @override
   Widget build(BuildContext context) {
-    double screenwidth = MediaQuery.of(context).size.width;
-    double screenlength = MediaQuery.of(context).size.height;
+    var controller = Get.find<ProfileController>();
+
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("images/20.jpg"), fit: BoxFit.fill)),
         child: ListView(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Get.back();
+              },
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
                 child: Row(
-                  children: [
+                  children: const [
                     Icon(
                       Icons.keyboard_double_arrow_left_outlined,
                       color: Color(0xFFFF1E0F),
@@ -44,7 +44,7 @@ class _SettingsUserState extends State<SettingsUser> {
                     ),
                     Center(
                       child: Text(
-                        " Settigns",
+                        " Settings",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 32,
@@ -55,144 +55,195 @@ class _SettingsUserState extends State<SettingsUser> {
                 ),
               ),
             ),
-            Container(
-              width: double.infinity,
-              height: screenlength * 0.7,
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(20)),
-              child: Column(children: [
-                Padding(
-                  padding: const EdgeInsets.all(7.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 70,
-                        width: 70,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
-                        ),
-                        //url of image
-                      ),
-                      SizedBox(
-                        width: 8,
-                      ),
-                      Column(
-                        children: [
-                          TextButton(
-                              onPressed: (() {}),
-                              child: Container(
-                                alignment: Alignment.center,
-                                height: 40,
-                                width: 200,
-                                decoration: BoxDecoration(
-                                    color: const Color(0xFFFF1E0F),
-                                    borderRadius: BorderRadius.circular(15)),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Text(
-                                      "Change Picture",
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 16),
-                                    ),
-                                    IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.edit,
-                                          color: Colors.black,
-                                        )),
-                                  ],
-                                ),
-                              )),
-                        ],
-                      ),
-                    ],
-                  ),
+            Obx(
+              () => Column(children: [
+                data['imageUrl'] == '' && controller.profileImgPath.isEmpty
+                    ? Image.asset(
+                        icGoogleLogo,
+                        width: 100,
+                        fit: BoxFit.cover,
+                      ).box.roundedFull.clip(Clip.antiAlias).make()
+                    : data['imageUrl'] != '' &&
+                            controller.profileImgPath.isEmpty
+                        ? Image.network(
+                            data['imageUrl'],
+                            width: 100,
+                            fit: BoxFit.cover,
+                          ).box.roundedFull.clip(Clip.antiAlias).make()
+                        : Image.file(
+                            File(controller.profileImgPath.value),
+                            width: 100,
+                            fit: BoxFit.cover,
+                          ).box.roundedFull.clip(Clip.antiAlias).make(),
+                10.heightBox,
+                Column(
+                  children: [
+                    TextButton(
+                        onPressed: (() {
+                          controller.changeImage(context);
+                        }),
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 40,
+                          width: 200,
+                          decoration: BoxDecoration(
+                              color: const Color(0xFFFF1E0F),
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text(
+                                "Change Picture",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 16),
+                              ),
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.edit,
+                                    color: Colors.white,
+                                  )),
+                            ],
+                          ),
+                        )),
+                  ],
+                ),
+                myTextformfield(
+                  hint: "Full Name",
+                  icon: const Icon(Icons.edit),
+                  controller: controller.fullNameController,
+                  type: TextInputType.name,
                 ),
                 myTextformfield(
                     hint: "weight    Kg ",
-                    icon: Icon(Icons.edit),
-                    controller: null,
+                    icon: const Icon(Icons.edit),
+                    controller: controller.weightController,
                     limit: 3,
                     type: TextInputType.number,
                     filter: FilteringTextInputFormatter.digitsOnly),
                 myTextformfield(
                     hint: "Height    cm ",
-                    icon: Icon(Icons.edit),
-                    controller: null,
+                    icon: const Icon(Icons.edit),
+                    controller: controller.heightController,
                     limit: 3,
                     filter: FilteringTextInputFormatter.digitsOnly,
                     type: TextInputType.number),
                 myTextformfield(
                     hint: "Age",
-                    icon: Icon(Icons.edit),
-                    controller: null,
+                    icon: const Icon(Icons.edit),
+                    controller: controller.ageController,
                     limit: 2,
                     filter: FilteringTextInputFormatter.digitsOnly,
                     type: TextInputType.number),
-                const SizedBox(
-                  height: 4,
-                ),
+                4.heightBox,
                 myTextformfield(
-                  hint: "User NAme",
-                  icon: Icon(Icons.edit),
-                  controller: null,
+                  hint: "Username",
+                  icon: const Icon(Icons.edit),
+                  controller: controller.usernameController,
                   type: TextInputType.name,
                 ),
-                const SizedBox(
-                  height: 4,
-                ),
-                myTextformfield(
-                    hint: " Email",
-                    icon: Icon(Icons.edit),
-                    controller: null,
-                    type: TextInputType.emailAddress),
-                const SizedBox(
-                  height: 4,
-                ),
+                4.heightBox,
                 myTextformfield(
                     hint: "Phone Number",
-                    icon: Icon(Icons.edit),
-                    controller: null,
+                    icon: const Icon(Icons.edit),
+                    controller: controller.phoneNumberController,
                     limit: 10,
                     filter: FilteringTextInputFormatter.digitsOnly),
-                const SizedBox(
-                  height: 4,
+                4.heightBox,
+                myTextformfield(
+                  hint: "old Password (required)",
+                  icon: const Icon(Icons.edit),
+                  controller: controller.oldPasswordController,
+                  limit: 16,
+                  obsecure: true,
                 ),
+                4.heightBox,
+                myTextformfield(
+                  hint: "New Password (optional)",
+                  icon: const Icon(Icons.edit),
+                  controller: controller.newPasswordController,
+                  limit: 16,
+                  obsecure: true,
+                ),
+                4.heightBox,
               ]),
             ),
-            TextButton(
-                onPressed: (() {}),
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 40,
-                  width: 240,
-                  decoration: BoxDecoration(
-                      color: Color(0xFFFF1E0F),
-                      borderRadius: BorderRadius.circular(15)),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          " Save The Changes",
-                          style: TextStyle(color: Colors.white, fontSize: 16),
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        const Icon(
-                          Icons.settings,
-                          color: Colors.white,
-                        ),
-                      ],
-                    ),
+            controller.isloading.value
+                ? const CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation(red),
+                  )
+                : SizedBox(
+                    width: context.screenWidth - 60,
+                    child: TextButton(
+                        onPressed: () async {
+                          controller.isloading(true);
+                          //if image is not selected
+                          if (controller.profileImgPath.value.isNotEmpty) {
+                            await controller.uploadProfileImage();
+                          } else {
+                            controller.profileImageLink = data['imageUrl'];
+                          }
+                          //if old password matches database
+                          //data['password']
+                          if (data['password'] ==
+                              controller.oldPasswordController.text) {
+                            var password =
+                                controller.newPasswordController.text;
+                            if (controller.newPasswordController.text == "") {
+                              password = controller.oldPasswordController.text;
+                            }
+                            controller.changeAuthPassword(
+                                email: data['email'],
+                                password: controller.oldPasswordController.text,
+                                newpassword: password);
+
+                            await controller.updateProfile(
+                              imgUrl: controller.profileImageLink,
+                              fullName: controller.fullNameController.text,
+                              username: controller.usernameController.text,
+                              age: controller.ageController.text,
+                              height: controller.heightController.text,
+                              weight: controller.weightController.text,
+                              phoneNumber:
+                                  controller.phoneNumberController.text,
+                              password: password,
+                            );
+
+                            VxToast.show(context, msg: "Updated");
+                          } else {
+                            VxToast.show(context, msg: "Wrong old password!");
+                            controller.isloading(false);
+                          }
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 40,
+                          width: 240,
+                          decoration: BoxDecoration(
+                              color: const Color(0xFFFF1E0F),
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: const [
+                                Text(
+                                  "Save",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 16),
+                                ),
+                                SizedBox(
+                                  width: 8,
+                                ),
+                                Icon(
+                                  Icons.settings,
+                                  color: Colors.white,
+                                ),
+                              ],
+                            ),
+                          ),
+                        )),
                   ),
-                )),
           ],
         ),
       ),

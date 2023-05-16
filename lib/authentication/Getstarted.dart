@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
-
 import 'package:gymapp/consts/consts.dart';
 
 class Getstarted extends StatefulWidget {
@@ -15,15 +13,15 @@ class _GetstartedState extends State<Getstarted> {
     double screenwidth = MediaQuery.of(context).size.width;
     double screenlength = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Color(0xFF393939),
+      backgroundColor: const Color(0xFF393939),
       body: ListView(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 150,
           ),
           Center(
             child: Row(
-              children: [
+              children: const [
                 Text(
                   "               Fire-",
                   style: TextStyle(
@@ -41,7 +39,7 @@ class _GetstartedState extends State<Getstarted> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 250,
           ),
           Padding(
@@ -53,19 +51,18 @@ class _GetstartedState extends State<Getstarted> {
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),
-                      backgroundColor: Color(0xFFFF1E0F)),
+                      backgroundColor: const Color(0xFFFF1E0F)),
                   onPressed: () {
-                    //Navigator.of(context).pushNamed("welcome");
-                    Get.to(() => Unboarding());
+                    Get.to(() => const Unboarding());
                   },
-                  child: Text(
+                  child: const Text(
                     "Get Start",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                   )),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 18),
             child: Expanded(
               child: Text(
                 "This application is subject to high protection and you can also use it after you are accepted by the club management.",
@@ -76,11 +73,11 @@ class _GetstartedState extends State<Getstarted> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 80),
+            padding: const EdgeInsets.symmetric(horizontal: 80),
             child: Container(
               alignment: Alignment.bottomCenter,
               width: 100,

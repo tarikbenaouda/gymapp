@@ -83,7 +83,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
       Container(
           height: screenheight,
           width: screenwidth,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("images/training offer background.jpg"),
               fit: BoxFit.fill,
@@ -94,7 +94,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 IconButton(
-                  padding: EdgeInsets.only(top: 10),
+                  padding: const EdgeInsets.only(top: 10),
                   iconSize: 40,
                   icon: Icon(Icons.keyboard_double_arrow_left_rounded,
                       size: 25 * (screenheight / screenwidth)),
@@ -121,7 +121,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 160,
             ),
             Container(
@@ -131,7 +131,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                 ),
                 height: 400,
                 width: 400,
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 child: ListView.builder(
                     physics: const BouncingScrollPhysics(),
                     itemCount: list_offres
@@ -147,11 +147,11 @@ class edit_our_offres_State extends State<edit_our_offres> {
                               context: context,
                               builder: (BuildContext context) {
                                 return AlertDialog(
-                                    backgroundColor: Color(0xFF4F4F4F),
+                                    backgroundColor: const Color(0xFF4F4F4F),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10.0),
                                     ),
-                                    contentPadding: EdgeInsets.symmetric(
+                                    contentPadding: const EdgeInsets.symmetric(
                                       vertical: 50.0,
                                     ),
                                     title: Column(
@@ -207,7 +207,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                               text: list_offres[current]
                                                   .type_offre),
                                           hint: "Type of the offre",
-                                          icon: Icon(
+                                          icon: const Icon(
                                             Icons.edit,
                                             color: red,
                                           ),
@@ -216,7 +216,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                           controller: TextEditingController(
                                               text: list_offres[current].month),
                                           hint: "Months",
-                                          icon: Icon(
+                                          icon: const Icon(
                                             Icons.edit,
                                             color: red,
                                           ),
@@ -226,7 +226,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                               text: list_offres[current]
                                                   .sessions),
                                           hint: "Sessions",
-                                          icon: Icon(
+                                          icon: const Icon(
                                             Icons.edit_outlined,
                                             color: red,
                                           ),
@@ -235,7 +235,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                           controller: TextEditingController(
                                               text: list_offres[current].price),
                                           hint: "Price",
-                                          icon: Icon(
+                                          icon: const Icon(
                                             Icons.price_check_sharp,
                                             color: red,
                                           ),
@@ -272,7 +272,8 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                                           color: red,
                                                         ),
                                                       ),
-                                                      Icon(Icons.check_circle,
+                                                      const Icon(
+                                                          Icons.check_circle,
                                                           color: red),
                                                     ],
                                                   )),
@@ -303,7 +304,8 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                                           color: white,
                                                         ),
                                                       ),
-                                                      Icon(Icons.delete_forever,
+                                                      const Icon(
+                                                          Icons.delete_forever,
                                                           color: white),
                                                     ],
                                                   )),
@@ -316,7 +318,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                             );
                           },
                           child: Container(
-                            margin: EdgeInsets.symmetric(
+                            margin: const EdgeInsets.symmetric(
                                 vertical: 10, horizontal: 20),
                             height: screenheight * 0.15,
                             decoration: BoxDecoration(
@@ -369,11 +371,11 @@ class edit_our_offres_State extends State<edit_our_offres> {
                   context: context,
                   builder: (BuildContext context) {
                     return AlertDialog(
-                        backgroundColor: Color(0xFF4F4F4F),
+                        backgroundColor: const Color(0xFF4F4F4F),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-                        contentPadding: EdgeInsets.symmetric(
+                        contentPadding: const EdgeInsets.symmetric(
                           vertical: 50.0,
                         ),
                         title: Column(
@@ -419,7 +421,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                             myTextformfield(
                               controller: type_offre_controller,
                               hint: "Type of the offre",
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.edit,
                                 color: red,
                               ),
@@ -427,7 +429,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                             myTextformfield(
                               controller: month_controller,
                               hint: "Months",
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.edit,
                                 color: red,
                               ),
@@ -435,7 +437,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                             myTextformfield(
                               controller: sessions_controller,
                               hint: "Sessions",
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.edit_outlined,
                                 color: red,
                               ),
@@ -443,7 +445,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                             myTextformfield(
                               controller: price_controller,
                               hint: "Price",
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.price_check_sharp,
                                 color: red,
                               ),
@@ -478,7 +480,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                       showDialog(
                                         context: context,
                                         builder: (BuildContext context) {
-                                          return AlertDialog(
+                                          return const AlertDialog(
                                             title: Text("Error"),
                                             content: Text(
                                                 "Oops! Something went wrong."),
@@ -497,7 +499,8 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                           color: white,
                                         ),
                                       ),
-                                      Icon(Icons.check_circle, color: white),
+                                      const Icon(Icons.check_circle,
+                                          color: white),
                                     ],
                                   )),
                             ),

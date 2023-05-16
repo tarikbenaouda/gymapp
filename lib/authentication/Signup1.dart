@@ -22,14 +22,14 @@ class _Signup1State extends State<Signup1> {
       child: Container(
           height: screenlength,
           width: screenwidth,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("images/7.jpg"), fit: BoxFit.fill)),
           child: ListView(children: [
-            SizedBox(
+            const SizedBox(
               height: 80,
             ),
-            Center(
+            const Center(
               child: Text(
                 "Sign Up",
                 style: TextStyle(
@@ -38,7 +38,7 @@ class _Signup1State extends State<Signup1> {
                     fontWeight: FontWeight.w500),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 100,
             ),
             myTextformfield(
@@ -62,16 +62,15 @@ class _Signup1State extends State<Signup1> {
               padding: const EdgeInsets.only(left: 48),
               child: Row(
                 children: [
-                  Text(
+                  const Text(
                     "You already have an acccount ? ",
                     style: TextStyle(fontSize: 17, color: Colors.white),
                   ),
                   InkWell(
                     onTap: () {
-                      //Navigator.of(context).pushNamed("Signup1");
                       Get.back();
                     },
-                    child: Text(
+                    child: const Text(
                       "Log In",
                       style: TextStyle(color: Color(0xFFFF1E0F), fontSize: 17),
                     ),
@@ -79,7 +78,7 @@ class _Signup1State extends State<Signup1> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Padding(
@@ -92,13 +91,12 @@ class _Signup1State extends State<Signup1> {
                     height: 50,
                     width: 120,
                     decoration: BoxDecoration(
-                        color: Color(0xFFFF1E0F),
+                        color: const Color(0xFFFF1E0F),
                         borderRadius: BorderRadius.circular(15)),
                     child: InkWell(
                       onTap: () {
-                        //Navigator.of(context).pushNamed("Signup2");
                         Get.to(
-                          () => Signup2(),
+                          () => const Signup2(),
                           arguments: [
                             fullNameController,
                             usernameController,
@@ -106,7 +104,7 @@ class _Signup1State extends State<Signup1> {
                           ],
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         "NEXT",
                         style: TextStyle(
                             fontSize: 20,
