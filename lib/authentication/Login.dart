@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/consts/consts.dart';
@@ -104,6 +105,8 @@ class _LoginState extends State<Login> {
                                       borderRadius: BorderRadius.circular(25)),
                                   backgroundColor: const Color(0xFFFF1E0F)),
                               onPressed: () async {
+                                // Get the currently signed-in user
+
                                 controller.isloading(true);
                                 await controller
                                     .loginMethod(context: context)
@@ -111,7 +114,13 @@ class _LoginState extends State<Login> {
                                   if (value != null) {
                                     VxToast.show(context,
                                         msg: "Logged in Successfully");
-                                    Get.offAll(() => const ProfileUser());
+                                    User? user =
+                                        FirebaseAuth.instance.currentUser;
+
+                                    String uid = user!.uid;
+                                    (uid == "yXmxa3CA0ePjBgKq6i2G7sngV4t2")
+                                        ? Get.offAll(() => const HomeView())
+                                        : Get.offAll(() => const ProfileUser());
                                   } else {
                                     controller.isloading(false);
                                   }
