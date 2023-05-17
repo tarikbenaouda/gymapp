@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:gymapp/consts/Colors.dart';
 
 import '../common_widgets/my_textformfield.dart';
@@ -241,7 +243,7 @@ class edit_our_shop_State extends State<edit_our_shop> {
                                                 (screenheight / screenwidth),
                                           ),
                                           onPressed: () {
-                                            Navigator.of(context).pop();
+                                            Get.back();
                                           }),
                                     ],
                                   ),

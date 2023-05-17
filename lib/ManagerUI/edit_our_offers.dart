@@ -100,7 +100,9 @@ class edit_our_offres_State extends State<edit_our_offres> {
                   icon: Icon(Icons.keyboard_double_arrow_left_rounded,
                       size: 25 * (screenheight / screenwidth)),
                   color: red,
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.back();
+                  },
                 ),
               ],
             ),
@@ -170,7 +172,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                                           screenwidth),
                                                 ),
                                                 onPressed: () {
-                                                  Navigator.of(context).pop();
+                                                  Get.back();
                                                 }),
                                           ],
                                         ),
@@ -283,8 +285,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                                             price_controller
                                                                 .text;
                                                       });
-                                                      Navigator.of(context)
-                                                          .pop();
+                                                      Get.back();
                                                     } else
                                                       showDialog(
                                                         context: context,
@@ -292,7 +293,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                                             context) {
                                                           return const AlertDialog(
                                                             backgroundColor:
-                                                                const Color(
+                                                                Color(
                                                                     0xFF4F4F4F),
                                                             title: Text(
                                                               "Error",
@@ -340,7 +341,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                               width: screenwidth * 0.3,
                                               child: TextButton(
                                                   onPressed: () {
-                                                    Navigator.of(context).pop();
+                                                    Get.back();
                                                     setState(() {
                                                       list_offres
                                                           .removeAt(current);
@@ -446,7 +447,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                       size: 30,
                                     ),
                                     onPressed: () {
-                                      Navigator.of(context).pop();
+                                      Get.back();
                                     }),
                               ],
                             ),
@@ -531,14 +532,13 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                           sessions: sessions_controller.text,
                                         ));
                                       });
-                                      Navigator.of(context).pop();
+                                      Get.back();
                                     } else
                                       showDialog(
                                         context: context,
                                         builder: (BuildContext context) {
                                           return const AlertDialog(
-                                            backgroundColor:
-                                                const Color(0xFF4F4F4F),
+                                            backgroundColor: Color(0xFF4F4F4F),
                                             title: Text(
                                               "Error",
                                               style: TextStyle(color: white),
