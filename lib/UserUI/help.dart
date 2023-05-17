@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
+import 'package:gymapp/consts/consts.dart';
 
 import 'about.dart';
 import 'home_view.dart';
@@ -37,10 +38,7 @@ class _HelpState extends State<Help> {
                     color: Color(0xFFFD372A),
                   ),
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomeViewAthlete()));
+                    Get.back();
                   },
                 ),
               ),
@@ -229,11 +227,7 @@ class _HelpState extends State<Help> {
           children: [
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const HomeViewAthlete()),
-                );
+                Get.to(() => const HomeViewAthlete());
               },
               child: Container(
                 padding: const EdgeInsets.all(12),
@@ -258,10 +252,7 @@ class _HelpState extends State<Help> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ProfileUser()),
-                );
+                Get.to(() => const ProfileUser());
               },
               child: Container(
                 padding: const EdgeInsets.all(12),
@@ -274,11 +265,7 @@ class _HelpState extends State<Help> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const HomeViewAthlete()),
-                );
+                Get.to(() => const HomeViewAthlete());
               },
               child: Container(
                 padding: const EdgeInsets.all(12),
@@ -291,11 +278,7 @@ class _HelpState extends State<Help> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const ProfileUser()), //settings
-                );
+                Get.to(() => const SettingsUser());
               },
               child: Container(
                 padding: const EdgeInsets.all(12),

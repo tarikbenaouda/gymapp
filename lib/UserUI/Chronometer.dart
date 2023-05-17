@@ -25,7 +25,9 @@ class Chronometer extends StatelessWidget {
             child: Row(
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Get.back();
+                  },
                   child: const Icon(
                     Icons.keyboard_double_arrow_left_outlined,
                     size: 35,

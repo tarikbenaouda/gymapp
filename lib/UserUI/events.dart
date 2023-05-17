@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
+import 'package:gymapp/consts/consts.dart';
 
 import 'home_view.dart';
 
@@ -35,10 +37,7 @@ class _EventsCompetitionState extends State<EventsCompetition> {
                     color: Color(0xFFFD372A),
                   ),
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomeViewAthlete()));
+                    Get.to(() => const HomeViewAthlete());
                   },
                 ),
               ),
@@ -226,11 +225,7 @@ class _EventsCompetitionState extends State<EventsCompetition> {
           children: [
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const HomeViewAthlete()),
-                );
+                Get.to(() => const HomeViewAthlete());
               },
               child: Container(
                 padding: const EdgeInsets.all(12),
@@ -255,10 +250,7 @@ class _EventsCompetitionState extends State<EventsCompetition> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ProfileUser()),
-                );
+                Get.to(() => const ProfileUser());
               },
               child: Container(
                 padding: const EdgeInsets.all(12),
@@ -271,11 +263,7 @@ class _EventsCompetitionState extends State<EventsCompetition> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const HomeViewAthlete()),
-                );
+                Get.to(() => const HomeViewAthlete());
               },
               child: Container(
                 padding: const EdgeInsets.all(12),
@@ -288,11 +276,7 @@ class _EventsCompetitionState extends State<EventsCompetition> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const ProfileUser()), //Settings
-                );
+                Get.to(() => const SettingsUser());
               },
               child: Container(
                 padding: const EdgeInsets.all(12),

@@ -88,10 +88,7 @@ class _CaloriesState extends State<Calories> {
                       color: Color(0xFFFD372A),
                     ),
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const HomeViewAthlete()));
+                      Get.to(() => const HomeViewAthlete());
                     },
                   ),
                 ),
@@ -364,11 +361,7 @@ class _CaloriesState extends State<Calories> {
           children: [
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const HomeViewAthlete()),
-                );
+                Get.to(() => const HomeViewAthlete());
               },
               child: Container(
                 padding: const EdgeInsets.all(12),
@@ -393,10 +386,7 @@ class _CaloriesState extends State<Calories> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ProfileUser()),
-                );
+                Get.to(() => const ProfileUser());
               },
               child: Container(
                 padding: const EdgeInsets.all(12),
@@ -409,10 +399,7 @@ class _CaloriesState extends State<Calories> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomeView()),
-                );
+                Get.to(() => const HomeView());
               },
               child: Container(
                 padding: const EdgeInsets.all(12),
@@ -425,10 +412,7 @@ class _CaloriesState extends State<Calories> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SettingsUser()),
-                );
+                Get.to(() => const SettingsUser());
               },
               child: Container(
                 padding: const EdgeInsets.all(12),

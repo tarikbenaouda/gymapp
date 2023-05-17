@@ -98,7 +98,9 @@ class SettingsUser extends StatelessWidget {
                                     color: Colors.white, fontSize: 16),
                               ),
                               IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    controller.changeImage(context);
+                                  },
                                   icon: const Icon(
                                     Icons.edit,
                                     color: Colors.white,

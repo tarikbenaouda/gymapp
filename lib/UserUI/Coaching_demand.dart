@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../common_widgets/my_textformfield.dart';
 import '../consts/Colors.dart';
@@ -263,7 +265,7 @@ class coaching_demand_State extends State<coaching_demand> {
                                               BorderRadius.circular(10)),
                                       child: TextButton(
                                           onPressed: () {
-                                            Navigator.of(context).pop();
+                                            Get.back();
                                           },
                                           child: Text(
                                             'Return to Home',

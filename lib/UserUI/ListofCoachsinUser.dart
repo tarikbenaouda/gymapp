@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:gymapp/ManagerUI/home_page.dart';
+import 'package:gymapp/UserUI/CoachInformation.dart';
+import 'package:gymapp/consts/consts.dart';
 
 class ListofCoachinuser extends StatefulWidget {
   const ListofCoachinuser({super.key});
@@ -24,10 +27,7 @@ class _ListofCoachinuserState extends State<ListofCoachinuser> {
           children: [
             InkWell(
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: ((context) => const HomeView())));
+                Get.back();
               },
               child: Padding(
                 padding:
@@ -104,7 +104,7 @@ class _ListofCoachinuserState extends State<ListofCoachinuser> {
                       itemBuilder: (BuildContext context, int index) {
                         return InkWell(
                             onTap: () {
-                              Navigator.of(context).pushNamed("CoachProfile");
+                              Get.to(() => const CoachInforamtion());
                             },
                             child: Container(
                                 margin: const EdgeInsets.symmetric(

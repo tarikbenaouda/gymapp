@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:gymapp/consts/consts.dart';
 
 import '../common_widgets/my_textformfield.dart';
+import 'Coaching_demand.dart';
 
 class CoachInforamtion extends StatefulWidget {
   const CoachInforamtion({super.key});
@@ -32,7 +35,7 @@ class _CoachInforamtionState extends State<CoachInforamtion> {
               children: [
                 InkWell(
                   onTap: () {
-                    Navigator.of(context).pushNamed("Demandcoaching");
+                    Get.to(() => coaching_demand());
                   },
                   child: const Icon(
                     Icons.keyboard_double_arrow_left_outlined,
