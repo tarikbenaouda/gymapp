@@ -12,6 +12,7 @@ class coaching_demand extends StatefulWidget {
 
 class coaching_demand_State extends State<coaching_demand> {
   @override
+  int select_radio = 0;
   Widget build(BuildContext context) {
     double statusBarHeight = MediaQuery.of(context).padding.top;
     double screenwidth = MediaQuery.of(context).size.width;
@@ -37,9 +38,10 @@ class coaching_demand_State extends State<coaching_demand> {
               children: [
                 IconButton(
                   padding: const EdgeInsets.only(top: 10),
-                  iconSize: 40,
-                  icon: Icon(Icons.keyboard_double_arrow_left_rounded,
-                      size: 25 * (screenheight / screenwidth)),
+                  iconSize: 55,
+                  icon: Icon(
+                    Icons.keyboard_double_arrow_left_rounded,
+                  ),
                   color: red,
                   onPressed: () {},
                 ),
@@ -53,13 +55,13 @@ class coaching_demand_State extends State<coaching_demand> {
                   style: TextStyle(
                     color: white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 13 * (screenheight / screenwidth),
+                    fontSize: 25,
                   ),
                 ),
                 Icon(
                   Icons.person,
                   color: white,
-                  size: 15 * (screenheight / screenwidth),
+                  size: 25,
                 )
               ],
             ),
@@ -86,7 +88,7 @@ class coaching_demand_State extends State<coaching_demand> {
                       "Demand Formula",
                       style: TextStyle(
                           color: white,
-                          fontSize: 25,
+                          fontSize: 24,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
@@ -95,13 +97,59 @@ class coaching_demand_State extends State<coaching_demand> {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
+                    children: [
                       Text(
                         "Old coach:",
                         style: TextStyle(
                             fontWeight: FontWeight.w500,
                             color: red,
                             fontSize: 23),
+                      ),
+                      InkWell(
+                        child: Container(
+                          height: 17,
+                          width: 17,
+                          decoration: BoxDecoration(
+                              color: select_radio == 1 ? red : white,
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                  color: select_radio == 1 ? white : red,
+                                  width: 2)),
+                        ),
+                        onTap: () {
+                          setState(() {
+                            select_radio = 1;
+                          });
+                        },
+                      ),
+                      Text(
+                        "Yes",
+                        style: TextStyle(
+                            color: select_radio == 1 ? red : white,
+                            fontSize: 20),
+                      ),
+                      InkWell(
+                        child: Container(
+                          height: 17,
+                          width: 17,
+                          decoration: BoxDecoration(
+                              color: select_radio == 2 ? red : white,
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                  color: select_radio == 2 ? white : red,
+                                  width: 2)),
+                        ),
+                        onTap: () {
+                          setState(() {
+                            select_radio = 2;
+                          });
+                        },
+                      ),
+                      Text(
+                        "No",
+                        style: TextStyle(
+                            color: select_radio == 2 ? red : white,
+                            fontSize: 20),
                       ),
                     ],
                   ),
@@ -110,7 +158,7 @@ class coaching_demand_State extends State<coaching_demand> {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
+                    children: [
                       Text(
                         "Coaching During :",
                         style: TextStyle(
