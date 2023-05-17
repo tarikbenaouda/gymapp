@@ -124,6 +124,22 @@ class _LoginState extends State<Login> {
                                               () => const HomeViewAthlete());
                                     } else {
                                       controller.isloading(false);
+                                      showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          return const AlertDialog(
+                                            backgroundColor:
+                                                const Color(0xFF4F4F4F),
+                                            title: Text(
+                                              "Error",
+                                              style: TextStyle(color: white),
+                                            ),
+                                            content: Text(
+                                                "Oops! Same information is wrong.",
+                                                style: TextStyle(color: white)),
+                                          );
+                                        },
+                                      );
                                     }
                                   });
                                 });
