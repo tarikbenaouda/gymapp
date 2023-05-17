@@ -1,10 +1,5 @@
 import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
-<<<<<<< HEAD
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-=======
 import 'package:gymapp/consts/consts.dart';
->>>>>>> a99fadf (Some modification)
 
 class Edit_schedule extends StatefulWidget {
   @override
@@ -34,94 +29,10 @@ class _Edit_schedule_State extends State<Edit_schedule> {
                 fit: BoxFit.fill,
               ),
             ),
-<<<<<<< HEAD
-          ),
-          child: ListView(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  IconButton(
-                    padding: const EdgeInsets.only(top: 30),
-                    iconSize: 40,
-                    icon: const Icon(Icons.keyboard_double_arrow_left_rounded),
-                    color: r,
-                    onPressed: () {
-                      Get.back();
-                    },
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  IconButton(
-                    padding: const EdgeInsets.only(right: 50),
-                    iconSize: 40,
-                    icon: const Icon(Icons.list),
-                    color: Colors.white,
-                    onPressed: () {},
-                  ),
-                  const Text(
-                    "Edit Schedule And State",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
-                ],
-              ),
-              const Text(
-                "Gym State",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              AdvancedSwitch(
-                width: 100,
-                height: 30,
-                controller: _controller,
-                //inactiveColor: w,
-                activeColor: r,
-                activeChild: Text(
-                  "Open",
-                  style: TextStyle(color: w, fontSize: 20),
-                ),
-                inactiveChild: Text(
-                  "Closed",
-                  style: TextStyle(color: r, fontSize: 20),
-                ),
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              const Text(
-                "Our Schedule",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Container(
-                margin: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 68, 68, 67),
-                  border: Border.all(color: r, width: 1),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 70, horizontal: 10),
-                child: Column(
-=======
             child: Column(
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
->>>>>>> a99fadf (Some modification)
                   children: [
                     IconButton(
                       //padding: const EdgeInsets.only(top: 30),
