@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: edit_our_offres(),
+      home: Edit_schedule(),
       routes: {
         //  "/": (context) => Auth(),
         "welcome": (context) => const Unboarding(),
