@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:gymapp/ManagerUI/DemandTraining.dart';
+import 'package:gymapp/ManagerUI/about.dart';
+import 'package:gymapp/ManagerUI/edit_our_offers.dart';
+import 'package:gymapp/ManagerUI/help.dart';
 import 'package:gymapp/ManagerUI/setting.dart';
+import 'package:gymapp/consts/consts.dart';
 import 'package:intl/intl.dart';
 
 import '../authentication/Login.dart';
 import '../controlllers/auth_controller.dart';
+import 'OurStateShop.dart';
+import 'OurstateAthlete.dart';
+import 'listathletes.dart';
 import 'modify_about.dart';
 import 'modify_events.dart';
 import 'modify_help.dart';
@@ -206,11 +214,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const HomeView()),
-                            );
+                            Get.to(() => const OurstateShop());
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -250,11 +254,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const HomeView()),
-                            );
+                            Get.to(() => OurstateAthlete());
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -294,11 +294,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const HomeView()),
-                            );
+                            Get.to(() => Listathletes());
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -338,11 +334,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const HomeView()),
-                            );
+                            Get.to(() => DemandTrainnig());
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -382,11 +374,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const HomeView()),
-                            );
+                            Get.to(() => edit_our_offres());
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -426,11 +414,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const HomeView()),
-                            );
+                            Get.to(() => DemandForCoaching());
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -470,11 +454,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const HomeView()),
-                            );
+                            Get.to(() => Edit_schedule());
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -513,11 +493,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const HomeView()),
-                            );
+                            Get.to(() => edit_our_shop());
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -556,11 +532,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ModifyEvents()),
-                            );
+                            Get.to(() => ModifyEvents());
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -601,10 +573,7 @@ class _HomeViewState extends State<HomeView> {
               padding: const EdgeInsets.only(right: 90.0),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const HomeView()),
-                  );
+                  Get.to(() => HomeView());
                 },
                 child: Container(
                   child: const Icon(
@@ -617,10 +586,7 @@ class _HomeViewState extends State<HomeView> {
               padding: const EdgeInsets.only(right: 90.0),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const HomeView()),
-                  );
+                  Get.to(() => Setting());
                 },
                 child: Container(
                   child: const Icon(
@@ -631,10 +597,7 @@ class _HomeViewState extends State<HomeView> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomeView()),
-                );
+                Get.to(() => edit_our_shop());
               },
               child: Container(
                 decoration: BoxDecoration(
@@ -651,10 +614,7 @@ class _HomeViewState extends State<HomeView> {
               padding: const EdgeInsets.only(left: 90.0),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Setting()),
-                  );
+                  Get.to(() => Setting());
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -714,11 +674,7 @@ class _HomeViewState extends State<HomeView> {
                           color: Colors.white,
                         )),
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomeView()),
-                      );
+                      Get.to(() => HomeView());
                     },
                   ),
                   ListTile(
@@ -732,11 +688,7 @@ class _HomeViewState extends State<HomeView> {
                           color: Colors.white,
                         )),
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Setting()),
-                      );
+                      Get.to(() => Setting());
                     },
                   ),
                   ListTile(
@@ -750,10 +702,7 @@ class _HomeViewState extends State<HomeView> {
                           color: Colors.white,
                         )),
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => ModifyHelp()),
-                      );
+                      Get.to(() => Help());
                     },
                   ),
                   ListTile(
@@ -767,10 +716,7 @@ class _HomeViewState extends State<HomeView> {
                           color: Colors.white,
                         )),
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => ModifyAbout()),
-                      );
+                      Get.to(() => About(""));
                     },
                   ),
                   const SizedBox(
