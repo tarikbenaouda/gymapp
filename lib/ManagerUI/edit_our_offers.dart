@@ -107,30 +107,30 @@ class edit_our_offres_State extends State<edit_our_offres> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Edit Our Offres",
+                  "Edit our offres",
                   style: TextStyle(
                     color: white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 10 * (screenheight / screenwidth),
+                    fontSize: 25,
                   ),
                 ),
                 Icon(
-                  Icons.price_change_outlined,
-                  color: red,
-                  size: 15 * (screenheight / screenwidth),
+                  Icons.money,
+                  color: white,
+                  size: 25,
                 )
               ],
             ),
-            const SizedBox(
-              height: 160,
+            SizedBox(
+              height: 0.02 * screenheight,
             ),
             Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: red, width: 1),
                 ),
-                height: 400,
-                width: 400,
+                height: 0.7 * screenheight,
+                width: 0.9 * screenwidth,
                 margin: const EdgeInsets.all(10),
                 child: ListView.builder(
                     physics: const BouncingScrollPhysics(),
@@ -387,7 +387,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                     icon: Icon(
                                       Icons.close,
                                       color: red,
-                                      size: 20 * (screenheight / screenwidth),
+                                      size: 30,
                                     ),
                                     onPressed: () {
                                       Navigator.of(context).pop();
@@ -402,13 +402,13 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                   style: TextStyle(
                                     color: white,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 10 * (screenheight / screenwidth),
+                                    fontSize: 25,
                                   ),
                                 ),
                                 Icon(
                                   Icons.edit_calendar_outlined,
-                                  size: 15 * (screenheight / screenwidth),
-                                  color: red,
+                                  size: 25,
+                                  color: white,
                                 )
                               ],
                             ),
@@ -462,10 +462,10 @@ class edit_our_offres_State extends State<edit_our_offres> {
                               width: screenwidth * 0.3,
                               child: TextButton(
                                   onPressed: () {
-                                    if (!((price_controller == "") &
-                                        (month_controller == "") &
-                                        (type_offre_controller == "") &
-                                        (sessions_controller == ""))) {
+                                    if (!((type_offre_controller.text == "") ||
+                                        (month_controller.text == "") ||
+                                        (price_controller.text == "") ||
+                                        (sessions_controller.text == ""))) {
                                       setState(() {
                                         list_offres.add(Offer(
                                           type_offre:
@@ -481,9 +481,15 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                         context: context,
                                         builder: (BuildContext context) {
                                           return const AlertDialog(
-                                            title: Text("Error"),
+                                            backgroundColor:
+                                                const Color(0xFF4F4F4F),
+                                            title: Text(
+                                              "Error",
+                                              style: TextStyle(color: white),
+                                            ),
                                             content: Text(
-                                                "Oops! Something went wrong."),
+                                                "Oops! Something filed is wrong.",
+                                                style: TextStyle(color: white)),
                                           );
                                         },
                                       );
