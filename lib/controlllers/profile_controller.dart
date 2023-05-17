@@ -45,15 +45,17 @@ class ProfileController extends GetxController {
     profileImageLink = await ref.getDownloadURL();
   }
 
-  updateProfile(
-      {fullName,
-      username,
-      phoneNumber,
-      age,
-      height,
-      weight,
-      password,
-      imgUrl}) async {
+  updateProfile({
+    fullName,
+    username,
+    phoneNumber,
+    age,
+    height,
+    weight,
+    password,
+    imgUrl,
+    type,
+  }) async {
     var store = firestore.collection(usersCollection).doc(currentUser!.uid);
     await store.set(
       {
@@ -65,6 +67,7 @@ class ProfileController extends GetxController {
         'weight': weight,
         'password': password,
         'imageUrl': imgUrl,
+        'type': type,
       },
       SetOptions(merge: true),
     );
