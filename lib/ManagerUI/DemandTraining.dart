@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:gymapp/consts/consts.dart';
 
 import '../common_widgets/my_textformfield.dart';
 
@@ -32,7 +34,7 @@ class _DemandTrainnigState extends State<DemandTrainnig> {
               children: [
                 InkWell(
                   onTap: () {
-                    Navigator.of(context).pushNamed("Demandcoaching");
+                    Get.back();
                   },
                   child: const Icon(
                     Icons.keyboard_double_arrow_left_outlined,

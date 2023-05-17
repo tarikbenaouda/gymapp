@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:gymapp/consts/consts.dart';
 //import 'package:gymapp/makeselectorCoachProfile.dart';
 
 class CoachProfile extends StatefulWidget {
@@ -25,7 +27,7 @@ class _CoachProfileState extends State<CoachProfile> {
             ),
             InkWell(
               onTap: () {
-                Navigator.of(context).pushNamed("ListAthletes");
+                Get.back();
               },
               child: Padding(
                 padding:

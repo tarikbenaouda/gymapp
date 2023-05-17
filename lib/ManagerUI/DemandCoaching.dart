@@ -23,7 +23,9 @@ class _DemandForCoachingState extends State<DemandForCoaching> {
         child: ListView(
           children: [
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Get.back();
+              },
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 20, horizontal: 30),

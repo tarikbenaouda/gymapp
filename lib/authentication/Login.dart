@@ -108,41 +108,64 @@ class _LoginState extends State<Login> {
                                       borderRadius: BorderRadius.circular(25)),
                                   backgroundColor: const Color(0xFFFF1E0F)),
                               onPressed: () async {
-                                controller.isloading(true);
-                                await controller
-                                    .loginMethod(context: context)
-                                    .then((value) {
-                                  auth.authStateChanges().listen((User? user) {
-                                    if (value != null) {
-                                      VxToast.show(context,
-                                          msg: "Logged in Successfully");
-                                      auth.authStateChanges();
-                                      uid = auth.currentUser!.uid;
-                                      (uid == "kvqkjI1Jf5ZeJdkhoaJz0qZ7ukL2")
-                                          ? Get.offAll(() => const HomeView())
-                                          : Get.offAll(
-                                              () => const HomeViewAthlete());
-                                    } else {
-                                      controller.isloading(false);
-                                      showDialog(
-                                        context: context,
-                                        builder: (BuildContext context) {
-                                          return const AlertDialog(
-                                            backgroundColor:
-                                                const Color(0xFF4F4F4F),
-                                            title: Text(
-                                              "Error",
-                                              style: TextStyle(color: white),
-                                            ),
-                                            content: Text(
-                                                "Oops! Same information is wrong.",
-                                                style: TextStyle(color: white)),
-                                          );
-                                        },
-                                      );
-                                    }
+                                if (controller.emailController.text != "" &&
+                                    controller.passwordController.text != "") {
+                                  controller.isloading(true);
+                                  await controller
+                                      .loginMethod(context: context)
+                                      .then((value) {
+                                    auth
+                                        .authStateChanges()
+                                        .listen((User? user) {
+                                      if (value != null) {
+                                        VxToast.show(context,
+                                            msg: "Logged in Successfully");
+                                        auth.authStateChanges();
+                                        uid = auth.currentUser!.uid;
+                                        (uid == "kvqkjI1Jf5ZeJdkhoaJz0qZ7ukL2")
+                                            ? Get.offAll(() => const HomeView())
+                                            : Get.offAll(
+                                                () => const HomeViewAthlete());
+                                      } else {
+                                        controller.isloading(false);
+                                        showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return const AlertDialog(
+                                              backgroundColor:
+                                                  const Color(0xFF4F4F4F),
+                                              title: Text(
+                                                "Error",
+                                                style: TextStyle(color: white),
+                                              ),
+                                              content: Text(
+                                                  "Oops! Email or Password incorrect.",
+                                                  style:
+                                                      TextStyle(color: white)),
+                                            );
+                                          },
+                                        );
+                                      }
+                                    });
                                   });
-                                });
+                                } else {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return const AlertDialog(
+                                        backgroundColor:
+                                            const Color(0xFF4F4F4F),
+                                        title: Text(
+                                          "Error",
+                                          style: TextStyle(color: white),
+                                        ),
+                                        content: Text(
+                                            "Oops! The Fields are empty.",
+                                            style: TextStyle(color: white)),
+                                      );
+                                    },
+                                  );
+                                }
                               },
                               child: const Text(
                                 "Login",
@@ -166,7 +189,6 @@ class _LoginState extends State<Login> {
                         ),
                         InkWell(
                           onTap: () {
-                            //Navigator.of(context).pushNamed("Signup1");
                             Get.to(() => const Signup1());
                           },
                           child: const Text(

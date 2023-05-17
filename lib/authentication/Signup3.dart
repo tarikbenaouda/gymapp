@@ -150,47 +150,97 @@ class _Signup3State extends State<Signup3> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(25),
                             ),
-                            backgroundColor: shouldCheck == true
+                            backgroundColor: (emailController.text != "" &&
+                                    passwordController.text != "" &&
+                                    confirmPasswordController.text != "" &&
+                                    shouldCheck)
                                 ? const Color(0xFFFF1E0F)
                                 : const Color.fromARGB(255, 255, 184, 179),
                           ),
                           onPressed: () async {
-                            if (passwordController.text ==
-                                confirmPasswordController.text) {
-                              if (shouldCheck != false) {
-                                controller.isloading(true);
-                                try {
-                                  await controller
-                                      .signupMethod(
-                                    context: context,
-                                    email: emailController.text,
-                                    password: passwordController.text,
-                                  )
-                                      .then((value) {
-                                    return controller.storeUserData(
+                            if (ageController.text != "" &&
+                                weightController.text != "" &&
+                                heightController.text != "") {
+                              if (passwordController.text ==
+                                  confirmPasswordController.text) {
+                                if (shouldCheck != false) {
+                                  controller.isloading(true);
+                                  try {
+                                    await controller
+                                        .signupMethod(
+                                      context: context,
                                       email: emailController.text,
                                       password: passwordController.text,
-                                      fullName: fullNameController.text,
-                                      username: usernameController.text,
-                                      phoneNumber: phoneNumberController.text,
-                                      age: ageController.text,
-                                      weight: weightController.text,
-                                      height: heightController.text,
+                                    )
+                                        .then((value) {
+                                      return controller.storeUserData(
+                                        email: emailController.text,
+                                        password: passwordController.text,
+                                        fullName: fullNameController.text,
+                                        username: usernameController.text,
+                                        phoneNumber: phoneNumberController.text,
+                                        age: ageController.text,
+                                        weight: weightController.text,
+                                        height: heightController.text,
+                                      );
+                                    }).then((value) {
+                                      VxToast.show(context,
+                                          msg: "Logged in successfully");
+                                      Get.offAll(() => const ProfileUser());
+                                    });
+                                  } catch (e) {
+                                    auth.signOut();
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return const AlertDialog(
+                                          backgroundColor:
+                                              const Color(0xFF4F4F4F),
+                                          title: Text(
+                                            "Error",
+                                            style: TextStyle(color: white),
+                                          ),
+                                          content: Text(
+                                              "Oops! Email is incorrect or existe.",
+                                              style: TextStyle(color: white)),
+                                        );
+                                      },
                                     );
-                                  }).then((value) {
-                                    VxToast.show(context,
-                                        msg: "Logged in successfully");
-                                    Get.offAll(() => const ProfileUser());
-                                  });
-                                } catch (e) {
-                                  auth.signOut();
-                                  VxToast.show(context, msg: e.toString());
-                                  controller.isloading(false);
+                                    controller.isloading(false);
+                                  }
                                 }
+                              } else {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return const AlertDialog(
+                                      backgroundColor: const Color(0xFF4F4F4F),
+                                      title: Text(
+                                        "Error",
+                                        style: TextStyle(color: white),
+                                      ),
+                                      content: Text(
+                                          "Oops! Confirm Password is wrong.",
+                                          style: TextStyle(color: white)),
+                                    );
+                                  },
+                                );
                               }
                             } else {
-                              VxToast.show(context,
-                                  msg: "Confirm password error");
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return const AlertDialog(
+                                    backgroundColor: const Color(0xFF4F4F4F),
+                                    title: Text(
+                                      "Error",
+                                      style: TextStyle(color: white),
+                                    ),
+                                    content: Text("Oops! The Fields are empty.",
+                                        style: TextStyle(color: white)),
+                                  );
+                                },
+                              );
                             }
                           },
                           child: const Text(

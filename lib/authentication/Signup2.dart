@@ -102,20 +102,41 @@ class _Signup2State extends State<Signup2> {
                     height: 50,
                     width: 120,
                     decoration: BoxDecoration(
-                        color: const Color(0xFFFF1E0F),
+                        color: (ageController.text != "" &&
+                                weightController.text != "" &&
+                                heightController.text != "")
+                            ? const Color(0xFFFF1E0F)
+                            : const Color.fromARGB(255, 255, 184, 179),
                         border: Border.all(
                             width: 1, color: const Color(0xFFFF1E0F)),
                         borderRadius: BorderRadius.circular(15)),
                     child: InkWell(
                       onTap: () {
-                        Get.to(() => const Signup3(), arguments: [
-                          fullNameController,
-                          usernameController,
-                          phoneNumberController,
-                          ageController,
-                          weightController,
-                          heightController,
-                        ]);
+                        (ageController.text != "" &&
+                                weightController.text != "" &&
+                                heightController.text != "")
+                            ? Get.to(() => const Signup3(), arguments: [
+                                fullNameController,
+                                usernameController,
+                                phoneNumberController,
+                                ageController,
+                                weightController,
+                                heightController,
+                              ])
+                            : showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return const AlertDialog(
+                                    backgroundColor: const Color(0xFF4F4F4F),
+                                    title: Text(
+                                      "Error",
+                                      style: TextStyle(color: white),
+                                    ),
+                                    content: Text("Oops! The Fields are empty.",
+                                        style: TextStyle(color: white)),
+                                  );
+                                },
+                              );
                       },
                       child: const Text(
                         "NEXT",

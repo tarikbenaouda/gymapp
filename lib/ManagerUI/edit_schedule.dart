@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class Edit_schedule extends StatefulWidget {
   @override
@@ -33,7 +35,9 @@ class _Edit_schedule_State extends State<Edit_schedule> {
                     iconSize: 40,
                     icon: const Icon(Icons.keyboard_double_arrow_left_rounded),
                     color: r,
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.back();
+                    },
                   ),
                 ],
               ),
