@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:gymapp/consts/consts.dart';
 
 import 'home_view.dart';
 
@@ -35,10 +37,7 @@ class _AboutState extends State<About> {
                     color: Color(0xFFFD372A),
                   ),
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomeViewAthlete()));
+                    Get.back();
                   },
                 ),
               ),
@@ -128,11 +127,7 @@ class _AboutState extends State<About> {
           children: [
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const HomeViewAthlete()),
-                );
+                Get.to(() => const HomeViewAthlete());
               },
               child: Container(
                 padding: const EdgeInsets.all(12),
@@ -156,7 +151,9 @@ class _AboutState extends State<About> {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.to(() => const ProfileUser());
+              },
               child: Container(
                 padding: const EdgeInsets.all(12),
                 child: const Icon(
@@ -168,11 +165,8 @@ class _AboutState extends State<About> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const HomeViewAthlete()),
-                );
+                Get.to(() => null);
+                ;
               },
               child: Container(
                 padding: const EdgeInsets.all(12),
@@ -184,7 +178,9 @@ class _AboutState extends State<About> {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.to(() => const SettingsUser());
+              },
               child: Container(
                 padding: const EdgeInsets.all(12),
                 child: const Icon(
