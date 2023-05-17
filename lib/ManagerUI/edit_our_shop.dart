@@ -39,6 +39,16 @@ class edit_our_shop_State extends State<edit_our_shop> {
           product_name: 'Vitamin 1',
           price: '2000.99 DA')
     ],
+    'Alaa': [
+      Product(
+          url_image: "images/shop1.png",
+          product_name: 'P 10',
+          price: '1000.99 DA'),
+      Product(
+          url_image: "images/shop2.png",
+          product_name: 'Vitamin 1',
+          price: '2000.99 DA')
+    ],
     'WHEY': [
       Product(
           url_image: "images/shop3.png",
@@ -48,6 +58,10 @@ class edit_our_shop_State extends State<edit_our_shop> {
           url_image: "images/shop4.png",
           product_name: 'B 12',
           price: '2500.99 DA'),
+      Product(
+          url_image: "images/shop5.png",
+          product_name: 'Protein A',
+          price: '3000.00 DA'),
       Product(
           url_image: "images/shop5.png",
           product_name: 'Protein A',

@@ -20,6 +20,8 @@ class _Edit_schedule_State extends State<Edit_schedule> {
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
     double statusBarBottom = MediaQuery.of(context).padding.bottom;
+    List<String> days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    int current = 0;
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
@@ -180,40 +182,74 @@ class _Edit_schedule_State extends State<Edit_schedule> {
                       fontSize: 30,
                       fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: 0.01 * screenheight,
                 ),
                 Container(
-                  margin: const EdgeInsets.all(10),
+                  height: 0.55 * screenheight,
+                  width: screenwidth * 0.95,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 68, 68, 67),
                     border: Border.all(color: red, width: 1),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 70, horizontal: 10),
                   child: Column(
                     children: [
-                      Container(
-                        margin: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: red,
-                          border: Border.all(width: 1),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 60, horizontal: 10),
+                      SizedBox(
+                        width: double.infinity,
+                        height: 0.08 * screenheight,
+                        child: ListView.builder(
+                            physics: const BouncingScrollPhysics(),
+                            itemCount: days
+                                .length, // This list is defined at the beginning
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (ctx, index) {
+                              return GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    current = index;
+                                  });
+                                },
+                                child: AnimatedContainer(
+                                  duration: const Duration(milliseconds: 300),
+                                  margin: const EdgeInsets.all(5),
+                                  width: 0.14 * screenwidth,
+                                  height: 35,
+                                  decoration: BoxDecoration(
+                                      color: current == index ? red : white,
+                                      borderRadius: BorderRadius.circular(20)),
+                                  child: Center(
+                                    child: Text(
+                                      days[index],
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w700,
+                                          color:
+                                              current == index ? white : black),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }),
+                      ),
+                      SizedBox(
+                        height: 0.04 * screenheight,
                       ),
                       Container(
-                        margin: const EdgeInsets.all(10),
+                        margin: EdgeInsets.all(10),
+                        height: screenheight * 0.18,
+                        width: screenwidth * 0.9,
                         decoration: BoxDecoration(
-                          color: red,
-                          border: Border.all(width: 1),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 60, horizontal: 10),
+                            color: red,
+                            borderRadius: BorderRadius.circular(10)),
                       ),
+                      Container(
+                        margin: EdgeInsets.all(10),
+                        height: screenheight * 0.18,
+                        width: screenwidth * 0.9,
+                        decoration: BoxDecoration(
+                            color: red,
+                            borderRadius: BorderRadius.circular(10)),
+                      )
                     ],
                   ),
                 ),
