@@ -135,8 +135,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                 height: 0.7 * screenheight,
                 width: 0.9 * screenwidth,
                 margin: const EdgeInsets.all(10),
-                child:  list_offres.length != 0
-                  ? ListView.builder(
+                child: ListView.builder(
                     physics: const BouncingScrollPhysics(),
                     itemCount: list_offres
                         .length, // This list is defined at the beginning
