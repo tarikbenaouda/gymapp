@@ -189,8 +189,21 @@ class _Signup3State extends State<Signup3> {
                                 }
                               }
                             } else {
-                              VxToast.show(context,
-                                  msg: "Confirm password error");
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return const AlertDialog(
+                                    backgroundColor: const Color(0xFF4F4F4F),
+                                    title: Text(
+                                      "Error",
+                                      style: TextStyle(color: white),
+                                    ),
+                                    content: Text(
+                                        "Oops! Confirm Password is wrong.",
+                                        style: TextStyle(color: white)),
+                                  );
+                                },
+                              );
                             }
                           },
                           child: const Text(

@@ -5,13 +5,13 @@ import '../common_widgets/my_textformfield.dart';
 import '../consts/Colors.dart';
 
 class Offer {
-  String type_offre;
+  String type_offer;
   String month;
   String sessions;
   String price;
 
   Offer(
-      {required this.type_offre,
+      {required this.type_offer,
       required this.month,
       required this.sessions,
       required this.price});
@@ -23,35 +23,35 @@ class edit_our_offres extends StatefulWidget {
 }
 
 class edit_our_offres_State extends State<edit_our_offres> {
-  String ValueChooseOffre = "normal offre";
+  String ValueChooseOffre = "normal offer";
   int current = 0;
   List<Offer> list_offres = [
     Offer(
-      type_offre: 'Normal offre',
+      type_offer: 'Normal offer',
       month: "10 months",
       price: "2000 DA",
       sessions: "9 Sessions",
     ),
     Offer(
-      type_offre: 'Normal Offre',
+      type_offer: 'Normal Offre',
       month: "10 months",
       price: "1000 DA",
       sessions: "10 Sessions",
     ),
     Offer(
-      type_offre: 'Special Offre',
+      type_offer: 'Special Offre',
       month: "4 months ",
       price: "2500 DA",
       sessions: "2 Sessions",
     ),
     Offer(
-      type_offre: 'Special Offre',
+      type_offer: 'Special Offre',
       month: "4 months ",
       price: "2500 DA",
       sessions: "2 Sessions",
     ),
     Offer(
-      type_offre: 'Special Offre',
+      type_offer: 'Special Offre',
       month: "4 months ",
       price: "2500 DA",
       sessions: "2 Sessions",
@@ -70,9 +70,9 @@ class edit_our_offres_State extends State<edit_our_offres> {
     TextEditingController price_controller =
         TextEditingController(); // Create a new instance of TextEditingController
     price_controller.text = "";
-    TextEditingController type_offre_controller =
+    TextEditingController type_offer_controller =
         TextEditingController(); // Create a new instance of TextEditingController
-    type_offre_controller.text = "";
+    type_offer_controller.text = "";
     TextEditingController sessions_controller =
         TextEditingController(); // Create a new instance of TextEditingController
     sessions_controller.text = "";
@@ -206,8 +206,8 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         myTextformfield(
-                                          controller: type_offre_controller,
-                                          hint: "Type of the offre",
+                                          controller: type_offer_controller,
+                                          hint: "Type of the offer",
                                           icon: const Icon(
                                             Icons.edit,
                                             color: red,
@@ -255,7 +255,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                               width: screenwidth * 0.3,
                                               child: TextButton(
                                                   onPressed: () {
-                                                    if (!((type_offre_controller
+                                                    if (!((type_offer_controller
                                                                 .text ==
                                                             "") ||
                                                         (month_controller
@@ -269,8 +269,8 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                                             ""))) {
                                                       setState(() {
                                                         list_offres[current]
-                                                                .type_offre =
-                                                            type_offre_controller
+                                                                .type_offer =
+                                                            type_offer_controller
                                                                 .text;
                                                         list_offres[current]
                                                                 .month =
@@ -387,7 +387,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    "${list_offres[index].type_offre}",
+                                    "${list_offres[index].type_offer}",
                                     style: TextStyle(
                                         color: red,
                                         fontWeight: FontWeight.bold,
@@ -476,8 +476,8 @@ class edit_our_offres_State extends State<edit_our_offres> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             myTextformfield(
-                              controller: type_offre_controller,
-                              hint: "Type of the offre",
+                              controller: type_offer_controller,
+                              hint: "Type of the offer",
                               icon: const Icon(
                                 Icons.edit,
                                 color: red,
@@ -519,14 +519,14 @@ class edit_our_offres_State extends State<edit_our_offres> {
                               width: screenwidth * 0.3,
                               child: TextButton(
                                   onPressed: () {
-                                    if (!((type_offre_controller.text == "") ||
+                                    if (!((type_offer_controller.text == "") ||
                                         (month_controller.text == "") ||
                                         (price_controller.text == "") ||
                                         (sessions_controller.text == ""))) {
                                       setState(() {
                                         list_offres.add(Offer(
-                                          type_offre:
-                                              type_offre_controller.text,
+                                          type_offer:
+                                              type_offer_controller.text,
                                           month: month_controller.text,
                                           price: price_controller.text,
                                           sessions: sessions_controller.text,

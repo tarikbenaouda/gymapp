@@ -108,14 +108,31 @@ class _Signup2State extends State<Signup2> {
                         borderRadius: BorderRadius.circular(15)),
                     child: InkWell(
                       onTap: () {
-                        Get.to(() => const Signup3(), arguments: [
-                          fullNameController,
-                          usernameController,
-                          phoneNumberController,
-                          ageController,
-                          weightController,
-                          heightController,
-                        ]);
+                        (ageController.text != "" &&
+                                weightController.text != "" &&
+                                heightController.text != "")
+                            ? Get.to(() => const Signup3(), arguments: [
+                                fullNameController,
+                                usernameController,
+                                phoneNumberController,
+                                ageController,
+                                weightController,
+                                heightController,
+                              ])
+                            : showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return const AlertDialog(
+                                    backgroundColor: const Color(0xFF4F4F4F),
+                                    title: Text(
+                                      "Error",
+                                      style: TextStyle(color: white),
+                                    ),
+                                    content: Text("Oops! The Fields are empty.",
+                                        style: TextStyle(color: white)),
+                                  );
+                                },
+                              );
                       },
                       child: const Text(
                         "NEXT",

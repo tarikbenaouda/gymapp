@@ -548,7 +548,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       ),
                       child: GestureDetector(
                         onTap: () {
-                          Get.to(() => Calories());
+                          Get.to(() => const Calories());
                         },
                         child: Container(
                           decoration: BoxDecoration(
@@ -584,7 +584,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
           children: [
             GestureDetector(
               onTap: () {
-                Get.to(() => HomeViewAthlete());
+                Get.to(() => const HomeViewAthlete());
               },
               child: Container(
                 padding: const EdgeInsets.all(12),
@@ -609,7 +609,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
             ),
             GestureDetector(
               onTap: () {
-                Get.to(() => ProfileUser());
+                Get.to(() => const ProfileUser());
               },
               child: Container(
                 padding: const EdgeInsets.all(12),
@@ -635,7 +635,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
             ),
             GestureDetector(
               onTap: () {
-                Get.to(() => SettingsUser());
+                Get.to(() => const ProfileUser());
               },
               child: Container(
                 padding: const EdgeInsets.all(12),
@@ -692,7 +692,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                           color: Colors.white,
                         )),
                     onTap: () {
-                      Get.to(() => HomeViewAthlete());
+                      Get.to(() => const HomeViewAthlete());
                     },
                   ),
                   ListTile(
@@ -706,7 +706,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                           color: Colors.white,
                         )),
                     onTap: () {
-                      Get.to(() => SettingsUser());
+                      Get.to(() => const ProfileUser());
                     },
                   ),
                   ListTile(

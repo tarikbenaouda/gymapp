@@ -166,7 +166,6 @@ class _LoginState extends State<Login> {
                         ),
                         InkWell(
                           onTap: () {
-                            //Navigator.of(context).pushNamed("Signup1");
                             Get.to(() => const Signup1());
                           },
                           child: const Text(
