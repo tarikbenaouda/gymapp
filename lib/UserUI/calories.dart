@@ -68,7 +68,7 @@ class _CaloriesState extends State<Calories> {
       body: Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("images/calculate calories background.jpg"),
               fit: BoxFit.fill,
@@ -80,9 +80,9 @@ class _CaloriesState extends State<Calories> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(left: 20, top: 40),
+                  padding: const EdgeInsets.only(left: 20, top: 40),
                   child: GestureDetector(
-                    child: Icon(
+                    child: const Icon(
                       Icons.keyboard_double_arrow_left_outlined,
                       size: 37,
                       color: Color(0xFFFD372A),
@@ -91,15 +91,15 @@ class _CaloriesState extends State<Calories> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => HomeViewAthlete()));
+                              builder: (context) => const HomeViewAthlete()));
                     },
                   ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: const [
                     Padding(
-                      padding: const EdgeInsets.only(top: 20),
+                      padding: EdgeInsets.only(top: 20),
                       child: Text(
                         "Calories Calculator ",
                         style: TextStyle(
@@ -113,7 +113,7 @@ class _CaloriesState extends State<Calories> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: const [
                     Text("Take the calories you need ",
                         style: TextStyle(
                           fontSize: 20,
@@ -124,7 +124,7 @@ class _CaloriesState extends State<Calories> {
                 Container(
                     height: 200,
                     width: double.infinity,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                         opacity: 0.7,
                         image:
@@ -132,10 +132,10 @@ class _CaloriesState extends State<Calories> {
                         fit: BoxFit.fill,
                       ),
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Center(
+                const Center(
                   child: Text(
                     "Type your acyual information",
                     style: TextStyle(
@@ -145,7 +145,7 @@ class _CaloriesState extends State<Calories> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
@@ -160,7 +160,7 @@ class _CaloriesState extends State<Calories> {
                             age = double.tryParse(value) ?? 0;
                           });
                         },
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 20,
                         ),
                         decoration: InputDecoration(
@@ -170,11 +170,11 @@ class _CaloriesState extends State<Calories> {
                             borderSide: BorderSide.none,
                           ),
                           filled: true,
-                          fillColor: Color(0xFFD9D9D9),
+                          fillColor: const Color(0xFFD9D9D9),
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     SizedBox(
@@ -193,13 +193,13 @@ class _CaloriesState extends State<Calories> {
                             borderSide: BorderSide.none,
                           ),
                           filled: true,
-                          fillColor: Color(0xFFD9D9D9),
+                          fillColor: const Color(0xFFD9D9D9),
                         ),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Padding(
@@ -220,16 +220,16 @@ class _CaloriesState extends State<Calories> {
                           borderSide: BorderSide.none,
                         ),
                         filled: true,
-                        fillColor: Color(0xFFD9D9D9),
+                        fillColor: const Color(0xFFD9D9D9),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 12.0),
+                const Padding(
+                  padding: EdgeInsets.only(left: 12.0),
                   child: Text(
                     "Choose Your Needs Calories For :",
                     style: TextStyle(
@@ -242,7 +242,7 @@ class _CaloriesState extends State<Calories> {
                   padding: const EdgeInsets.only(left: 80.0),
                   child: Row(
                     children: [
-                      Text(
+                      const Text(
                         "Increase",
                         style: TextStyle(
                           fontSize: 16,
@@ -251,7 +251,7 @@ class _CaloriesState extends State<Calories> {
                       ),
                       Radio(
                         value: true,
-                        activeColor: Color(0xFFFF372A),
+                        activeColor: const Color(0xFFFF372A),
                         groupValue: _increaseWeight,
                         onChanged: (value) {
                           setState(() {
@@ -259,7 +259,7 @@ class _CaloriesState extends State<Calories> {
                           });
                         },
                       ),
-                      Text(
+                      const Text(
                         "Decrease",
                         style: TextStyle(
                           fontSize: 16,
@@ -268,7 +268,7 @@ class _CaloriesState extends State<Calories> {
                       ),
                       Radio(
                         value: false,
-                        activeColor: Color(0xFFFF372A),
+                        activeColor: const Color(0xFFFF372A),
                         groupValue: _increaseWeight,
                         onChanged: (value) {
                           setState(() {
@@ -279,7 +279,7 @@ class _CaloriesState extends State<Calories> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Center(
@@ -291,17 +291,17 @@ class _CaloriesState extends State<Calories> {
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withOpacity(0.1),
-                        offset: Offset(0, 2),
+                        offset: const Offset(0, 2),
                         blurRadius: 4,
                       ),
                     ],
                   ),
-                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: DropdownButton<String>(
                     borderRadius: BorderRadius.circular(15),
                     value: dropdownValue,
-                    icon: Padding(
-                      padding: const EdgeInsets.only(left: 60.0),
+                    icon: const Padding(
+                      padding: EdgeInsets.only(left: 60.0),
                       child: Icon(
                         Icons.keyboard_arrow_down,
                         color: Colors.black,
@@ -309,7 +309,7 @@ class _CaloriesState extends State<Calories> {
                       ),
                     ),
                     elevation: 16,
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.black,
                         fontSize: 15,
                         fontWeight: FontWeight.bold),
@@ -326,7 +326,7 @@ class _CaloriesState extends State<Calories> {
                     }).toList(),
                   ),
                 )),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Center(
@@ -334,19 +334,18 @@ class _CaloriesState extends State<Calories> {
                     onTap: () {
                       calories = calculateCalories(
                           age, height, weight, dropdownValue, _increaseWeight);
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => Estimate(
-                                value: calories,
-                              )));
+                      Get.to(() => Estimate(
+                            value: calories,
+                          ));
                     },
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Color(0xFFFD372A),
+                        color: const Color(0xFFFD372A),
                         borderRadius: BorderRadius.circular(15.0),
                       ),
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                           horizontal: 40.0, vertical: 15.0),
-                      child: Text('Get your calories ',
+                      child: const Text('Get your calories ',
                           style: TextStyle(fontSize: 20, color: Colors.white)),
                     ),
                   ),
@@ -358,7 +357,7 @@ class _CaloriesState extends State<Calories> {
         height: 60,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(22),
-          color: Color(0xFFE1E1E1),
+          color: const Color(0xFFE1E1E1),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -367,12 +366,13 @@ class _CaloriesState extends State<Calories> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomeViewAthlete()),
+                  MaterialPageRoute(
+                      builder: (context) => const HomeViewAthlete()),
                 );
               },
               child: Container(
-                padding: EdgeInsets.all(12),
-                decoration: BoxDecoration(),
+                padding: const EdgeInsets.all(12),
+                decoration: const BoxDecoration(),
                 child: Container(
                   width: 70,
                   height: 40,
@@ -380,8 +380,8 @@ class _CaloriesState extends State<Calories> {
                     borderRadius: BorderRadius.circular(15.0),
                     color: Colors.red,
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
+                  child: const Padding(
+                    padding: EdgeInsets.only(left: 20.0),
                     child: Icon(
                       Icons.home_filled,
                       color: Colors.black,
@@ -395,12 +395,12 @@ class _CaloriesState extends State<Calories> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ProfileUser()),
+                  MaterialPageRoute(builder: (context) => const ProfileUser()),
                 );
               },
               child: Container(
-                padding: EdgeInsets.all(12),
-                child: Icon(
+                padding: const EdgeInsets.all(12),
+                child: const Icon(
                   Icons.account_circle_outlined,
                   color: Colors.black,
                   size: 35,
@@ -411,12 +411,12 @@ class _CaloriesState extends State<Calories> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomeView()),
+                  MaterialPageRoute(builder: (context) => const HomeView()),
                 );
               },
               child: Container(
-                padding: EdgeInsets.all(12),
-                child: Icon(
+                padding: const EdgeInsets.all(12),
+                child: const Icon(
                   Icons.storefront_outlined,
                   color: Colors.black,
                   size: 35,
@@ -427,12 +427,12 @@ class _CaloriesState extends State<Calories> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SettingsUser()),
+                  MaterialPageRoute(builder: (context) => const SettingsUser()),
                 );
               },
               child: Container(
-                padding: EdgeInsets.all(12),
-                child: Icon(
+                padding: const EdgeInsets.all(12),
+                child: const Icon(
                   Icons.settings,
                   color: Colors.black,
                   size: 35,
