@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:gymapp/consts/consts.dart';
 
+import '../UserUI/home_view.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -20,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
           uid = auth.currentUser!.uid;
           (uid == "kvqkjI1Jf5ZeJdkhoaJz0qZ7ukL2")
               ? Get.offAll(() => const HomeView())
-              : Get.offAll(() => const ProfileUser());
+              : Get.offAll(() => const HomeViewAthlete());
         }
       });
     });

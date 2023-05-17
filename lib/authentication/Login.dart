@@ -4,6 +4,8 @@ import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/consts/consts.dart';
 import 'package:gymapp/controlllers/auth_controller.dart';
 
+import '../UserUI/home_view.dart';
+
 class Login extends StatefulWidget {
   const Login({super.key});
 
@@ -119,7 +121,7 @@ class _LoginState extends State<Login> {
                                       (uid == "kvqkjI1Jf5ZeJdkhoaJz0qZ7ukL2")
                                           ? Get.offAll(() => const HomeView())
                                           : Get.offAll(
-                                              () => const ProfileUser());
+                                              () => const HomeViewAthlete());
                                     } else {
                                       controller.isloading(false);
                                     }
