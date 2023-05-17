@@ -126,300 +126,320 @@ class edit_our_offres_State extends State<edit_our_offres> {
               height: 0.02 * screenheight,
             ),
             Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: red, width: 1),
-                ),
-                height: 0.7 * screenheight,
-                width: 0.9 * screenwidth,
-                margin: const EdgeInsets.all(10),
-                child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    itemCount: list_offres
-                        .length, // This list is defined at the beginning
-                    scrollDirection: Axis.vertical,
-                    itemBuilder: (ctx, index) {
-                      return GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              current = index;
-                            });
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                    backgroundColor: const Color(0xFF4F4F4F),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                    ),
-                                    contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 50.0,
-                                    ),
-                                    title: Column(
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            IconButton(
-                                                icon: Icon(
-                                                  Icons.close,
-                                                  color: red,
-                                                  size: 20 *
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: red, width: 1),
+              ),
+              height: 0.7 * screenheight,
+              width: 0.9 * screenwidth,
+              margin: const EdgeInsets.all(10),
+              child: list_offres.length != 0
+                  ? ListView.builder(
+                      physics: const BouncingScrollPhysics(),
+                      itemCount: list_offres
+                          .length, // This list is defined at the beginning
+                      scrollDirection: Axis.vertical,
+                      itemBuilder: (ctx, index) {
+                        return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                current = index;
+                              });
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                      backgroundColor: const Color(0xFF4F4F4F),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                      ),
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
+                                        vertical: 50.0,
+                                      ),
+                                      title: Column(
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              IconButton(
+                                                  icon: Icon(
+                                                    Icons.close,
+                                                    color: red,
+                                                    size: 20 *
+                                                        (screenheight /
+                                                            screenwidth),
+                                                  ),
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  }),
+                                            ],
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                "Edit The Offre",
+                                                style: TextStyle(
+                                                  color: white,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 10 *
                                                       (screenheight /
                                                           screenwidth),
                                                 ),
-                                                onPressed: () {
-                                                  Navigator.of(context).pop();
-                                                }),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              "Edit The Offre",
-                                              style: TextStyle(
-                                                color: white,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 10 *
+                                              ),
+                                              Icon(
+                                                Icons.edit_calendar_outlined,
+                                                size: 15 *
                                                     (screenheight /
                                                         screenwidth),
-                                              ),
-                                            ),
-                                            Icon(
-                                              Icons.edit_calendar_outlined,
-                                              size: 15 *
-                                                  (screenheight / screenwidth),
-                                              color: red,
-                                            )
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                    content: SingleChildScrollView(
-                                        child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        myTextformfield(
-                                          controller: type_offre_controller,
-                                          hint: "Type of the offre",
-                                          icon: const Icon(
-                                            Icons.edit,
-                                            color: red,
+                                                color: red,
+                                              )
+                                            ],
                                           ),
-                                        ),
-                                        myTextformfield(
-                                          controller: month_controller,
-                                          hint: "Months",
-                                          icon: const Icon(
-                                            Icons.edit,
-                                            color: red,
-                                          ),
-                                        ),
-                                        myTextformfield(
-                                          controller: sessions_controller,
-                                          hint: "Sessions",
-                                          icon: const Icon(
-                                            Icons.edit_outlined,
-                                            color: red,
-                                          ),
-                                        ),
-                                        myTextformfield(
-                                          controller: price_controller,
-                                          hint: "Price",
-                                          icon: const Icon(
-                                            Icons.price_check_sharp,
-                                            color: red,
-                                          ),
-                                        ),
-                                      ],
-                                    )),
-                                    actions: <Widget>[
-                                      Row(
+                                        ],
+                                      ),
+                                      content: SingleChildScrollView(
+                                          child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Center(
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                  color: white,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10)),
-                                              height: screenheight * 0.05,
-                                              width: screenwidth * 0.3,
-                                              child: TextButton(
-                                                  onPressed: () {
-                                                    if (!((type_offre_controller
-                                                                .text ==
-                                                            "") ||
-                                                        (month_controller
-                                                                .text ==
-                                                            "") ||
-                                                        (price_controller
-                                                                .text ==
-                                                            "") ||
-                                                        (sessions_controller
-                                                                .text ==
-                                                            ""))) {
-                                                      setState(() {
-                                                        list_offres[current]
-                                                                .type_offre =
-                                                            type_offre_controller
-                                                                .text;
-                                                        list_offres[current]
-                                                                .month =
-                                                            month_controller
-                                                                .text;
-                                                        list_offres[current]
-                                                                .sessions =
-                                                            sessions_controller
-                                                                .text;
-                                                        list_offres[current]
-                                                                .price =
-                                                            price_controller
-                                                                .text;
-                                                      });
-                                                      Navigator.of(context)
-                                                          .pop();
-                                                    } else
-                                                      showDialog(
-                                                        context: context,
-                                                        builder: (BuildContext
-                                                            context) {
-                                                          return const AlertDialog(
-                                                            backgroundColor:
-                                                                const Color(
-                                                                    0xFF4F4F4F),
-                                                            title: Text(
-                                                              "Error",
-                                                              style: TextStyle(
-                                                                  color: white),
-                                                            ),
-                                                            content: Text(
-                                                                "Oops! Something filed is wrong.",
-                                                                style: TextStyle(
-                                                                    color:
-                                                                        white)),
-                                                          );
-                                                        },
-                                                      );
-                                                  },
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Text(
-                                                        'Save',
-                                                        style: TextStyle(
-                                                          fontSize: 10 *
-                                                              (screenheight /
-                                                                  screenwidth),
-                                                          color: red,
-                                                        ),
-                                                      ),
-                                                      const Icon(
-                                                          Icons.check_circle,
-                                                          color: red),
-                                                    ],
-                                                  )),
+                                          myTextformfield(
+                                            controller: type_offre_controller,
+                                            hint: "Type of the offre",
+                                            icon: const Icon(
+                                              Icons.edit,
+                                              color: red,
                                             ),
                                           ),
-                                          Center(
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                  color: red,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10)),
-                                              height: screenheight * 0.05,
-                                              width: screenwidth * 0.3,
-                                              child: TextButton(
-                                                  onPressed: () {
-                                                    Navigator.of(context).pop();
-                                                    setState(() {
-                                                      list_offres
-                                                          .removeAt(current);
-                                                    });
-                                                  },
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Text(
-                                                        'Delete',
-                                                        style: TextStyle(
-                                                          fontSize: 10 *
-                                                              (screenheight /
-                                                                  screenwidth),
-                                                          color: white,
-                                                        ),
-                                                      ),
-                                                      const Icon(
-                                                          Icons.delete_forever,
-                                                          color: white),
-                                                    ],
-                                                  )),
+                                          myTextformfield(
+                                            controller: month_controller,
+                                            hint: "Months",
+                                            icon: const Icon(
+                                              Icons.edit,
+                                              color: red,
                                             ),
-                                          )
+                                          ),
+                                          myTextformfield(
+                                            controller: sessions_controller,
+                                            hint: "Sessions",
+                                            icon: const Icon(
+                                              Icons.edit_outlined,
+                                              color: red,
+                                            ),
+                                          ),
+                                          myTextformfield(
+                                            controller: price_controller,
+                                            hint: "Price",
+                                            icon: const Icon(
+                                              Icons.price_check_sharp,
+                                              color: red,
+                                            ),
+                                          ),
                                         ],
-                                      ),
-                                    ]);
-                              },
-                            );
-                          },
-                          child: Container(
-                            margin: const EdgeInsets.symmetric(
-                                vertical: 10, horizontal: 20),
-                            height: screenheight * 0.15,
-                            decoration: BoxDecoration(
-                              color: white,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "${list_offres[index].type_offre}",
-                                    style: TextStyle(
-                                        color: red,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize:
-                                            10 * (screenheight / screenwidth)),
-                                  ),
-                                  Text(
-                                    "${list_offres[index].month}",
-                                    style: TextStyle(
-                                        color: black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize:
-                                            10 * (screenheight / screenwidth)),
-                                  ),
-                                  Text(
-                                    "${list_offres[index].sessions}",
-                                    style: TextStyle(
-                                        color: black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize:
-                                            10 * (screenheight / screenwidth)),
-                                  ),
-                                  Text(
-                                    "${list_offres[index].price}",
-                                    style: TextStyle(
-                                        color: red,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize:
-                                            10 * (screenheight / screenwidth)),
-                                  ),
-                                ]),
-                          ));
-                    })),
+                                      )),
+                                      actions: <Widget>[
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Center(
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                    color: white,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10)),
+                                                height: screenheight * 0.05,
+                                                width: screenwidth * 0.3,
+                                                child: TextButton(
+                                                    onPressed: () {
+                                                      if (!((type_offre_controller
+                                                                  .text ==
+                                                              "") ||
+                                                          (month_controller
+                                                                  .text ==
+                                                              "") ||
+                                                          (price_controller
+                                                                  .text ==
+                                                              "") ||
+                                                          (sessions_controller
+                                                                  .text ==
+                                                              ""))) {
+                                                        setState(() {
+                                                          list_offres[current]
+                                                                  .type_offre =
+                                                              type_offre_controller
+                                                                  .text;
+                                                          list_offres[current]
+                                                                  .month =
+                                                              month_controller
+                                                                  .text;
+                                                          list_offres[current]
+                                                                  .sessions =
+                                                              sessions_controller
+                                                                  .text;
+                                                          list_offres[current]
+                                                                  .price =
+                                                              price_controller
+                                                                  .text;
+                                                        });
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      } else
+                                                        showDialog(
+                                                          context: context,
+                                                          builder: (BuildContext
+                                                              context) {
+                                                            return const AlertDialog(
+                                                              backgroundColor:
+                                                                  const Color(
+                                                                      0xFF4F4F4F),
+                                                              title: Text(
+                                                                "Error",
+                                                                style: TextStyle(
+                                                                    color:
+                                                                        white),
+                                                              ),
+                                                              content: Text(
+                                                                  "Oops! Something filed is wrong.",
+                                                                  style: TextStyle(
+                                                                      color:
+                                                                          white)),
+                                                            );
+                                                          },
+                                                        );
+                                                    },
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text(
+                                                          'Save',
+                                                          style: TextStyle(
+                                                            fontSize: 10 *
+                                                                (screenheight /
+                                                                    screenwidth),
+                                                            color: red,
+                                                          ),
+                                                        ),
+                                                        const Icon(
+                                                            Icons.check_circle,
+                                                            color: red),
+                                                      ],
+                                                    )),
+                                              ),
+                                            ),
+                                            Center(
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                    color: red,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10)),
+                                                height: screenheight * 0.05,
+                                                width: screenwidth * 0.3,
+                                                child: TextButton(
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                      setState(() {
+                                                        list_offres
+                                                            .removeAt(current);
+                                                      });
+                                                    },
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text(
+                                                          'Delete',
+                                                          style: TextStyle(
+                                                            fontSize: 10 *
+                                                                (screenheight /
+                                                                    screenwidth),
+                                                            color: white,
+                                                          ),
+                                                        ),
+                                                        const Icon(
+                                                            Icons
+                                                                .delete_forever,
+                                                            color: white),
+                                                      ],
+                                                    )),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ]);
+                                },
+                              );
+                            },
+                            child: Container(
+                              margin: const EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 20),
+                              height: screenheight * 0.15,
+                              decoration: BoxDecoration(
+                                color: white,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "${list_offres[index].type_offre}",
+                                      style: TextStyle(
+                                          color: red,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 10 *
+                                              (screenheight / screenwidth)),
+                                    ),
+                                    Text(
+                                      "${list_offres[index].month}",
+                                      style: TextStyle(
+                                          color: black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 10 *
+                                              (screenheight / screenwidth)),
+                                    ),
+                                    Text(
+                                      "${list_offres[index].sessions}",
+                                      style: TextStyle(
+                                          color: black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 10 *
+                                              (screenheight / screenwidth)),
+                                    ),
+                                    Text(
+                                      "${list_offres[index].price}",
+                                      style: TextStyle(
+                                          color: red,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 10 *
+                                              (screenheight / screenwidth)),
+                                    ),
+                                  ]),
+                            ));
+                      })
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                          Text(
+                            "No offre at the moment",
+                            style: TextStyle(color: white, fontSize: 23),
+                          ),
+                          Text(
+                            "wait for us",
+                            style: TextStyle(color: white, fontSize: 23),
+                          ),
+                        ]),
+            ),
             FloatingActionButton(
               backgroundColor: white,
               onPressed: () {
