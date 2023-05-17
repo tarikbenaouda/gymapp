@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gymapp/consts/consts.dart';
 
 import '../common_widgets/my_textformfield.dart';
 import '../consts/Colors.dart';
@@ -203,9 +204,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         myTextformfield(
-                                          controller: TextEditingController(
-                                              text: list_offres[current]
-                                                  .type_offre),
+                                          controller: type_offre_controller,
                                           hint: "Type of the offre",
                                           icon: const Icon(
                                             Icons.edit,
@@ -213,8 +212,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                           ),
                                         ),
                                         myTextformfield(
-                                          controller: TextEditingController(
-                                              text: list_offres[current].month),
+                                          controller: month_controller,
                                           hint: "Months",
                                           icon: const Icon(
                                             Icons.edit,
@@ -222,9 +220,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                           ),
                                         ),
                                         myTextformfield(
-                                          controller: TextEditingController(
-                                              text: list_offres[current]
-                                                  .sessions),
+                                          controller: sessions_controller,
                                           hint: "Sessions",
                                           icon: const Icon(
                                             Icons.edit_outlined,
@@ -232,8 +228,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                           ),
                                         ),
                                         myTextformfield(
-                                          controller: TextEditingController(
-                                              text: list_offres[current].price),
+                                          controller: price_controller,
                                           hint: "Price",
                                           icon: const Icon(
                                             Icons.price_check_sharp,
@@ -257,7 +252,62 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                               height: screenheight * 0.05,
                                               width: screenwidth * 0.3,
                                               child: TextButton(
-                                                  onPressed: () {},
+                                                  onPressed: () {
+                                                    if (!((type_offre_controller
+                                                                .text ==
+                                                            "") ||
+                                                        (month_controller
+                                                                .text ==
+                                                            "") ||
+                                                        (price_controller
+                                                                .text ==
+                                                            "") ||
+                                                        (sessions_controller
+                                                                .text ==
+                                                            ""))) {
+                                                      setState(() {
+                                                        list_offres[current]
+                                                                .type_offre =
+                                                            type_offre_controller
+                                                                .text;
+                                                        list_offres[current]
+                                                                .month =
+                                                            month_controller
+                                                                .text;
+                                                        list_offres[current]
+                                                                .sessions =
+                                                            sessions_controller
+                                                                .text;
+                                                        list_offres[current]
+                                                                .price =
+                                                            price_controller
+                                                                .text;
+                                                      });
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                    } else
+                                                      showDialog(
+                                                        context: context,
+                                                        builder: (BuildContext
+                                                            context) {
+                                                          return const AlertDialog(
+                                                            backgroundColor:
+                                                                const Color(
+                                                                    0xFF4F4F4F),
+                                                            title: Text(
+                                                              "Error",
+                                                              style: TextStyle(
+                                                                  color: white),
+                                                            ),
+                                                            content: Text(
+                                                                "Oops! Something filed is wrong.",
+                                                                style: TextStyle(
+                                                                    color:
+                                                                        white)),
+                                                          );
+                                                        },
+                                                      );
+                                                  },
                                                   child: Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
@@ -289,7 +339,13 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                               height: screenheight * 0.05,
                                               width: screenwidth * 0.3,
                                               child: TextButton(
-                                                  onPressed: () {},
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                    setState(() {
+                                                      list_offres
+                                                          .removeAt(current);
+                                                    });
+                                                  },
                                                   child: Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
