@@ -376,44 +376,6 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
-                    child: Container(
-                      width: double.infinity,
-                      height: 160,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(17.0),
-                        image: const DecorationImage(
-                          image: AssetImage(
-                            "images/Shop.jpg",
-                          ),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.to(() => null);
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(17.0),
-                          ),
-                          child: const Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Text(
-                              'Shop',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
                   const SizedBox(
                     height: 20,
                   ),
@@ -655,7 +617,9 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
           child: Drawer(
             child: Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
+                image: DecorationImage(
+                    image: AssetImage("images/drawor (admin).jpg"),
+                    fit: BoxFit.fill),
                 color: const Color(0xFF393939),
               ),
               child: Column(
@@ -663,15 +627,25 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                   Center(
                       child: Column(
                     children: [
-                      const SizedBox(
+                      SizedBox(
+                        height: 80,
+                      ),
+                      Container(
                         height: 100,
+                        width: 100,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("images/1.jpg"),
+                                fit: BoxFit.fill),
+                            color: Colors.white,
+                            shape: BoxShape.circle),
                       ),
                       Text("username$username",
                           style: const TextStyle(
                             fontSize: 20,
                             color: Color(0xFFFD372A),
                           )),
-                      Text("usereamil$email",
+                      Text("user eamil$email",
                           style: const TextStyle(
                             fontSize: 20,
                             color: Colors.white,
@@ -680,20 +654,6 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                   )),
                   const SizedBox(
                     height: 70,
-                  ),
-                  ListTile(
-                    leading: const Icon(
-                      Icons.home,
-                      color: Colors.white,
-                    ),
-                    title: const Text('Home',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                        )),
-                    onTap: () {
-                      Get.to(() => const HomeViewAthlete());
-                    },
                   ),
                   ListTile(
                     leading: const Icon(

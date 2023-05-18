@@ -20,11 +20,13 @@ class _EstimateState extends State<Estimate> {
   _EstimateState(this.value);
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
+    double screenlength = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
         child: Container(
-            height: double.infinity,
-            width: double.infinity,
+            height: screenlength,
+            width: screenwidth,
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("images/calculate calories background.jpg"),
@@ -43,7 +45,7 @@ class _EstimateState extends State<Estimate> {
                         color: Color(0xFFFD372A),
                       ),
                       onTap: () {
-                        Get.to(() => const Calories());
+                        Get.back();
                       },
                     ),
                   ),
@@ -52,6 +54,7 @@ class _EstimateState extends State<Estimate> {
                     style: TextStyle(
                       fontSize: 30,
                       color: Colors.white,
+                      fontWeight: FontWeight.bold,
                       letterSpacing: 1.3,
                     ),
                   ),
@@ -79,30 +82,34 @@ class _EstimateState extends State<Estimate> {
                           color: Colors.grey,
                         )),
                   ),
-                  Container(
-                    height: 200,
-                    width: 421,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30.0),
-                      image: const DecorationImage(
-                        opacity: 0.7,
-                        image: AssetImage("images/caculate calories pic 2.jpg"),
-                        fit: BoxFit.fill,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Container(
+                      height: 200,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30.0),
+                        image: const DecorationImage(
+                          opacity: 0.7,
+                          image:
+                              AssetImage("images/caculate calories pic 2.jpg"),
+                          fit: BoxFit.fill,
+                        ),
                       ),
+                      child: Center(
+                          child: RichText(
+                        text: TextSpan(children: <TextSpan>[
+                          TextSpan(
+                              text: value.toStringAsFixed(2) + ' cal',
+                              style: const TextStyle(
+                                color: Color(0xFFFD372A),
+                                fontSize: 50,
+                                fontWeight: FontWeight.bold,
+                                backgroundColor: Colors.white,
+                              )),
+                        ]),
+                      )),
                     ),
-                    child: Center(
-                        child: RichText(
-                      text: TextSpan(children: <TextSpan>[
-                        TextSpan(
-                            text: value.toStringAsFixed(2) + ' cal',
-                            style: const TextStyle(
-                              color: Color(0xFFFD372A),
-                              fontSize: 50,
-                              fontWeight: FontWeight.bold,
-                              backgroundColor: Colors.white,
-                            )),
-                      ]),
-                    )),
                   ),
                   const SizedBox(
                     height: 25,
