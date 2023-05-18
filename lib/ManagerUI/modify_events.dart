@@ -1,474 +1,559 @@
 import 'package:flutter/material.dart';
+import 'package:gymapp/consts/consts.dart';
 
-class ModifyEvents extends StatefulWidget {
-  @override
-  _ModifyEventsState createState() => _ModifyEventsState();
+import '../common_widgets/my_textformfield.dart';
+import '../consts/Colors.dart';
+
+class Offer {
+  String type_offer;
+  String month;
+  String sessions;
+  String price;
+
+  Offer(
+      {required this.type_offer,
+      required this.month,
+      required this.sessions,
+      required this.price});
 }
 
-class _ModifyEventsState extends State<ModifyEvents> {
-  late String textField1, textField2, textField3, textField4, textField5;
+class modify_events extends StatefulWidget {
+  @override
+  State<modify_events> createState() => modify_events_State();
+}
 
-  List<Widget> _containers = [];
-  TextEditingController textField1Controller1 = TextEditingController();
-  TextEditingController textField2Controller2 = TextEditingController();
-  TextEditingController textField3Controller3 = TextEditingController();
-  TextEditingController textField4Controller4 = TextEditingController();
-  TextEditingController textField5Controller5 = TextEditingController();
+class modify_events_State extends State<modify_events> {
+  String ValueChooseOffre = "normal offer";
+  int current = 0;
+  List<Offer> list_offres = [
+    Offer(
+      type_offer: 'Normal offer',
+      month: "10 months",
+      price: "2000 DA",
+      sessions: "9 Sessions",
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
+    double statusBarHeight = MediaQuery.of(context).padding.top;
+    double screenwidth = MediaQuery.of(context).size.width;
+    double screenheight = MediaQuery.of(context).size.height;
+    double statusBarBottom = MediaQuery.of(context).padding.bottom;
+    TextEditingController month_controller =
+        TextEditingController(); // Create a new instance of TextEditingController
+    month_controller.text = "";
+    TextEditingController price_controller =
+        TextEditingController(); // Create a new instance of TextEditingController
+    price_controller.text = "";
+    TextEditingController type_offer_controller =
+        TextEditingController(); // Create a new instance of TextEditingController
+    type_offer_controller.text = "";
+    TextEditingController sessions_controller =
+        TextEditingController(); // Create a new instance of TextEditingController
+    sessions_controller.text = "";
+
     return Scaffold(
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("images/modify events background.jpg"),
-            fit: BoxFit.fill,
-          ),
-        ),
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                itemCount: _containers.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Column(
-                    children: [
-                      _containers[index],
-                      const SizedBox(height: 30),
-                    ],
-                  );
-                },
-              ),
+        body: SingleChildScrollView(
+            child: SafeArea(
+                child: Stack(children: [
+      Container(
+          height: screenheight,
+          width: screenwidth,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("images/training offer background.jpg"),
+              fit: BoxFit.fill,
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
-              child: SizedBox(
-                width: 180,
-                height: 50,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary: const Color(0xFF232323)),
+          ),
+          child: Column(children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                IconButton(
+                  padding: const EdgeInsets.only(top: 10),
+                  iconSize: 40,
+                  icon: Icon(Icons.keyboard_double_arrow_left_rounded,
+                      size: 25 * (screenheight / screenwidth)),
+                  color: red,
                   onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          backgroundColor: const Color(0xFF4F4F4F),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          contentPadding:
-                              const EdgeInsets.symmetric(vertical: 40.0),
-                          title: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
-                                'Add New Event',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 20),
-                              ),
-                              IconButton(
-                                  icon: const Icon(
-                                    Icons.close,
-                                    color: Color(0xFFFD372A),
-                                    size: 40,
-                                  ),
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  })
-                            ],
-                          ),
-                          content: SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                const Text(
-                                  'Event Name',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 20),
-                                ),
-                                TextField(
-                                    controller: textField1Controller1,
-                                    decoration: InputDecoration(
-                                      filled: true,
-                                      fillColor: Colors.white,
-                                      border: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(20.0),
-                                      ),
-                                    )),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    const Text(
-                                      'Begin',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 20),
-                                    ),
-                                    const SizedBox(
-                                      width: 5,
-                                    ),
-                                    Expanded(
-                                      child: TextField(
-                                          controller: textField2Controller2,
-                                          decoration: InputDecoration(
-                                            filled: true,
-                                            fillColor: Colors.white,
-                                            border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                            ),
-                                          )),
-                                    ),
-                                    const Text(
-                                      'End',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 20),
-                                    ),
-                                    const SizedBox(
-                                      width: 5,
-                                    ),
-                                    Expanded(
-                                      child: TextField(
-                                          controller: textField3Controller3,
-                                          decoration: InputDecoration(
-                                            filled: true,
-                                            fillColor: Colors.white,
-                                            border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                            ),
-                                          )),
-                                    ),
-                                  ],
-                                ),
-                                const Text(
-                                  'Training Offer',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 20),
-                                ),
-                                TextField(
-                                  controller: textField4Controller4,
-                                  decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: Colors.white,
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(20.0),
-                                    ),
-                                  ),
-                                ),
-                                const Text(
-                                  'Shop Reductions',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 20),
-                                ),
-                                TextField(
-                                  controller: textField5Controller5,
-                                  decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: Colors.white,
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(20.0),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          actions: <Widget>[
-                            TextButton(
-                              child: Row(
-                                children: const [
-                                  Text(
-                                    'Save ',
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      color: Color(0xFFFD372A),
-                                    ),
-                                  ),
-                                  Icon(Icons.check_circle, color: Colors.white),
-                                ],
-                              ),
-                              onPressed: () {
-                                Navigator.of(context).pop({
-                                  textField1 = textField1Controller1.text,
-                                  textField2 = textField2Controller2.text,
-                                  textField3 = textField3Controller3.text,
-                                  textField4 = textField4Controller4.text,
-                                  textField5 = textField5Controller5.text,
-                                });
-                                setState(() {
-                                  _containers.add(
-                                    FractionallySizedBox(
-                                      widthFactor: 0.9,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(12),
-                                        child: Container(
-                                          height: 480,
-                                          width: 100,
-                                          decoration: BoxDecoration(
-                                            color: const Color(0xFF232323),
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              const SizedBox(
-                                                height: 10,
-                                              ),
-                                              const Center(
-                                                  child: Text(
-                                                'The Published Event :',
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 20),
-                                              )),
-                                              const SizedBox(height: 10.0),
-                                              Center(
-                                                child: Container(
-                                                    height: 55,
-                                                    width: 300,
-                                                    decoration: BoxDecoration(
-                                                      color: Colors.white,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              20.0),
-                                                    ),
-                                                    child: Center(
-                                                        child: Text(
-                                                      '$textField1',
-                                                      style: const TextStyle(
-                                                          color: Colors.black,
-                                                          fontSize: 20),
-                                                    ))),
-                                              ),
-                                              const SizedBox(height: 10.0),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(13),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    const Text(
-                                                      'Begin',
-                                                      style: TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 20),
-                                                    ),
-                                                    Container(
-                                                        height: 55,
-                                                        width: 90,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Colors.white,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      20.0),
-                                                        ),
-                                                        child: Center(
-                                                            child: Text(
-                                                          '$textField2',
-                                                          style:
-                                                              const TextStyle(
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontSize: 20),
-                                                        ))),
-                                                    const Text(
-                                                      'End ',
-                                                      style: TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 20),
-                                                    ),
-                                                    Container(
-                                                        height: 55,
-                                                        width: 90,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Colors.white,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      20.0),
-                                                        ),
-                                                        child: Center(
-                                                            child: Text(
-                                                          '$textField3',
-                                                          style:
-                                                              const TextStyle(
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontSize: 20),
-                                                        )))
-                                                  ],
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                height: 10,
-                                              ),
-                                              const Padding(
-                                                padding: EdgeInsets.all(13),
-                                                child: Text(
-                                                  'Training Offer',
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: 20),
-                                                ),
-                                              ),
-                                              Center(
-                                                child: Container(
-                                                    height: 55,
-                                                    width: 300,
-                                                    decoration: BoxDecoration(
-                                                      color: Colors.white,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              20.0),
-                                                    ),
-                                                    child: Center(
-                                                        child: Text(
-                                                      '$textField4',
-                                                      style: const TextStyle(
-                                                          color: Colors.black,
-                                                          fontSize: 20),
-                                                    ))),
-                                              ),
-                                              const Padding(
-                                                padding: EdgeInsets.all(13),
-                                                child: Text(
-                                                  'Shop Reductions',
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: 20),
-                                                ),
-                                              ),
-                                              Center(
-                                                child: Container(
-                                                    height: 55,
-                                                    width: 300,
-                                                    decoration: BoxDecoration(
-                                                      color: Colors.white,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              20.0),
-                                                    ),
-                                                    child: Center(
-                                                        child: Text(
-                                                      '$textField5',
-                                                      style: const TextStyle(
-                                                          color: Colors.black,
-                                                          fontSize: 20),
-                                                    ))),
-                                              ),
-                                              const SizedBox(
-                                                height: 10,
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 15, right: 15),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    SizedBox(
-                                                      width: 100,
-                                                      child: ElevatedButton(
-                                                        style: ElevatedButton
-                                                            .styleFrom(
-                                                          primary: const Color(
-                                                              0xFFFD372A),
-                                                        ),
-                                                        onPressed: null,
-                                                        child: Row(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceBetween,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .center,
-                                                          children: const [
-                                                            Text('Save',
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    fontSize:
-                                                                        20)),
-                                                            Icon(
-                                                                Icons
-                                                                    .check_circle,
-                                                                color: Colors
-                                                                    .white),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    ElevatedButton(
-                                                      style: ElevatedButton
-                                                          .styleFrom(
-                                                        primary: const Color(
-                                                            0xFFFD372A),
-                                                      ),
-                                                      onPressed: () {
-                                                        setState(() {
-                                                          _containers
-                                                              .removeLast();
-                                                        });
-                                                      },
-                                                      child: const Text(
-                                                        'Delete',
-                                                        style: TextStyle(
-                                                            color: Colors.white,
-                                                            fontSize: 18),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              const SizedBox(height: 10.0),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                });
-                              },
-                            ),
-                          ],
-                        );
-                      },
-                    );
+                    Get.back();
                   },
-                  child: Row(
-                    children: const [
-                      Text(
-                        'Add New Event ',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Icon(
-                        Icons.add,
-                        color: Colors.white,
-                        size: 22,
-                      ),
-                    ],
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Edit our offres",
+                  style: TextStyle(
+                    color: white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
                   ),
                 ),
-              ),
+                Icon(
+                  Icons.money,
+                  color: white,
+                  size: 25,
+                )
+              ],
             ),
-          ],
-        ),
-      ),
-    );
+            SizedBox(
+              height: 0.02 * screenheight,
+            ),
+            Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: red, width: 1),
+                ),
+                height: 0.7 * screenheight,
+                width: 0.9 * screenwidth,
+                margin: const EdgeInsets.all(10),
+                child: ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: list_offres
+                        .length, // This list is defined at the beginning
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (ctx, index) {
+                      return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              current = index;
+                            });
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                    backgroundColor: const Color(0xFF4F4F4F),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 50.0,
+                                    ),
+                                    title: Column(
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            IconButton(
+                                                icon: Icon(
+                                                  Icons.close,
+                                                  color: red,
+                                                  size: 20 *
+                                                      (screenheight /
+                                                          screenwidth),
+                                                ),
+                                                onPressed: () {
+                                                  Get.back();
+                                                }),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "Edit The Offre",
+                                              style: TextStyle(
+                                                color: white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 10 *
+                                                    (screenheight /
+                                                        screenwidth),
+                                              ),
+                                            ),
+                                            Icon(
+                                              Icons.edit_calendar_outlined,
+                                              size: 15 *
+                                                  (screenheight / screenwidth),
+                                              color: red,
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    content: SingleChildScrollView(
+                                        child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        myTextformfield(
+                                          controller: type_offer_controller,
+                                          hint: "Type of the offer",
+                                          icon: const Icon(
+                                            Icons.edit,
+                                            color: red,
+                                          ),
+                                        ),
+                                        myTextformfield(
+                                          controller: month_controller,
+                                          hint: "Months",
+                                          icon: const Icon(
+                                            Icons.edit,
+                                            color: red,
+                                          ),
+                                        ),
+                                        myTextformfield(
+                                          controller: sessions_controller,
+                                          hint: "Sessions",
+                                          icon: const Icon(
+                                            Icons.edit_outlined,
+                                            color: red,
+                                          ),
+                                        ),
+                                        myTextformfield(
+                                          controller: price_controller,
+                                          hint: "Price",
+                                          icon: const Icon(
+                                            Icons.price_check_sharp,
+                                            color: red,
+                                          ),
+                                        ),
+                                      ],
+                                    )),
+                                    actions: <Widget>[
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Center(
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  color: white,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10)),
+                                              height: screenheight * 0.05,
+                                              width: screenwidth * 0.3,
+                                              child: TextButton(
+                                                  onPressed: () {
+                                                    if (!((type_offer_controller
+                                                                .text ==
+                                                            "") ||
+                                                        (month_controller
+                                                                .text ==
+                                                            "") ||
+                                                        (price_controller
+                                                                .text ==
+                                                            "") ||
+                                                        (sessions_controller
+                                                                .text ==
+                                                            ""))) {
+                                                      setState(() {
+                                                        list_offres[current]
+                                                                .type_offer =
+                                                            type_offer_controller
+                                                                .text;
+                                                        list_offres[current]
+                                                                .month =
+                                                            month_controller
+                                                                .text;
+                                                        list_offres[current]
+                                                                .sessions =
+                                                            sessions_controller
+                                                                .text;
+                                                        list_offres[current]
+                                                                .price =
+                                                            price_controller
+                                                                .text;
+                                                      });
+                                                      Get.back();
+                                                    } else
+                                                      showDialog(
+                                                        context: context,
+                                                        builder: (BuildContext
+                                                            context) {
+                                                          return const AlertDialog(
+                                                            backgroundColor:
+                                                                Color(
+                                                                    0xFF4F4F4F),
+                                                            title: Text(
+                                                              "Error",
+                                                              style: TextStyle(
+                                                                  color: white),
+                                                            ),
+                                                            content: Text(
+                                                                "Oops! Something filed is wrong.",
+                                                                style: TextStyle(
+                                                                    color:
+                                                                        white)),
+                                                          );
+                                                        },
+                                                      );
+                                                  },
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
+                                                        'Save',
+                                                        style: TextStyle(
+                                                          fontSize: 10 *
+                                                              (screenheight /
+                                                                  screenwidth),
+                                                          color: red,
+                                                        ),
+                                                      ),
+                                                      const Icon(
+                                                          Icons.check_circle,
+                                                          color: red),
+                                                    ],
+                                                  )),
+                                            ),
+                                          ),
+                                          Center(
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  color: red,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10)),
+                                              height: screenheight * 0.05,
+                                              width: screenwidth * 0.3,
+                                              child: TextButton(
+                                                  onPressed: () {
+                                                    Get.back();
+                                                    setState(() {
+                                                      list_offres
+                                                          .removeAt(current);
+                                                    });
+                                                  },
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
+                                                        'Delete',
+                                                        style: TextStyle(
+                                                          fontSize: 10 *
+                                                              (screenheight /
+                                                                  screenwidth),
+                                                          color: white,
+                                                        ),
+                                                      ),
+                                                      const Icon(
+                                                          Icons.delete_forever,
+                                                          color: white),
+                                                    ],
+                                                  )),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ]);
+                              },
+                            );
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 20),
+                            height: screenheight * 0.15,
+                            decoration: BoxDecoration(
+                              color: white,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "${list_offres[index].type_offer}",
+                                    style: TextStyle(
+                                        color: red,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            10 * (screenheight / screenwidth)),
+                                  ),
+                                  Text(
+                                    "${list_offres[index].month}",
+                                    style: TextStyle(
+                                        color: black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            10 * (screenheight / screenwidth)),
+                                  ),
+                                  Text(
+                                    "${list_offres[index].sessions}",
+                                    style: TextStyle(
+                                        color: black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            10 * (screenheight / screenwidth)),
+                                  ),
+                                  Text(
+                                    "${list_offres[index].price}",
+                                    style: TextStyle(
+                                        color: red,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            10 * (screenheight / screenwidth)),
+                                  ),
+                                ]),
+                          ));
+                    })),
+            FloatingActionButton(
+              backgroundColor: white,
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                        backgroundColor: const Color(0xFF4F4F4F),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        contentPadding: const EdgeInsets.symmetric(
+                          vertical: 50.0,
+                        ),
+                        title: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                IconButton(
+                                    icon: Icon(
+                                      Icons.close,
+                                      color: red,
+                                      size: 30,
+                                    ),
+                                    onPressed: () {
+                                      Get.back();
+                                    }),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Add New Offre",
+                                  style: TextStyle(
+                                    color: white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.edit_calendar_outlined,
+                                  size: 25,
+                                  color: white,
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                        content: SingleChildScrollView(
+                            child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            myTextformfield(
+                              controller: type_offer_controller,
+                              hint: "Type of the offer",
+                              icon: const Icon(
+                                Icons.edit,
+                                color: red,
+                              ),
+                            ),
+                            myTextformfield(
+                              controller: month_controller,
+                              hint: "Months",
+                              icon: const Icon(
+                                Icons.edit,
+                                color: red,
+                              ),
+                            ),
+                            myTextformfield(
+                              controller: sessions_controller,
+                              hint: "Sessions",
+                              icon: const Icon(
+                                Icons.edit_outlined,
+                                color: red,
+                              ),
+                            ),
+                            myTextformfield(
+                              controller: price_controller,
+                              hint: "Price",
+                              icon: const Icon(
+                                Icons.price_check_sharp,
+                                color: red,
+                              ),
+                            ),
+                          ],
+                        )),
+                        actions: <Widget>[
+                          Center(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: red,
+                                  borderRadius: BorderRadius.circular(10)),
+                              height: screenheight * 0.05,
+                              width: screenwidth * 0.3,
+                              child: TextButton(
+                                  onPressed: () {
+                                    if (!((type_offer_controller.text == "") ||
+                                        (month_controller.text == "") ||
+                                        (price_controller.text == "") ||
+                                        (sessions_controller.text == ""))) {
+                                      setState(() {
+                                        list_offres.add(Offer(
+                                          type_offer:
+                                              type_offer_controller.text,
+                                          month: month_controller.text,
+                                          price: price_controller.text,
+                                          sessions: sessions_controller.text,
+                                        ));
+                                      });
+                                      Get.back();
+                                    } else
+                                      showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          return const AlertDialog(
+                                            backgroundColor: Color(0xFF4F4F4F),
+                                            title: Text(
+                                              "Error",
+                                              style: TextStyle(color: white),
+                                            ),
+                                            content: Text(
+                                                "Oops! Something filed is wrong.",
+                                                style: TextStyle(color: white)),
+                                          );
+                                        },
+                                      );
+                                  },
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Save',
+                                        style: TextStyle(
+                                          fontSize:
+                                              10 * (screenheight / screenwidth),
+                                          color: white,
+                                        ),
+                                      ),
+                                      const Icon(Icons.check_circle,
+                                          color: white),
+                                    ],
+                                  )),
+                            ),
+                          )
+                        ]);
+                  },
+                );
+              },
+              child: Icon(
+                Icons.add,
+                color: black,
+                size: 20 * (screenheight / screenwidth),
+              ),
+            )
+          ]))
+    ]))));
   }
 }
