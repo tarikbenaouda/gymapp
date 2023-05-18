@@ -113,7 +113,7 @@ class _HomeViewState extends State<HomeView> {
                       height: 35,
                       child: GestureDetector(
                         onTap: () {
-                          Get.to(() => null);
+                          Get.to(() => Edit_schedule());
                         },
                         child: Container(
                           decoration: BoxDecoration(
@@ -123,7 +123,7 @@ class _HomeViewState extends State<HomeView> {
                           padding: const EdgeInsets.all(10),
                           child: const Center(
                             child: Text(
-                              'Edit Gym State',
+                              'Edit Gym State ',
                               style: TextStyle(color: Colors.white),
                             ),
                           ),
