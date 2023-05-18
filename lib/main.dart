@@ -15,6 +15,7 @@ import 'package:gymapp/UserUI/Test.dart';
 import 'package:gymapp/UserUI/about.dart';
 import 'package:gymapp/UserUI/calories.dart';
 import 'package:gymapp/UserUI/calories_estimate.dart';
+import 'package:gymapp/UserUI/gym_offre.dart';
 import 'package:gymapp/UserUI/home_view.dart';
 import 'package:gymapp/consts/consts.dart';
 import 'package:gymapp/ManagerUI/listofcoach.dart';
@@ -41,13 +42,13 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  //Modified
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: gym_offer(),
     );
   }
 }

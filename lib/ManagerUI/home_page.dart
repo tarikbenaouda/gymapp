@@ -536,7 +536,7 @@ class _HomeViewState extends State<HomeView> {
                               ),
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.to(() => ModifyEvents());
+                                  Get.to(() => modify_events());
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
