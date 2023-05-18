@@ -26,7 +26,7 @@ void main() async {
   runApp(const MyApp());
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
-      statusBarColor: Color(0xFFFF1E0F), // Set your desired color here
+      statusBarColor: Color(0xFFFF1E0F),
     ),
   );
 }
@@ -37,23 +37,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
-      routes: {
-        //  "/": (context) => Auth(),
-        "welcome": (context) => const Unboarding(),
-        "Login": (context) => const Login(),
-        "Signup1": (context) => const Signup1(),
-        "Signup2": (context) => const Signup2(),
-        "Signup3": (context) => const Signup3(),
-        "Profile": (context) => const Profileathlete(),
-        "ListAthletes": (context) => const Listathletes(),
-        "ProfileCoachdemand": (context) => const ProfileCoach(),
-        "Demandcoaching": (context) => const DemandForCoaching(),
-        "HomePage": (context) => const HomeView(),
-        "CoachProfile": (context) => const CoachProfile(),
-      },
+      home: SplashScreen(),
     );
   }
 }

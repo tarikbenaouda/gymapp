@@ -1,5 +1,6 @@
 import 'package:custom_check_box/custom_check_box.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
+import 'package:gymapp/UserUI/home_view.dart';
 import 'package:gymapp/consts/consts.dart';
 import 'package:gymapp/controlllers/auth_controller.dart';
 
@@ -182,11 +183,14 @@ class _Signup3State extends State<Signup3> {
                                         age: ageController.text,
                                         weight: weightController.text,
                                         height: heightController.text,
+                                        type: "user",
+                                        coaching: false,
+                                        training: false,
                                       );
                                     }).then((value) {
                                       VxToast.show(context,
                                           msg: "Logged in successfully");
-                                      Get.offAll(() => const ProfileUser());
+                                      Get.offAll(() => const HomeViewAthlete());
                                     });
                                   } catch (e) {
                                     auth.signOut();
