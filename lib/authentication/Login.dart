@@ -55,7 +55,10 @@ class _LoginState extends State<Login> {
                   //Email field
                   myTextformfield(
                     hint: "Email",
-                    icon: const Icon(Icons.email),
+                    icon: const Icon(
+                      Icons.email,
+                      color: Color(0xFFFF1E0F),
+                    ),
                     type: TextInputType.emailAddress,
                     controller: controller.emailController,
                   ),
@@ -63,7 +66,10 @@ class _LoginState extends State<Login> {
                   myTextformfield(
                     hint: "Password",
                     obsecure: true,
-                    icon: const Icon(Icons.password_sharp),
+                    icon: const Icon(
+                      Icons.password_sharp,
+                      color: Color(0xFFFF1E0F),
+                    ),
                     type: TextInputType.visiblePassword,
                     controller: controller.passwordController,
                   ),
