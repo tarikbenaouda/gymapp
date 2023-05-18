@@ -87,15 +87,25 @@ class _ProfileathleteState extends State<Profileathlete> {
                           padding: const EdgeInsets.all(7.0),
                           child: Row(
                             children: [
-                              Container(
-                                height: 50,
-                                width: 50,
-                                decoration: const BoxDecoration(
-                                  color: Colors.white,
-                                  shape: BoxShape.circle,
-                                ),
-                                //url of image
-                              ),
+                              docs['imageUrl'] == ''
+                                  ? Image.asset(
+                                      icGoogleLogo,
+                                      width: 60,
+                                      fit: BoxFit.cover,
+                                    )
+                                      .box
+                                      .roundedFull
+                                      .clip(Clip.antiAlias)
+                                      .make()
+                                  : Image.network(
+                                      docs['imageUrl'],
+                                      width: 60,
+                                      fit: BoxFit.cover,
+                                    )
+                                      .box
+                                      .roundedFull
+                                      .clip(Clip.antiAlias)
+                                      .make(),
                               const SizedBox(
                                 width: 8,
                               ),
@@ -136,7 +146,7 @@ class _ProfileathleteState extends State<Profileathlete> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Center(
+                                      const Center(
                                         child: Text(
                                           'Height:',
                                           style: TextStyle(
@@ -159,7 +169,7 @@ class _ProfileathleteState extends State<Profileathlete> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Center(
+                                      const Center(
                                         child: Text(
                                           'Weight:',
                                           style: TextStyle(

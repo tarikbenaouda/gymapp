@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -12,7 +13,10 @@ import 'package:gymapp/UserUI/about.dart';
 import 'package:gymapp/UserUI/calories.dart';
 
 import '../authentication/Login.dart';
+import '../consts/Colors.dart';
+import '../consts/firebase_consts.dart';
 import '../controlllers/auth_controller.dart';
+import '../services/firestore_services.dart';
 import 'ListofCoachsinUser.dart';
 
 class HomeViewAthlete extends StatefulWidget {
@@ -30,511 +34,565 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
       key: _scaffoldKey,
-      body: SafeArea(
-        child: Container(
-            height: double.infinity,
-            width: double.infinity,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("images/user home background.jpg"),
-                fit: BoxFit.fill,
-              ),
-            ),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: IconButton(
-                      icon: const Icon(Icons.menu, color: Colors.white),
-                      onPressed: () => _scaffoldKey.currentState?.openDrawer(),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Padding(
-                        padding: EdgeInsets.only(top: 10),
-                        child: Text(
-                          "Welcome   ",
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                            letterSpacing: 1.3,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 10),
-                        child: Text(
-                          "Warrior ",
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Color(0xFFFD372A),
-                            letterSpacing: 1.8,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Center(
-                    child: Column(
-                      children: [
-                        Text(" username$username",
-                            style: const TextStyle(
-                              fontSize: 20,
-                              color: Colors.white,
-                            )),
-                        const Text("Athlet",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white,
-                            )),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Get.to(() => null);
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color(0xFFFD372A),
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 8.0),
-                          child: const Text('Today\'s Training',
-                              style: TextStyle(color: Colors.white)),
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFFD372A),
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20.0, vertical: 8.0),
-                        child: Text('Time Limit : $timelimit ',
-                            style: const TextStyle(color: Colors.white)),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFFD372A),
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20.0, vertical: 8.0),
-                        child: const Text('Gym State',
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Text(
-                          "Fire-",
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Color(0xFFFD372A),
-                          ),
-                        ),
-                        Text(
-                          "Muscles",
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
-                    child: Container(
-                      child: const Center(
-                          child: Text(
-                        "ADS",
-                        style: TextStyle(fontSize: 30),
-                      )),
-                      width: (double.infinity),
-                      height: 200,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFD9D9D9),
-                        borderRadius: BorderRadius.circular(17.0),
+      body: StreamBuilder(
+          stream: FirestoreServices.getUser(currentUser!.uid),
+          builder:
+              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            if (!snapshot.hasData) {
+              return const Center(
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation(red),
+                ),
+              );
+            } else {
+              var data = snapshot.data!.docs[0];
+              return SafeArea(
+                child: Container(
+                    height: double.infinity,
+                    width: double.infinity,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("images/user home background.jpg"),
+                        fit: BoxFit.fill,
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
-                    child: Container(
-                      width: double.infinity,
-                      height: 160,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(17.0),
-                        image: const DecorationImage(
-                          image: AssetImage(
-                            "images/Reach For Coach.jpg",
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20.0),
+                            child: IconButton(
+                              icon: const Icon(Icons.menu, color: Colors.white),
+                              onPressed: () =>
+                                  _scaffoldKey.currentState?.openDrawer(),
+                            ),
                           ),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.to(() => const ListofCoachinuser());
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(17.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              Padding(
+                                padding: EdgeInsets.only(top: 10),
+                                child: Text(
+                                  "Welcome   ",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    letterSpacing: 1.3,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(top: 10),
+                                child: Text(
+                                  "Warrior ",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Color(0xFFFD372A),
+                                    letterSpacing: 1.8,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          child: const Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Text(
-                              'Reach For Coach ',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                          Center(
+                            child: Column(
+                              children: [
+                                Text(data['fullName'],
+                                    style: const TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                    )),
+                                Text(data['type'],
+                                    style: const TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                    )),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Get.to(() => null);
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFFFD372A),
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0, vertical: 8.0),
+                                  child: const Text('Today\'s Training',
+                                      style: TextStyle(color: Colors.white)),
+                                ),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFFFD372A),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 20.0, vertical: 8.0),
+                                child: Text('Time Limit : $timelimit ',
+                                    style:
+                                        const TextStyle(color: Colors.white)),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFFFD372A),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 20.0, vertical: 8.0),
+                                child: const Text('Gym State',
+                                    style: TextStyle(color: Colors.white)),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Center(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: const [
+                                Text(
+                                  "Fire-",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Color(0xFFFD372A),
+                                  ),
+                                ),
+                                Text(
+                                  "Muscles",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 15, vertical: 7),
+                            child: Container(
+                              child: const Center(
+                                  child: Text(
+                                "ADS",
+                                style: TextStyle(fontSize: 30),
+                              )),
+                              width: (double.infinity),
+                              height: 200,
+                              decoration: BoxDecoration(
+                                color: const Color(0xFFD9D9D9),
+                                borderRadius: BorderRadius.circular(17.0),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
-                    child: Container(
-                      width: double.infinity,
-                      height: 160,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(17.0),
-                        image: const DecorationImage(
-                          image: AssetImage(
-                            "images/Gym Schedule.jpg",
-                          ),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.to(() => null);
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(17.0),
-                          ),
-                          child: const Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Text(
-                              'Gym Schedule',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 15, vertical: 7),
+                            child: Container(
+                              width: double.infinity,
+                              height: 160,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(17.0),
+                                image: const DecorationImage(
+                                  image: AssetImage(
+                                    "images/Reach For Coach.jpg",
+                                  ),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Get.to(() => const ListofCoachinuser());
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(17.0),
+                                  ),
+                                  child: const Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Text(
+                                      'Reach For Coach ',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
-                    child: Container(
-                      width: double.infinity,
-                      height: 160,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(17.0),
-                        image: const DecorationImage(
-                          image: AssetImage(
-                            "images/Training Offers.jpg",
+                          const SizedBox(
+                            height: 20,
                           ),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.to(() => null);
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(17.0),
-                          ),
-                          child: const Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Text(
-                              'Training Offers',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 15, vertical: 7),
+                            child: Container(
+                              width: double.infinity,
+                              height: 160,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(17.0),
+                                image: const DecorationImage(
+                                  image: AssetImage(
+                                    "images/Gym Schedule.jpg",
+                                  ),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Get.to(() => null);
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(17.0),
+                                  ),
+                                  child: const Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Text(
+                                      'Gym Schedule',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
-                    child: Container(
-                      width: double.infinity,
-                      height: 160,
-                      decoration: BoxDecoration(
-                        //border:  Border.all(color: Colors.grey, width: 2),
-                        borderRadius: BorderRadius.circular(17.0),
-                        image: const DecorationImage(
-                          image: AssetImage(
-                            "images/Chronometer.jpg",
-                          ),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.to(() => Chronometer());
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(17.0),
-                          ),
-                          child: const Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Text(
-                              'Chronometer',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                          const SizedBox(height: 20),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 15, vertical: 7),
+                            child: Container(
+                              width: double.infinity,
+                              height: 160,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(17.0),
+                                image: const DecorationImage(
+                                  image: AssetImage(
+                                    "images/Training Offers.jpg",
+                                  ),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Get.to(() => null);
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(17.0),
+                                  ),
+                                  child: const Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Text(
+                                      'Training Offers',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
-                    child: Container(
-                      width: double.infinity,
-                      height: 160,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(17.0),
-                        image: const DecorationImage(
-                          image: AssetImage(
-                            "images/Coaching Demand.jpg",
-                          ),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.to(() => coaching_demand());
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(17.0),
-                          ),
-                          child: const Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Text(
-                              'Coaching  Demand',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 15, vertical: 7),
+                            child: Container(
+                              width: double.infinity,
+                              height: 160,
+                              decoration: BoxDecoration(
+                                //border:  Border.all(color: Colors.grey, width: 2),
+                                borderRadius: BorderRadius.circular(17.0),
+                                image: const DecorationImage(
+                                  image: AssetImage(
+                                    "images/Chronometer.jpg",
+                                  ),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Get.to(() => Chronometer());
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(17.0),
+                                  ),
+                                  child: const Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Text(
+                                      'Chronometer',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
-                    child: Container(
-                      width: double.infinity,
-                      height: 160,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(17.0),
-                        image: const DecorationImage(
-                          image: AssetImage(
-                            "images/My Training Schedule.jpg",
-                          ),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.to(() => null);
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(17.0),
-                          ),
-                          child: const Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Text(
-                              'My Training Schedule',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                          const SizedBox(height: 20),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 15, vertical: 7),
+                            child: Container(
+                              width: double.infinity,
+                              height: 160,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(17.0),
+                                image: const DecorationImage(
+                                  image: AssetImage(
+                                    "images/Coaching Demand.jpg",
+                                  ),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Get.to(() => coaching_demand());
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(17.0),
+                                  ),
+                                  child: const Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Text(
+                                      'Coaching  Demand',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
-                    child: Container(
-                      width: double.infinity,
-                      height: 160,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(17.0),
-                        image: const DecorationImage(
-                          image: AssetImage(
-                            "images/Competition Events.jpg",
-                          ),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.to(() => null);
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(17.0),
-                          ),
-                          child: const Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Text(
-                              'Competition Events',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 15, vertical: 7),
+                            child: Container(
+                              width: double.infinity,
+                              height: 160,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(17.0),
+                                image: const DecorationImage(
+                                  image: AssetImage(
+                                    "images/Shop.jpg",
+                                  ),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Get.to(() => null);
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(17.0),
+                                  ),
+                                  child: const Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Text(
+                                      'Shop',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
-                    child: Container(
-                      width: double.infinity,
-                      height: 160,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(17.0),
-                        image: const DecorationImage(
-                          image: AssetImage(
-                            "images/Sports Plans.jpg",
+                          const SizedBox(
+                            height: 20,
                           ),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.to(() => null);
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(17.0),
-                          ),
-                          child: const Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Text(
-                              'Sports Plans',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 15, vertical: 7),
+                            child: Container(
+                              width: double.infinity,
+                              height: 160,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(17.0),
+                                image: const DecorationImage(
+                                  image: AssetImage(
+                                    "images/My Training Schedule.jpg",
+                                  ),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Get.to(() => null);
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(17.0),
+                                  ),
+                                  child: const Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Text(
+                                      'My Training Schedule',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
-                    child: Container(
-                      width: double.infinity,
-                      height: 160,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(17.0),
-                        image: const DecorationImage(
-                          image: AssetImage(
-                            "images/Calculate Calories .jpg",
-                          ),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.to(() => const Calories());
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(17.0),
-                          ),
-                          child: const Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Text(
-                              'Calculate Caloris',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 15, vertical: 7),
+                            child: Container(
+                              width: double.infinity,
+                              height: 160,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(17.0),
+                                image: const DecorationImage(
+                                  image: AssetImage(
+                                    "images/Competition Events.jpg",
+                                  ),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Get.to(() => null);
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(17.0),
+                                  ),
+                                  child: const Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Text(
+                                      'Competition Events',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
-                        ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 15, vertical: 7),
+                            child: Container(
+                              width: double.infinity,
+                              height: 160,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(17.0),
+                                image: const DecorationImage(
+                                  image: AssetImage(
+                                    "images/Sports Plans.jpg",
+                                  ),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Get.to(() => null);
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(17.0),
+                                  ),
+                                  child: const Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Text(
+                                      'Sports Plans',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 15, vertical: 7),
+                            child: Container(
+                              width: double.infinity,
+                              height: 160,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(17.0),
+                                image: const DecorationImage(
+                                  image: AssetImage(
+                                    "images/Calculate Calories .jpg",
+                                  ),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Get.to(() => const Calories());
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(17.0),
+                                  ),
+                                  child: const Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Text(
+                                      'Calculate Caloris',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ),
-                ],
-              ),
-            )),
-      ),
+                    )),
+              );
+            }
+          }),
       bottomNavigationBar: Container(
         height: 60,
         decoration: BoxDecoration(

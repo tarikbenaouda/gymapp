@@ -54,7 +54,6 @@ class ProfileController extends GetxController {
     weight,
     password,
     imgUrl,
-    type,
   }) async {
     var store = firestore.collection(usersCollection).doc(currentUser!.uid);
     await store.set(
@@ -67,7 +66,6 @@ class ProfileController extends GetxController {
         'weight': weight,
         'password': password,
         'imageUrl': imgUrl,
-        'type': type,
       },
       SetOptions(merge: true),
     );
@@ -81,5 +79,17 @@ class ProfileController extends GetxController {
     }).catchError((error) {
       print(error.toString());
     });
+  }
+
+  sendDemand({
+    training,
+  }) async {
+    var store = firestore.collection(usersCollection).doc(currentUser!.uid);
+    await store.set(
+      {
+        'training': training,
+      },
+      SetOptions(merge: true),
+    );
   }
 }

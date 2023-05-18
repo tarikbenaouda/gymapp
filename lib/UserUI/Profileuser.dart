@@ -106,7 +106,82 @@ class _ProfileUserState extends State<ProfileUser> {
                             Column(
                               children: [
                                 TextButton(
-                                    onPressed: (() {}),
+                                    onPressed: () async {
+                                      if (data['type'] == "athlete" ||
+                                          data['type'] == "coach") {
+                                        showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                              backgroundColor:
+                                                  const Color(0xFF4F4F4F),
+                                              title: const Center(
+                                                child: Text(
+                                                  "Oops!",
+                                                  style:
+                                                      TextStyle(color: white),
+                                                ),
+                                              ),
+                                              content: Center(
+                                                child: Text(
+                                                    "You're already a ${data['type']}.",
+                                                    style: const TextStyle(
+                                                        color: white)),
+                                              ),
+                                            );
+                                          },
+                                        );
+                                      } else if (data['training']) {
+                                        showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return const AlertDialog(
+                                              backgroundColor:
+                                                  Color(0xFF4F4F4F),
+                                              title: Center(
+                                                child: Text(
+                                                  "Pending..!",
+                                                  style:
+                                                      TextStyle(color: white),
+                                                ),
+                                              ),
+                                              content: Center(
+                                                child: Text(
+                                                    " You have sent demand",
+                                                    style: TextStyle(
+                                                        color: white)),
+                                              ),
+                                            );
+                                          },
+                                        );
+                                      } else {
+                                        controller.sendDemand(
+                                          training: true,
+                                        );
+                                        showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return const AlertDialog(
+                                              backgroundColor:
+                                                  Color(0xFF4F4F4F),
+                                              title: Center(
+                                                child: Text(
+                                                  "Done !",
+                                                  style:
+                                                      TextStyle(color: white),
+                                                ),
+                                              ),
+                                              content: Center(
+                                                child: Text(
+                                                    " The demand have been sent",
+                                                    style: TextStyle(
+                                                        color: white)),
+                                              ),
+                                            );
+                                          },
+                                        );
+                                      }
+                                    },
                                     child: Container(
                                       height: 40,
                                       width: 200,

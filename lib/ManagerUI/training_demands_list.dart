@@ -1,17 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:gymapp/ManagerUI/home_page.dart';
+import 'package:gymapp/ManagerUI/training_demand.dart';
 
 import '../consts/consts.dart';
 
-class Listathletes extends StatefulWidget {
-  const Listathletes({super.key});
+class TrainingDemandsList extends StatefulWidget {
+  const TrainingDemandsList({super.key});
 
   @override
-  State<Listathletes> createState() => _ListathletesState();
+  State<TrainingDemandsList> createState() => _TrainingDemandsListState();
 }
 
-class _ListathletesState extends State<Listathletes> {
+class _TrainingDemandsListState extends State<TrainingDemandsList> {
   final _userStream =
       FirebaseFirestore.instance.collection('users').snapshots();
   @override
@@ -32,7 +33,7 @@ class _ListathletesState extends State<Listathletes> {
             int count = 0;
             List<int> athletes = <int>[];
             for (int i = 0; i < docs.length; i++) {
-              if (docs[i]['type'] == "athlete") {
+              if (docs[i]['training'] == true) {
                 count++;
                 athletes.add(i);
               }
@@ -68,7 +69,7 @@ class _ListathletesState extends State<Listathletes> {
                     children: const [
                       //drawer
                       Text(
-                        "Our Athletes",
+                        "Demands to train",
                         style: TextStyle(color: Colors.white, fontSize: 25),
                       )
                     ],
@@ -96,16 +97,11 @@ class _ListathletesState extends State<Listathletes> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: const [
                               Text(
-                                "Athlete List",
+                                "Demands List",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 20,
                                     fontWeight: FontWeight.w400),
-                              ),
-                              Text(
-                                " Variable",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 16),
                               ),
                               SizedBox(
                                 width: 7,
@@ -127,7 +123,7 @@ class _ListathletesState extends State<Listathletes> {
                                   return InkWell(
                                       onTap: () {
                                         Get.to(
-                                          () => const Profileathlete(),
+                                          () => const DemandTrainnig(),
                                           arguments: [
                                             docs[athletes[index]]['id'],
                                           ],
