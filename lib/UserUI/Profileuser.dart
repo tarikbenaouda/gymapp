@@ -99,13 +99,13 @@ class _ProfileUserState extends State<ProfileUser> {
                   Center(
                     child: Text(
                       "${data['username']}",
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 25,
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Padding(
@@ -187,66 +187,53 @@ class _ProfileUserState extends State<ProfileUser> {
                       onPressed: () async {
                         if (data['type'] == "athlete" ||
                             data['type'] == "coach") {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return AlertDialog(
-                                backgroundColor: const Color(0xFF4F4F4F),
-                                title: const Center(
-                                  child: Text(
-                                    "Oops!",
-                                    style: TextStyle(color: white),
-                                  ),
+                          Get.snackbar("", "",
+                              snackPosition: SnackPosition.BOTTOM,
+                              titleText: const Text(
+                                "Oops!",
+                                style: TextStyle(
+                                  color: white,
                                 ),
-                                content: Center(
-                                  child: Text(
-                                      "You're already a ${data['type']}.",
-                                      style: const TextStyle(color: white)),
+                              ),
+                              messageText: Text(
+                                "You're already a ${data['type']}.",
+                                style: const TextStyle(
+                                  color: white,
                                 ),
-                              );
-                            },
-                          );
+                              ));
                         } else if (data['training']) {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return const AlertDialog(
-                                backgroundColor: Color(0xFF4F4F4F),
-                                title: Center(
-                                  child: Text(
-                                    "Pending..!",
-                                    style: TextStyle(color: white),
-                                  ),
+                          Get.snackbar("", "",
+                              snackPosition: SnackPosition.BOTTOM,
+                              titleText: const Text(
+                                "Pending..!",
+                                style: TextStyle(
+                                  color: white,
                                 ),
-                                content: Center(
-                                  child: Text(" You have sent demand",
-                                      style: TextStyle(color: white)),
+                              ),
+                              messageText: const Text(
+                                "You have already sent a demand",
+                                style: TextStyle(
+                                  color: white,
                                 ),
-                              );
-                            },
-                          );
+                              ));
                         } else {
                           controller.sendDemand(
                             training: true,
                           );
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return const AlertDialog(
-                                backgroundColor: Color(0xFF4F4F4F),
-                                title: Center(
-                                  child: Text(
-                                    "Done !",
-                                    style: TextStyle(color: white),
-                                  ),
+                          Get.snackbar("", "",
+                              snackPosition: SnackPosition.BOTTOM,
+                              titleText: const Text(
+                                "Done..!",
+                                style: TextStyle(
+                                  color: white,
                                 ),
-                                content: Center(
-                                  child: Text(" The demand have been sent",
-                                      style: TextStyle(color: white)),
+                              ),
+                              messageText: const Text(
+                                "The demand has been sent.",
+                                style: TextStyle(
+                                  color: white,
                                 ),
-                              );
-                            },
-                          );
+                              ));
                         }
                       },
                       child: Container(

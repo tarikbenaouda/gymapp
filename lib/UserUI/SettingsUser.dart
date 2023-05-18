@@ -45,7 +45,7 @@ class SettingsUser extends StatelessWidget {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 Text(
                   " Settings",
                   style: TextStyle(
@@ -216,9 +216,29 @@ class SettingsUser extends StatelessWidget {
                               password: password,
                             );
 
-                            VxToast.show(context, msg: "Updated");
+                            Get.snackbar(
+                              "",
+                              "",
+                              snackPosition: SnackPosition.BOTTOM,
+                              titleText: const Text(
+                                "Updated !",
+                                style: TextStyle(
+                                  color: white,
+                                ),
+                              ),
+                            );
                           } else {
-                            VxToast.show(context, msg: "Wrong old password!");
+                            Get.snackbar(
+                              "",
+                              "",
+                              snackPosition: SnackPosition.BOTTOM,
+                              titleText: const Text(
+                                "Wrong Password!",
+                                style: TextStyle(
+                                  color: white,
+                                ),
+                              ),
+                            );
                             controller.isloading(false);
                           }
                         },
@@ -253,7 +273,7 @@ class SettingsUser extends StatelessWidget {
                           ),
                         )),
                   ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             )
           ],
