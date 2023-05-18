@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:gymapp/ManagerUI/home_page.dart';
 
+import '../consts/consts.dart';
+
 class Edit_schedule extends StatefulWidget {
   @override
   State<Edit_schedule> createState() => _Edit_schedule_State();
@@ -32,9 +34,9 @@ class _Edit_schedule_State extends State<Edit_schedule> {
                     padding: const EdgeInsets.only(top: 30),
                     iconSize: 40,
                     icon: const Icon(Icons.keyboard_double_arrow_left_rounded),
-                    color: r,
+                    color: red,
                     onPressed: () {
-                      Get.to(() => HomeView());
+                      Get.to(() => const HomeView());
                     },
                   ),
                 ],
@@ -48,11 +50,11 @@ class _Edit_schedule_State extends State<Edit_schedule> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Center(
-                child: const Text(
+              const Center(
+                child: Text(
                   "Gym State",
                   style: TextStyle(
                       color: Colors.white,
@@ -68,21 +70,21 @@ class _Edit_schedule_State extends State<Edit_schedule> {
                 height: 30,
                 controller: _controller,
                 //inactiveColor: w,
-                activeColor: r,
-                activeChild: Text(
+                activeColor: red,
+                activeChild: const Text(
                   "Open",
-                  style: TextStyle(color: w, fontSize: 20),
+                  style: TextStyle(color: white, fontSize: 20),
                 ),
-                inactiveChild: Text(
+                inactiveChild: const Text(
                   "Closed",
-                  style: TextStyle(color: r, fontSize: 20),
+                  style: TextStyle(color: red, fontSize: 20),
                 ),
               ),
               const SizedBox(
                 height: 25,
               ),
-              Center(
-                child: const Text(
+              const Center(
+                child: Text(
                   "Our Schedule",
                   style: TextStyle(
                       color: Colors.white,
@@ -97,7 +99,7 @@ class _Edit_schedule_State extends State<Edit_schedule> {
                 margin: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 68, 68, 67),
-                  border: Border.all(color: r, width: 1),
+                  border: Border.all(color: red, width: 1),
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 padding:
@@ -107,7 +109,7 @@ class _Edit_schedule_State extends State<Edit_schedule> {
                     Container(
                       margin: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        color: r,
+                        color: red,
                         border: Border.all(width: 1),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
@@ -117,7 +119,7 @@ class _Edit_schedule_State extends State<Edit_schedule> {
                     Container(
                       margin: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        color: r,
+                        color: red,
                         border: Border.all(width: 1),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
