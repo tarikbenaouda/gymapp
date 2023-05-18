@@ -49,7 +49,10 @@ class _ListofCoachinuserState extends State<ListofCoachinuser> {
                 //drawer
                 Text(
                   " Serach For Coach",
-                  style: TextStyle(color: Colors.white, fontSize: 25),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold),
                 )
               ],
             ),
@@ -62,7 +65,7 @@ class _ListofCoachinuserState extends State<ListofCoachinuser> {
             ),
             Container(
               width: double.infinity,
-              height: 550,
+              height: screenlength * 0.75,
               margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
               decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 22, 22, 22),

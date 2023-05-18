@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:gymapp/UserUI/ListofCoachsinUser.dart';
 import 'package:gymapp/consts/consts.dart';
 
 import '../common_widgets/my_textformfield.dart';
@@ -24,7 +25,7 @@ class _CoachInforamtionState extends State<CoachInforamtion> {
         decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("images/16.jpg"), fit: BoxFit.fill)),
-        child: ListView(children: [
+        child: Column(children: [
           const SizedBox(
             height: 20,
           ),
@@ -35,7 +36,7 @@ class _CoachInforamtionState extends State<CoachInforamtion> {
               children: [
                 InkWell(
                   onTap: () {
-                    Get.to(() => coaching_demand());
+                    Get.to(() => ListofCoachinuser());
                   },
                   child: const Icon(
                     Icons.keyboard_double_arrow_left_outlined,
@@ -47,7 +48,7 @@ class _CoachInforamtionState extends State<CoachInforamtion> {
             ),
           ),
           const SizedBox(
-            height: 5,
+            height: 8,
           ),
           const Center(
             child: Text(
@@ -58,15 +59,17 @@ class _CoachInforamtionState extends State<CoachInforamtion> {
                   fontWeight: FontWeight.bold),
             ),
           ),
+          const SizedBox(
+            height: 20,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Container(
-              height: 550,
+              height: screenlength * 0.75,
               width: screenwidth - 30,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  image: const DecorationImage(
-                      image: AssetImage("images/18.jpg"), fit: BoxFit.fill)),
+                borderRadius: BorderRadius.circular(20),
+              ),
               child: Column(
                 children: [
                   const SizedBox(
@@ -78,7 +81,7 @@ class _CoachInforamtionState extends State<CoachInforamtion> {
                       autofocus: true,
                       leading: CircleAvatar(
                         backgroundColor: Colors.white,
-                        radius: 60,
+                        radius: 70,
                       ),
                       title: Text(
                         "variable username",

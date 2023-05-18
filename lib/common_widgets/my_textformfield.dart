@@ -44,7 +44,7 @@ Widget MyInfos(
     child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         alignment: Alignment.centerLeft,
-        height: 40,
+        height: 45,
         width: double.infinity,
         decoration: BoxDecoration(
             color: const Color(0xFFE6E6E6),

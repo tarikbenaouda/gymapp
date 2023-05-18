@@ -347,6 +347,9 @@ class _CaloriesState extends State<Calories> {
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 20,
+                )
               ],
             ),
           )),
