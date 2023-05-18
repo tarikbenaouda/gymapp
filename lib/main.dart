@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:gymapp/ManagerUI/CoachProfile.dart';
-import 'package:gymapp/ManagerUI/DemandTraining.dart';
+import 'package:gymapp/ManagerUI/training_demand.dart';
 import 'package:gymapp/UserUI/CoachInformation.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/UserUI/SettingsUser.dart';
