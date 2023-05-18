@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:gymapp/ManagerUI/home_page.dart';
 
 class Edit_schedule extends StatefulWidget {
   @override
@@ -36,33 +37,31 @@ class _Edit_schedule_State extends State<Edit_schedule> {
                     icon: const Icon(Icons.keyboard_double_arrow_left_rounded),
                     color: r,
                     onPressed: () {
-                      Get.back();
+                      Get.to(() => HomeView());
                     },
                   ),
                 ],
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  IconButton(
-                    padding: const EdgeInsets.only(right: 50),
-                    iconSize: 40,
-                    icon: const Icon(Icons.list),
-                    color: Colors.white,
-                    onPressed: () {},
-                  ),
                   const Text(
                     "Edit Schedule And State",
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
                 ],
               ),
-              const Text(
-                "Gym State",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold),
+              SizedBox(
+                height: 10,
+              ),
+              Center(
+                child: const Text(
+                  "Gym State",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
               const SizedBox(
                 height: 10,
@@ -85,12 +84,14 @@ class _Edit_schedule_State extends State<Edit_schedule> {
               const SizedBox(
                 height: 25,
               ),
-              const Text(
-                "Our Schedule",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold),
+              Center(
+                child: const Text(
+                  "Our Schedule",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
               const SizedBox(
                 height: 15,

@@ -23,7 +23,7 @@ class _ModifyAboutState extends State<ModifyAbout> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          height: (MediaQuery.of(context).size.height) * 0.8,
+          height: (MediaQuery.of(context).size.height),
           width: MediaQuery.of(context).size.width,
           decoration: const BoxDecoration(
             image: DecorationImage(
