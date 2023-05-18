@@ -24,6 +24,7 @@ Widget myTextformfield({
           filter ?? FilteringTextInputFormatter.singleLineFormatter,
           LengthLimitingTextInputFormatter(limit),
         ],
+        cursorColor: Color(0xFFFF1E0F),
         decoration: InputDecoration(
             suffixIcon: icon,
             hintText: hint,
