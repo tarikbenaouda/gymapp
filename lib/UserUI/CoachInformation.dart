@@ -36,7 +36,7 @@ class _CoachInforamtionState extends State<CoachInforamtion> {
               children: [
                 InkWell(
                   onTap: () {
-                    Get.to(() => ListofCoachinuser());
+                    Get.back();
                   },
                   child: const Icon(
                     Icons.keyboard_double_arrow_left_outlined,
@@ -48,19 +48,19 @@ class _CoachInforamtionState extends State<CoachInforamtion> {
             ),
           ),
           const SizedBox(
-            height: 8,
+            height: 25,
           ),
           const Center(
             child: Text(
               " Coach Information ",
               style: TextStyle(
-                  fontSize: 25,
+                  fontSize: 30,
                   color: Colors.white,
                   fontWeight: FontWeight.bold),
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 30,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -76,7 +76,7 @@ class _CoachInforamtionState extends State<CoachInforamtion> {
                     height: 8,
                   ),
                   const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 40),
+                    padding: EdgeInsets.symmetric(horizontal: 20),
                     child: ListTile(
                       autofocus: true,
                       leading: CircleAvatar(
@@ -90,7 +90,7 @@ class _CoachInforamtionState extends State<CoachInforamtion> {
                     ),
                   ),
                   const SizedBox(
-                    height: 8,
+                    height: 20,
                   ),
                   MyInfos(Textinput: " FullName", Textinput2: "variable "),
                   const SizedBox(
