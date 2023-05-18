@@ -51,7 +51,7 @@ class _ListofCoachinuserState extends State<ListofCoachinuser> {
                   " Serach For Coach",
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 25,
+                      fontSize: 27,
                       fontWeight: FontWeight.bold),
                 )
               ],
@@ -59,14 +59,10 @@ class _ListofCoachinuserState extends State<ListofCoachinuser> {
             const SizedBox(
               height: 10,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [],
-            ),
             Container(
               width: double.infinity,
               height: screenlength * 0.75,
-              margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 22, 22, 22),
                   borderRadius: BorderRadius.circular(20)),
@@ -81,8 +77,8 @@ class _ListofCoachinuserState extends State<ListofCoachinuser> {
                           "Coachs List",
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w400),
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold),
                         ),
                         Text(
                           " Variable",
@@ -92,8 +88,9 @@ class _ListofCoachinuserState extends State<ListofCoachinuser> {
                           width: 7,
                         ),
                         Icon(
-                          Icons.person_outline,
+                          Icons.person,
                           color: Colors.white,
+                          size: 34,
                         )
                       ],
                     ),

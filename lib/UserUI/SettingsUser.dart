@@ -39,21 +39,26 @@ class SettingsUser extends StatelessWidget {
                       color: Color(0xFFFF1E0F),
                       size: 35,
                     ),
-                    SizedBox(
-                      width: 85,
-                    ),
-                    Center(
-                      child: Text(
-                        " Settings",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
                   ],
                 ),
               ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  " Settings",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold),
+                ),
+                Icon(
+                  Icons.settings,
+                  size: 35,
+                  color: Color(0xFFFF1E0F),
+                )
+              ],
             ),
             Obx(
               () => Column(children: [
@@ -75,7 +80,7 @@ class SettingsUser extends StatelessWidget {
                             width: 100,
                             fit: BoxFit.cover,
                           ).box.roundedFull.clip(Clip.antiAlias).make(),
-                10.heightBox,
+                5.heightBox,
                 Column(
                   children: [
                     TextButton(
@@ -225,7 +230,9 @@ class SettingsUser extends StatelessWidget {
                               color: const Color(0xFFFF1E0F),
                               borderRadius: BorderRadius.circular(15)),
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                            ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: const [
@@ -246,6 +253,9 @@ class SettingsUser extends StatelessWidget {
                           ),
                         )),
                   ),
+            SizedBox(
+              height: 20,
+            )
           ],
         ),
       ),

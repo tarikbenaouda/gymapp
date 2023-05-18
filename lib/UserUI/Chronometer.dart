@@ -16,7 +16,7 @@ class Chronometer extends StatelessWidget {
           decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage(
-                    "images/13.jpg",
+                    "images/20.jpg",
                   ),
                   fit: BoxFit.fill)),
           child: Column(
@@ -89,6 +89,7 @@ class Chronometer extends StatelessWidget {
                           icon: const Icon(
                             Icons.play_arrow,
                             color: Colors.red,
+                            size: 35,
                           ),
                           onPressed: () {
                             controller.resume();
@@ -97,6 +98,7 @@ class Chronometer extends StatelessWidget {
                           icon: const Icon(
                             Icons.pause,
                             color: Colors.red,
+                            size: 35,
                           ),
                           onPressed: () {
                             controller.pause();
@@ -105,6 +107,7 @@ class Chronometer extends StatelessWidget {
                           icon: const Icon(
                             Icons.repeat,
                             color: Colors.red,
+                            size: 35,
                           ),
                           onPressed: () {
                             controller.restart();
