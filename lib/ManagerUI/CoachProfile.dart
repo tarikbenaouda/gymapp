@@ -75,7 +75,7 @@ class _CoachProfileState extends State<CoachProfile> {
                   ),
                   15.heightBox,
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 120),
+                    padding: EdgeInsets.symmetric(horizontal: 150),
                     child: docs['imageUrl'] == ''
                         ? Image.asset(
                             icGoogleLogo,
@@ -88,7 +88,7 @@ class _CoachProfileState extends State<CoachProfile> {
                             fit: BoxFit.cover,
                           ).box.roundedFull.clip(Clip.antiAlias).make(),
                   ),
-                  8.heightBox,
+
                   Center(
                       child: "${docs['username']}"
                           .text
@@ -96,80 +96,56 @@ class _CoachProfileState extends State<CoachProfile> {
                           .size(20)
                           .bold
                           .make()),
-                  18.heightBox,
+                  15.heightBox,
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Container(
-                      height: 400,
-                      width: screenwidth - 30,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          image: const DecorationImage(
-                              image: AssetImage("images/18.jpg"),
-                              fit: BoxFit.fill)),
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 8,
-                          ),
-                          const Center(
-                            child: Text(
-                              "Informations Of coach ",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 4,
-                          ),
-                          MyInfos(
-                            Textinput: " FullName ",
-                            Textinput2: docs['fullName'],
-                          ),
-                          const SizedBox(
-                            height: 3,
-                          ),
-                          MyInfos(
-                            Textinput: " Age ",
-                            Textinput2: "${docs['age']} Years old",
-                          ),
-                          const SizedBox(
-                            height: 3,
-                          ),
-                          MyInfos(
-                            Textinput: " Height ",
-                            Textinput2: "${docs['height']} cm",
-                          ),
-                          const SizedBox(
-                            height: 3,
-                          ),
-                          MyInfos(
-                            Textinput: " Weigth ",
-                            Textinput2: "${docs['weight']} Kg",
-                          ),
-                          const SizedBox(
-                            height: 3,
-                          ),
-                          MyInfos(
-                            Textinput: " Email ",
-                            Textinput2: docs['email'],
-                          ),
-                          const SizedBox(
-                            height: 3,
-                          ),
-                          MyInfos(
-                            Textinput: " Phone Number ",
-                            Textinput2: docs['phoneNumber'],
-                          ),
-                          MyInfos(
-                            Textinput: " Coaching duration ",
-                            Textinput2:
-                                " Coaching duration ", // docs['phoneNumber'],
-                          ),
-                        ],
-                      ),
+                    child: Column(
+                      children: [
+                        MyInfos(
+                          Textinput: " FullName ",
+                          Textinput2: docs['fullName'],
+                        ),
+                        const SizedBox(
+                          height: 3,
+                        ),
+                        MyInfos(
+                          Textinput: " Age ",
+                          Textinput2: "${docs['age']} Years old",
+                        ),
+                        const SizedBox(
+                          height: 3,
+                        ),
+                        MyInfos(
+                          Textinput: " Height ",
+                          Textinput2: "${docs['height']} cm",
+                        ),
+                        const SizedBox(
+                          height: 3,
+                        ),
+                        MyInfos(
+                          Textinput: " Weigth ",
+                          Textinput2: "${docs['weight']} Kg",
+                        ),
+                        const SizedBox(
+                          height: 3,
+                        ),
+                        MyInfos(
+                          Textinput: " Email ",
+                          Textinput2: docs['email'],
+                        ),
+                        const SizedBox(
+                          height: 3,
+                        ),
+                        MyInfos(
+                          Textinput: " Phone Number ",
+                          Textinput2: docs['phoneNumber'],
+                        ),
+                        MyInfos(
+                          Textinput: " Coaching duration ",
+                          Textinput2:
+                              " Coaching duration ", // docs['phoneNumber'],
+                        ),
+                      ],
                     ),
                   ),
                   const SizedBox(
