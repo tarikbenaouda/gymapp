@@ -65,7 +65,7 @@ Widget MyInfos(
               style: const TextStyle(
                   color: Color(0xFF252525),
                   fontSize: 18,
-                  fontWeight: FontWeight.w800),
+                  fontWeight: FontWeight.w500),
             ),
           ],
         )),

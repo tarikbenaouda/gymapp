@@ -5,21 +5,20 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../common_widgets/my_textformfield.dart';
 import '../controlllers/manager_training_demand_controller.dart';
-import '../controlllers/manger_coaching_demand_controller.dart';
 import '../controlllers/manger_profiles_controller.dart';
 
-class CoachProfile extends StatefulWidget {
-  const CoachProfile({super.key});
+class DemandTrainnig extends StatefulWidget {
+  const DemandTrainnig({super.key});
 
   @override
-  State<CoachProfile> createState() => _CoachProfileState();
+  State<DemandTrainnig> createState() => _DemandTrainnigState();
 }
 
-class _CoachProfileState extends State<CoachProfile> {
+class _DemandTrainnigState extends State<DemandTrainnig> {
   var uid = Get.arguments[0];
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(ManagerCoachingDemandController());
+    var controller = Get.put(ManagerTrainingDemandController());
     double screenwidth = MediaQuery.of(context).size.width;
     double screenlength = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -66,7 +65,7 @@ class _CoachProfileState extends State<CoachProfile> {
                   ),
                   const Center(
                     child: Text(
-                      " Coaching demand ",
+                      " Training demand ",
                       style: TextStyle(
                           fontSize: 25,
                           color: Colors.white,
@@ -114,7 +113,7 @@ class _CoachProfileState extends State<CoachProfile> {
                           ),
                           const Center(
                             child: Text(
-                              "Informations Of coach ",
+                              "Informations Of Athlete ",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 18,
@@ -163,11 +162,6 @@ class _CoachProfileState extends State<CoachProfile> {
                             Textinput: " Phone Number ",
                             Textinput2: docs['phoneNumber'],
                           ),
-                          MyInfos(
-                            Textinput: " Coaching duration ",
-                            Textinput2:
-                                " Coaching duration ", // docs['phoneNumber'],
-                          ),
                         ],
                       ),
                     ),
@@ -183,7 +177,7 @@ class _CoachProfileState extends State<CoachProfile> {
                         TextButton(
                             onPressed: () async {
                               await controller.acceptAthlete(
-                                  type: "coach", coaching: false, id: uid);
+                                  type: "athlete", training: false, id: uid);
                               Get.back();
                             },
                             child: Container(
@@ -213,7 +207,7 @@ class _CoachProfileState extends State<CoachProfile> {
                         TextButton(
                             onPressed: () async {
                               await controller.refuseAthlete(
-                                  coaching: false, id: uid);
+                                  training: false, id: uid);
                               Get.back();
                             },
                             child: Container(
