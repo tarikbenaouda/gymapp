@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:gymapp/ManagerUI/listofcoach.dart';
 import 'package:gymapp/ManagerUI/training_demand.dart';
 import 'package:gymapp/ManagerUI/about.dart';
 
@@ -217,7 +218,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                         child: GestureDetector(
                           onTap: () {
-                            Get.to(() => const OurstateShop());
+                            Get.to(() => const listofcoachs());
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -227,7 +228,7 @@ class _HomeViewState extends State<HomeView> {
                               alignment: Alignment.bottomCenter,
                               child: Text(
                                 softWrap: false,
-                                'Shop Income',
+                                ' List  Of Coachs',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 22,
@@ -468,44 +469,6 @@ class _HomeViewState extends State<HomeView> {
                               child: Text(
                                 softWrap: false,
                                 'Edit Our Schedule',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 15, vertical: 7),
-                      child: Container(
-                        width: (double.infinity),
-                        height: 160,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(17.0),
-                          image: const DecorationImage(
-                            image: AssetImage(
-                              "images/admin-home pic.jpg",
-                            ),
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        child: GestureDetector(
-                          onTap: () {
-                            Get.to(() => edit_our_shop());
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(17.0),
-                            ),
-                            child: const Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Text(
-                                'Edit Our Shop',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 22,
