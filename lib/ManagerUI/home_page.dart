@@ -63,8 +63,8 @@ class _HomeViewState extends State<HomeView> {
               }
             }
             int countCoachs = 0;
-            for (int i = 0; i < docs.length; i++) {
-              if (docs[i]['type'] == "athlete") {
+            for (int a = 0; a < docs.length; a++) {
+              if (docs[a]['type'] == "coach") {
                 countCoachs++;
               }
             }
