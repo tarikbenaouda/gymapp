@@ -9,8 +9,10 @@ import 'package:gymapp/UserUI/Chronometer.dart';
 import 'package:gymapp/UserUI/Coaching_demand.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/UserUI/SettingsUser.dart';
+import 'package:gymapp/UserUI/Test.dart';
 import 'package:gymapp/UserUI/about.dart';
 import 'package:gymapp/UserUI/calories.dart';
+import 'package:gymapp/UserUI/events.dart';
 import 'package:gymapp/consts/consts.dart';
 
 import '../authentication/Login.dart';
@@ -413,7 +415,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                               ),
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.to(() => null);
+                                  Get.to(() => ProductItemScreen());
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -422,7 +424,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                                   child: const Align(
                                     alignment: Alignment.bottomCenter,
                                     child: Text(
-                                      'Shop',
+                                      'Your complements',
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 20,
@@ -492,7 +494,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                               ),
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.to(() => null);
+                                  Get.to(() => EventsCompetition());
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -523,7 +525,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                                 borderRadius: BorderRadius.circular(17.0),
                                 image: const DecorationImage(
                                   image: AssetImage(
-                                    "images/Sports Plans.jpg",
+                                    "images/admin-home pic1.jpg",
                                   ),
                                   fit: BoxFit.fill,
                                 ),

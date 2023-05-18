@@ -3,7 +3,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:gymapp/UserUI/home_view.dart';
 import 'package:gymapp/consts/Colors.dart';
+import 'package:gymapp/consts/consts.dart';
 
 class ProductItemScreen extends StatelessWidget {
   const ProductItemScreen({Key? key}) : super(key: key);
@@ -50,10 +52,20 @@ class ProductItemScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
               ),
-              child: const Icon(
-                Icons.arrow_back_ios,
-                size: 20,
-                color: Colors.grey,
+              child: InkWell(
+                onTap: () {
+                  Get.to(() => HomeViewAthlete());
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 310),
+                  child: GestureDetector(
+                    child: const Icon(
+                      Icons.keyboard_double_arrow_left_outlined,
+                      size: 37,
+                      color: Color(0xFFFD372A),
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
@@ -113,14 +125,14 @@ class ProductItemScreen extends StatelessWidget {
                   ),
                   Text(
                     "Description",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   Text(
                     'A powdered form of proteins taken from whey, which is the liquid left over when cheese is made from cow/\'s milk. Whey protein powder is used to increase protein in the diet and is being studied for possible health benefits',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 19),
+                    style: TextStyle(fontSize: 19),
                   ),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 15),
@@ -130,13 +142,39 @@ class ProductItemScreen extends StatelessWidget {
                   ),
                   Text(
                     "Why choose whey?",
-                    style: TextStyle(fontSize: 23),
+                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   Text(
                     "Whey concentrate contains between 70-80% protein, is higher in lactose, and is high in biologically active components you'd find in whole milk. This would be a good option for those looking for better recovery from workouts, and for building/maintaining muscles.",
+                    style: TextStyle(fontSize: 23),
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  Text(
+                    "Why choose whey?",
+                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    " Whey is an excellent source of high quality protein",
+                    style: TextStyle(fontSize: 23),
+                  ),
+                  Text(
+                    " Whey is an excellent source of high quality protein",
+                    style: TextStyle(fontSize: 23),
+                  ),
+                  Text(
+                    " Whey is an excellent source of high quality protein",
+                    style: TextStyle(fontSize: 23),
+                  ),
+                  Text(
+                    " Whey is an excellent source of high quality protein",
                     style: TextStyle(fontSize: 23),
                   ),
                 ],

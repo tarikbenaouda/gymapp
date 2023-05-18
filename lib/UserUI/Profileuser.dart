@@ -77,13 +77,8 @@ class _ProfileUserState extends State<ProfileUser> {
                     height: 550,
                     margin: const EdgeInsets.symmetric(
                         horizontal: 20, vertical: 15),
-                    decoration: BoxDecoration(
-                        image: const DecorationImage(
-                            image: AssetImage(
-                              "images/21.jpg",
-                            ),
-                            fit: BoxFit.fill),
-                        borderRadius: BorderRadius.circular(20)),
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(20)),
                     child: ListView(children: [
                       Padding(
                         padding: const EdgeInsets.all(7.0),
@@ -292,29 +287,34 @@ class _ProfileUserState extends State<ProfileUser> {
                         Textinput: "Phone Number",
                         Textinput2: "${data['phoneNumber']}",
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 60),
-                        child: ourButton(
-                          color: red,
-                          title: "Edit",
-                          textColor: white,
-                          onPress: () {
-                            controller.fullNameController.text =
-                                data['fullName'];
-                            controller.usernameController.text =
-                                data['username'];
-                            controller.phoneNumberController.text =
-                                data['phoneNumber'];
-                            controller.ageController.text = data['age'];
-                            controller.heightController.text = data['height'];
-                            controller.weightController.text = data['weight'];
-                            //controller.passwordController.text =
-                            //    data['password'];
-                            Get.to(
-                              () => SettingsUser(data: data),
-                            );
-                          },
-                        ).box.rounded.width(context.screenWidth - 70).make(),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 60),
+                          child: ourButton(
+                            color: red,
+                            title: "Edit",
+                            textColor: white,
+                            onPress: () {
+                              controller.fullNameController.text =
+                                  data['fullName'];
+                              controller.usernameController.text =
+                                  data['username'];
+                              controller.phoneNumberController.text =
+                                  data['phoneNumber'];
+                              controller.ageController.text = data['age'];
+                              controller.heightController.text = data['height'];
+                              controller.weightController.text = data['weight'];
+                              //controller.passwordController.text =
+                              //    data['password'];
+                              Get.to(
+                                () => SettingsUser(data: data),
+                              );
+                            },
+                          ).box.rounded.width(context.screenWidth - 70).make(),
+                        ),
                       ),
                     ]),
                   ),
