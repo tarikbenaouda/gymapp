@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:gymapp/consts/consts.dart';
+import 'package:gymapp/UserUI/home_view.dart';
 
-import 'home_view.dart';
+import 'package:gymapp/consts/consts.dart';
 
 class About extends StatefulWidget {
   @override
@@ -13,6 +12,8 @@ class _AboutState extends State<About> {
   int index = 0;
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
+    double screenlength = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -21,24 +22,29 @@ class _AboutState extends State<About> {
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("images/about help background.jpg"),
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             ),
           ),
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 310),
-                child: GestureDetector(
-                  child: const Icon(
-                    Icons.keyboard_double_arrow_left_outlined,
-                    size: 37,
-                    color: Color(0xFFFD372A),
+              SizedBox(
+                height: 10,
+              ),
+              InkWell(
+                onTap: () {
+                  Get.to(() => const HomeViewAthlete());
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 310),
+                  child: GestureDetector(
+                    child: const Icon(
+                      Icons.keyboard_double_arrow_left_outlined,
+                      size: 37,
+                      color: Color(0xFFFD372A),
+                    ),
                   ),
-                  onTap: () {
-                    Get.back();
-                  },
                 ),
               ),
               Row(
@@ -72,41 +78,60 @@ class _AboutState extends State<About> {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: ListView(
-                      children: const [
+                      children: [
                         SizedBox(
-                          height: 10,
+                          height: 12,
                         ),
                         Center(
-                            child: Text(
-                          'About The Gym : ',
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                        )),
-                        Text(
-                          '',
-                          style: TextStyle(color: Colors.white, fontSize: 20),
+                          child: Text(
+                            "about The Gym",
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          ),
                         ),
-                        SizedBox(height: 10.0),
                         Padding(
-                          padding: EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 30, vertical: 10),
+                          child: Container(
+                            height: screenlength * 0.25,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                color: const Color(0xFFE6E6E6),
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "  Variable of About  about The App jidgidgjk,gijdidjgdijdgidgidjdgodjdgdojdgjigjdkixidgjdigdgidjdgijdgdjgdgjdogdndgnd",
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.black),
+                              ),
+                            ),
+                          ),
                         ),
-                        SizedBox(height: 170.0),
                         Center(
-                            child: Text(
-                          'About This App :',
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                        )),
-                        Text(
-                          '',
-                          style: TextStyle(color: Colors.white, fontSize: 20),
+                          child: Text(
+                            "about The App",
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          ),
                         ),
-                        SizedBox(height: 10.0),
                         Padding(
-                          padding: EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 30, vertical: 10),
+                          child: Container(
+                            height: screenlength * 0.25,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                color: const Color(0xFFE6E6E6),
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "  Variable of About  about The App jidgidgjk,gijdidjgdijdgidgidjdgodjdgdojdgjigjdkixidgjdigdgidjdgijdgdjgdgjdogdndgnd",
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.black),
+                              ),
+                            ),
+                          ),
                         ),
-                        SizedBox(
-                          width: 100,
-                        ),
-                        SizedBox(height: 10.0),
                       ],
                     ),
                   ),

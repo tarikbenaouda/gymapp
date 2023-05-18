@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/consts/consts.dart';
@@ -5,29 +6,29 @@ import 'package:gymapp/consts/consts.dart';
 import 'about.dart';
 import 'home_view.dart';
 
-class Help extends StatefulWidget {
+class Helpuser extends StatefulWidget {
   @override
-  _HelpState createState() => _HelpState();
+  _HelpuserState createState() => _HelpuserState();
 }
 
-class _HelpState extends State<Help> {
+class _HelpuserState extends State<Helpuser> {
   int number = 0;
-  String help = '', email = '';
+  String Helpuser = '', email = '';
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
+    double screenlength = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
         child: Container(
-          height: double.infinity,
-          width: double.infinity,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("images/about help background.jpg"),
-              fit: BoxFit.fill,
-            ),
-          ),
+          height: screenlength,
+          width: screenwidth,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("images/about help background.jpg"),
+                  fit: BoxFit.fill)),
           padding: const EdgeInsets.all(16.0),
-          child: ListView(
+          child: Column(
             children: [
               Padding(
                 padding: const EdgeInsets.only(right: 310),
@@ -38,99 +39,42 @@ class _HelpState extends State<Help> {
                     color: Color(0xFFFD372A),
                   ),
                   onTap: () {
-                    Get.back();
+                    Get.to(() => HomeViewAthlete());
                   },
                 ),
+              ),
+              SizedBox(
+                height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
                   Text(
-                    "The Help ",
+                    " Contact Us  ",
                     style: TextStyle(
                       fontSize: 30,
+                      fontWeight: FontWeight.bold,
                       color: Colors.white,
                       letterSpacing: 1.3,
                     ),
                   ),
-                  Icon(
-                    Icons.help,
-                    size: 30,
-                    color: Color(0xFFFD372A),
-                  )
                 ],
               ),
               const SizedBox(
                 height: 20,
               ),
-              Container(
-                height: 600,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF252525),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      ' Write Here in What You Need Help',
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                    const SizedBox(height: 10.0),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: TextField(
-                        onChanged: (text) {
-                          setState(() {
-                            help = text;
-                          });
-                        },
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          hintText: '.....',
-                          contentPadding: const EdgeInsets.symmetric(
-                              vertical: 70.0, horizontal: 6.0),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 140,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          primary: const Color(0xFFD9D9D9),
-                        ),
-                        onPressed: null,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Text(
-                              'Send it ',
-                              style: TextStyle(fontSize: 20),
-                            ),
-                            Icon(Icons.send, color: Colors.black),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(right: 225.0),
-                      child: Text(
-                        'To Contact Us : ',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 21,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    const SizedBox(height: 10.0),
-                    Container(
-                      height: 55,
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 80,
+                  ),
+                  const SizedBox(height: 10.0),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 1),
+                    child: Container(
+                      height: 50,
                       decoration: BoxDecoration(
                         color: const Color(0xFFD9D9D9),
                         borderRadius: BorderRadius.circular(20.0),
@@ -139,7 +83,7 @@ class _HelpState extends State<Help> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "$number",
+                            " Variable",
                             style: const TextStyle(
                               color: Color(0xFF252525),
                               fontSize: 20.0,
@@ -153,12 +97,15 @@ class _HelpState extends State<Help> {
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 13,
-                    ),
-                    Container(
-                      height: 55,
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  ),
+                  const SizedBox(
+                    height: 13,
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 1),
+                    child: Container(
+                      height: 50,
                       decoration: BoxDecoration(
                         color: const Color(0xFFD9D9D9),
                         borderRadius: BorderRadius.circular(20.0),
@@ -167,7 +114,7 @@ class _HelpState extends State<Help> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "$email",
+                            " Variable",
                             style: const TextStyle(
                               color: Color(0xFF252525),
                               fontSize: 20.0,
@@ -181,12 +128,15 @@ class _HelpState extends State<Help> {
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 13,
-                    ),
-                    Container(
-                      height: 55,
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  ),
+                  const SizedBox(
+                    height: 13,
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 1),
+                    child: Container(
+                      height: 50,
                       decoration: BoxDecoration(
                         color: const Color(0xFFD9D9D9),
                         borderRadius: BorderRadius.circular(20.0),
@@ -195,7 +145,7 @@ class _HelpState extends State<Help> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
                           Text(
-                            "",
+                            " Variable",
                             style: TextStyle(
                               color: Color(0xFF252525),
                               fontSize: 20.0,
@@ -209,8 +159,39 @@ class _HelpState extends State<Help> {
                         ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                  const SizedBox(
+                    height: 13,
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 1),
+                    child: Container(
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFD9D9D9),
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: const [
+                          Text(
+                            " Variable",
+                            style: TextStyle(
+                              color: Color(0xFF252525),
+                              fontSize: 20.0,
+                            ),
+                          ),
+                          Icon(
+                            Icons.facebook,
+                            size: 30,
+                            color: Color(0xFF252525),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               )
             ],
           ),

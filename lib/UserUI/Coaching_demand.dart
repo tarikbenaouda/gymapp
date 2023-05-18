@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:gymapp/UserUI/home_view.dart';
 
 import '../common_widgets/my_textformfield.dart';
 import '../consts/Colors.dart';
@@ -43,9 +44,14 @@ class coaching_demand_State extends State<coaching_demand> {
                     Icons.keyboard_double_arrow_left_rounded,
                   ),
                   color: red,
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => HomeViewAthlete());
+                  },
                 ),
               ],
+            ),
+            SizedBox(
+              height: 16,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -85,7 +91,7 @@ class coaching_demand_State extends State<coaching_demand> {
                 children: [
                   const Center(
                     child: Text(
-                      "Demand Formula",
+                      "Demand Formule",
                       style: TextStyle(
                           color: white,
                           fontSize: 24,
