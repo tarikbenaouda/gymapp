@@ -13,123 +13,168 @@ class Edit_schedule extends StatefulWidget {
 class _Edit_schedule_State extends State<Edit_schedule> {
   final _controller = ValueNotifier<bool>(false);
 
+  int current = 0;
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
+    double screenheight = MediaQuery.of(context).size.height;
+    double statusBarBottom = MediaQuery.of(context).padding.bottom;
+    List<String> days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    int current = 0;
+
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          width: double.infinity,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("images/edit_schedule.jpg"),
-              fit: BoxFit.fill,
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Container(
+            height: screenheight,
+            width: screenwidth,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("images/admin settings background.jpg"),
+                fit: BoxFit.fill,
+              ),
             ),
-          ),
-          child: ListView(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  IconButton(
-                    padding: const EdgeInsets.only(top: 30),
-                    iconSize: 40,
-                    icon: const Icon(Icons.keyboard_double_arrow_left_rounded),
-                    color: red,
-                    onPressed: () {
-                      Get.to(() => const HomeView());
-                    },
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    IconButton(
+                      //padding: const EdgeInsets.only(top: 30),
+                      iconSize: 40,
+                      icon: const Icon(
+                        Icons.keyboard_double_arrow_left_rounded,
+                        size: 50,
+                      ),
+                      color: red,
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+                Center(
+                  child: Text(
+                    "Edit Schedule",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold),
                   ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Edit Schedule And State",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+                SizedBox(height: 0.03 * screenheight),
+                Center(
+                  child: Text(
+                    "Gym State",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 27,
+                        fontWeight: FontWeight.bold),
                   ),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Center(
-                child: Text(
-                  "Gym State",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold),
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              AdvancedSwitch(
-                width: 100,
-                height: 30,
-                controller: _controller,
-                //inactiveColor: w,
-                activeColor: red,
-                activeChild: const Text(
-                  "Open",
-                  style: TextStyle(color: white, fontSize: 20),
+                SizedBox(
+                  height: 0.01 * screenheight,
                 ),
-                inactiveChild: const Text(
-                  "Closed",
-                  style: TextStyle(color: red, fontSize: 20),
+                AdvancedSwitch(
+                  width: 110,
+                  height: 40,
+                  controller: _controller,
+                  inactiveColor: white,
+                  activeColor: red,
+                  activeChild: Text(
+                    "Open",
+                    style: TextStyle(color: white, fontSize: 20),
+                  ),
+                  inactiveChild: Text(
+                    "Closed",
+                    style: TextStyle(color: red, fontSize: 20),
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              const Center(
-                child: Text(
+                SizedBox(
+                  height: 0.02 * screenheight,
+                ),
+                const Text(
                   "Our Schedule",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 30,
                       fontWeight: FontWeight.bold),
                 ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Container(
-                margin: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 68, 68, 67),
-                  border: Border.all(color: red, width: 1),
-                  borderRadius: BorderRadius.circular(10.0),
+                SizedBox(
+                  height: 0.01 * screenheight,
                 ),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 70, horizontal: 10),
-                child: Column(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: red,
-                        border: Border.all(width: 1),
-                        borderRadius: BorderRadius.circular(10.0),
+                Container(
+                  height: 0.55 * screenheight,
+                  width: screenwidth * 0.95,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 68, 68, 67),
+                    border: Border.all(color: red, width: 1),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        height: 0.08 * screenheight,
+                        margin:
+                            EdgeInsets.symmetric(vertical: 0.02 * screenheight),
+                        child: ListView.builder(
+                          physics: const BouncingScrollPhysics(),
+                          itemCount: days.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (ctx, index) {
+                            return GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  current = index;
+                                });
+                              },
+                              child: AnimatedContainer(
+                                duration: const Duration(milliseconds: 300),
+                                width: 0.14 * screenwidth,
+                                height: 30,
+                                decoration: BoxDecoration(
+                                  color: current == index ? red : white,
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    days[index],
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      color: current == index ? white : black,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                        ),
                       ),
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 60, horizontal: 10),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: red,
-                        border: Border.all(width: 1),
-                        borderRadius: BorderRadius.circular(10.0),
+                      SizedBox(
+                        height: 0.01 * screenheight,
                       ),
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 60, horizontal: 10),
-                    ),
-                  ],
+                      Container(
+                        margin: const EdgeInsets.all(10),
+                        height: screenheight * 0.18,
+                        width: screenwidth * 0.9,
+                        decoration: BoxDecoration(
+                          color: red,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.all(10),
+                        height: screenheight * 0.18,
+                        width: screenwidth * 0.9,
+                        decoration: BoxDecoration(
+                          color: red,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
