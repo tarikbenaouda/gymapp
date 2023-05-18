@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class About extends StatefulWidget {
-  About(this.name);
+class AboutManager extends StatefulWidget {
+  AboutManager(this.name);
   String name;
 
   @override
-  _AboutState createState() => _AboutState(name);
+  _AboutManagerState createState() => _AboutManagerState(name);
 }
 
-class _AboutState extends State<About> {
-  _AboutState(this.name);
+class _AboutManagerState extends State<AboutManager> {
+  _AboutManagerState(this.name);
   String name;
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class _AboutState extends State<About> {
                   Padding(
                       padding: EdgeInsets.only(top: 25.0),
                       child: Text(
-                        "About",
+                        "AboutManager",
                         style: TextStyle(
                           fontSize: 30,
                           color: Colors.white,
@@ -70,7 +70,7 @@ class _AboutState extends State<About> {
                             height: 10,
                           ),
                           const Text(
-                            'About The Gym : ',
+                            'AboutManager The Gym : ',
                             style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           Text(
@@ -84,7 +84,7 @@ class _AboutState extends State<About> {
                           ),
                           const SizedBox(height: 10.0),
                           const Text(
-                            'About The Gym :',
+                            'AboutManager The Gym :',
                             style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           const SizedBox(height: 10.0),

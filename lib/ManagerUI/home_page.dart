@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:gymapp/ManagerUI/training_demand.dart';
 import 'package:gymapp/ManagerUI/about.dart';
+
 import 'package:gymapp/ManagerUI/edit_our_offers.dart';
 import 'package:gymapp/ManagerUI/help.dart';
 import 'package:gymapp/ManagerUI/setting.dart';
@@ -718,7 +719,7 @@ class _HomeViewState extends State<HomeView> {
                           color: Colors.white,
                         )),
                     onTap: () {
-                      Get.to(() => About(""));
+                      Get.to(() => AboutManager(""));
                     },
                   ),
                   const SizedBox(

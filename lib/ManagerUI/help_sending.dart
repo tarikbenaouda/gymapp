@@ -33,8 +33,8 @@ class _HelpSecdingState extends State<HelpSecding> {
           width: double.infinity,
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/images/background1.jpg"),
-              fit: BoxFit.cover,
+              image: AssetImage("images/background1.jpg"),
+              fit: BoxFit.fill,
             ),
           ),
           padding: const EdgeInsets.all(16.0),

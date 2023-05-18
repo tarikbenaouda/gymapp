@@ -1,10 +1,18 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:gymapp/ManagerUI/CoachProfile.dart';
-import 'package:gymapp/ManagerUI/training_demand.dart';
+import 'package:gymapp/ManagerUI/DemandTraining.dart';
+import 'package:gymapp/ManagerUI/about.dart';
+import 'package:gymapp/ManagerUI/help.dart';
+import 'package:gymapp/ManagerUI/help_sending.dart';
+import 'package:gymapp/ManagerUI/modify_about.dart';
+import 'package:gymapp/ManagerUI/modify_events.dart';
+import 'package:gymapp/ManagerUI/modify_help.dart';
 import 'package:gymapp/UserUI/CoachInformation.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/UserUI/SettingsUser.dart';
+import 'package:gymapp/UserUI/Test.dart';
+import 'package:gymapp/UserUI/about.dart';
 import 'package:gymapp/UserUI/calories.dart';
 import 'package:gymapp/UserUI/calories_estimate.dart';
 import 'package:gymapp/UserUI/home_view.dart';
@@ -13,7 +21,7 @@ import 'package:gymapp/ManagerUI/listofcoach.dart';
 import 'package:gymapp/UserUI/Coaching_demand.dart';
 
 import 'package:gymapp/ManagerUI/listofcoach.dart';
-import 'package:gymapp/ManagerUI/ProfileCoach.dart';
+import 'package:gymapp/ManagerUI/ProfileCoachdemand.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/consts/consts.dart';
 import 'package:gymapp/ManagerUI/listofcoach.dart';
