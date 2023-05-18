@@ -9,7 +9,7 @@ export 'package:gymapp/authentication/Getstarted.dart';
 export 'package:gymapp/authentication/Login.dart';
 
 export 'package:gymapp/ManagerUI/OurStateShop.dart';
-export 'package:gymapp/ManagerUI/ProfileCoachdemand.dart';
+export 'package:gymapp/ManagerUI/ProfileCoach.dart';
 export 'package:gymapp/authentication/Signup1.dart';
 export 'package:gymapp/authentication/Unboarding.dart';
 export 'package:gymapp/ManagerUI/edit_our_offers.dart';

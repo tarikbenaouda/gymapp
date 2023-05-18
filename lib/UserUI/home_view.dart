@@ -11,10 +11,12 @@ import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/UserUI/SettingsUser.dart';
 import 'package:gymapp/UserUI/about.dart';
 import 'package:gymapp/UserUI/calories.dart';
+import 'package:gymapp/consts/consts.dart';
 
 import '../authentication/Login.dart';
 import '../consts/Colors.dart';
 import '../consts/firebase_consts.dart';
+import '../consts/images.dart';
 import '../controlllers/auth_controller.dart';
 import '../services/firestore_services.dart';
 import 'ListofCoachsinUser.dart';
@@ -185,17 +187,17 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 15, vertical: 7),
                             child: Container(
-                              child: const Center(
-                                  child: Text(
-                                "ADS",
-                                style: TextStyle(fontSize: 30),
-                              )),
                               width: (double.infinity),
                               height: 200,
                               decoration: BoxDecoration(
                                 color: const Color(0xFFD9D9D9),
                                 borderRadius: BorderRadius.circular(17.0),
                               ),
+                              child: const Center(
+                                  child: Text(
+                                "ADS",
+                                style: TextStyle(fontSize: 30),
+                              )),
                             ),
                           ),
                           Padding(
@@ -670,128 +672,135 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
         ),
       ),
       drawer: SafeArea(
-        child: FractionallySizedBox(
-          widthFactor: 0.6,
-          child: Drawer(
-            child: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("images/drawor (admin).jpg"),
-                    fit: BoxFit.fill),
-                color: const Color(0xFF393939),
-              ),
-              child: Column(
-                children: [
-                  Center(
-                      child: Column(
-                    children: [
-                      SizedBox(
-                        height: 80,
-                      ),
-                      Container(
-                        height: 100,
-                        width: 100,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage("images/1.jpg"),
-                                fit: BoxFit.fill),
-                            color: Colors.white,
-                            shape: BoxShape.circle),
-                      ),
-                      Text("username$username",
-                          style: const TextStyle(
-                            fontSize: 20,
-                            color: Color(0xFFFD372A),
-                          )),
-                      Text("user eamil$email",
-                          style: const TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                          )),
-                    ],
-                  )),
-                  const SizedBox(
-                    height: 70,
-                  ),
-                  ListTile(
-                    leading: const Icon(
-                      Icons.settings,
-                      color: Colors.white,
+        child: StreamBuilder(
+            stream: FirestoreServices.getUser(currentUser!.uid),
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              var data = snapshot.data!.docs[0];
+              return FractionallySizedBox(
+                widthFactor: 0.6,
+                child: Drawer(
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage("images/drawor (admin).jpg"),
+                          fit: BoxFit.fill),
+                      color: Color(0xFF393939),
                     ),
-                    title: const Text('Settings',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                        )),
-                    onTap: () {
-                      Get.to(() => const ProfileUser());
-                    },
-                  ),
-                  ListTile(
-                    leading: const Icon(
-                      Icons.help,
-                      color: Colors.white,
-                    ),
-                    title: const Text('Help',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                        )),
-                    onTap: () {
-                      Get.to(() => Help());
-                    },
-                  ),
-                  ListTile(
-                    leading: const Icon(
-                      Icons.info,
-                      color: Colors.white,
-                    ),
-                    title: const Text('About',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                        )),
-                    onTap: () {
-                      Get.to(() => About());
-                    },
-                  ),
-                  const SizedBox(
-                    height: 140,
-                  ),
-                  Center(
-                    child: SizedBox(
-                      width: 195,
-                      child: ElevatedButton(
-                        onPressed: () async {
-                          await Get.put(AuthController())
-                              .signoutMethod(context);
-                          Get.offAll(() => const Login());
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF393939), //
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                            side: const BorderSide(color: Colors.white),
-                          ), // Change the background color
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Icon(Icons.logout),
-                            SizedBox(width: 8.0),
-                            Text('Log out',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 20)),
+                    child: Column(
+                      children: [
+                        Center(
+                            child: Column(
+                          children: [
+                            const SizedBox(
+                              height: 80,
+                            ),
+                            data['imageUrl'] == ''
+                                ? Image.asset(
+                                    icGoogleLogo,
+                                    width: 100,
+                                    fit: BoxFit.cover,
+                                  ).box.roundedFull.clip(Clip.antiAlias).make()
+                                : Image.network(
+                                    data['imageUrl'],
+                                    width: 100,
+                                    fit: BoxFit.cover,
+                                  ).box.roundedFull.clip(Clip.antiAlias).make(),
+                            Text(data['username'],
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  color: Color(0xFFFD372A),
+                                )),
+                            Text(data['email'],
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                )),
                           ],
+                        )),
+                        const SizedBox(
+                          height: 70,
                         ),
-                      ),
+                        ListTile(
+                          leading: const Icon(
+                            Icons.settings,
+                            color: Colors.white,
+                          ),
+                          title: const Text('Settings',
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                              )),
+                          onTap: () {
+                            Get.to(() => const ProfileUser());
+                          },
+                        ),
+                        ListTile(
+                          leading: const Icon(
+                            Icons.help,
+                            color: Colors.white,
+                          ),
+                          title: const Text('Help',
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                              )),
+                          onTap: () {
+                            Get.to(() => Help());
+                          },
+                        ),
+                        ListTile(
+                          leading: const Icon(
+                            Icons.info,
+                            color: Colors.white,
+                          ),
+                          title: const Text('About',
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                              )),
+                          onTap: () {
+                            Get.to(() => About());
+                          },
+                        ),
+                        const SizedBox(
+                          height: 140,
+                        ),
+                        Center(
+                          child: SizedBox(
+                            width: 195,
+                            child: ElevatedButton(
+                              onPressed: () async {
+                                await Get.put(AuthController())
+                                    .signoutMethod(context);
+                                Get.offAll(() => const Login());
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xFF393939), //
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  side: const BorderSide(color: Colors.white),
+                                ), // Change the background color
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  Icon(Icons.logout),
+                                  SizedBox(width: 8.0),
+                                  Text('Log out',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 20)),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
-            ),
-          ),
-        ),
+                ),
+              );
+            }),
       ),
     );
   }
