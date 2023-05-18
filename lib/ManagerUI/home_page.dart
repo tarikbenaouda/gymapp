@@ -95,31 +95,39 @@ class _HomeViewState extends State<HomeView> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Container(
+                      width: 120,
+                      height: 35,
                       decoration: BoxDecoration(
                         color: const Color(0xFFFD372A),
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20.0, vertical: 10.0),
-                      child: Text('$formattedDate',
-                          style: const TextStyle(color: Colors.white)),
+                      child: Center(
+                        child: Text('$formattedDate',
+                            style: const TextStyle(color: Colors.white)),
+                      ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const HomeView()));
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFFD372A),
-                          borderRadius: BorderRadius.circular(20.0),
+                    Container(
+                      width: 120,
+                      height: 35,
+                      child: GestureDetector(
+                        onTap: () {
+                          Get.to(() => null);
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFFD372A),
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          padding: const EdgeInsets.all(10),
+                          child: const Center(
+                            child: Text(
+                              'Edit Gym State',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
                         ),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20.0, vertical: 10.0),
-                        child: const Text('Edit Gym State',
-                            style: TextStyle(color: Colors.white)),
                       ),
                     ),
                   ],
@@ -128,17 +136,17 @@ class _HomeViewState extends State<HomeView> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
                   child: Container(
-                    child: const Center(
-                      child: Text(
-                        'ADS',
-                        style: TextStyle(fontSize: 50, color: Colors.black),
-                      ),
-                    ),
                     width: (double.infinity),
                     height: 200,
                     decoration: BoxDecoration(
                       color: const Color(0xFFD9D9D9),
                       borderRadius: BorderRadius.circular(17.0),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        'ADS',
+                        style: TextStyle(fontSize: 50, color: Colors.black),
+                      ),
                     ),
                   ),
                 ),
@@ -150,20 +158,21 @@ class _HomeViewState extends State<HomeView> {
                       height: 50,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(17.0),
-                        color: Colors.black,
+                        color: red,
                       ),
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(17.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 14, top: 7),
+                          padding: const EdgeInsets.all(7),
                           child: Text(
                             softWrap: false,
-                            'Athletes Number\n           $athletes',
+                            'Athletes Number\n$athletes',
+                            textAlign: TextAlign.center,
                             style: const TextStyle(
                               color: Colors.white,
-                              fontSize: 17,
+                              fontSize: 19,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -176,20 +185,21 @@ class _HomeViewState extends State<HomeView> {
                       decoration: BoxDecoration(
                         //border:  Border.all(color: Colors.grey, width: 2),
                         borderRadius: BorderRadius.circular(17.0),
-                        color: Colors.black,
+                        color: red,
                       ),
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(17.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 15, top: 7),
+                          padding: const EdgeInsets.all(7),
                           child: Text(
                             softWrap: false,
-                            'Coach Number\n         $coaches ',
+                            'Coach Number\n$coaches ',
+                            textAlign: TextAlign.center,
                             style: const TextStyle(
                               color: Colors.white,
-                              fontSize: 17,
+                              fontSize: 19,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -298,7 +308,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                         child: GestureDetector(
                           onTap: () {
-                            Get.to(() => Listathletes());
+                            Get.to(() => const Listathletes());
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -338,7 +348,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                         child: GestureDetector(
                           onTap: () {
-                            Get.to(() => TrainingDemandsList());
+                            Get.to(() => const TrainingDemandsList());
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -418,7 +428,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                         child: GestureDetector(
                           onTap: () {
-                            Get.to(() => DemandForCoaching());
+                            Get.to(() => const DemandForCoaching());
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -539,7 +549,7 @@ class _HomeViewState extends State<HomeView> {
               padding: const EdgeInsets.only(right: 90.0),
               child: GestureDetector(
                 onTap: () {
-                  Get.to(() => HomeView());
+                  Get.to(() => const HomeView());
                 },
                 child: Container(
                   child: const Icon(
@@ -552,7 +562,7 @@ class _HomeViewState extends State<HomeView> {
               padding: const EdgeInsets.only(right: 90.0),
               child: GestureDetector(
                 onTap: () {
-                  Get.to(() => Setting());
+                  Get.to(() => const Setting());
                 },
                 child: Container(
                   child: const Icon(
@@ -580,7 +590,7 @@ class _HomeViewState extends State<HomeView> {
               padding: const EdgeInsets.only(left: 90.0),
               child: GestureDetector(
                 onTap: () {
-                  Get.to(() => Setting());
+                  Get.to(() => const Setting());
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -640,7 +650,7 @@ class _HomeViewState extends State<HomeView> {
                           color: Colors.white,
                         )),
                     onTap: () {
-                      Get.to(() => HomeView());
+                      Get.to(() => const HomeView());
                     },
                   ),
                   ListTile(
@@ -654,7 +664,7 @@ class _HomeViewState extends State<HomeView> {
                           color: Colors.white,
                         )),
                     onTap: () {
-                      Get.to(() => Setting());
+                      Get.to(() => const Setting());
                     },
                   ),
                   ListTile(
