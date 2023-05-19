@@ -115,6 +115,7 @@ class _Signup1State extends State<Signup1> {
                                 "Please fill all the fields.",
                                 snackPosition: SnackPosition.BOTTOM,
                                 colorText: white,
+                                backgroundColor: red,
                               );
                       },
                       child: const Text(

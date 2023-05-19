@@ -150,6 +150,7 @@ class _LoginState extends State<Login> {
                                           "Email or Password incorrect.",
                                           snackPosition: SnackPosition.BOTTOM,
                                           colorText: white,
+                                          backgroundColor: red,
                                         );
                                       }
                                     });
@@ -160,6 +161,7 @@ class _LoginState extends State<Login> {
                                     "Please fill all the fields.",
                                     snackPosition: SnackPosition.BOTTOM,
                                     colorText: white,
+                                    backgroundColor: red,
                                   );
                                 }
                               },

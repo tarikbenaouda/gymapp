@@ -159,9 +159,9 @@ class _Signup3State extends State<Signup3> {
                                 : const Color.fromARGB(255, 255, 184, 179),
                           ),
                           onPressed: () async {
-                            if (ageController.text != "" &&
-                                weightController.text != "" &&
-                                heightController.text != "") {
+                            if (emailController.text != "" &&
+                                passwordController.text != "" &&
+                                confirmPasswordController.text != "") {
                               if (passwordController.text ==
                                   confirmPasswordController.text) {
                                 if (shouldCheck != false) {
@@ -192,7 +192,8 @@ class _Signup3State extends State<Signup3> {
                                         "Congrats..!",
                                         "Signed up succefully.",
                                         snackPosition: SnackPosition.TOP,
-                                        colorText: white,
+                                        colorText: black,
+                                        backgroundColor: white,
                                       );
                                       Get.offAll(() => const HomeViewAthlete());
                                     });
@@ -203,6 +204,7 @@ class _Signup3State extends State<Signup3> {
                                       "This email is incorrect or existe before .",
                                       snackPosition: SnackPosition.BOTTOM,
                                       colorText: white,
+                                      backgroundColor: red,
                                     );
 
                                     controller.isloading(false);
@@ -214,6 +216,7 @@ class _Signup3State extends State<Signup3> {
                                   "Please confirm the password correctly.",
                                   snackPosition: SnackPosition.BOTTOM,
                                   colorText: white,
+                                  backgroundColor: red,
                                 );
                               }
                             } else {
@@ -222,6 +225,7 @@ class _Signup3State extends State<Signup3> {
                                 "Please fill all the fields.",
                                 snackPosition: SnackPosition.BOTTOM,
                                 colorText: white,
+                                backgroundColor: red,
                               );
                             }
                           },
