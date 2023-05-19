@@ -102,11 +102,6 @@ class _ListathletesState extends State<Listathletes> {
                                     fontSize: 20,
                                     fontWeight: FontWeight.w400),
                               ),
-                              Text(
-                                " Variable",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 16),
-                              ),
                               SizedBox(
                                 width: 7,
                               ),

@@ -208,7 +208,10 @@ class _ProfileathleteState extends State<Profileathlete> {
                                 color: Color(0xFFFFFFFF), fontSize: 18),
                           ),
                         ),
-                        myTextformfield(hint: " Offer Paid"),
+                        myTextformfield(
+                          hint: " Offer Paid",
+                          controller: controller.offerController,
+                        ),
                         const SizedBox(
                           height: 4,
                         ),
@@ -245,7 +248,15 @@ class _ProfileathleteState extends State<Profileathlete> {
                               )),
                         ),
                         TextButton(
-                            onPressed: (() {}),
+                            onPressed: () async {
+                              var id = await controller.getOfferId(
+                                  type: controller.offerController.text);
+                              if (id == 'empty') {
+                              } else {
+                                await controller.updateAthleteOffer(
+                                    id: id, uid: uid);
+                              }
+                            },
                             child: Container(
                               alignment: Alignment.center,
                               height: 40,
@@ -261,8 +272,7 @@ class _ProfileathleteState extends State<Profileathlete> {
                             )),
                         TextButton(
                             onPressed: () async {
-                              await controller.updateProfile(
-                                  type: "user", id: uid);
+                              await controller.deleteAthlete(uid: uid);
                               Get.back();
                             },
                             child: Container(

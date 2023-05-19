@@ -52,6 +52,7 @@ class AuthController extends GetxController {
     type,
     coaching,
     training,
+    offerId,
   }) async {
     DocumentReference store =
         firestore.collection(usersCollection).doc(currentUser!.uid);
@@ -69,6 +70,7 @@ class AuthController extends GetxController {
       'type': type,
       'coaching': coaching,
       'training': training,
+      'offerId': '0',
     });
   }
 
