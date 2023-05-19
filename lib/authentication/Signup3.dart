@@ -188,62 +188,40 @@ class _Signup3State extends State<Signup3> {
                                         training: false,
                                       );
                                     }).then((value) {
-                                      VxToast.show(context,
-                                          msg: "Logged in successfully");
+                                      Get.snackbar(
+                                        "Congrats..!",
+                                        "Signed up succefully.",
+                                        snackPosition: SnackPosition.TOP,
+                                        colorText: white,
+                                      );
                                       Get.offAll(() => const HomeViewAthlete());
                                     });
                                   } catch (e) {
                                     auth.signOut();
-                                    showDialog(
-                                      context: context,
-                                      builder: (BuildContext context) {
-                                        return const AlertDialog(
-                                          backgroundColor:
-                                              const Color(0xFF4F4F4F),
-                                          title: Text(
-                                            "Error",
-                                            style: TextStyle(color: white),
-                                          ),
-                                          content: Text(
-                                              "Oops! Email is incorrect or existe.",
-                                              style: TextStyle(color: white)),
-                                        );
-                                      },
+                                    Get.snackbar(
+                                      "Oops..!",
+                                      "This email is incorrect or existe before .",
+                                      snackPosition: SnackPosition.BOTTOM,
+                                      colorText: white,
                                     );
+
                                     controller.isloading(false);
                                   }
                                 }
                               } else {
-                                showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return const AlertDialog(
-                                      backgroundColor: const Color(0xFF4F4F4F),
-                                      title: Text(
-                                        "Error",
-                                        style: TextStyle(color: white),
-                                      ),
-                                      content: Text(
-                                          "Oops! Confirm Password is wrong.",
-                                          style: TextStyle(color: white)),
-                                    );
-                                  },
+                                Get.snackbar(
+                                  "Oops..!",
+                                  "Please confirm the password correctly.",
+                                  snackPosition: SnackPosition.BOTTOM,
+                                  colorText: white,
                                 );
                               }
                             } else {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return const AlertDialog(
-                                    backgroundColor: const Color(0xFF4F4F4F),
-                                    title: Text(
-                                      "Error",
-                                      style: TextStyle(color: white),
-                                    ),
-                                    content: Text("Oops! The Fields are empty.",
-                                        style: TextStyle(color: white)),
-                                  );
-                                },
+                              Get.snackbar(
+                                "Oops..!",
+                                "Please fill all the fields.",
+                                snackPosition: SnackPosition.BOTTOM,
+                                colorText: white,
                               );
                             }
                           },

@@ -68,7 +68,7 @@ class _Signup1State extends State<Signup1> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.back();
+                      Get.to(() => Login());
                     },
                     child: const Text(
                       "Log In",
@@ -110,19 +110,11 @@ class _Signup1State extends State<Signup1> {
                                   phoneNumberController
                                 ],
                               )
-                            : showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return const AlertDialog(
-                                    backgroundColor: const Color(0xFF4F4F4F),
-                                    title: Text(
-                                      "Error",
-                                      style: TextStyle(color: white),
-                                    ),
-                                    content: Text("Oops! The Fields are empty.",
-                                        style: TextStyle(color: white)),
-                                  );
-                                },
+                            : Get.snackbar(
+                                "Oops..!",
+                                "Please fill all the fields.",
+                                snackPosition: SnackPosition.BOTTOM,
+                                colorText: white,
                               );
                       },
                       child: const Text(
