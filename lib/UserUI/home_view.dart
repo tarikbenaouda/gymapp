@@ -22,6 +22,7 @@ import '../consts/images.dart';
 import '../controlllers/auth_controller.dart';
 import '../services/firestore_services.dart';
 import 'ListofCoachsinUser.dart';
+import 'gym_offre.dart';
 
 class HomeViewAthlete extends StatefulWidget {
   const HomeViewAthlete({Key? key}) : super(key: key);
@@ -299,7 +300,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                               ),
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.to(() => null);
+                                  Get.to(() => GymOffer());
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
