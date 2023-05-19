@@ -217,27 +217,17 @@ class SettingsUser extends StatelessWidget {
                             );
 
                             Get.snackbar(
-                              "",
+                              "Updated !",
                               "",
                               snackPosition: SnackPosition.BOTTOM,
-                              titleText: const Text(
-                                "Updated !",
-                                style: TextStyle(
-                                  color: white,
-                                ),
-                              ),
+                              colorText: white,
                             );
                           } else {
                             Get.snackbar(
-                              "",
+                              "Wrong Password!",
                               "",
                               snackPosition: SnackPosition.BOTTOM,
-                              titleText: const Text(
-                                "Wrong Password!",
-                                style: TextStyle(
-                                  color: white,
-                                ),
-                              ),
+                              colorText: white,
                             );
                             controller.isloading(false);
                           }

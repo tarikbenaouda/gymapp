@@ -187,53 +187,29 @@ class _ProfileUserState extends State<ProfileUser> {
                       onPressed: () async {
                         if (data['type'] == "athlete" ||
                             data['type'] == "coach") {
-                          Get.snackbar("", "",
-                              snackPosition: SnackPosition.BOTTOM,
-                              titleText: const Text(
-                                "Oops!",
-                                style: TextStyle(
-                                  color: white,
-                                ),
-                              ),
-                              messageText: Text(
-                                "You're already a ${data['type']}.",
-                                style: const TextStyle(
-                                  color: white,
-                                ),
-                              ));
+                          Get.snackbar(
+                            "Oops!",
+                            "You're already a ${data['type']}.",
+                            snackPosition: SnackPosition.BOTTOM,
+                            colorText: white,
+                          );
                         } else if (data['training']) {
-                          Get.snackbar("", "",
-                              snackPosition: SnackPosition.BOTTOM,
-                              titleText: const Text(
-                                "Pending..!",
-                                style: TextStyle(
-                                  color: white,
-                                ),
-                              ),
-                              messageText: const Text(
-                                "You have already sent a demand",
-                                style: TextStyle(
-                                  color: white,
-                                ),
-                              ));
+                          Get.snackbar(
+                            "Pending..!",
+                            "You have already sent a demand",
+                            snackPosition: SnackPosition.BOTTOM,
+                            colorText: white,
+                          );
                         } else {
                           controller.sendDemand(
                             training: true,
                           );
-                          Get.snackbar("", "",
-                              snackPosition: SnackPosition.BOTTOM,
-                              titleText: const Text(
-                                "Done..!",
-                                style: TextStyle(
-                                  color: white,
-                                ),
-                              ),
-                              messageText: const Text(
-                                "The demand has been sent.",
-                                style: TextStyle(
-                                  color: white,
-                                ),
-                              ));
+                          Get.snackbar(
+                            "Done..!",
+                            "The demand has been sent.",
+                            snackPosition: SnackPosition.BOTTOM,
+                            colorText: white,
+                          );
                         }
                       },
                       child: Container(
