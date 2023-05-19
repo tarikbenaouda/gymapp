@@ -679,130 +679,147 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
             stream: FirestoreServices.getUser(currentUser!.uid),
             builder:
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-              var data = snapshot.data!.docs[0];
-              return FractionallySizedBox(
-                widthFactor: 0.6,
-                child: Drawer(
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("images/drawor (admin).jpg"),
-                          fit: BoxFit.fill),
-                      color: Color(0xFF393939),
-                    ),
-                    child: Column(
-                      children: [
-                        Center(
-                            child: Column(
-                          children: [
-                            const SizedBox(
-                              height: 80,
+              if (!snapshot.hasData) {
+                return const Center(
+                  child: CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation(red),
+                  ),
+                );
+              } else {
+                var data = snapshot.data!.docs[0];
+
+                return FractionallySizedBox(
+                  widthFactor: 0.6,
+                  child: Drawer(
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("images/drawor (admin).jpg"),
+                            fit: BoxFit.fill),
+                        color: Color(0xFF393939),
+                      ),
+                      child: Column(
+                        children: [
+                          Center(
+                              child: Column(
+                            children: [
+                              const SizedBox(
+                                height: 80,
+                              ),
+                              data['imageUrl'] == ''
+                                  ? Image.asset(
+                                      icGoogleLogo,
+                                      width: 100,
+                                      fit: BoxFit.cover,
+                                    )
+                                      .box
+                                      .roundedFull
+                                      .clip(Clip.antiAlias)
+                                      .make()
+                                  : Image.network(
+                                      data['imageUrl'],
+                                      width: 100,
+                                      fit: BoxFit.cover,
+                                    )
+                                      .box
+                                      .roundedFull
+                                      .clip(Clip.antiAlias)
+                                      .make(),
+                              Text(data['username'],
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    color: Color(0xFFFD372A),
+                                  )),
+                              Text(data['email'],
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                  )),
+                            ],
+                          )),
+                          const SizedBox(
+                            height: 70,
+                          ),
+                          ListTile(
+                            leading: const Icon(
+                              Icons.settings,
+                              color: Colors.white,
                             ),
-                            data['imageUrl'] == ''
-                                ? Image.asset(
-                                    icGoogleLogo,
-                                    width: 100,
-                                    fit: BoxFit.cover,
-                                  ).box.roundedFull.clip(Clip.antiAlias).make()
-                                : Image.network(
-                                    data['imageUrl'],
-                                    width: 100,
-                                    fit: BoxFit.cover,
-                                  ).box.roundedFull.clip(Clip.antiAlias).make(),
-                            Text(data['username'],
-                                style: const TextStyle(
-                                  fontSize: 20,
-                                  color: Color(0xFFFD372A),
-                                )),
-                            Text(data['email'],
-                                style: const TextStyle(
-                                  fontSize: 20,
+                            title: const Text('Settings',
+                                style: TextStyle(
+                                  fontSize: 18,
                                   color: Colors.white,
                                 )),
-                          ],
-                        )),
-                        const SizedBox(
-                          height: 70,
-                        ),
-                        ListTile(
-                          leading: const Icon(
-                            Icons.settings,
-                            color: Colors.white,
+                            onTap: () {
+                              Get.to(() => const ProfileUser());
+                            },
                           ),
-                          title: const Text('Settings',
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.white,
-                              )),
-                          onTap: () {
-                            Get.to(() => const ProfileUser());
-                          },
-                        ),
-                        ListTile(
-                          leading: const Icon(
-                            Icons.help,
-                            color: Colors.white,
+                          ListTile(
+                            leading: const Icon(
+                              Icons.help,
+                              color: Colors.white,
+                            ),
+                            title: const Text('Help',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                )),
+                            onTap: () {
+                              Get.to(() => Help());
+                            },
                           ),
-                          title: const Text('Help',
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.white,
-                              )),
-                          onTap: () {
-                            Get.to(() => Help());
-                          },
-                        ),
-                        ListTile(
-                          leading: const Icon(
-                            Icons.info,
-                            color: Colors.white,
+                          ListTile(
+                            leading: const Icon(
+                              Icons.info,
+                              color: Colors.white,
+                            ),
+                            title: const Text('About',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                )),
+                            onTap: () {
+                              Get.to(() => About());
+                            },
                           ),
-                          title: const Text('About',
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.white,
-                              )),
-                          onTap: () {
-                            Get.to(() => About());
-                          },
-                        ),
-                        const SizedBox(
-                          height: 140,
-                        ),
-                        Center(
-                          child: SizedBox(
-                            width: 195,
-                            child: ElevatedButton(
-                              onPressed: () async {
-                                await Get.put(AuthController())
-                                    .signoutMethod(context);
-                                Get.offAll(() => const Login());
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFF393939), //
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  side: const BorderSide(color: Colors.white),
-                                ), // Change the background color
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
-                                  Icon(Icons.logout),
-                                  SizedBox(width: 8.0),
-                                  Text('Log out',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 20)),
-                                ],
+                          const SizedBox(
+                            height: 140,
+                          ),
+                          Center(
+                            child: SizedBox(
+                              width: 195,
+                              child: ElevatedButton(
+                                onPressed: () async {
+                                  await Get.put(AuthController())
+                                      .signoutMethod(context);
+                                  Get.offAll(() => const Login());
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: const Color(0xFF393939), //
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    side: const BorderSide(color: Colors.white),
+                                  ), // Change the background color
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: const [
+                                    Icon(Icons.logout),
+                                    SizedBox(width: 8.0),
+                                    Text('Log out',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20)),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              );
+                );
+              }
             }),
       ),
     );
