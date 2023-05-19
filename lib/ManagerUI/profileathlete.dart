@@ -208,8 +208,7 @@ class _ProfileathleteState extends State<Profileathlete> {
                                 color: Color(0xFFFFFFFF), fontSize: 18),
                           ),
                         ),
-                        MyInfos(
-                            Textinput: " Offer Paid", Textinput2: "variable"),
+                        myTextformfield(hint: " Offer Paid"),
                         const SizedBox(
                           height: 4,
                         ),
