@@ -135,7 +135,8 @@ class _LoginState extends State<Login> {
                                           "Congrats..!",
                                           "Logged in succefully.",
                                           snackPosition: SnackPosition.TOP,
-                                          colorText: white,
+                                          colorText: black,
+                                          backgroundColor: white,
                                         );
                                         auth.authStateChanges();
                                         uid = auth.currentUser!.uid;
