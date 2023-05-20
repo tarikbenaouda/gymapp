@@ -204,7 +204,7 @@ class _AboutState extends State<About> {
             ),
             GestureDetector(
               onTap: () {
-                Get.to(() => const SettingsUser());
+                Get.to(() => const ProfileUser());
               },
               child: Container(
                 padding: const EdgeInsets.all(12),

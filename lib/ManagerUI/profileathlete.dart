@@ -208,62 +208,58 @@ class _ProfileathleteState extends State<Profileathlete> {
                                 color: Color(0xFFFFFFFF), fontSize: 18),
                           ),
                         ),
-                        MyInfos(
-                            Textinput: " Offer Paid", Textinput2: "variable"),
-                        const SizedBox(
-                          height: 4,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Container(
-                              padding: const EdgeInsets.all(10),
-                              alignment: Alignment.centerLeft,
-                              height: 50,
-                              width: 80,
-                              decoration: BoxDecoration(
-                                  color: const Color(0xFFE6E6E6),
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: const [
-                                  Text(
-                                    " Payement End: ",
-                                    style: TextStyle(
-                                        color: Color(0xFF252525),
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w800),
-                                  ),
-                                  // variable of email
-                                  Text(
-                                    "function calcul",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w800),
-                                  ),
+                        (docs['offerId'] == '0')
+                            ? Column(children: [
+                                myTextformfield(
+                                  hint: " Offer Paid",
+                                  controller: controller.offerController,
+                                ),
+                                const SizedBox(
+                                  height: 4,
+                                ),
+                                TextButton(
+                                    onPressed: () async {
+                                      var id = await controller.getOfferId(
+                                          type:
+                                              controller.offerController.text);
+                                      if (id == 'empty') {
+                                      } else {
+                                        await controller.updateAthleteOffer(
+                                          offerId: id,
+                                          uid: uid,
+                                        );
+                                      }
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      height: 40,
+                                      width: 160,
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(15)),
+                                      child: const Text(
+                                        "Update Payement",
+                                        style: TextStyle(
+                                            color: Color(0xFFFF1E0F),
+                                            fontSize: 18),
+                                      ),
+                                    ))
+                              ])
+                            : Column(
+                                children: [
+                                  MyInfos(
+                                      Textinput: "Current Offer name",
+                                      Textinput2: docs['offerName']),
+                                  MyInfos(
+                                      Textinput: "Days left",
+                                      Textinput2:
+                                          "${docs['offerMonths']} days"),
                                 ],
-                              )),
-                        ),
-                        TextButton(
-                            onPressed: (() {}),
-                            child: Container(
-                              alignment: Alignment.center,
-                              height: 40,
-                              width: 160,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(15)),
-                              child: const Text(
-                                "Update Payement",
-                                style: TextStyle(
-                                    color: Color(0xFFFF1E0F), fontSize: 18),
                               ),
-                            )),
                         TextButton(
                             onPressed: () async {
-                              await controller.updateProfile(
-                                  type: "user", id: uid);
+                              await controller.deleteAthlete(uid: uid);
                               Get.back();
                             },
                             child: Container(

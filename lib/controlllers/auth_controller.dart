@@ -33,7 +33,7 @@ class AuthController extends GetxController {
       await auth.createUserWithEmailAndPassword(
           email: email, password: password);
     } on FirebaseAuthException catch (e) {
-      // VxToast.show(context, msg: e.toString());
+      VxToast.show(context, msg: e.toString());
     }
     return userCredential;
   }
@@ -49,9 +49,6 @@ class AuthController extends GetxController {
     height,
     email,
     password,
-    type,
-    coaching,
-    training,
   }) async {
     DocumentReference store =
         firestore.collection(usersCollection).doc(currentUser!.uid);
@@ -66,9 +63,14 @@ class AuthController extends GetxController {
       'password': password,
       'imageUrl': '',
       'id': currentUser!.uid,
-      'type': type,
-      'coaching': coaching,
-      'training': training,
+      'type': 'user',
+      'coaching': false,
+      'training': false,
+      'offerId': '0',
+      'offerMonths': '0',
+      'offerName': '0',
+      'offerSessions': '0',
+      'offerPrice': '0',
     });
   }
 
