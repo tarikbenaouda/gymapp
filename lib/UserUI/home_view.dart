@@ -14,7 +14,6 @@ import 'package:gymapp/UserUI/about.dart';
 import 'package:gymapp/UserUI/calories.dart';
 import 'package:gymapp/UserUI/events.dart';
 import 'package:gymapp/consts/consts.dart';
-
 import '../authentication/Login.dart';
 import '../consts/Colors.dart';
 import '../consts/firebase_consts.dart';

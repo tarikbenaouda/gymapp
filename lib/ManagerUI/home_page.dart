@@ -140,7 +140,7 @@ class _HomeViewState extends State<HomeView> {
                             height: 35,
                             child: GestureDetector(
                               onTap: () {
-                                Get.to(() => null);
+                                Get.to(() => Edit_schedule());
                               },
                               child: Container(
                                 decoration: BoxDecoration(

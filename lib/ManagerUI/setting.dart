@@ -56,7 +56,7 @@ class _SettingState extends State<Setting> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
                   Text(
-                    "Admin Settings",
+                    "Admin  Settings",
                     style: TextStyle(
                       fontSize: 30,
                       color: Colors.white,
@@ -230,9 +230,9 @@ class _SettingState extends State<Setting> {
                       children: const [
                         Text(
                           'Modify About ',
-                          style: TextStyle(color: Colors.black, fontSize: 20),
+                          style: TextStyle(color: Colors.black, fontSize: 18),
                         ),
-                        Icon(Icons.info, size: 30, color: Color(0xFF252525)),
+                        Icon(Icons.info, size: 28, color: Color(0xFF252525)),
                       ],
                     ),
                   ),
@@ -252,10 +252,10 @@ class _SettingState extends State<Setting> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
-                        Text('Modify Help  ',
+                        Text('Modify Contact',
                             style:
-                                TextStyle(color: Colors.black, fontSize: 20)),
-                        Icon(Icons.help, size: 30, color: Color(0xFF252525)),
+                                TextStyle(color: Colors.black, fontSize: 18)),
+                        Icon(Icons.help, size: 28, color: Color(0xFF252525)),
                       ],
                     ),
                   ),
@@ -294,127 +294,7 @@ class _SettingState extends State<Setting> {
           ),
         ),
       ),
-      drawer: SizedBox(
-        height: 720,
-        width: 225,
-        child: Drawer(
-          child: Container(
-            color: const Color(0xFF232323),
-            child: Column(
-              children: [
-                const ListTile(
-                  leading: Icon(
-                    Icons.menu,
-                    color: Colors.white,
-                  ),
-                  title: Text('Menu',
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                      )),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.home,
-                    color: Colors.white,
-                  ),
-                  title: const Text('Home',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                      )),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Setting()),
-                    );
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.settings,
-                    color: Colors.white,
-                  ),
-                  title: const Text('Settings',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                      )),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Setting()),
-                    );
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.contact_phone,
-                    color: Colors.white,
-                  ),
-                  title: const Text('Contact Us',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                      )),
-                  onTap: () {},
-                ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.security,
-                    color: Colors.white,
-                  ),
-                  title: const Text('Security',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                      )),
-                  onTap: () {},
-                ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.share,
-                    color: Colors.white,
-                  ),
-                  title: const Text('Share',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                      )),
-                  onTap: () {},
-                ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.help,
-                    color: Colors.white,
-                  ),
-                  title: const Text('Help',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                      )),
-                  onTap: () {},
-                ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.info,
-                    color: Colors.white,
-                  ),
-                  title: const Text('About',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                      )),
-                  onTap: () {},
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
+
     );
   }
 }

@@ -402,7 +402,7 @@ class _CaloriesState extends State<Calories> {
             ),
             GestureDetector(
               onTap: () {
-                Get.to(() => const HomeView());
+                Get.to(() => null);
               },
               child: Container(
                 padding: const EdgeInsets.all(12),
