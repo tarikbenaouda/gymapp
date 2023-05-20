@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/consts/consts.dart';
-
-import 'about.dart';
 import 'home_view.dart';
 
 class Helpuser extends StatefulWidget {
@@ -66,9 +64,7 @@ class _HelpuserState extends State<Helpuser> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 80,
-                  ),
+                  SizedBox(height: 150,),
                   const SizedBox(height: 10.0),
                   Padding(
                     padding:
@@ -122,37 +118,6 @@ class _HelpuserState extends State<Helpuser> {
                           ),
                           const Icon(
                             Icons.mail,
-                            size: 30,
-                            color: Color(0xFF252525),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 13,
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 20, vertical: 1),
-                    child: Container(
-                      height: 50,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFD9D9D9),
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          Text(
-                            " Variable",
-                            style: TextStyle(
-                              color: Color(0xFF252525),
-                              fontSize: 20.0,
-                            ),
-                          ),
-                          Icon(
-                            Icons.facebook,
                             size: 30,
                             color: Color(0xFF252525),
                           ),

@@ -22,6 +22,9 @@ import '../controlllers/auth_controller.dart';
 import '../services/firestore_services.dart';
 import 'ListofCoachsinUser.dart';
 import 'gym_offre.dart';
+import 'help.dart';
+
+
 
 class HomeViewAthlete extends StatefulWidget {
   const HomeViewAthlete({Key? key}) : super(key: key);
@@ -690,6 +693,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                 return FractionallySizedBox(
                   widthFactor: 0.6,
                   child: Drawer(
+
                     child: Container(
                       decoration: const BoxDecoration(
                         image: DecorationImage(
@@ -758,13 +762,13 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                               Icons.help,
                               color: Colors.white,
                             ),
-                            title: const Text('Help',
+                            title: const Text('Contact Us',
                                 style: TextStyle(
                                   fontSize: 18,
                                   color: Colors.white,
                                 )),
                             onTap: () {
-                              Get.to(() => Help());
+                              Get.to(() => Helpuser());
                             },
                           ),
                           ListTile(
