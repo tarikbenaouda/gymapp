@@ -183,9 +183,6 @@ class _Signup3State extends State<Signup3> {
                                         age: ageController.text,
                                         weight: weightController.text,
                                         height: heightController.text,
-                                        type: "user",
-                                        coaching: false,
-                                        training: false,
                                       );
                                     }).then((value) {
                                       Get.snackbar(

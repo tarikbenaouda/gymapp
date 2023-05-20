@@ -25,13 +25,26 @@ class ManagerProfilesController extends GetxController {
   }
 
   updateAthleteOffer({
-    id,
+    offerId,
     uid,
   }) async {
     var store = firestore.collection(usersCollection).doc(uid);
+    QuerySnapshot snapshot = await firestore.collection(offersCollection).get();
+    int documentIndex = -1;
+
+    for (int i = 0; i < snapshot.docs.length; i++) {
+      if (snapshot.docs[i].id == offerId) {
+        documentIndex = i;
+        break;
+      }
+    }
     await store.set(
       {
-        'offerId': id,
+        'offerId': offerId,
+        'offerName': snapshot.docs[documentIndex]['type'],
+        'offerPrice': snapshot.docs[documentIndex]['price'],
+        'offerMonths': snapshot.docs[documentIndex]['months'],
+        'offerSessions': snapshot.docs[documentIndex]['sessions'],
       },
       SetOptions(merge: true),
     );
@@ -43,7 +56,7 @@ class ManagerProfilesController extends GetxController {
         .where('type', isEqualTo: type)
         .get();
     List<String> documentIds = snapshot.docs.map((doc) => doc.id).toList();
-    if (documentIds.length < 1) {
+    if (documentIds.isEmpty) {
       return "empty";
     }
 
