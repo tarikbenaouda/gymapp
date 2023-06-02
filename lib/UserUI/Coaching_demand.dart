@@ -162,72 +162,78 @@ class coaching_demand_State extends State<coaching_demand> {
                   SizedBox(
                     height: 0.03 * screenheight,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Coaching During :",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            color: red,
-                            fontSize: 23),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 0.03 * screenheight,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        height: screenheight * 0.05,
-                        width: 0.25 * screenwidth,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: white),
-                        child: const TextField(
-                          keyboardType: TextInputType.numberWithOptions(),
-                          maxLength: 3,
-                          textAlign: TextAlign.center,
-                          maxLines: 1,
-                          cursorColor: red,
-                          style: TextStyle(color: black, fontSize: 25),
-                          decoration: InputDecoration(
-                            counterText: '',
-                            border: InputBorder.none,
-                          ),
+                  if ((select_radio == 1) || (select_radio == 0))
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Coaching During :",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: red,
+                                  fontSize: 23),
+                            ),
+                          ],
                         ),
-                      ),
-                      const Text(
-                        "months",
-                        style: TextStyle(color: white, fontSize: 20),
-                      ),
-                      Container(
-                        height: screenheight * 0.05,
-                        width: 0.25 * screenwidth,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: white),
-                        child: const TextField(
-                          maxLength: 3,
-                          keyboardType: TextInputType.numberWithOptions(),
-                          maxLines: 1,
-                          textAlign: TextAlign.center,
-                          cursorColor: red,
-                          style: TextStyle(color: black, fontSize: 25),
-                          decoration: InputDecoration(
-                              counterText: '',
-                              border: InputBorder.none,
-                              hintStyle: TextStyle(color: red, fontSize: 25)),
+                        SizedBox(
+                          height: 0.02 * screenheight,
                         ),
-                      ),
-                      const Text(
-                        "years",
-                        style: TextStyle(color: white, fontSize: 20),
-                      ),
-                    ],
-                  ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: screenheight * 0.05,
+                              width: 0.25 * screenwidth,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: white),
+                              child: const TextField(
+                                keyboardType: TextInputType.numberWithOptions(),
+                                maxLength: 3,
+                                textAlign: TextAlign.center,
+                                maxLines: 1,
+                                cursorColor: red,
+                                style: TextStyle(color: black, fontSize: 25),
+                                decoration: InputDecoration(
+                                  counterText: '',
+                                  border: InputBorder.none,
+                                ),
+                              ),
+                            ),
+                            const Text(
+                              "months",
+                              style: TextStyle(color: white, fontSize: 20),
+                            ),
+                            Container(
+                              height: screenheight * 0.05,
+                              width: 0.25 * screenwidth,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: white),
+                              child: const TextField(
+                                maxLength: 3,
+                                keyboardType: TextInputType.numberWithOptions(),
+                                maxLines: 1,
+                                textAlign: TextAlign.center,
+                                cursorColor: red,
+                                style: TextStyle(color: black, fontSize: 25),
+                                decoration: InputDecoration(
+                                    counterText: '',
+                                    border: InputBorder.none,
+                                    hintStyle:
+                                        TextStyle(color: red, fontSize: 25)),
+                              ),
+                            ),
+                            const Text(
+                              "years",
+                              style: TextStyle(color: white, fontSize: 20),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   SizedBox(
                     height: 0.03 * screenheight,
                   ),
