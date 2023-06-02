@@ -19,8 +19,8 @@ class ProductItemScreen extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: Image.asset(
-              "images/Whey.jpg",
-              fit: BoxFit.fitHeight,
+              "images/whey.jpg",
+              fit: BoxFit.fill,
             ),
           ),
           buttonArrow(context),
@@ -76,15 +76,15 @@ class ProductItemScreen extends StatelessWidget {
 
   scroll() {
     return DraggableScrollableSheet(
-        initialChildSize: 0.6,
+        initialChildSize: 0.60,
         maxChildSize: 1.0,
-        minChildSize: 0.6,
+        minChildSize: 0.60,
         builder: (context, scrollController) {
           return Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             clipBehavior: Clip.hardEdge,
             decoration: const BoxDecoration(
-              color: Colors.white,
+              color: const Color(0xFF252525),
               borderRadius: BorderRadius.only(
                   topLeft: const Radius.circular(20),
                   topRight: const Radius.circular(20)),
@@ -102,17 +102,19 @@ class ProductItemScreen extends StatelessWidget {
                         Container(
                           height: 5,
                           width: 35,
-                          color: Colors.black12,
+                          color: const Color(0xFFD9D9D9),
                         ),
                       ],
                     ),
                   ),
                   Text(
                     "Protein Whey",
-                    style: Theme.of(context).textTheme.headline2,
-                  ),
-                  const SizedBox(
-                    height: 10,
+                    style: TextStyle(
+                      fontSize: 26,
+                      color: const Color(
+                        0xFFD9D9D9,
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     height: 15,
@@ -120,19 +122,26 @@ class ProductItemScreen extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 15),
                     child: Divider(
-                      height: 4,
+                      height: 2,
                     ),
                   ),
                   Text(
                     "Description",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 26,
+                      color: const Color(0xFFD9D9D9),
+                    ),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   Text(
                     'A powdered form of proteins taken from whey, which is the liquid left over when cheese is made from cow/\'s milk. Whey protein powder is used to increase protein in the diet and is being studied for possible health benefits',
-                    style: TextStyle(fontSize: 19),
+                    style: TextStyle(
+                      fontSize: 19,
+                      color: const Color(0xFFD9D9D9),
+                    ),
                   ),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 15),
@@ -142,40 +151,63 @@ class ProductItemScreen extends StatelessWidget {
                   ),
                   Text(
                     "Why choose whey?",
-                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 23,
+                      fontWeight: FontWeight.bold,
+                      color: const Color(0xFFD9D9D9),
+                    ),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   Text(
                     "Whey concentrate contains between 70-80% protein, is higher in lactose, and is high in biologically active components you'd find in whole milk. This would be a good option for those looking for better recovery from workouts, and for building/maintaining muscles.",
-                    style: TextStyle(fontSize: 23),
+                    style: TextStyle(
+                      fontSize: 23,
+                      color: const Color(0xFFD9D9D9),
+                    ),
                   ),
                   SizedBox(
                     height: 12,
                   ),
                   Text(
                     "Why choose whey?",
-                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 23,
+                      fontWeight: FontWeight.bold,
+                      color: const Color(0xFFD9D9D9),
+                    ),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   Text(
                     " Whey is an excellent source of high quality protein",
-                    style: TextStyle(fontSize: 23),
+                    style: TextStyle(
+                      fontSize: 23,
+                      color: const Color(0xFFD9D9D9),
+                    ),
                   ),
                   Text(
                     " Whey is an excellent source of high quality protein",
-                    style: TextStyle(fontSize: 23),
+                    style: TextStyle(
+                      fontSize: 23,
+                      color: const Color(0xFFD9D9D9),
+                    ),
                   ),
                   Text(
                     " Whey is an excellent source of high quality protein",
-                    style: TextStyle(fontSize: 23),
+                    style: TextStyle(
+                      fontSize: 23,
+                      color: const Color(0xFFD9D9D9),
+                    ),
                   ),
                   Text(
                     " Whey is an excellent source of high quality protein",
-                    style: TextStyle(fontSize: 23),
+                    style: TextStyle(
+                      fontSize: 23,
+                      color: const Color(0xFFD9D9D9),
+                    ),
                   ),
                 ],
               ),

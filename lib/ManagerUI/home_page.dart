@@ -183,7 +183,7 @@ class _HomeViewState extends State<HomeView> {
                         children: [
                           Container(
                             width: 150,
-                            height: 50,
+                            height: 60,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(17.0),
                               color: red,
@@ -200,7 +200,7 @@ class _HomeViewState extends State<HomeView> {
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                     color: Colors.white,
-                                    fontSize: 19,
+                                    fontSize: 17.5,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -209,7 +209,7 @@ class _HomeViewState extends State<HomeView> {
                           ),
                           Container(
                             width: 150,
-                            height: 50,
+                            height: 60,
                             decoration: BoxDecoration(
                               //border:  Border.all(color: Colors.grey, width: 2),
                               borderRadius: BorderRadius.circular(17.0),
@@ -227,7 +227,7 @@ class _HomeViewState extends State<HomeView> {
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                     color: Colors.white,
-                                    fontSize: 19,
+                                    fontSize: 18,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -249,7 +249,7 @@ class _HomeViewState extends State<HomeView> {
                                 borderRadius: BorderRadius.circular(17.0),
                                 image: const DecorationImage(
                                   image: AssetImage(
-                                    "images/admin-home pic3.jpg",
+                                    "images/admin-home pic4.jpg",
                                   ),
                                   fit: BoxFit.fill,
                                 ),

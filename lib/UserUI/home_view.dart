@@ -9,7 +9,8 @@ import 'package:gymapp/UserUI/Chronometer.dart';
 import 'package:gymapp/UserUI/Coaching_demand.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/UserUI/SettingsUser.dart';
-import 'package:gymapp/UserUI/Test.dart';
+import 'package:gymapp/UserUI/SportPlans.dart';
+import 'package:gymapp/UserUI/ShopStatic.dart';
 import 'package:gymapp/UserUI/about.dart';
 import 'package:gymapp/UserUI/calories.dart';
 import 'package:gymapp/UserUI/events.dart';
@@ -23,8 +24,6 @@ import '../services/firestore_services.dart';
 import 'ListofCoachsinUser.dart';
 import 'gym_offre.dart';
 import 'help.dart';
-
-
 
 class HomeViewAthlete extends StatefulWidget {
   const HomeViewAthlete({Key? key}) : super(key: key);
@@ -535,7 +534,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                               ),
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.to(() => null);
+                                  Get.to(() => SportPlans());
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -691,9 +690,8 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                 var data = snapshot.data!.docs[0];
 
                 return FractionallySizedBox(
-                  widthFactor: 0.6,
+                  widthFactor: 0.7,
                   child: Drawer(
-
                     child: Container(
                       decoration: const BoxDecoration(
                         image: DecorationImage(
