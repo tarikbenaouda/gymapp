@@ -7,6 +7,7 @@ import 'package:gymapp/consts/consts.dart';
 import 'package:gymapp/controlllers/profile_controller.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
+import '../controlllers/manager_qr.dart';
 import '../services/firestore_services.dart';
 import 'SettingsUser.dart';
 import 'home_view.dart';
@@ -21,6 +22,7 @@ class UserQrCode extends StatefulWidget {
 class _UserQrCodeState extends State<UserQrCode> {
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(Manager_Qr());
     double screenwidth = MediaQuery.of(context).size.width;
     double screenlength = MediaQuery.of(context).size.height;
     // var controller = Get.put(ProfileController());
@@ -37,6 +39,10 @@ class _UserQrCodeState extends State<UserQrCode> {
             );
           } else {
             var data = snapshot.data!.docs[0];
+            if (data['scanned'] == true) {
+              controller.scanned(id: currentUser!.uid);
+              Get.back();
+            }
             return Container(
               decoration: const BoxDecoration(
                   image: DecorationImage(
@@ -51,6 +57,7 @@ class _UserQrCodeState extends State<UserQrCode> {
                       InkWell(
                         onTap: () {
                           Get.back();
+                          print('object');
                         },
                         child: const Padding(
                           padding: EdgeInsets.symmetric(

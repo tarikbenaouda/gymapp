@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:gymapp/consts/consts.dart';
 
 class Manager_Qr extends GetxController {
@@ -26,5 +27,31 @@ class Manager_Qr extends GetxController {
         'message': "Athlete not found",
       };
     }
+  }
+
+  scanned({
+    id,
+  }) async {
+    var user = await firestore.collection(usersCollection).doc(id).get();
+    var store = firestore.collection(usersCollection).doc(id);
+    await store.set(
+      {
+        'scanned': !(user['scanned']),
+      },
+      SetOptions(merge: true),
+    );
+  }
+
+  sessionCountdown({
+    id,
+  }) async {
+    var user = await firestore.collection(usersCollection).doc(id).get();
+    var store = firestore.collection(usersCollection).doc(id);
+    await store.set(
+      {
+        'offerSessions': user['offerSessions'] - 1,
+      },
+      SetOptions(merge: true),
+    );
   }
 }

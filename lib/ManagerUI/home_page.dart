@@ -115,18 +115,68 @@ class _HomeViewState extends State<HomeView> {
                                   if (barcode != '-1') {
                                     Map<String, dynamic> id0 =
                                         await controller.verifyPayment(barcode);
-                                    Get.to(() => Profileathlete(),
-                                        arguments: [id0['data']['id']]);
-                                    Get.snackbar(
-                                        'Check', id0['data']['fullName']);
+                                    if (id0['data']['type'] == 'athlete') {
+                                      Get.to(() => const Profileathlete(),
+                                          arguments: [id0['data']['id']]);
+                                      await controller.scanned(
+                                          id: id0['data']['id']);
+                                      var dateFromTimeStamp =
+                                          DateTime.fromMillisecondsSinceEpoch(
+                                              id0['data']['offerDays'].seconds *
+                                                  1000);
+                                      if (dateFromTimeStamp
+                                              .isAfter(DateTime.now()) &&
+                                          id0['data']['offerSessions'] > 0) {
+                                        await controller.sessionCountdown(
+                                            id: id0['data']['id']);
+                                        Get.snackbar(
+                                          "Check",
+                                          "Checked successfully!",
+                                          snackPosition: SnackPosition.TOP,
+                                          colorText: white,
+                                          backgroundColor: Vx.green700,
+                                        );
+                                      } else {
+                                        Get.snackbar(
+                                          "Check",
+                                          "Subscription expired",
+                                          snackPosition: SnackPosition.TOP,
+                                          colorText: white,
+                                          backgroundColor: Vx.red700,
+                                        );
+                                      }
+                                    } else if (id0['data']['type'] == 'coach') {
+                                      Get.to(() => const ProfileCoach(),
+                                          arguments: [id0['data']['id']]);
+                                      await controller.scanned(
+                                          id: id0['data']['id']);
+
+                                      Get.snackbar(
+                                        "Check",
+                                        "This user is a coach!",
+                                        snackPosition: SnackPosition.TOP,
+                                        colorText: white,
+                                        backgroundColor: Vx.green700,
+                                      );
+                                    } else {
+                                      Get.snackbar(
+                                        "Check",
+                                        "This user isn't athlete yet!",
+                                        snackPosition: SnackPosition.TOP,
+                                        colorText: white,
+                                        backgroundColor: Vx.red700,
+                                      );
+                                      await controller.scanned(
+                                          id: id0['data']['id']);
+                                    }
                                   }
                                 }),
                           ),
                         ],
                       ),
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children: [
                           Text(
                             "Welcome  ",
                             style: TextStyle(
@@ -713,9 +763,9 @@ class _HomeViewState extends State<HomeView> {
                             side: const BorderSide(color: Colors.white),
                           ), // Change the background color
                         ),
-                        child: Row(
+                        child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             Icon(Icons.logout),
                             SizedBox(width: 8.0),
                             Text('Log out',
