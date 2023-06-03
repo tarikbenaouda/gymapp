@@ -43,7 +43,7 @@ class _ProfileathleteState extends State<Profileathlete> {
                       onTap: () {
                         Get.back();
                       },
-                      child: const Padding(
+                      child: Padding(
                         padding:
                             EdgeInsets.symmetric(vertical: 20, horizontal: 30),
                         child: Row(
@@ -269,7 +269,7 @@ class _ProfileathleteState extends State<Profileathlete> {
                                 borderRadius: BorderRadius.circular(15),
                                 color: const Color(0xFFFF1E0F),
                               ),
-                              child: const Row(
+                              child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
