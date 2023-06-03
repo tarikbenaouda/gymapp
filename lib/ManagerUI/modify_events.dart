@@ -81,7 +81,7 @@ class modify_events_State extends State<modify_events> {
                 ),
               ],
             ),
-            Text(
+            const Text(
               "Modify the events",
               style: TextStyle(
                 color: white,
@@ -361,7 +361,7 @@ class modify_events_State extends State<modify_events> {
                                     children: [
                                       Text(
                                         "${list_events[index].type_event}",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: red,
                                             fontWeight: FontWeight.bold,
                                             fontSize: 21),
@@ -372,19 +372,19 @@ class modify_events_State extends State<modify_events> {
                                         children: [
                                           Text(
                                             "${list_events[index].begin}",
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 color: black,
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 21),
                                           ),
-                                          Icon(
+                                          const Icon(
                                             Icons.arrow_right_alt_sharp,
                                             color: red,
                                             size: 40,
                                           ),
                                           Text(
                                             "${list_events[index].end}",
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 color: black,
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 21),
@@ -397,12 +397,12 @@ class modify_events_State extends State<modify_events> {
                                         children: [
                                           Text(
                                             "${list_events[index].shop_reductions}",
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 color: red,
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 21),
                                           ),
-                                          Text(
+                                          const Text(
                                             "(Reductions)",
                                             style: TextStyle(
                                               fontSize: 21,
@@ -417,11 +417,11 @@ class modify_events_State extends State<modify_events> {
                     : Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const Text(
                             "No events,wait for us soon",
                             style: TextStyle(color: white, fontSize: 24),
                           ),
-                          Icon(
+                          const Icon(
                             Icons.add_card_rounded,
                             size: 24,
                             color: white,
@@ -448,7 +448,7 @@ class modify_events_State extends State<modify_events> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 IconButton(
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.close,
                                       color: red,
                                       size: 30,
@@ -461,7 +461,7 @@ class modify_events_State extends State<modify_events> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
+                                const Text(
                                   "Add New event",
                                   style: TextStyle(
                                     color: white,
@@ -469,7 +469,7 @@ class modify_events_State extends State<modify_events> {
                                     fontSize: 25,
                                   ),
                                 ),
-                                Icon(
+                                const Icon(
                                   Icons.edit_calendar_outlined,
                                   size: 25,
                                   color: white,

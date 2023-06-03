@@ -252,9 +252,9 @@ class _ProfileathleteState extends State<Profileathlete> {
                                       Textinput: "Current Offer name",
                                       Textinput2: docs['offerName']),
                                   MyInfos(
-                                      Textinput: "Days left",
-                                      Textinput2:
-                                          "${docs['offerMonths']} days"),
+                                      Textinput: "Offer ends in",
+                                      Textinput2: controller
+                                          .formattedDate(docs['offerDays'])),
                                 ],
                               ),
                         TextButton(

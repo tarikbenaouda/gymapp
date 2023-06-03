@@ -8,13 +8,13 @@ import '../controlllers/offer_controller.dart';
 
 class Offer {
   String type_offer;
-  String month;
+  String days;
   String sessions;
   String price;
 
   Offer(
       {required this.type_offer,
-      required this.month,
+      required this.days,
       required this.sessions,
       required this.price});
 }
@@ -35,9 +35,9 @@ class edit_our_offres_State extends State<edit_our_offres> {
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
     double statusBarBottom = MediaQuery.of(context).padding.bottom;
-    TextEditingController monthController =
+    TextEditingController daysController =
         TextEditingController(); // Create a new instance of TextEditingController
-    monthController.text = "";
+    daysController.text = "";
     TextEditingController priceController =
         TextEditingController(); // Create a new instance of TextEditingController
     priceController.text = "";
@@ -130,8 +130,8 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                       setState(() {
                                         priceController.text =
                                             docs[index]['price'];
-                                        monthController.text =
-                                            docs[index]['months'];
+                                        daysController.text =
+                                            docs[index]['days'];
                                         sessionsController.text =
                                             docs[index]['sessions'];
                                         typeOfferController.text =
@@ -215,8 +215,8 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                                     ),
                                                   ),
                                                   myTextformfield(
-                                                    controller: monthController,
-                                                    hint: "Months",
+                                                    controller: daysController,
+                                                    hint: "days",
                                                     icon: const Icon(
                                                       Icons.edit,
                                                       color: red,
@@ -262,7 +262,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                                         child: TextButton(
                                                             onPressed: () {
                                                               if (!((typeOfferController.text == "") ||
-                                                                  (monthController
+                                                                  (daysController
                                                                           .text ==
                                                                       "") ||
                                                                   (priceController
@@ -275,9 +275,8 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                                                 setState(() {
                                                                   controller
                                                                       .editOfferData(
-                                                                    months:
-                                                                        monthController
-                                                                            .text,
+                                                                    days: daysController
+                                                                        .text,
                                                                     sessions:
                                                                         sessionsController
                                                                             .text,
@@ -462,7 +461,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                                           screenwidth)),
                                             ),
                                             Text(
-                                              docs[index]['months'],
+                                              docs[index]['days'],
                                               style: TextStyle(
                                                   color: black,
                                                   fontWeight: FontWeight.bold,
@@ -557,8 +556,8 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                         ),
                                       ),
                                       myTextformfield(
-                                        controller: monthController,
-                                        hint: "Months",
+                                        controller: daysController,
+                                        hint: "Days",
                                         icon: const Icon(
                                           Icons.edit,
                                           color: red,
@@ -595,8 +594,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                             onPressed: () {
                                               if (!((typeOfferController.text ==
                                                       "") ||
-                                                  (monthController.text ==
-                                                      "") ||
+                                                  (daysController.text == "") ||
                                                   (priceController.text ==
                                                       "") ||
                                                   (sessionsController.text ==
@@ -604,8 +602,7 @@ class edit_our_offres_State extends State<edit_our_offres> {
                                                 Get.back();
                                                 setState(() {
                                                   controller.storeOfferData(
-                                                    months:
-                                                        monthController.text,
+                                                    days: daysController.text,
                                                     sessions:
                                                         sessionsController.text,
                                                     price: priceController.text,
