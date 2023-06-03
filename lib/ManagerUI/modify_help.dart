@@ -46,10 +46,7 @@ class _ModifyHelpState extends State<ModifyHelp> {
                         color: Color(0xFFFD372A),
                       ),
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Setting()));
+                        Navigator.pop(context);
                       },
                     ),
                   ],

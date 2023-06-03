@@ -34,6 +34,20 @@ class _ModifyAboutState extends State<ModifyAbout> {
           padding: const EdgeInsets.all(16.0),
           child: ListView(
             children: [
+              Row( mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                    child: const Icon(
+                      Icons.keyboard_double_arrow_left_outlined,
+                      size: 37,
+                      color: Color(0xFFFD372A),
+                    ),
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ],
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
@@ -85,18 +99,31 @@ class _ModifyAboutState extends State<ModifyAbout> {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: TextField(
+
+                        cursorColor:  Color(0xFFFD372A),
+                        textAlign: TextAlign.start,
                         style: const TextStyle(fontSize: 22),
                         scrollPhysics: const ScrollPhysics(),
                         maxLines: 3,
+                        textAlignVertical: TextAlignVertical.top,
                         controller: _textEditingController1,
                         decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            borderSide: BorderSide(
+                              color:  Color(0xFFFD372A),
+                            ),
+                          ),
+                          alignLabelWithHint: true,
                           filled: true,
                           fillColor: Colors.white,
                           border: OutlineInputBorder(
+
                             borderRadius: BorderRadius.circular(20.0),
+                            borderSide: BorderSide(
+                              color:  Color(0xFFFD372A),
+                            )
                           ),
-                          contentPadding: const EdgeInsets.symmetric(
-                              vertical: 70.0, horizontal: 6.0),
                         ),
                       ),
                     ),
@@ -109,20 +136,27 @@ class _ModifyAboutState extends State<ModifyAbout> {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: TextField(
-                        textAlign: TextAlign.start,
+                        cursorColor:  Color(0xFFFD372A),
                         style: const TextStyle(fontSize: 22),
                         scrollPhysics: const ScrollPhysics(),
                         maxLines: 3,
+                        textAlignVertical: TextAlignVertical.top,
                         controller: _textEditingController2,
                         decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            borderSide: BorderSide(
+                              color:  Color(0xFFFD372A),
+                            ),
+                          ),
                           filled: true,
                           fillColor: Colors.white,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20.0),
                           ),
-                          contentPadding: const EdgeInsets.symmetric(
-                              vertical: 70.0, horizontal: 6.0),
+
                         ),
+
                       ),
                     ),
                     SizedBox(

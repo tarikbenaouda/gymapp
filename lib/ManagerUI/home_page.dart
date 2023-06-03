@@ -19,6 +19,7 @@ import '../consts/firebase_consts.dart';
 import '../controlllers/auth_controller.dart';
 import 'OurStateShop.dart';
 import 'OurstateAthlete.dart';
+import 'home2.dart';
 import 'listathletes.dart';
 import 'modify_about.dart';
 import 'modify_events.dart';
@@ -590,70 +591,7 @@ class _HomeViewState extends State<HomeView> {
               ),
             );
           }),
-      bottomNavigationBar: Container(
-        height: 60,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 90.0),
-              child: GestureDetector(
-                onTap: () {
-                  Get.to(() => const HomeView());
-                },
-                child: Container(
-                  child: const Icon(
-                    Icons.home,
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 90.0),
-              child: GestureDetector(
-                onTap: () {
-                  Get.to(() => const Setting());
-                },
-                child: Container(
-                  child: const Icon(
-                    Icons.settings_applications,
-                  ),
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.to(() => edit_our_shop());
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.grey, width: 1),
-                ),
-                child: const Icon(
-                  Icons.shopping_cart,
-                  size: 22,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 90.0),
-              child: GestureDetector(
-                onTap: () {
-                  Get.to(() => const Setting());
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Colors.grey, width: 1),
-                  ),
-                  child: const Icon(Icons.settings),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+
       drawer: SafeArea(
         child: FractionallySizedBox(
           widthFactor: 0.6,
@@ -700,7 +638,7 @@ class _HomeViewState extends State<HomeView> {
                           color: Colors.white,
                         )),
                     onTap: () {
-                      Get.to(() => const HomeView());
+                      Get.to(() => const HomeView1());
                     },
                   ),
                   ListTile(
@@ -722,13 +660,13 @@ class _HomeViewState extends State<HomeView> {
                       Icons.help,
                       color: Colors.white,
                     ),
-                    title: const Text('Help',
+                    title: const Text('Contact',
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.white,
                         )),
                     onTap: () {
-                      Get.to(() => Help());
+                      Get.to(() => ModifyHelp());
                     },
                   ),
                   ListTile(
@@ -742,7 +680,7 @@ class _HomeViewState extends State<HomeView> {
                           color: Colors.white,
                         )),
                     onTap: () {
-                      Get.to(() => AboutManager(""));
+                      Get.to(() => ModifyAbout());
                     },
                   ),
                   const SizedBox(
