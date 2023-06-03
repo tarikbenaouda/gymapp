@@ -43,12 +43,12 @@ class _ProfileathleteState extends State<Profileathlete> {
                       onTap: () {
                         Get.back();
                       },
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 20, horizontal: 30),
+                      child: const Padding(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 20, horizontal: 30),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
+                          children: [
                             Icon(
                               Icons.keyboard_double_arrow_left_outlined,
                               color: Color(0xFFFF1E0F),
@@ -269,9 +269,9 @@ class _ProfileathleteState extends State<Profileathlete> {
                                 borderRadius: BorderRadius.circular(15),
                                 color: const Color(0xFFFF1E0F),
                               ),
-                              child: Row(
+                              child: const Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
+                                children: [
                                   Text(
                                     "Delete Athlete",
                                     style: TextStyle(

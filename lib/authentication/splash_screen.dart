@@ -1,4 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:gymapp/ManagerUI/home2.dart';
+import 'package:gymapp/UserUI/home.dart';
 import 'package:gymapp/consts/consts.dart';
 
 import '../UserUI/home_view.dart';
@@ -21,8 +23,8 @@ class _SplashScreenState extends State<SplashScreen> {
         } else {
           uid = auth.currentUser!.uid;
           (uid == "kvqkjI1Jf5ZeJdkhoaJz0qZ7ukL2")
-              ? Get.offAll(() => const HomeView())
-              : Get.offAll(() => const HomeViewAthlete());
+              ? Get.offAll(() => const HomeView1())
+              : Get.offAll(() => const HomeView2());
         }
       });
     });

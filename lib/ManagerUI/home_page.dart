@@ -17,6 +17,7 @@ import 'package:intl/intl.dart';
 import '../authentication/Login.dart';
 import '../consts/firebase_consts.dart';
 import '../controlllers/auth_controller.dart';
+import '../controlllers/manager_qr.dart';
 import 'OurStateShop.dart';
 import 'OurstateAthlete.dart';
 import 'home2.dart';
@@ -38,6 +39,7 @@ class _HomeViewState extends State<HomeView> {
       FirebaseFirestore.instance.collection('users').snapshots();
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(Manager_Qr());
     String admin = '';
     int athletes = 0, coaches = 0;
 
@@ -109,8 +111,14 @@ class _HomeViewState extends State<HomeView> {
                                           "Back",
                                           true,
                                           ScanMode.QR);
+
                                   if (barcode != '-1') {
-                                    Get.snackbar('BarCode', barcode);
+                                    Map<String, dynamic> id0 =
+                                        await controller.verifyPayment(barcode);
+                                    Get.to(() => Profileathlete(),
+                                        arguments: [id0['data']['id']]);
+                                    Get.snackbar(
+                                        'Check', id0['data']['fullName']);
                                   }
                                 }),
                           ),
