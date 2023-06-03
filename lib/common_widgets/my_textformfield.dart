@@ -6,7 +6,7 @@ Widget myTextformfield({
   bool? obsecure,
   TextInputType? type,
   controller,
-  Icon? icon,
+  Widget? icon,
   TextInputFormatter? filter,
   int? limit,
 }) {
