@@ -24,6 +24,7 @@ import '../controlllers/auth_controller.dart';
 import '../services/firestore_services.dart';
 import 'ListofCoachsinUser.dart';
 import 'gym_offre.dart';
+import 'gym_schedule.dart';
 import 'help.dart';
 
 class HomeViewAthlete extends StatefulWidget {
@@ -39,8 +40,8 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-    return Scaffold(key: _scaffoldKey,
-
+    return Scaffold(
+      key: _scaffoldKey,
       body: StreamBuilder(
           stream: FirestoreServices.getUser(currentUser!.uid),
           builder:
@@ -293,7 +294,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                               ),
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.to(() => null);
+                                  Get.to(() => gym_schedule());
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -630,8 +631,6 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
               );
             }
           }),
-
-
       drawer: SafeArea(
         child: StreamBuilder(
             stream: FirestoreServices.getUser(currentUser!.uid),
@@ -782,5 +781,4 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
       ),
     );
   }
-
 }

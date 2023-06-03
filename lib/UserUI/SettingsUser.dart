@@ -15,10 +15,9 @@ class SettingsUser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int _selectedIndex=0;
+    int _selectedIndex = 0;
 
     var controller = Get.find<ProfileController>();
-
 
     return Scaffold(
       body: Container(
@@ -42,7 +41,7 @@ class SettingsUser extends StatelessWidget {
                     Icon(
                       Icons.keyboard_double_arrow_left_outlined,
                       color: Color(0xFFFF1E0F),
-                      size: 35,
+                      size: 50,
                     ),
                   ],
                 ),
@@ -274,44 +273,48 @@ class SettingsUser extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar:  BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
-        items: [ BottomNavigationBarItem(
-          icon : Icon(Icons.home),
-          label: 'home',
-          backgroundColor: Colors.red,
-        ),
+        items: [
           BottomNavigationBarItem(
-            icon : Icon(Icons.account_circle_outlined),
+            icon: Icon(Icons.home),
+            label: 'home',
+            backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle_outlined),
             label: 'profil',
             backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
-            icon : Icon(Icons.storefront_outlined),
+            icon: Icon(Icons.storefront_outlined),
             label: 'home',
             backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
-            icon : Icon(Icons.settings),
+            icon: Icon(Icons.settings),
             label: 'home',
             backgroundColor: Colors.red,
           ),
-        ], onTap: (index){
-
-        if (index == 0) {
-          Navigator.of(context).push(new MaterialPageRoute(builder: (context) => HomeViewAthlete()));
-        }
-        if (index == 1) {
-          Navigator.of(context).push(new MaterialPageRoute(builder: (context) => ProfileUser()));
-        }
-        if (index == 2) {
-          Navigator.of(context).push(new MaterialPageRoute(builder: (context) => HomeView()));
-        }
-        if (index == 3) {
-          Navigator.of(context).push(new MaterialPageRoute(builder: (context) => SettingsUser()));
-        }
-      },
-
+        ],
+        onTap: (index) {
+          if (index == 0) {
+            Navigator.of(context).push(
+                new MaterialPageRoute(builder: (context) => HomeViewAthlete()));
+          }
+          if (index == 1) {
+            Navigator.of(context).push(
+                new MaterialPageRoute(builder: (context) => ProfileUser()));
+          }
+          if (index == 2) {
+            Navigator.of(context)
+                .push(new MaterialPageRoute(builder: (context) => HomeView()));
+          }
+          if (index == 3) {
+            Navigator.of(context).push(
+                new MaterialPageRoute(builder: (context) => SettingsUser()));
+          }
+        },
       ),
     );
   }
