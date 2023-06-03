@@ -116,9 +116,9 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         ],
                       ),
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                        children: const [
                           Text(
                             "Welcome  ",
                             style: TextStyle(
