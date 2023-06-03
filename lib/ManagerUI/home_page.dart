@@ -111,22 +111,14 @@ class _HomeViewState extends State<HomeView> {
                                           "Back",
                                           true,
                                           ScanMode.QR);
-                                  print(barcode);
 
                                   if (barcode != '-1') {
-                                    print(
-                                        '######################################');
                                     Map<String, dynamic> id0 =
                                         await controller.verifyPayment(barcode);
-
-                                    print(
-                                        '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
-                                    print(id0['error']);
-                                    Get.snackbar('BarCode', id0['data']['id']);
-                                    print(
-                                        '1111111111111111111111111111111111111111');
-                                    print(id0['data']['error']);
-                                    print(id0['data']['id']);
+                                    Get.to(() => Profileathlete(),
+                                        arguments: [id0['data']['id']]);
+                                    Get.snackbar(
+                                        'Check', id0['data']['fullName']);
                                   }
                                 }),
                           ),
