@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
+import 'package:gymapp/ManagerUI/home2.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
+import 'package:gymapp/UserUI/home.dart';
 import 'package:gymapp/consts/consts.dart';
 import 'package:gymapp/controlllers/auth_controller.dart';
 
@@ -147,7 +149,7 @@ class _LoginState extends State<Login> {
                                         uid = auth.currentUser!.uid;
                                         if (uid ==
                                             "kvqkjI1Jf5ZeJdkhoaJz0qZ7ukL2") {
-                                          Get.offAll(() => const HomeView());
+                                          Get.offAll(() => const HomeView1());
                                           Get.snackbar(
                                             "Congrats..!",
                                             "Logged in succefully.",
@@ -156,8 +158,7 @@ class _LoginState extends State<Login> {
                                             backgroundColor: white,
                                           );
                                         } else {
-                                          Get.offAll(
-                                              () => const HomeViewAthlete());
+                                          Get.offAll(() => const HomeView2());
                                           Get.snackbar(
                                             "Congrats..!",
                                             "Logged in succefully.",
