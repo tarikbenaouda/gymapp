@@ -1,8 +1,11 @@
 import 'package:custom_check_box/custom_check_box.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/UserUI/home_view.dart';
 import 'package:gymapp/consts/consts.dart';
 import 'package:gymapp/controlllers/auth_controller.dart';
+
+import '../UserUI/home.dart';
 
 class Signup3 extends StatefulWidget {
   const Signup3({super.key});
@@ -201,16 +204,21 @@ class _Signup3State extends State<Signup3> {
                                       password: passwordController.text,
                                     )
                                         .then((value) {
-                                      return controller.storeUserData(
-                                        email: emailController.text,
-                                        password: passwordController.text,
-                                        fullName: fullNameController.text,
-                                        username: usernameController.text,
-                                        phoneNumber: phoneNumberController.text,
-                                        age: ageController.text,
-                                        weight: weightController.text,
-                                        height: heightController.text,
-                                      );
+                                      auth
+                                          .authStateChanges()
+                                          .listen((User? user) {
+                                        controller.storeUserData(
+                                          email: emailController.text,
+                                          password: passwordController.text,
+                                          fullName: fullNameController.text,
+                                          username: usernameController.text,
+                                          phoneNumber:
+                                              phoneNumberController.text,
+                                          age: ageController.text,
+                                          weight: weightController.text,
+                                          height: heightController.text,
+                                        );
+                                      });
                                     }).then((value) {
                                       Get.snackbar(
                                         "Congrats..!",
@@ -219,7 +227,7 @@ class _Signup3State extends State<Signup3> {
                                         colorText: black,
                                         backgroundColor: white,
                                       );
-                                      Get.offAll(() => const HomeViewAthlete());
+                                      Get.offAll(() => const HomeView2());
                                     });
                                   } catch (e) {
                                     auth.signOut();

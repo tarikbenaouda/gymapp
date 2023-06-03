@@ -10,20 +10,20 @@ class Manager_Qr extends GetxController {
 
       if (userQr.docs.isEmpty) {
         return {
-          "error": true,
-          "message": "Athlete not found",
+          'error': true,
+          'message': "Athlete not found",
         };
       }
-      //Map<String, dynamic> data = userQr.docs.first.data();
+      Map<String, dynamic> data0 = userQr.docs.first.data();
       return {
-        "error": false,
-        "message": "Athlete has been found",
-        "data": null,
+        'error': false,
+        'message': "Athlete has been found",
+        'data': data0,
       };
     } catch (e) {
       return {
-        "error": true,
-        "message": "Athlete not found",
+        'error': true,
+        'message': "Athlete not found",
       };
     }
   }

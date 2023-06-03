@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -39,8 +40,8 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-    return Scaffold(key: _scaffoldKey,
-
+    return Scaffold(
+      key: _scaffoldKey,
       body: StreamBuilder(
           stream: FirestoreServices.getUser(currentUser!.uid),
           builder:
@@ -630,8 +631,6 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
               );
             }
           }),
-
-
       drawer: SafeArea(
         child: StreamBuilder(
             stream: FirestoreServices.getUser(currentUser!.uid),
@@ -782,5 +781,4 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
       ),
     );
   }
-
 }

@@ -19,6 +19,7 @@ class AuthController extends GetxController {
     try {
       userCredential = await auth.signInWithEmailAndPassword(
           email: emailController.text, password: passwordController.text);
+      currentUser = userCredential.user;
     } on FirebaseAuthException catch (e) {
       // VxToast.show(context, msg: e.toString());
     }
@@ -30,8 +31,9 @@ class AuthController extends GetxController {
   Future<UserCredential?> signupMethod({email, password, context}) async {
     UserCredential? userCredential;
     try {
-      await auth.createUserWithEmailAndPassword(
+      userCredential = await auth.createUserWithEmailAndPassword(
           email: email, password: password);
+      currentUser = userCredential.user;
     } on FirebaseAuthException catch (e) {
       VxToast.show(context, msg: e.toString());
     }
@@ -71,7 +73,7 @@ class AuthController extends GetxController {
       'offerName': '0',
       'offerSessions': 0,
       'offerPrice': '0',
-      'code': UniqueKey().hashCode,
+      'code': UniqueKey().hashCode.toString(),
     });
   }
 
