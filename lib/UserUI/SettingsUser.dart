@@ -259,7 +259,7 @@ class SettingsUser extends StatelessWidget {
                                   width: 8,
                                 ),
                                 Icon(
-                                  Icons.settings,
+                                  Icons.save,
                                   color: Colors.white,
                                 ),
                               ],
@@ -272,49 +272,6 @@ class SettingsUser extends StatelessWidget {
             )
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'home',
-            backgroundColor: Colors.red,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_outlined),
-            label: 'profil',
-            backgroundColor: Colors.red,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.storefront_outlined),
-            label: 'home',
-            backgroundColor: Colors.red,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'home',
-            backgroundColor: Colors.red,
-          ),
-        ],
-        onTap: (index) {
-          if (index == 0) {
-            Navigator.of(context).push(
-                new MaterialPageRoute(builder: (context) => HomeViewAthlete()));
-          }
-          if (index == 1) {
-            Navigator.of(context).push(
-                new MaterialPageRoute(builder: (context) => ProfileUser()));
-          }
-          if (index == 2) {
-            Navigator.of(context)
-                .push(new MaterialPageRoute(builder: (context) => HomeView()));
-          }
-          if (index == 3) {
-            Navigator.of(context).push(
-                new MaterialPageRoute(builder: (context) => SettingsUser()));
-          }
-        },
       ),
     );
   }
