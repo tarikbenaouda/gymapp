@@ -146,7 +146,7 @@ class GymOffer_State extends State<GymOffer> {
                                                   (screenheight / screenwidth)),
                                         ),
                                         Text(
-                                          docs[index]['months'],
+                                          docs[index]['days'],
                                           style: TextStyle(
                                               color: black,
                                               fontWeight: FontWeight.bold,

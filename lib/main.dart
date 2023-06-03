@@ -29,6 +29,8 @@ import 'package:gymapp/ManagerUI/listofcoach.dart';
 
 import 'package:gymapp/ManagerUI/listofcoach.dart';
 
+import 'UserUI/user_qr_code.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -48,7 +50,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: Signup1(),
     );
   }
 }

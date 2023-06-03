@@ -13,6 +13,7 @@ import 'package:gymapp/UserUI/Test.dart';
 import 'package:gymapp/UserUI/about.dart';
 import 'package:gymapp/UserUI/calories.dart';
 import 'package:gymapp/UserUI/events.dart';
+import 'package:gymapp/UserUI/user_qr_code.dart';
 import 'package:gymapp/consts/consts.dart';
 import '../authentication/Login.dart';
 import '../consts/Colors.dart';
@@ -24,8 +25,6 @@ import 'ListofCoachsinUser.dart';
 import 'gym_offre.dart';
 import 'help.dart';
 
-
-
 class HomeViewAthlete extends StatefulWidget {
   const HomeViewAthlete({Key? key}) : super(key: key);
   @override
@@ -34,7 +33,6 @@ class HomeViewAthlete extends StatefulWidget {
 
 class _HomeViewAthleteState extends State<HomeViewAthlete> {
   String username = '', email = '';
-  int timelimit = 0;
   int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -53,6 +51,19 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
               );
             } else {
               var data = snapshot.data!.docs[0];
+              var daysLeft;
+              if (data['offerDays'] != '0') {
+                var date = DateTime.fromMillisecondsSinceEpoch(
+                    data['offerDays'].seconds * 1000);
+
+                if (date.isBefore(DateTime.now())) {
+                  daysLeft = "You're not subscribed";
+                } else {
+                  daysLeft = date.difference(DateTime.now()).inDays;
+                }
+              } else {
+                daysLeft = "You're not subscribed";
+              }
               return SafeArea(
                 child: Container(
                     height: double.infinity,
@@ -69,13 +80,28 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(top: 20.0),
-                            child: IconButton(
-                              icon: const Icon(Icons.menu, color: Colors.white),
-                              onPressed: () =>
-                                  _scaffoldKey.currentState?.openDrawer(),
-                            ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 20.0),
+                                child: IconButton(
+                                  icon: const Icon(Icons.menu,
+                                      color: Colors.white),
+                                  onPressed: () =>
+                                      _scaffoldKey.currentState?.openDrawer(),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 20.0),
+                                child: IconButton(
+                                    icon: const Icon(Icons.qr_code,
+                                        color: Colors.white),
+                                    onPressed: () {
+                                      Get.to(() => const UserQrCode());
+                                    }),
+                              ),
+                            ],
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -137,8 +163,9 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                                   ),
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 20.0, vertical: 8.0),
-                                  child: const Text('Today\'s Training',
-                                      style: TextStyle(color: Colors.white)),
+                                  child: Text('Days left : $daysLeft',
+                                      style:
+                                          const TextStyle(color: Colors.white)),
                                 ),
                               ),
                               Container(
@@ -148,7 +175,8 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                                 ),
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 20.0, vertical: 8.0),
-                                child: Text('Time Limit : $timelimit ',
+                                child: Text(
+                                    'Sessions left: ${data['offerSessions']}',
                                     style:
                                         const TextStyle(color: Colors.white)),
                               ),
@@ -418,7 +446,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                               ),
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.to(() => ProductItemScreen());
+                                  Get.to(() => const ProductItemScreen());
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -693,7 +721,6 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                 return FractionallySizedBox(
                   widthFactor: 0.6,
                   child: Drawer(
-
                     child: Container(
                       decoration: const BoxDecoration(
                         image: DecorationImage(

@@ -6,14 +6,14 @@ import '../consts/firebase_consts.dart';
 
 class OfferController extends GetxController {
   storeOfferData({
-    months,
+    days,
     type,
     price,
     sessions,
   }) async {
     DocumentReference store = firestore.collection(offersCollection).doc();
     store.set({
-      'months': months,
+      'days': days,
       'type': type,
       'price': price,
       'sessions': sessions,
@@ -21,7 +21,7 @@ class OfferController extends GetxController {
   }
 
   editOfferData({
-    months,
+    days,
     type,
     price,
     sessions,
@@ -29,7 +29,7 @@ class OfferController extends GetxController {
   }) async {
     DocumentReference store = firestore.collection(offersCollection).doc(id);
     store.set({
-      'months': months,
+      'days': days,
       'type': type,
       'price': price,
       'sessions': sessions,

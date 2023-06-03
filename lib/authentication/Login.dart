@@ -131,19 +131,29 @@ class _LoginState extends State<Login> {
                                         .authStateChanges()
                                         .listen((User? user) {
                                       if (value != null) {
-                                        Get.snackbar(
-                                          "Congrats..!",
-                                          "Logged in succefully.",
-                                          snackPosition: SnackPosition.TOP,
-                                          colorText: black,
-                                          backgroundColor: white,
-                                        );
                                         auth.authStateChanges();
                                         uid = auth.currentUser!.uid;
-                                        (uid == "kvqkjI1Jf5ZeJdkhoaJz0qZ7ukL2")
-                                            ? Get.offAll(() => const HomeView())
-                                            : Get.offAll(
-                                                () => const HomeViewAthlete());
+                                        if (uid ==
+                                            "kvqkjI1Jf5ZeJdkhoaJz0qZ7ukL2") {
+                                          Get.offAll(() => const HomeView());
+                                          Get.snackbar(
+                                            "Congrats..!",
+                                            "Logged in succefully.",
+                                            snackPosition: SnackPosition.TOP,
+                                            colorText: black,
+                                            backgroundColor: white,
+                                          );
+                                        } else {
+                                          Get.offAll(
+                                              () => const HomeViewAthlete());
+                                          Get.snackbar(
+                                            "Congrats..!",
+                                            "Logged in succefully.",
+                                            snackPosition: SnackPosition.TOP,
+                                            colorText: black,
+                                            backgroundColor: white,
+                                          );
+                                        }
                                       } else {
                                         controller.isloading(false);
                                         Get.snackbar(
