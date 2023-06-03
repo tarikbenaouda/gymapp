@@ -58,7 +58,7 @@ class _UserQrCodeState extends State<UserQrCode> {
                           child: Icon(
                             Icons.keyboard_double_arrow_left_outlined,
                             color: Color(0xFFFF1E0F),
-                            size: 35,
+                            size: 50,
                           ),
                         ),
                       ),

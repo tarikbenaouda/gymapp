@@ -68,12 +68,12 @@ class _Signup3State extends State<Signup3> {
               ),
               myTextformfield(
                 hint: "Password",
-                obsecure: !_isPasswordVisible,
+                obsecure: _isPasswordVisible,
                 type: TextInputType.visiblePassword,
                 controller: passwordController,
                 icon: IconButton(
                   icon: Icon(
-                    _isPasswordVisible
+                    !_isPasswordVisible
                         ? Icons.visibility
                         : Icons.visibility_off,
                     color: red,
@@ -87,12 +87,12 @@ class _Signup3State extends State<Signup3> {
               ),
               myTextformfield(
                 hint: "Confirm Password",
-                obsecure: !_isPasswordVisible,
+                obsecure: _isPasswordVisible,
                 type: TextInputType.visiblePassword,
                 controller: confirmPasswordController,
                 icon: IconButton(
                   icon: Icon(
-                    _isPasswordVisible
+                    !_isPasswordVisible
                         ? Icons.visibility
                         : Icons.visibility_off,
                     color: red,
