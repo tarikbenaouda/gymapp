@@ -3,6 +3,8 @@ import 'package:gymapp/UserUI/home_view.dart';
 
 import 'package:gymapp/consts/consts.dart';
 
+import 'home.dart';
+
 class About extends StatefulWidget {
   @override
   _AboutState createState() => _AboutState();
@@ -34,7 +36,7 @@ class _AboutState extends State<About> {
               ),
               InkWell(
                 onTap: () {
-                  Get.to(() => const HomeViewAthlete());
+                  Navigator.pop(context);
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(right: 310),
@@ -141,83 +143,7 @@ class _AboutState extends State<About> {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        height: 60,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(22),
-          color: const Color(0xFFE1E1E1),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            GestureDetector(
-              onTap: () {
-                Get.to(() => const HomeViewAthlete());
-              },
-              child: Container(
-                padding: const EdgeInsets.all(12),
-                decoration: const BoxDecoration(),
-                child: Container(
-                  width: 70,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
-                    color: Colors.red,
-                  ),
-                  child: const Padding(
-                    padding: EdgeInsets.only(left: 20.0),
-                    child: Icon(
-                      Icons.home_filled,
-                      color: Colors.black,
-                      size: 35,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.to(() => const ProfileUser());
-              },
-              child: Container(
-                padding: const EdgeInsets.all(12),
-                child: const Icon(
-                  Icons.account_circle_outlined,
-                  color: Colors.black,
-                  size: 35,
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.to(() => null);
-                ;
-              },
-              child: Container(
-                padding: const EdgeInsets.all(12),
-                child: const Icon(
-                  Icons.storefront_outlined,
-                  color: Colors.black,
-                  size: 35,
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.to(() => const ProfileUser());
-              },
-              child: Container(
-                padding: const EdgeInsets.all(12),
-                child: const Icon(
-                  Icons.settings,
-                  color: Colors.black,
-                  size: 35,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+
     );
   }
 }
