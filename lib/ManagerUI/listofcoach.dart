@@ -69,7 +69,7 @@ class _listofcoachsState extends State<listofcoachs> {
                     children: const [
                       //drawer
                       Text(
-                        "Our coachs",
+                        "Our Coachs",
                         style: TextStyle(color: Colors.white, fontSize: 25),
                       )
                     ],
@@ -97,7 +97,7 @@ class _listofcoachsState extends State<listofcoachs> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: const [
                               Text(
-                                "coachs List",
+                                "Coachs List",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 20,
@@ -109,13 +109,21 @@ class _listofcoachsState extends State<listofcoachs> {
                               Icon(
                                 Icons.person_outline,
                                 color: Colors.white,
-                              )
+                              ),
                             ],
                           ),
                         ),
                         const SizedBox(
                           height: 8,
                         ),
+                        if (count == 0)
+                          Text(
+                            "Empty List",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 23,
+                            ),
+                          ),
                         Expanded(
                             child: ListView.builder(
                                 itemCount: count,

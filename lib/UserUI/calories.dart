@@ -1,5 +1,3 @@
-import 'dart:core';
-
 import 'package:flutter/material.dart';
 import 'package:gymapp/UserUI/SettingsUser.dart';
 import 'package:gymapp/consts/consts.dart';

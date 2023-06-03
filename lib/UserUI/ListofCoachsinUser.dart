@@ -96,27 +96,43 @@ class _ListofCoachinuserState extends State<ListofCoachinuser> {
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Text(
+                            children: [
+                              const Text(
                                 "Coachs List",
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 20,
+                                    fontSize: 23,
                                     fontWeight: FontWeight.w400),
                               ),
-                              SizedBox(
-                                width: 7,
+                              const SizedBox(
+                                width: 23,
+                              ),
+                              Text(
+                                count.toString(),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 23,
+                                ),
                               ),
                               Icon(
                                 Icons.person_outline,
                                 color: Colors.white,
+                                size: 30,
                               )
                             ],
                           ),
                         ),
                         const SizedBox(
-                          height: 8,
+                          height: 25,
                         ),
+                        if (count == 0)
+                          Text(
+                            "Empty List",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 23,
+                            ),
+                          ),
                         Expanded(
                             child: ListView.builder(
                                 itemCount: count,

@@ -117,6 +117,14 @@ class _DemandForCoachingState extends State<DemandForCoaching> {
                         const SizedBox(
                           height: 8,
                         ),
+                        if (count == 0)
+                          Text(
+                            "Empty List",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 23,
+                            ),
+                          ),
                         Expanded(
                             child: ListView.builder(
                                 itemCount: count,
