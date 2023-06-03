@@ -61,12 +61,12 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                     data['offerDays'].seconds * 1000);
 
                 if (date.isBefore(DateTime.now())) {
-                  daysLeft = "You're not subscribed";
+                  daysLeft = "not subscribed";
                 } else {
                   daysLeft = date.difference(DateTime.now()).inDays;
                 }
               } else {
-                daysLeft = "You're not subscribed";
+                daysLeft = "not subscribed";
               }
               return SafeArea(
                 child: Container(
@@ -87,24 +87,24 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(top: 20.0),
-                                child: IconButton(
-                                  icon: const Icon(Icons.menu,
-                                      color: Colors.white),
-                                  onPressed: () =>
-                                      _scaffoldKey.currentState?.openDrawer(),
+                              IconButton(
+                                icon: const Icon(
+                                  Icons.menu,
+                                  color: Colors.white,
+                                  size: 35,
                                 ),
+                                onPressed: () =>
+                                    _scaffoldKey.currentState?.openDrawer(),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 20.0),
-                                child: IconButton(
-                                    icon: const Icon(Icons.qr_code,
-                                        color: Colors.white),
-                                    onPressed: () {
-                                      Get.to(() => const UserQrCode());
-                                    }),
-                              ),
+                              IconButton(
+                                  icon: const Icon(
+                                    Icons.qr_code,
+                                    color: Colors.white,
+                                    size: 35,
+                                  ),
+                                  onPressed: () {
+                                    Get.to(() => const UserQrCode());
+                                  }),
                             ],
                           ),
                           Row(
@@ -166,7 +166,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                                     borderRadius: BorderRadius.circular(20.0),
                                   ),
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 20.0, vertical: 8.0),
+                                      horizontal: 5, vertical: 8.0),
                                   child: Text('Days left : $daysLeft',
                                       style:
                                           const TextStyle(color: Colors.white)),
@@ -178,7 +178,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 20.0, vertical: 8.0),
+                                    horizontal: 5, vertical: 8.0),
                                 child: Text(
                                     'Sessions left: ${data['offerSessions']}',
                                     style:
@@ -190,7 +190,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 20.0, vertical: 8.0),
+                                    horizontal: 5, vertical: 8.0),
                                 child: const Text('Gym State',
                                     style: TextStyle(color: Colors.white)),
                               ),
