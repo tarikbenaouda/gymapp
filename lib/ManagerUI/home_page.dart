@@ -109,14 +109,16 @@ class _HomeViewState extends State<HomeView> {
                                           "Back",
                                           true,
                                           ScanMode.QR);
-                                  Get.snackbar('BarCode', barcode);
+                                  if (barcode != '-1') {
+                                    Get.snackbar('BarCode', barcode);
+                                  }
                                 }),
                           ),
                         ],
                       ),
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children: [
                           Text(
                             "Welcome  ",
                             style: TextStyle(
@@ -591,7 +593,6 @@ class _HomeViewState extends State<HomeView> {
               ),
             );
           }),
-
       drawer: SafeArea(
         child: FractionallySizedBox(
           widthFactor: 0.6,
