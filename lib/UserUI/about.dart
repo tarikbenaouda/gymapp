@@ -74,7 +74,7 @@ class _AboutState extends State<About> {
                     height: MediaQuery.of(context).size.height * 0.7,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                      color: const Color(0xFF252525),
+
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: ListView(

@@ -4,6 +4,8 @@ import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/consts/consts.dart';
 import 'package:gymapp/controlllers/auth_controller.dart';
 
+import '../ManagerUI/home2.dart';
+import '../UserUI/home.dart';
 import '../UserUI/home_view.dart';
 
 class Login extends StatefulWidget {
@@ -141,9 +143,9 @@ class _LoginState extends State<Login> {
                                         auth.authStateChanges();
                                         uid = auth.currentUser!.uid;
                                         (uid == "kvqkjI1Jf5ZeJdkhoaJz0qZ7ukL2")
-                                            ? Get.offAll(() => const HomeView())
+                                            ? Get.offAll(() => const HomeView1())
                                             : Get.offAll(
-                                                () => const HomeViewAthlete());
+                                                () => const HomeView2());
                                       } else {
                                         controller.isloading(false);
                                         Get.snackbar(

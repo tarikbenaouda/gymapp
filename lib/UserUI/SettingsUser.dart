@@ -7,13 +7,18 @@ import 'package:gymapp/consts/consts.dart';
 import 'package:gymapp/controlllers/profile_controller.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
+import 'home_view.dart';
+
 class SettingsUser extends StatelessWidget {
   final dynamic data;
   const SettingsUser({Key? key, this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    int _selectedIndex=0;
+
     var controller = Get.find<ProfileController>();
+
 
     return Scaffold(
       body: Container(
@@ -268,6 +273,45 @@ class SettingsUser extends StatelessWidget {
             )
           ],
         ),
+      ),
+      bottomNavigationBar:  BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        items: [ BottomNavigationBarItem(
+          icon : Icon(Icons.home),
+          label: 'home',
+          backgroundColor: Colors.red,
+        ),
+          BottomNavigationBarItem(
+            icon : Icon(Icons.account_circle_outlined),
+            label: 'profil',
+            backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
+            icon : Icon(Icons.storefront_outlined),
+            label: 'home',
+            backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
+            icon : Icon(Icons.settings),
+            label: 'home',
+            backgroundColor: Colors.red,
+          ),
+        ], onTap: (index){
+
+        if (index == 0) {
+          Navigator.of(context).push(new MaterialPageRoute(builder: (context) => HomeViewAthlete()));
+        }
+        if (index == 1) {
+          Navigator.of(context).push(new MaterialPageRoute(builder: (context) => ProfileUser()));
+        }
+        if (index == 2) {
+          Navigator.of(context).push(new MaterialPageRoute(builder: (context) => HomeView()));
+        }
+        if (index == 3) {
+          Navigator.of(context).push(new MaterialPageRoute(builder: (context) => SettingsUser()));
+        }
+      },
+
       ),
     );
   }

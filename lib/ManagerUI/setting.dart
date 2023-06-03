@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'home2.dart';
 import 'home_page.dart';
 import 'modify_about.dart';
 import 'modify_help.dart';
@@ -34,7 +35,7 @@ class _SettingState extends State<Setting> {
                 height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 5),
+                padding: const EdgeInsets.only(left: 10),
                 child: GestureDetector(
                   child: const Icon(
                     Icons.keyboard_double_arrow_left_outlined,
@@ -45,7 +46,7 @@ class _SettingState extends State<Setting> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const HomeView()));
+                            builder: (context) => const HomeView1()));
                   },
                 ),
               ),
@@ -56,7 +57,7 @@ class _SettingState extends State<Setting> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
                   Text(
-                    "Admin  Settings",
+                    "Admin Settings",
                     style: TextStyle(
                       fontSize: 30,
                       color: Colors.white,
