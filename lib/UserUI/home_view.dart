@@ -55,6 +55,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
               );
             } else {
               var data = snapshot.data!.docs[0];
+
               var daysLeft;
               if (data['offerDays'] != '0') {
                 var date = DateTime.fromMillisecondsSinceEpoch(
