@@ -558,7 +558,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                                 borderRadius: BorderRadius.circular(17.0),
                                 image: const DecorationImage(
                                   image: AssetImage(
-                                    "images/admin-home pic1.jpg",
+                                    "images/Sports Plans.jpg",
                                   ),
                                   fit: BoxFit.fill,
                                 ),
