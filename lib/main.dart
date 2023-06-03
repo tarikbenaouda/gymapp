@@ -11,7 +11,7 @@ import 'package:gymapp/ManagerUI/modify_help.dart';
 import 'package:gymapp/UserUI/CoachInformation.dart';
 import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/UserUI/SettingsUser.dart';
-import 'package:gymapp/UserUI/Test.dart';
+// import 'package:gymapp/UserUI/Test.dart';
 import 'package:gymapp/UserUI/about.dart';
 import 'package:gymapp/UserUI/calories.dart';
 import 'package:gymapp/UserUI/calories_estimate.dart';
