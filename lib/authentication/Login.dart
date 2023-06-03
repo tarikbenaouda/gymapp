@@ -13,6 +13,8 @@ class Login extends StatefulWidget {
   State<Login> createState() => _LoginState();
 }
 
+bool _isPasswordVisible = false;
+
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
@@ -20,6 +22,7 @@ class _LoginState extends State<Login> {
     var controller = Get.put(AuthController());
     double screenwidth = MediaQuery.of(context).size.width;
     double screenlength = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
@@ -65,10 +68,19 @@ class _LoginState extends State<Login> {
                   //Password field
                   myTextformfield(
                     hint: "Password",
-                    obsecure: true,
-                    icon: const Icon(
-                      Icons.password_sharp,
-                      color: Color(0xFFFF1E0F),
+                    obsecure: !_isPasswordVisible,
+                    icon: IconButton(
+                      icon: Icon(
+                        _isPasswordVisible
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                        color: red,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _isPasswordVisible = !_isPasswordVisible;
+                        });
+                      },
                     ),
                     type: TextInputType.visiblePassword,
                     controller: controller.passwordController,

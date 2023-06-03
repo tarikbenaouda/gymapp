@@ -25,6 +25,7 @@ class _Signup3State extends State<Signup3> {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   var confirmPasswordController = TextEditingController();
+  bool _isPasswordVisible = true;
 
   @override
   Widget build(BuildContext context) {
@@ -67,15 +68,41 @@ class _Signup3State extends State<Signup3> {
               ),
               myTextformfield(
                 hint: "Password",
-                obsecure: true,
+                obsecure: !_isPasswordVisible,
                 type: TextInputType.visiblePassword,
                 controller: passwordController,
+                icon: IconButton(
+                  icon: Icon(
+                    _isPasswordVisible
+                        ? Icons.visibility
+                        : Icons.visibility_off,
+                    color: red,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _isPasswordVisible = !_isPasswordVisible;
+                    });
+                  },
+                ),
               ),
               myTextformfield(
                 hint: "Confirm Password",
-                obsecure: true,
+                obsecure: !_isPasswordVisible,
                 type: TextInputType.visiblePassword,
                 controller: confirmPasswordController,
+                icon: IconButton(
+                  icon: Icon(
+                    _isPasswordVisible
+                        ? Icons.visibility
+                        : Icons.visibility_off,
+                    color: red,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _isPasswordVisible = !_isPasswordVisible;
+                    });
+                  },
+                ),
               ),
               Row(
                 children: [
