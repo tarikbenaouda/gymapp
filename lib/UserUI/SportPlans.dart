@@ -85,7 +85,7 @@ class SportPlans_State extends State<SportPlans> {
                   icon: const Icon(Icons.keyboard_double_arrow_left_rounded),
                   color: red,
                   onPressed: () {
-                    Get.to(() => HomeViewAthlete());
+                    Get.back();
                   },
                 ),
               ],

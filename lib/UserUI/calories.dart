@@ -86,7 +86,7 @@ class _CaloriesState extends State<Calories> {
                       color: Color(0xFFFD372A),
                     ),
                     onTap: () {
-                      Get.to(() => const HomeViewAthlete());
+                      Get.back();
                     },
                   ),
                 ),
@@ -325,26 +325,41 @@ class _CaloriesState extends State<Calories> {
                   height: 10,
                 ),
                 Center(
-                  child: GestureDetector(
-                    onTap: () {
-                      calories = calculateCalories(
-                          age, height, weight, dropdownValue, _increaseWeight);
-                      Get.to(() => Estimate(
-                            value: calories,
-                          ));
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFFD372A),
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 40.0, vertical: 15.0),
-                      child: const Text('Get your calories ',
-                          style: TextStyle(fontSize: 20, color: Colors.white)),
-                    ),
+
+                  child: ElevatedButton(
+
+    onPressed: () {
+      if (age != 0 && height != 0 && weight != 0){
+        calories = calculateCalories(age, height, weight, dropdownValue, _increaseWeight);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Estimate( value: calories,)),
+        );
+
+      } else{
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("Please fill in all the required fields.", style: TextStyle(
+              fontSize: 18,
+            ),),
+
+          ),
+        );
+
+
+      }
+
+    },
+                    child: const Text(
+                    "Get Your Calories ",
+                    style: TextStyle(
+                        fontSize: 22, fontWeight: FontWeight.w700, color: Colors.white),
                   ),
-                ),
+                    style: ButtonStyle(
+                      backgroundColor:  MaterialStateProperty.all<Color>(Color(0xFFFF372A)),
+                    ),
+
+                  )),
                 SizedBox(
                   height: 20,
                 )
