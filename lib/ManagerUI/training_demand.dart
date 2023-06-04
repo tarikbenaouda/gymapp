@@ -95,17 +95,15 @@ class _DemandTrainnigState extends State<DemandTrainnig> {
                           .size(20)
                           .bold
                           .make()),
-                  18.heightBox,
+                  10.heightBox,
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Container(
                       height: 400,
                       width: screenwidth - 30,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          image: const DecorationImage(
-                              image: AssetImage("images/18.jpg"),
-                              fit: BoxFit.fill)),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                       child: Column(
                         children: [
                           const SizedBox(
@@ -167,7 +165,7 @@ class _DemandTrainnigState extends State<DemandTrainnig> {
                     ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 15,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 40),

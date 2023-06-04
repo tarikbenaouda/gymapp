@@ -89,6 +89,9 @@ class edit_our_offers_State extends State<edit_our_offers> {
                           ),
                         ],
                       ),
+                      SizedBox(
+                        height: 20,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
@@ -101,7 +104,7 @@ class edit_our_offers_State extends State<edit_our_offers> {
                             ),
                           ),
                           Icon(
-                            Icons.money,
+                            Icons.money_off_outlined,
                             color: white,
                             size: 25,
                           )
@@ -115,7 +118,7 @@ class edit_our_offers_State extends State<edit_our_offers> {
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(color: red, width: 1),
                         ),
-                        height: 0.7 * screenheight,
+                        height: 0.65 * screenheight,
                         width: 0.9 * screenwidth,
                         margin: const EdgeInsets.all(10),
                         child: docs.length == 0
@@ -219,6 +222,7 @@ class edit_our_offers_State extends State<edit_our_offers> {
                                                         Icons.edit,
                                                         color: red,
                                                       ),
+                                                      limit: 10,
                                                     ),
                                                     myTextformfield(
                                                       controller:
@@ -228,6 +232,9 @@ class edit_our_offers_State extends State<edit_our_offers> {
                                                         Icons.edit,
                                                         color: red,
                                                       ),
+                                                      limit: 2,
+                                                      type:
+                                                          TextInputType.number,
                                                     ),
                                                     myTextformfield(
                                                       controller:
@@ -237,6 +244,9 @@ class edit_our_offers_State extends State<edit_our_offers> {
                                                         Icons.edit_outlined,
                                                         color: red,
                                                       ),
+                                                      limit: 2,
+                                                      type:
+                                                          TextInputType.number,
                                                     ),
                                                     myTextformfield(
                                                       controller:
@@ -246,6 +256,8 @@ class edit_our_offers_State extends State<edit_our_offers> {
                                                         Icons.price_check_sharp,
                                                         color: red,
                                                       ),
+                                                      type:
+                                                          TextInputType.number,
                                                     ),
                                                   ],
                                                 )),
@@ -562,13 +574,13 @@ class edit_our_offers_State extends State<edit_our_offers> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       myTextformfield(
-                                        controller: typeOfferController,
-                                        hint: "Type of the offer",
-                                        icon: const Icon(
-                                          Icons.edit,
-                                          color: red,
-                                        ),
-                                      ),
+                                          controller: typeOfferController,
+                                          hint: "Type of the offer",
+                                          icon: const Icon(
+                                            Icons.edit,
+                                            color: red,
+                                          ),
+                                          limit: 8),
                                       myTextformfield(
                                         controller: daysController,
                                         hint: "Days",
@@ -576,6 +588,8 @@ class edit_our_offers_State extends State<edit_our_offers> {
                                           Icons.edit,
                                           color: red,
                                         ),
+                                        type: TextInputType.number,
+                                        limit: 2,
                                       ),
                                       myTextformfield(
                                         controller: sessionsController,
@@ -584,6 +598,8 @@ class edit_our_offers_State extends State<edit_our_offers> {
                                           Icons.edit_outlined,
                                           color: red,
                                         ),
+                                        type: TextInputType.number,
+                                        limit: 2,
                                       ),
                                       myTextformfield(
                                         controller: priceController,
@@ -592,6 +608,8 @@ class edit_our_offers_State extends State<edit_our_offers> {
                                           Icons.price_check_sharp,
                                           color: red,
                                         ),
+                                        type: TextInputType.number,
+                                        limit: 4,
                                       ),
                                     ],
                                   )),

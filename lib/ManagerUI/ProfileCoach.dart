@@ -141,9 +141,8 @@ class _ProfileCoachState extends State<ProfileCoach> {
                           Textinput2: docs['phoneNumber'],
                         ),
                         MyInfos(
-                          Textinput: " Coaching duration ",
-                          Textinput2:
-                              " Coaching duration ", // docs['phoneNumber'],
+                          Textinput: " Coaching During   ",
+                          Textinput2: " Variable ", // docs['phoneNumber'],
                         ),
                       ],
                     ),

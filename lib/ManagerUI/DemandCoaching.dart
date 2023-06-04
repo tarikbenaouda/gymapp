@@ -70,7 +70,7 @@ class _DemandForCoachingState extends State<DemandForCoaching> {
                     children: const [
                       //drawer
                       Text(
-                        "Demands to coach",
+                        "Demands to Coaching",
                         style: TextStyle(color: Colors.white, fontSize: 25),
                       )
                     ],

@@ -56,14 +56,17 @@ class _UnboardingState extends State<Unboarding> {
                 style: TextStyle(color: Colors.white, fontSize: 23),
               ),
               const SizedBox(
-                height: 20,
+                height: 45,
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Center(
                   child: Text(
-                    "This app will help you to facilitate your training  and scommunication in our gym. ",
-                    style: TextStyle(color: Colors.white60, fontSize: 15),
+                    "This app will help you to facilitate your training  and communication in our gym. ",
+                    style: TextStyle(
+                        color: Colors.white60,
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -101,14 +104,17 @@ class _UnboardingState extends State<Unboarding> {
                 style: TextStyle(color: Colors.white, fontSize: 23),
               ),
               const SizedBox(
-                height: 20,
+                height: 35,
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Center(
                   child: Text(
                     "Train under the supervision of the best trainersin the gym or even online.  ",
-                    style: TextStyle(color: Colors.white60, fontSize: 15),
+                    style: TextStyle(
+                        color: Colors.white60,
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -146,14 +152,17 @@ class _UnboardingState extends State<Unboarding> {
                 style: TextStyle(color: Colors.white, fontSize: 23),
               ),
               const SizedBox(
-                height: 20,
+                height: 35,
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Center(
                   child: Text(
                     "You get the best offers to train and buy the finest supplements and protein ",
-                    style: TextStyle(color: Colors.white60, fontSize: 15),
+                    style: TextStyle(
+                        color: Colors.white60,
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -184,14 +193,17 @@ class _UnboardingState extends State<Unboarding> {
                         image: AssetImage("images/2.jpg"), fit: BoxFit.cover)),
               ),
               const SizedBox(
-                height: 20,
+                height: 30,
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Center(
                   child: Text(
                     "get training plans and participate in events and see more things that will help you... ",
-                    style: TextStyle(color: Colors.white60, fontSize: 15),
+                    style: TextStyle(
+                        color: Colors.white60,
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
               ),

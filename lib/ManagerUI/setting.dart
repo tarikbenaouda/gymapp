@@ -265,37 +265,10 @@ class _SettingState extends State<Setting> {
               const SizedBox(
                 height: 60,
               ),
-              Center(
-                child: SizedBox(
-                  height: 50,
-                  width: 195,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFFD372A), //
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                        side: const BorderSide(color: Colors.white),
-                      ), // Change the background color
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(Icons.home_outlined),
-                        SizedBox(width: 8.0),
-                        Text('Log out',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 20)),
-                      ],
-                    ),
-                  ),
-                ),
-              )
             ],
           ),
         ),
       ),
-
     );
   }
 }
