@@ -42,15 +42,15 @@ class _Signup1State extends State<Signup1> {
               height: 100,
             ),
             myTextformfield(
-              hint: "Full Name",
-              type: TextInputType.name,
-              controller: fullNameController,
-            ),
+                hint: "Full Name",
+                type: TextInputType.name,
+                controller: fullNameController,
+                limit: 20),
             myTextformfield(
-              hint: "User Name",
-              type: TextInputType.text,
-              controller: usernameController,
-            ),
+                hint: "User Name",
+                type: TextInputType.text,
+                controller: usernameController,
+                limit: 15),
             myTextformfield(
               hint: "Phone Number",
               type: TextInputType.phone,
@@ -59,20 +59,26 @@ class _Signup1State extends State<Signup1> {
               limit: 10,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 48),
+              padding: const EdgeInsets.only(left: 25),
               child: Row(
                 children: [
                   const Text(
                     "You already have an acccount ? ",
-                    style: TextStyle(fontSize: 17, color: Colors.white),
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
                   ),
                   InkWell(
                     onTap: () {
                       Get.to(() => Login());
                     },
                     child: const Text(
-                      "Log In",
-                      style: TextStyle(color: Color(0xFFFF1E0F), fontSize: 17),
+                      "Login",
+                      style: TextStyle(
+                          color: Color(0xFFFF1E0F),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
                     ),
                   )
                 ],

@@ -55,7 +55,7 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   const SizedBox(
-                    height: 80,
+                    height: 130,
                   ),
                   //Email field
                   myTextformfield(
@@ -207,7 +207,10 @@ class _LoginState extends State<Login> {
                         ),
                         const Text(
                           "You don't have an account ? ",
-                          style: TextStyle(fontSize: 20, color: Colors.white),
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
                         ),
                         InkWell(
                           onTap: () {
@@ -216,7 +219,9 @@ class _LoginState extends State<Login> {
                           child: const Text(
                             "Sign Up",
                             style: TextStyle(
-                                color: Color(0xFFFF1E0F), fontSize: 20),
+                                color: Color(0xFFFF1E0F),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
                           ),
                         )
                       ],
@@ -225,49 +230,8 @@ class _LoginState extends State<Login> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 1,
-                        width: 120,
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                        ),
-                      ),
-                      const Text(
-                        "  Or  ",
-                        style: TextStyle(
-                            fontSize: 26,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
-                      ),
-                      Container(
-                        height: 1,
-                        width: 120,
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                        ),
-                      )
-                    ],
-                  ),
+
                   10.heightBox,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(
-                        2,
-                        (index) => Padding(
-                              padding: const EdgeInsets.all(12),
-                              child: CircleAvatar(
-                                backgroundColor: Colors.white,
-                                radius: 25,
-                                child: Image.asset(
-                                  socialIconList[index],
-                                  width: 30,
-                                ),
-                              ),
-                            )),
-                  ),
                 ],
               ),
             ),
