@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:gymapp/UserUI/Profileuser.dart';
-import 'package:gymapp/consts/consts.dart';
-
-import 'home_view.dart';
+import 'package:get/get.dart';
 
 class EventsCompetition extends StatefulWidget {
   @override
@@ -214,7 +210,6 @@ class _EventsCompetitionState extends State<EventsCompetition> {
           ),
         ),
       ),
-
     );
   }
 }

@@ -1,9 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:gymapp/consts/consts.dart';
-
-import '../common_widgets/my_textformfield.dart';
-import '../consts/Colors.dart';
+import 'package:get/get.dart';
+import 'package:gymapp/consts/Colors.dart';
 import '../controlllers/offer_controller.dart';
 
 class Offer {
@@ -90,7 +88,9 @@ class GymOffer_State extends State<GymOffer> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 20,),
+                      SizedBox(
+                        height: 20,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [

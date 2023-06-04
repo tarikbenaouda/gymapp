@@ -1,10 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
-import 'package:gymapp/consts/consts.dart';
-
-import '../consts/firebase_consts.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'package:gymapp/consts/firebase_consts.dart';
 
 class AuthController extends GetxController {
   var isloading = false.obs;

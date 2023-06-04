@@ -1,9 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:gymapp/consts/consts.dart';
-
-import '../common_widgets/my_textformfield.dart';
-import '../consts/Colors.dart';
+import 'package:get/get.dart';
+import 'package:gymapp/common_widgets/my_textformfield.dart';
+import 'package:gymapp/consts/Colors.dart';
 import '../controlllers/offer_controller.dart';
 
 class Offer {

@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:gymapp/ManagerUI/home_page.dart';
 import 'package:gymapp/ManagerUI/training_demand.dart';
-
-import '../consts/consts.dart';
+import 'package:get/get.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'package:gymapp/consts/images.dart';
 
 class TrainingDemandsList extends StatefulWidget {
   const TrainingDemandsList({super.key});

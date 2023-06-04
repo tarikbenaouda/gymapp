@@ -24,9 +24,9 @@ class _HelpState extends State<Help> {
           padding: const EdgeInsets.all(16.0),
           child: ListView(
             children: [
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Padding(
                       padding: EdgeInsets.only(top: 25.0),
                       child: Text(
@@ -98,9 +98,9 @@ class _HelpState extends State<Help> {
                                 primary: const Color(0xFFFD372A),
                               ),
                               onPressed: null,
-                              child: Row(
+                              child: const Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
+                                children: [
                                   Text('Save'),
                                   Icon(Icons.send, color: Colors.black),
                                 ],

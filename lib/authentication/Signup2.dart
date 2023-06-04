@@ -1,5 +1,9 @@
 import 'package:flutter/services.dart';
-import 'package:gymapp/consts/consts.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:gymapp/authentication/Signup3.dart';
+import 'package:gymapp/common_widgets/my_textformfield.dart';
+import 'package:gymapp/consts/Colors.dart';
 
 class Signup2 extends StatefulWidget {
   const Signup2({super.key});

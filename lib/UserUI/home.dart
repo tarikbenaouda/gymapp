@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-
 import 'package:gymapp/UserUI/gym_offre.dart';
-import 'package:gymapp/consts/consts.dart';
-import 'Profileuser.dart';
+import 'package:gymapp/UserUI/Profileuser.dart';
 import 'home_view.dart';
 
 class HomeView2 extends StatefulWidget {

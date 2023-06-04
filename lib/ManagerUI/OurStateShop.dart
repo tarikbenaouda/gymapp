@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../common_widgets/my_textformfield.dart';
 
 class OurstateShop extends StatefulWidget {

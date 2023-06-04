@@ -1,4 +1,4 @@
-import 'package:gymapp/consts/consts.dart';
+import 'package:gymapp/consts/firebase_consts.dart';
 
 class FirestoreServices {
   //get users data

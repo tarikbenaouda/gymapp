@@ -1,10 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:gymapp/UserUI/home_view.dart';
-
-import 'package:gymapp/consts/consts.dart';
-
-import 'home.dart';
+import 'package:get/get.dart';
+import 'package:gymapp/controlllers/profile_controller.dart';
 
 class About extends StatefulWidget {
   @override

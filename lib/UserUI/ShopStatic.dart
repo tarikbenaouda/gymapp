@@ -1,11 +1,7 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:gymapp/UserUI/home_view.dart';
 import 'package:gymapp/consts/Colors.dart';
-import 'package:gymapp/consts/consts.dart';
+import 'package:get/get.dart';
 
 class ProductItemScreen extends StatelessWidget {
   const ProductItemScreen({Key? key}) : super(key: key);

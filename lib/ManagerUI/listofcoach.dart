@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:gymapp/ManagerUI/home_page.dart';
-import 'ProfileCoach.dart';
-import '../consts/consts.dart';
-import 'CoachProfile.dart';
+import 'package:get/get.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'package:gymapp/ManagerUI/ProfileCoach.dart';
+import 'package:gymapp/consts/images.dart';
 
 class listofcoachs extends StatefulWidget {
   const listofcoachs({super.key});

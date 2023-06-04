@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:gymapp/consts/consts.dart';
+import 'package:get/get.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'package:gymapp/common_widgets/my_textformfield.dart';
+import 'package:gymapp/consts/images.dart';
+import 'package:gymapp/consts/Colors.dart';
+import 'package:gymapp/services/firestore_services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-import '../common_widgets/my_textformfield.dart';
-import '../controlllers/manager_training_demand_controller.dart';
 import '../controlllers/manger_coaching_demand_controller.dart';
-import '../controlllers/manger_profiles_controller.dart';
 
 class CoachInformation extends StatefulWidget {
   const CoachInformation({super.key});

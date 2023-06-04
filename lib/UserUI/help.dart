@@ -1,9 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gymapp/UserUI/Profileuser.dart';
-import 'package:gymapp/consts/consts.dart';
-import 'home.dart';
-import 'home_view.dart';
 
 class Helpuser extends StatefulWidget {
   @override
@@ -22,7 +17,7 @@ class _HelpuserState extends State<Helpuser> {
         child: Container(
           height: screenlength,
           width: screenwidth,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("images/about help background.jpg"),
                   fit: BoxFit.fill)),
@@ -42,12 +37,12 @@ class _HelpuserState extends State<Helpuser> {
                   },
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Text(
                     " Contact Us  ",
                     style: TextStyle(
@@ -65,7 +60,9 @@ class _HelpuserState extends State<Helpuser> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(height: 150,),
+                  const SizedBox(
+                    height: 150,
+                  ),
                   const SizedBox(height: 10.0),
                   Padding(
                     padding:
@@ -76,17 +73,17 @@ class _HelpuserState extends State<Helpuser> {
                         color: const Color(0xFFD9D9D9),
                         borderRadius: BorderRadius.circular(20.0),
                       ),
-                      child: Row(
+                      child: const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             " Variable",
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: Color(0xFF252525),
                               fontSize: 20.0,
                             ),
                           ),
-                          const Icon(
+                          Icon(
                             Icons.call,
                             size: 30,
                             color: Color(0xFF252525),
@@ -107,17 +104,17 @@ class _HelpuserState extends State<Helpuser> {
                         color: const Color(0xFFD9D9D9),
                         borderRadius: BorderRadius.circular(20.0),
                       ),
-                      child: Row(
+                      child: const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             " Variable",
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: Color(0xFF252525),
                               fontSize: 20.0,
                             ),
                           ),
-                          const Icon(
+                          Icon(
                             Icons.mail,
                             size: 30,
                             color: Color(0xFF252525),
@@ -138,9 +135,9 @@ class _HelpuserState extends State<Helpuser> {
                         color: const Color(0xFFD9D9D9),
                         borderRadius: BorderRadius.circular(20.0),
                       ),
-                      child: Row(
+                      child: const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
+                        children: [
                           Text(
                             " Variable",
                             style: TextStyle(
@@ -163,7 +160,6 @@ class _HelpuserState extends State<Helpuser> {
           ),
         ),
       ),
-
     );
   }
 }

@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
-import 'package:gymapp/consts/consts.dart';
-
-import '../consts/firebase_consts.dart';
+import 'package:gymapp/consts/firebase_consts.dart';
 
 class OfferController extends GetxController {
   storeOfferData({

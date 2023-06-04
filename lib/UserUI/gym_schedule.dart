@@ -1,9 +1,6 @@
-import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:gymapp/ManagerUI/home_page.dart';
-
-import '../consts/consts.dart';
+import 'package:flutter/material.dart';
+import 'package:gymapp/consts/Colors.dart';
 
 class gym_schedule extends StatefulWidget {
   @override

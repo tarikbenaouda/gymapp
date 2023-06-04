@@ -1,4 +1,7 @@
-import 'package:gymapp/consts/consts.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:gymapp/authentication/Login.dart';
+import 'package:gymapp/authentication/Signup1.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 class Unboarding extends StatefulWidget {

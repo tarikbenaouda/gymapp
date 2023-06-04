@@ -1,5 +1,5 @@
-import 'package:gymapp/consts/consts.dart';
-
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:neon_circular_timer/neon_circular_timer.dart';
 
 void main() => runApp(Chronometer());
@@ -96,7 +96,10 @@ class Chronometer extends StatelessWidget {
                               onPressed: () {
                                 controller.resume();
                               }),
-                          Text("Play", style: TextStyle(fontSize: 20, color: Colors.red),)
+                          Text(
+                            "Play",
+                            style: TextStyle(fontSize: 20, color: Colors.red),
+                          )
                         ],
                       ),
                       Column(
@@ -110,7 +113,10 @@ class Chronometer extends StatelessWidget {
                               onPressed: () {
                                 controller.pause();
                               }),
-                          Text("Pause", style: TextStyle(fontSize: 20, color: Colors.red),)
+                          Text(
+                            "Pause",
+                            style: TextStyle(fontSize: 20, color: Colors.red),
+                          )
                         ],
                       ),
                       Column(
@@ -124,7 +130,10 @@ class Chronometer extends StatelessWidget {
                               onPressed: () {
                                 controller.restart();
                               }),
-                          Text("Reply", style: TextStyle(fontSize: 20, color: Colors.red),)
+                          Text(
+                            "Reply",
+                            style: TextStyle(fontSize: 20, color: Colors.red),
+                          )
                         ],
                       ),
                     ]),

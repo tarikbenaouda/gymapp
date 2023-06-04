@@ -1,9 +1,11 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'dart:io';
-
 import 'package:flutter/services.dart';
-import 'package:gymapp/consts/consts.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'package:gymapp/common_widgets/my_textformfield.dart';
+import 'package:gymapp/consts/images.dart';
+import 'package:gymapp/consts/Colors.dart';
 import 'package:gymapp/controlllers/profile_controller.dart';
 
 class SettingsUser extends StatelessWidget {

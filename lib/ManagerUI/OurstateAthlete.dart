@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gymapp/consts/consts.dart';
-
-import '../common_widgets/my_textformfield.dart';
+import 'package:get/get.dart';
+import 'package:gymapp/common_widgets/my_textformfield.dart';
 
 void main() => runApp(OurstateAthlete());
 

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:gymapp/ManagerUI/OurstateAthlete.dart';
-
 import 'edit_our_offers.dart';
-import 'edit_schedule.dart';
 import 'home_page.dart';
 import 'modify_help.dart';
 

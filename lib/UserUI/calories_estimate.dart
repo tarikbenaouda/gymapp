@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gymapp/UserUI/SettingsUser.dart';
-import 'package:gymapp/consts/consts.dart';
-
-import 'calories.dart';
-import 'home_view.dart';
+import 'package:get/get.dart';
 
 class Estimate extends StatefulWidget {
   double value;
@@ -118,7 +114,6 @@ class _EstimateState extends State<Estimate> {
               ),
             )),
       ),
-
     );
   }
 }

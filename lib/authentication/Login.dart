@@ -1,12 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart';
 import 'package:gymapp/ManagerUI/home2.dart';
-import 'package:gymapp/UserUI/Profileuser.dart';
 import 'package:gymapp/UserUI/home.dart';
-import 'package:gymapp/consts/consts.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'package:gymapp/authentication/Signup1.dart';
+import 'package:gymapp/common_widgets/my_textformfield.dart';
+import 'package:gymapp/consts/firebase_consts.dart';
+import 'package:gymapp/consts/Colors.dart';
 import 'package:gymapp/controlllers/auth_controller.dart';
-
-import '../UserUI/home_view.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});

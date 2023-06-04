@@ -1,16 +1,11 @@
-import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:gymapp/common_widgets/my_textformfield.dart';
-import 'package:gymapp/consts/consts.dart';
-import 'package:gymapp/controlllers/profile_controller.dart';
+import 'package:get/get.dart';
+import 'package:gymapp/consts/firebase_consts.dart';
+import 'package:gymapp/consts/Colors.dart';
+import 'package:gymapp/services/firestore_services.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-
 import '../controlllers/manager_qr.dart';
-import '../services/firestore_services.dart';
-import 'SettingsUser.dart';
-import 'home_view.dart';
 
 class UserQrCode extends StatefulWidget {
   const UserQrCode({super.key});

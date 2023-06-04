@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:gymapp/consts/consts.dart';
+import 'package:get/get.dart';
+import 'package:gymapp/consts/firebase_consts.dart';
 
 class AboutController extends GetxController {
   updateAbout({

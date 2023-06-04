@@ -1,14 +1,15 @@
-import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:gymapp/common_widgets/my_textformfield.dart';
-import 'package:gymapp/consts/consts.dart';
+import 'package:get/get.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'package:gymapp/consts/firebase_consts.dart';
+import 'package:gymapp/consts/images.dart';
+import 'package:gymapp/consts/Colors.dart';
+import 'package:gymapp/common_widgets/our_button.dart';
 import 'package:gymapp/controlllers/profile_controller.dart';
-import '../services/firestore_services.dart';
-import 'SettingsUser.dart';
-import 'home.dart';
-import 'home_view.dart';
+import 'package:gymapp/services/firestore_services.dart';
+import 'package:gymapp/UserUI/SettingsUser.dart';
 
 class ProfileUser extends StatefulWidget {
   const ProfileUser({super.key});

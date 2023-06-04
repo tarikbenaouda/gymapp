@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gymapp/UserUI/SettingsUser.dart';
-import 'package:gymapp/consts/consts.dart';
-
+import 'package:get/get.dart';
 import 'calories_estimate.dart';
-import 'home_view.dart';
 
 class Calories extends StatefulWidget {
   const Calories({Key? key}) : super(key: key);

@@ -1,4 +1,6 @@
-import 'package:gymapp/consts/consts.dart';
+import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'package:gymapp/consts/images.dart';
 
 Widget applogoWidget() {
   //using velocity_xnhere

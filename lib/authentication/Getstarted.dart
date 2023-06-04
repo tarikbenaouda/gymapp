@@ -1,4 +1,6 @@
-import 'package:gymapp/consts/consts.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:gymapp/authentication/Unboarding.dart';
 
 class Getstarted extends StatefulWidget {
   const Getstarted({super.key});
@@ -19,9 +21,9 @@ class _GetstartedState extends State<Getstarted> {
           const SizedBox(
             height: 150,
           ),
-          Center(
+          const Center(
             child: Row(
-              children: const [
+              children: [
                 Text(
                   "               Fire-",
                   style: TextStyle(
@@ -61,8 +63,8 @@ class _GetstartedState extends State<Getstarted> {
                   )),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
+          const Padding(
+            padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
                 " This application is subject to high protection and you can also use it after you are accepted by the club management.",

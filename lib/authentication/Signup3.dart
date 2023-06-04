@@ -1,10 +1,11 @@
 import 'package:custom_check_box/custom_check_box.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:gymapp/UserUI/Profileuser.dart';
-import 'package:gymapp/UserUI/home_view.dart';
-import 'package:gymapp/consts/consts.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:gymapp/common_widgets/my_textformfield.dart';
+import 'package:gymapp/consts/firebase_consts.dart';
+import 'package:gymapp/consts/Colors.dart';
 import 'package:gymapp/controlllers/auth_controller.dart';
-
 import '../UserUI/home.dart';
 
 class Signup3 extends StatefulWidget {

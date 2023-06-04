@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:gymapp/consts/consts.dart';
-
-import '../common_widgets/my_textformfield.dart';
+import 'package:get/get.dart';
+import 'package:gymapp/common_widgets/my_textformfield.dart';
 
 class DemandTrainnig extends StatefulWidget {
   const DemandTrainnig({super.key});

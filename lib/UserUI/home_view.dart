@@ -1,28 +1,21 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:gymapp/ManagerUI/DemandCoaching.dart';
-import 'package:gymapp/ManagerUI/edit_schedule.dart';
-import 'package:gymapp/ManagerUI/help.dart';
-import 'package:gymapp/UserUI/Chronometer.dart';
 import 'package:gymapp/UserUI/Coaching_demand.dart';
-import 'package:gymapp/UserUI/Profileuser.dart';
-import 'package:gymapp/UserUI/SettingsUser.dart';
 import 'package:gymapp/UserUI/SportPlans.dart';
-import 'package:gymapp/UserUI/ShopStatic.dart';
 import 'package:gymapp/UserUI/about.dart';
 import 'package:gymapp/UserUI/calories.dart';
 import 'package:gymapp/UserUI/events.dart';
 import 'package:gymapp/UserUI/user_qr_code.dart';
-import 'package:gymapp/consts/consts.dart';
-import '../authentication/Login.dart';
-import '../consts/Colors.dart';
-import '../consts/firebase_consts.dart';
-import '../consts/images.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'package:gymapp/UserUI/Chronometer.dart';
+import 'package:gymapp/authentication/Login.dart';
+import 'package:gymapp/consts/firebase_consts.dart';
+import 'package:gymapp/consts/images.dart';
+import 'package:gymapp/consts/Colors.dart';
+import 'package:gymapp/UserUI/Profileuser.dart';
+import 'package:gymapp/services/firestore_services.dart';
 import '../controlllers/auth_controller.dart';
-import '../services/firestore_services.dart';
 import 'ListofCoachsinUser.dart';
 import 'gym_offre.dart';
 import 'gym_schedule.dart';
@@ -434,7 +427,6 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                               ),
                             ),
                           ),
-
                           const SizedBox(
                             height: 20,
                           ),

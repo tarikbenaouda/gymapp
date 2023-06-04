@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:gymapp/consts/Colors.dart';
-
-import '../common_widgets/my_textformfield.dart';
 
 class Product {
   String url_image = "";
