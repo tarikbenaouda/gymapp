@@ -7,6 +7,7 @@ import 'package:gymapp/consts/consts.dart';
 import 'package:gymapp/controlllers/profile_controller.dart';
 import '../services/firestore_services.dart';
 import 'SettingsUser.dart';
+import 'home.dart';
 import 'home_view.dart';
 
 class ProfileUser extends StatefulWidget {
@@ -42,37 +43,25 @@ class _ProfileUserState extends State<ProfileUser> {
                       image: AssetImage("images/20.jpg"), fit: BoxFit.cover)),
               child: ListView(
                 children: [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: Icon(
-                      Icons.keyboard_double_arrow_left_outlined,
-                      color: Color(0xFFFF1E0F),
-                      size: 50,
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Get.back();
-                    },
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text(
-                            " Profile ",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 32,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Icon(
-                            Icons.person,
-                            size: 35,
-                            color: Color(0xFFFF1E0F),
-                          )
-                        ],
-                      ),
+                  SizedBox(height: 70,),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Text(
+                          " Profile ",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 32,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Icon(
+                          Icons.person,
+                          size: 35,
+                          color: Color(0xFFFF1E0F),
+                        )
+                      ],
                     ),
                   ),
                   Padding(
