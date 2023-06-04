@@ -80,7 +80,8 @@ class edit_our_offers_State extends State<edit_our_offers> {
                           IconButton(
                             padding: const EdgeInsets.only(top: 10),
                             iconSize: 40,
-                            icon: Icon(Icons.keyboard_double_arrow_left_rounded,
+                            icon: const Icon(
+                                Icons.keyboard_double_arrow_left_rounded,
                                 size: 50),
                             color: red,
                             onPressed: () {
@@ -89,12 +90,12 @@ class edit_our_offers_State extends State<edit_our_offers> {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children: [
                           Text(
                             "Edit our offers",
                             style: TextStyle(
@@ -121,8 +122,8 @@ class edit_our_offers_State extends State<edit_our_offers> {
                         height: 0.65 * screenheight,
                         width: 0.9 * screenwidth,
                         margin: const EdgeInsets.all(10),
-                        child: docs.length == 0
-                            ? Center(
+                        child: docs.isEmpty
+                            ? const Center(
                                 child: Text("List Empty",
                                     style:
                                         TextStyle(color: white, fontSize: 25)),
@@ -464,7 +465,7 @@ class edit_our_offers_State extends State<edit_our_offers> {
                                             vertical: 10, horizontal: 20),
                                         height: screenheight * 0.15,
                                         decoration: BoxDecoration(
-                                            image: DecorationImage(
+                                            image: const DecorationImage(
                                               image: AssetImage(
                                                   "images/edit_our_offer.jpg"),
                                               fit: BoxFit.fill,
@@ -481,7 +482,7 @@ class edit_our_offers_State extends State<edit_our_offers> {
                                               children: [
                                                 Text(
                                                   docs[index]['type'],
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                       color: red,
                                                       fontWeight:
                                                           FontWeight.bold,
@@ -489,7 +490,7 @@ class edit_our_offers_State extends State<edit_our_offers> {
                                                 ),
                                                 Text(
                                                   docs[index]['days'],
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                       color: white,
                                                       fontWeight:
                                                           FontWeight.bold,
@@ -497,7 +498,7 @@ class edit_our_offers_State extends State<edit_our_offers> {
                                                 ),
                                                 Text(
                                                   docs[index]['sessions'],
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                       color: white,
                                                       fontWeight:
                                                           FontWeight.bold,
@@ -505,7 +506,7 @@ class edit_our_offers_State extends State<edit_our_offers> {
                                                 ),
                                                 Text(
                                                   docs[index]['price'],
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                       color: red,
                                                       fontWeight:
                                                           FontWeight.bold,
@@ -547,10 +548,10 @@ class edit_our_offers_State extends State<edit_our_offers> {
                                               }),
                                         ],
                                       ),
-                                      Row(
+                                      const Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
-                                        children: const [
+                                        children: [
                                           Text(
                                             "Add New offers",
                                             style: TextStyle(

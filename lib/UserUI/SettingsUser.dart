@@ -5,9 +5,6 @@ import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:gymapp/consts/consts.dart';
 import 'package:gymapp/controlllers/profile_controller.dart';
-import 'package:firebase_storage/firebase_storage.dart';
-
-import 'home_view.dart';
 
 class SettingsUser extends StatelessWidget {
   final dynamic data;
@@ -15,8 +12,6 @@ class SettingsUser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int _selectedIndex = 0;
-
     var controller = Get.find<ProfileController>();
 
     return Scaffold(
@@ -30,11 +25,10 @@ class SettingsUser extends StatelessWidget {
               onTap: () {
                 Get.back();
               },
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 child: Row(
-                  children: const [
+                  children: [
                     Icon(
                       Icons.keyboard_double_arrow_left_outlined,
                       color: Color(0xFFFF1E0F),
@@ -44,9 +38,9 @@ class SettingsUser extends StatelessWidget {
                 ),
               ),
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Text(
                   " Settings",
                   style: TextStyle(
@@ -240,13 +234,13 @@ class SettingsUser extends StatelessWidget {
                           decoration: BoxDecoration(
                               color: const Color(0xFFFF1E0F),
                               borderRadius: BorderRadius.circular(15)),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
+                          child: const Padding(
+                            padding: EdgeInsets.symmetric(
                               horizontal: 8,
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
+                              children: [
                                 Text(
                                   "Save",
                                   style: TextStyle(

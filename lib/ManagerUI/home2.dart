@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:gymapp/ManagerUI/OurstateAthlete.dart';
-import 'package:gymapp/ManagerUI/setting.dart';
 
 import 'edit_our_offers.dart';
 import 'edit_schedule.dart';
 import 'home_page.dart';
+import 'modify_help.dart';
 
 class HomeView1 extends StatefulWidget {
   const HomeView1({Key? key}) : super(key: key);
@@ -15,10 +15,10 @@ class HomeView1 extends StatefulWidget {
 
 class _HomeView1State extends State<HomeView1> {
   final List<Widget> pages = [
-    HomeView(),
+    const HomeView(),
     OurstateAthlete(),
     edit_our_offers(),
-    Setting(),
+    ModifyHelp(),
   ];
   int currentIndex = 0;
   @override
@@ -31,11 +31,11 @@ class _HomeView1State extends State<HomeView1> {
           gap: 8,
           activeColor: Colors.black,
           iconSize: 35,
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-          duration: Duration(milliseconds: 400),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+          duration: const Duration(milliseconds: 400),
           tabBackgroundColor: Colors.grey[100]!,
           color: Colors.black,
-          tabs: [
+          tabs: const [
             GButton(
               icon: Icons.home,
               text: 'Home',

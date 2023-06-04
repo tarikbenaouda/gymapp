@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class AboutManager extends StatefulWidget {
   AboutManager(this.name);
   String name;
@@ -28,9 +29,9 @@ class _AboutManagerState extends State<AboutManager> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Padding(
                       padding: EdgeInsets.only(top: 25.0),
                       child: Text(

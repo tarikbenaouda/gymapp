@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:gymapp/ManagerUI/setting.dart';
+
 import 'package:gymapp/UserUI/gym_offre.dart';
 import 'package:gymapp/consts/consts.dart';
 import 'Profileuser.dart';
@@ -22,7 +22,6 @@ class _HomeView2State extends State<HomeView2> {
   final List<Widget> pages = [
     HomeViewAthlete(),
     ProfileUser(),
-
     GymOffer(),
   ];
   int currentIndex = 0;
@@ -53,7 +52,6 @@ class _HomeView2State extends State<HomeView2> {
               backgroundColor: Color(0xFFFD372A),
               textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-
             GButton(
               icon: Icons.local_offer_sharp,
               text: 'Offers',

@@ -43,12 +43,14 @@ class _ProfileUserState extends State<ProfileUser> {
                       image: AssetImage("images/20.jpg"), fit: BoxFit.cover)),
               child: ListView(
                 children: [
-                  SizedBox(height: 70,),
-                  Padding(
+                  const SizedBox(
+                    height: 70,
+                  ),
+                  const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         Text(
                           " Profile ",
                           style: TextStyle(
