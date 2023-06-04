@@ -132,7 +132,7 @@ class _CaloriesState extends State<Calories> {
                 ),
                 const Center(
                   child: Text(
-                    "Type your acyual information",
+                    "Type your actual information",
                     style: TextStyle(
                       color: Color(0xFFFF372A),
                       fontWeight: FontWeight.bold,
@@ -325,48 +325,49 @@ class _CaloriesState extends State<Calories> {
                   height: 10,
                 ),
                 Center(
-
-                  child: ElevatedButton(
-
-    onPressed: () {
-      if (age != 0 && height != 0 && weight != 0){
-        calories = calculateCalories(age, height, weight, dropdownValue, _increaseWeight);
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => Estimate( value: calories,)),
-        );
-
-      } else{
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text("Please fill in all the required fields.", style: TextStyle(
-              fontSize: 18,
-            ),),
-
-          ),
-        );
-
-
-      }
-
-    },
-                    child: const Text(
+                    child: ElevatedButton(
+                  onPressed: () {
+                    if (age != 0 && height != 0 && weight != 0) {
+                      calories = calculateCalories(
+                          age, height, weight, dropdownValue, _increaseWeight);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Estimate(
+                                  value: calories,
+                                )),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            "Please fill in all the required fields.",
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+                  },
+                  child: const Text(
                     "Get Your Calories ",
                     style: TextStyle(
-                        fontSize: 22, fontWeight: FontWeight.w700, color: Colors.white),
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white),
                   ),
-                    style: ButtonStyle(
-                      backgroundColor:  MaterialStateProperty.all<Color>(Color(0xFFFF372A)),
-                    ),
-
-                  )),
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Color(0xFFFF372A)),
+                  ),
+                )),
                 SizedBox(
                   height: 20,
                 )
               ],
             ),
           )),
-
     );
   }
 }
