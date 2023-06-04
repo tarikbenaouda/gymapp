@@ -74,6 +74,7 @@ class AuthController extends GetxController {
       'offerSessions': 0,
       'offerPrice': '0',
       'code': UniqueKey().hashCode.toString(),
+      //we use the conception of codification (UniqueKey provides unique code)
       'scanned': false,
     });
   }

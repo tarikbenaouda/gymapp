@@ -69,5 +69,6 @@ class ManagerProfilesController extends GetxController {
     var dateFromTimeStamp =
         DateTime.fromMillisecondsSinceEpoch(timeStamp.seconds * 1000);
     return DateFormat('dd-MM-yyyy').format(dateFromTimeStamp);
+    //Here is an example of usage of  conception of controllers
   }
 }
