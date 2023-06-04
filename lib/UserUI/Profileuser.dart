@@ -17,15 +17,12 @@ class ProfileUser extends StatefulWidget {
 }
 
 class _ProfileUserState extends State<ProfileUser> {
-
-  int _selectedIndex=0;
+  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-
     double screenwidth = MediaQuery.of(context).size.width;
     double screenlength = MediaQuery.of(context).size.height;
     var controller = Get.put(ProfileController());
-
 
     return Scaffold(
       body: StreamBuilder(
@@ -45,26 +42,23 @@ class _ProfileUserState extends State<ProfileUser> {
                       image: AssetImage("images/20.jpg"), fit: BoxFit.cover)),
               child: ListView(
                 children: [
-                  const SizedBox(
-                    height: 10,
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Icon(
+                      Icons.keyboard_double_arrow_left_outlined,
+                      color: Color(0xFFFF1E0F),
+                      size: 50,
+                    ),
                   ),
                   InkWell(
                     onTap: () {
                       Get.back();
                     },
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 20, horizontal: 30),
+                      padding: EdgeInsets.symmetric(horizontal: 10),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
-                          Icon(
-                            Icons.keyboard_double_arrow_left_outlined,
-                            color: Color(0xFFFF1E0F),
-                            size: 35,
-                          ),
-                          SizedBox(
-                            width: 85,
-                          ),
                           Text(
                             " Profile ",
                             style: TextStyle(
@@ -266,12 +260,7 @@ class _ProfileUserState extends State<ProfileUser> {
             );
           }
         },
-
       ),
-
-
     );
-
   }
-
 }

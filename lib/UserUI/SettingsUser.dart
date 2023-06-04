@@ -26,16 +26,13 @@ class SettingsUser extends StatelessWidget {
                 image: AssetImage("images/20.jpg"), fit: BoxFit.fill)),
         child: ListView(
           children: [
-            const SizedBox(
-              height: 10,
-            ),
             InkWell(
               onTap: () {
                 Get.back();
               },
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 child: Row(
                   children: const [
                     Icon(
@@ -259,7 +256,7 @@ class SettingsUser extends StatelessWidget {
                                   width: 8,
                                 ),
                                 Icon(
-                                  Icons.settings,
+                                  Icons.save,
                                   color: Colors.white,
                                 ),
                               ],
@@ -267,54 +264,8 @@ class SettingsUser extends StatelessWidget {
                           ),
                         )),
                   ),
-            const SizedBox(
-              height: 20,
-            )
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'home',
-            backgroundColor: Colors.red,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_outlined),
-            label: 'profil',
-            backgroundColor: Colors.red,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.storefront_outlined),
-            label: 'home',
-            backgroundColor: Colors.red,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'home',
-            backgroundColor: Colors.red,
-          ),
-        ],
-        onTap: (index) {
-          if (index == 0) {
-            Navigator.of(context).push(
-                new MaterialPageRoute(builder: (context) => HomeViewAthlete()));
-          }
-          if (index == 1) {
-            Navigator.of(context).push(
-                new MaterialPageRoute(builder: (context) => ProfileUser()));
-          }
-          if (index == 2) {
-            Navigator.of(context)
-                .push(new MaterialPageRoute(builder: (context) => HomeView()));
-          }
-          if (index == 3) {
-            Navigator.of(context).push(
-                new MaterialPageRoute(builder: (context) => SettingsUser()));
-          }
-        },
       ),
     );
   }
