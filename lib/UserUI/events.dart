@@ -1,215 +1,180 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gymapp/consts/Colors.dart';
 
 class EventsCompetition extends StatefulWidget {
+  const EventsCompetition({super.key});
+
   @override
-  _EventsCompetitionState createState() => _EventsCompetitionState();
+  State<EventsCompetition> createState() => _EventsCompetitionState();
 }
 
 class _EventsCompetitionState extends State<EventsCompetition> {
-  String event = '', begin = '', end = '', trainingOffer = '', reduction = '';
+  final _userStream =
+      FirebaseFirestore.instance.collection('events').snapshots();
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
+    double screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          height: double.infinity,
-          width: double.infinity,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("images/Events background.jpg"),
-              fit: BoxFit.fill,
-            ),
-          ),
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 330),
-                child: GestureDetector(
-                  child: const Icon(
-                    Icons.keyboard_double_arrow_left_outlined,
-                    size: 40,
-                    color: Color(0xFFFD372A),
-                  ),
-                  onTap: () {
-                    Get.back();
-                  },
-                ),
-              ),
-              const Text(
-                "Gym Events",
-                style: TextStyle(
-                  fontSize: 30,
-                  color: Colors.white,
-                  letterSpacing: 1.3,
-                ),
-              ),
-              const SizedBox(
-                height: 100,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 100,
-                decoration: BoxDecoration(
-                  color: const Color(0xFFD9D9D9),
-                  borderRadius: BorderRadius.circular(17.0),
-                ),
-                child: Column(
-                  children: [
-                    Align(
-                        alignment: Alignment.topCenter,
-                        child: Text(
-                          "Ramadan Event $event",
-                          style: const TextStyle(fontSize: 25),
-                        )),
-                    const SizedBox(
-                      height: 10,
+        body: StreamBuilder(
+            stream: _userStream,
+            builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (snapshot.hasError) {
+                return const Text("Connection error");
+              }
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Text("Loading");
+              }
+              var docs = snapshot.data!.docs;
+              return SingleChildScrollView(
+                  child: SafeArea(
+                      child: Stack(children: [
+                Container(
+                    height: screenheight,
+                    width: screenwidth,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("images/Events background.jpg"),
+                        fit: BoxFit.fill,
+                      ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const Text(
-                          "Begin ",
-                          style: TextStyle(fontSize: 20),
+                    child: Column(children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          IconButton(
+                            padding: const EdgeInsets.only(top: 10),
+                            iconSize: 40,
+                            icon: Icon(Icons.keyboard_double_arrow_left_rounded,
+                                size: 25 * (screenheight / screenwidth)),
+                            color: red,
+                            onPressed: () {
+                              Get.back();
+                            },
+                          ),
+                        ],
+                      ),
+                      const Text(
+                        "Our Events",
+                        style: TextStyle(
+                          color: white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25,
                         ),
-                        Container(
-                          width: 70,
-                          height: 30,
+                      ),
+                      SizedBox(
+                        height: 0.1 * screenheight,
+                      ),
+                      Container(
                           decoration: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.circular(15)),
-                          child: Center(
-                            child: Text(
-                              "22/04$begin",
-                              style: const TextStyle(
-                                  color: Colors.white, fontSize: 20),
-                            ),
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: red, width: 1),
                           ),
-                        ),
-                        const SizedBox(
-                          width: 15,
-                        ),
-                        const Text(
-                          "End ",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        Container(
-                          width: 70,
-                          height: 30,
-                          decoration: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.circular(15)),
-                          child: Center(
-                            child: Text(
-                              "22/05$end",
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.3,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF252525),
-                  borderRadius: BorderRadius.circular(17.0),
-                ),
-                child: Column(
-                  children: [
-                    Align(
-                        alignment: Alignment.topCenter,
-                        child: Text(
-                          "Ramadan Event $event",
-                          style: const TextStyle(
-                              fontSize: 25, color: Colors.white),
-                        )),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Align(
-                            alignment: Alignment.topLeft,
-                            child: Text("Training Offer ",
-                                style: TextStyle(
-                                    fontSize: 20, color: Colors.white))),
-                        const SizedBox(
-                          height: 4,
-                        ),
-                        Container(
-                          height: 55,
-                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          decoration: BoxDecoration(
-                            color: const Color(0xFFD9D9D9),
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "14 Sessions$trainingOffer                  1500 DA",
-                                style: const TextStyle(
-                                    color: Color(0xFF252525),
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        const Align(
-                            alignment: Alignment.topLeft,
-                            child: Text(
-                              "Shop Reductions ",
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.white),
-                            )),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Container(
-                          height: 55,
-                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          decoration: BoxDecoration(
-                            color: const Color(0xFFD9D9D9),
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "15% $reduction                All Production ",
-                                style: const TextStyle(
-                                    color: Color(0xFF252525),
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+                          height: 0.7 * screenheight,
+                          width: 0.9 * screenwidth,
+                          margin: const EdgeInsets.all(10),
+                          child: (docs.isNotEmpty)
+                              ? ListView.builder(
+                                  physics: const BouncingScrollPhysics(),
+                                  itemCount: docs.length,
+                                  scrollDirection: Axis.vertical,
+                                  itemBuilder: (ctx, index) {
+                                    return GestureDetector(
+                                        onTap: () {},
+                                        child: Container(
+                                          margin: const EdgeInsets.symmetric(
+                                              vertical: 10, horizontal: 20),
+                                          height: screenheight * 0.15,
+                                          decoration: BoxDecoration(
+                                            color: white,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  docs[index]['name'],
+                                                  style: const TextStyle(
+                                                      color: red,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 21),
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    Text(
+                                                      docs[index]['begin'],
+                                                      style: const TextStyle(
+                                                          color: black,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 21),
+                                                    ),
+                                                    const Icon(
+                                                      Icons
+                                                          .arrow_right_alt_sharp,
+                                                      color: red,
+                                                      size: 40,
+                                                    ),
+                                                    Text(
+                                                      docs[index]['end'],
+                                                      style: const TextStyle(
+                                                          color: black,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 21),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                      docs[index]['reduction'],
+                                                      style: const TextStyle(
+                                                          color: red,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 21),
+                                                    ),
+                                                    const Text(
+                                                      "(Reductions)",
+                                                      style: TextStyle(
+                                                        fontSize: 21,
+                                                        color: black,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ]),
+                                        ));
+                                  })
+                              : const Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "No events,wait for us soon",
+                                      style:
+                                          TextStyle(color: white, fontSize: 24),
+                                    ),
+                                    Icon(
+                                      Icons.add_card_rounded,
+                                      size: 24,
+                                      color: white,
+                                    )
+                                  ],
+                                )),
+                    ]))
+              ])));
+            }));
   }
 }

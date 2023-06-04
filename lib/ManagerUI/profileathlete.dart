@@ -42,14 +42,14 @@ class _ProfileathleteState extends State<Profileathlete> {
                         image: AssetImage("images/20.jpg"), fit: BoxFit.cover)),
                 child: ListView(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     InkWell(
                       onTap: () {
                         Get.back();
                       },
-                      child: Padding(
+                      child: const Padding(
                         padding:
                             EdgeInsets.symmetric(vertical: 20, horizontal: 30),
                         child: Row(
@@ -73,7 +73,7 @@ class _ProfileathleteState extends State<Profileathlete> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 55,
                     ),
                     Container(
@@ -157,14 +157,14 @@ class _ProfileathleteState extends State<Profileathlete> {
                                       ),
                                       Text(
                                         "${docs['height']} cm",
-                                        style: TextStyle(fontSize: 18),
+                                        style: const TextStyle(fontSize: 18),
                                       )
                                     ],
                                   )),
                               const SizedBox(
                                 width: 7,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 20,
                               ),
                               Container(
@@ -187,7 +187,7 @@ class _ProfileathleteState extends State<Profileathlete> {
                                       ),
                                       Text(
                                         "${docs['weight']} Kg",
-                                        style: TextStyle(fontSize: 18),
+                                        style: const TextStyle(fontSize: 18),
                                       )
                                     ],
                                   )),
@@ -280,7 +280,7 @@ class _ProfileathleteState extends State<Profileathlete> {
                                 borderRadius: BorderRadius.circular(15),
                                 color: const Color(0xFFFF1E0F),
                               ),
-                              child: Row(
+                              child: const Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(

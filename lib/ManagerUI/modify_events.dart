@@ -5,19 +5,6 @@ import 'package:gymapp/common_widgets/my_textformfield.dart';
 import 'package:gymapp/consts/Colors.dart';
 import '../controlllers/event_controller.dart';
 
-class event {
-  String type_event;
-  String begin;
-  String end;
-  String shop_reductions;
-
-  event(
-      {required this.type_event,
-      required this.begin,
-      required this.end,
-      required this.shop_reductions});
-}
-
 class modify_events extends StatefulWidget {
   @override
   State<modify_events> createState() => modify_events_State();

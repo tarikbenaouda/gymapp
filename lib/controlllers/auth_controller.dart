@@ -68,7 +68,7 @@ class AuthController extends GetxController {
       'coaching': false,
       'training': false,
       'offerId': '0',
-      'offerDays': '0',
+      'offerDays': DateTime.now(),
       'offerName': '0',
       'offerSessions': 0,
       'offerPrice': '0',

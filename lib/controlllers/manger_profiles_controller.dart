@@ -13,6 +13,11 @@ class ManagerProfilesController extends GetxController {
     await store.set(
       {
         'type': 'user',
+        'offerId': '0',
+        'offerDays': DateTime.now(),
+        'offerName': '0',
+        'offerSessions': 0,
+        'offerPrice': '0',
       },
       SetOptions(merge: true),
     );
