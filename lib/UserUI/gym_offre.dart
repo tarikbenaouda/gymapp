@@ -69,8 +69,7 @@ class GymOffer_State extends State<GymOffer> {
                     width: screenwidth,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image:
-                            AssetImage("images/training offer background.jpg"),
+                        image: AssetImage("images/20.jpg"),
                         fit: BoxFit.fill,
                       ),
                     ),
@@ -80,9 +79,10 @@ class GymOffer_State extends State<GymOffer> {
                         children: [
                           IconButton(
                             padding: const EdgeInsets.only(top: 10),
-                            iconSize: 40,
-                            icon: Icon(Icons.keyboard_double_arrow_left_rounded,
-                                size: 25 * (screenheight / screenwidth)),
+                            iconSize: 50,
+                            icon: Icon(
+                              Icons.keyboard_double_arrow_left_rounded,
+                            ),
                             color: red,
                             onPressed: () {
                               Get.back();
@@ -113,65 +113,138 @@ class GymOffer_State extends State<GymOffer> {
                       ),
                       Container(
                           decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  "images/gym offer minibackground.jpg"),
+                              fit: BoxFit.fill,
+                            ),
                             borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: red, width: 1),
+                            border: Border.all(width: 1),
                           ),
-                          height: 0.7 * screenheight,
+                          height: 0.62 * screenheight,
                           width: 0.9 * screenwidth,
-                          margin: const EdgeInsets.all(10),
-                          child: ListView.builder(
-                              physics: const BouncingScrollPhysics(),
-                              itemCount: docs.length,
-                              // This list is defined at the beginning
-                              scrollDirection: Axis.vertical,
-                              itemBuilder: (contex, index) {
-                                return Container(
-                                  margin: const EdgeInsets.symmetric(
-                                      vertical: 10, horizontal: 20),
-                                  height: screenheight * 0.15,
-                                  decoration: BoxDecoration(
-                                    color: white,
-                                    borderRadius: BorderRadius.circular(10),
+                          margin: EdgeInsets.all(10),
+                          child: docs.length > 0
+                              ? ListView.builder(
+                                  physics: const BouncingScrollPhysics(),
+                                  itemCount: docs.length,
+                                  // This list is defined at the beginning
+                                  scrollDirection: Axis.vertical,
+                                  itemBuilder: (contex, index) {
+                                    return Container(
+                                      margin: const EdgeInsets.symmetric(
+                                          vertical: 10, horizontal: 10),
+                                      height: screenheight * 0.17,
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              "images/normal-offer.jpg"),
+                                          fit: BoxFit.fill,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(width: 1),
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      docs[index]['type'],
+                                                      style: TextStyle(
+                                                          color: red,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontSize: 24),
+                                                    ),
+                                                    Text(
+                                                      " Offer",
+                                                      style: TextStyle(
+                                                          color: red,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontSize: 24),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      docs[index]['days'],
+                                                      style: TextStyle(
+                                                          color: white,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontSize: 24),
+                                                    ),
+                                                    Text(
+                                                      " days",
+                                                      style: TextStyle(
+                                                          color: white,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontSize: 24),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      docs[index]['sessions'],
+                                                      style: TextStyle(
+                                                          color: white,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontSize: 24),
+                                                    ),
+                                                    Text(
+                                                      " Sessions",
+                                                      style: TextStyle(
+                                                          color: white,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontSize: 24),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      docs[index]['price'],
+                                                      style: TextStyle(
+                                                          color: red,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontSize: 26),
+                                                    ),
+                                                    Text(
+                                                      " Da",
+                                                      style: TextStyle(
+                                                          color: red,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontSize: 26),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ]),
+                                        ],
+                                      ),
+                                    );
+                                  })
+                              : Center(
+                                  child: Text(
+                                    "Empty List !",
+                                    style:
+                                        TextStyle(color: black, fontSize: 25),
                                   ),
-                                  child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          docs[index]['type'],
-                                          style: TextStyle(
-                                              color: red,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 10 *
-                                                  (screenheight / screenwidth)),
-                                        ),
-                                        Text(
-                                          docs[index]['days'],
-                                          style: TextStyle(
-                                              color: black,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 10 *
-                                                  (screenheight / screenwidth)),
-                                        ),
-                                        Text(
-                                          docs[index]['sessions'],
-                                          style: TextStyle(
-                                              color: black,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 10 *
-                                                  (screenheight / screenwidth)),
-                                        ),
-                                        Text(
-                                          docs[index]['price'],
-                                          style: TextStyle(
-                                              color: red,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 10 *
-                                                  (screenheight / screenwidth)),
-                                        ),
-                                      ]),
-                                );
-                              })),
+                                )),
                     ]))
               ])));
             }));
