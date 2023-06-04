@@ -55,7 +55,7 @@ class _Edit_schedule_State extends State<Edit_schedule> {
         evening_end: "12:40",
         moring_end: "13:00",
         morning_begin: "10:30"),
-    "SNJJ": Time(
+    "Sun": Time(
         evening_begin: " 20:30",
         evening_end: "12:40",
         moring_end: "13:00",
@@ -95,7 +95,9 @@ class _Edit_schedule_State extends State<Edit_schedule> {
                         size: 50,
                       ),
                       color: red,
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.back();
+                      },
                     ),
                   ],
                 ),
@@ -233,7 +235,6 @@ class _Edit_schedule_State extends State<Edit_schedule> {
                                           borderRadius:
                                               BorderRadius.circular(15)),
                                       child: const TextField(
-                                         
                                         keyboardType: TextInputType.datetime,
                                         maxLength: 5,
                                         textAlign: TextAlign.center,
@@ -298,7 +299,7 @@ class _Edit_schedule_State extends State<Edit_schedule> {
                                           color: black,
                                           borderRadius:
                                               BorderRadius.circular(15)),
-                                      child:   TextField(
+                                      child: TextField(
                                         keyboardType: TextInputType.datetime,
                                         maxLength: 5,
                                         textAlign: TextAlign.center,

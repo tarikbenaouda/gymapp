@@ -61,20 +61,20 @@ class _GetstartedState extends State<Getstarted> {
                   )),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 18),
-            child: Expanded(
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Center(
               child: Text(
-                "This application is subject to high protection and you can also use it after you are accepted by the club management.",
+                " This application is subject to high protection and you can also use it after you are accepted by the club management.",
                 style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.white,
-                ),
+                    fontSize: 18,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
               ),
             ),
           ),
           const SizedBox(
-            height: 30,
+            height: 150,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 80),

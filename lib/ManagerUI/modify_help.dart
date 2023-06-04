@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gymapp/ManagerUI/setting.dart';
 
 import 'help_sending.dart';
@@ -37,7 +38,8 @@ class _ModifyHelpState extends State<ModifyHelp> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Row( mainAxisAlignment: MainAxisAlignment.start,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     GestureDetector(
                       child: const Icon(
@@ -50,7 +52,10 @@ class _ModifyHelpState extends State<ModifyHelp> {
                       },
                     ),
                   ],
-                ), SizedBox(height: 30,),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
@@ -69,10 +74,13 @@ class _ModifyHelpState extends State<ModifyHelp> {
                     )
                   ],
                 ),
-                const SizedBox(height: 170,),
+                const SizedBox(
+                  height: 170,
+                ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
+                    keyboardType: TextInputType.number,
                     style: const TextStyle(fontSize: 20),
                     controller: textField1Controller1,
                     decoration: InputDecoration(
@@ -94,6 +102,7 @@ class _ModifyHelpState extends State<ModifyHelp> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
+                    inputFormatters: [LengthLimitingTextInputFormatter(10)],
                     style: const TextStyle(fontSize: 20),
                     controller: textField2Controller2,
                     decoration: InputDecoration(
@@ -134,7 +143,8 @@ class _ModifyHelpState extends State<ModifyHelp> {
                   ),
                 ),
                 SizedBox(
-                  width: 140, height: 50,
+                  width: 140,
+                  height: 50,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       primary: const Color(0xFFFD372A),
@@ -145,8 +155,15 @@ class _ModifyHelpState extends State<ModifyHelp> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
-                        Text('Save ',style: TextStyle(fontSize: 22),),
-                        Icon(Icons.check_circle_rounded, color: Colors.white, size: 24,),
+                        Text(
+                          'Save ',
+                          style: TextStyle(fontSize: 22),
+                        ),
+                        Icon(
+                          Icons.check_circle_rounded,
+                          color: Colors.white,
+                          size: 24,
+                        ),
                       ],
                     ),
                   ),

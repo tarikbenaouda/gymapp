@@ -32,7 +32,7 @@ Widget myTextformfield({
               color: Color(0xFF7A7A7A),
             ),
             border: InputBorder.none,
-            labelStyle: const TextStyle(fontSize: 24)),
+            labelStyle: const TextStyle(fontSize: 30)),
       ),
     ),
   );

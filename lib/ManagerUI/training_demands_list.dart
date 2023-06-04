@@ -69,7 +69,7 @@ class _TrainingDemandsListState extends State<TrainingDemandsList> {
                     children: const [
                       //drawer
                       Text(
-                        "Demands to train",
+                        "Demands to Training",
                         style: TextStyle(color: Colors.white, fontSize: 25),
                       )
                     ],
