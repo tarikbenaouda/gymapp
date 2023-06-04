@@ -54,7 +54,7 @@ class ProductItemScreen extends StatelessWidget {
               ),
               child: InkWell(
                 onTap: () {
-                  Get.to(() => HomeViewAthlete());
+                  Get.back();
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(right: 310),
