@@ -80,6 +80,7 @@ class _ModifyHelpState extends State<ModifyHelp> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
+                    inputFormatters: [LengthLimitingTextInputFormatter(10)],
                     keyboardType: TextInputType.number,
                     style: const TextStyle(fontSize: 20),
                     controller: textField1Controller1,
@@ -102,7 +103,6 @@ class _ModifyHelpState extends State<ModifyHelp> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
-                    inputFormatters: [LengthLimitingTextInputFormatter(10)],
                     style: const TextStyle(fontSize: 20),
                     controller: textField2Controller2,
                     decoration: InputDecoration(
