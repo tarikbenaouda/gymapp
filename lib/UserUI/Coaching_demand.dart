@@ -45,7 +45,7 @@ class coaching_demand_State extends State<coaching_demand> {
                   ),
                   color: red,
                   onPressed: () {
-                    Get.to(() => HomeViewAthlete());
+                    Get.back();
                   },
                 ),
               ],

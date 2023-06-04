@@ -37,7 +37,7 @@ class _EventsCompetitionState extends State<EventsCompetition> {
                     color: Color(0xFFFD372A),
                   ),
                   onTap: () {
-                    Get.to(() => const HomeViewAthlete());
+                    Get.back();
                   },
                 ),
               ),
