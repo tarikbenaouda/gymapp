@@ -174,7 +174,7 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         ],
                       ),
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
@@ -763,7 +763,7 @@ class _HomeViewState extends State<HomeView> {
                             side: const BorderSide(color: Colors.white),
                           ), // Change the background color
                         ),
-                        child: const Row(
+                        child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(Icons.logout),
