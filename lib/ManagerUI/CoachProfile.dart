@@ -140,11 +140,6 @@ class _CoachProfileState extends State<CoachProfile> {
                           Textinput: " Phone Number ",
                           Textinput2: docs['phoneNumber'],
                         ),
-                        MyInfos(
-                          Textinput: " Coaching duration ",
-                          Textinput2:
-                              " Coaching duration ", // docs['phoneNumber'],
-                        ),
                       ],
                     ),
                   ),

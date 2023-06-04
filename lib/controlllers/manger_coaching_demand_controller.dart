@@ -18,6 +18,18 @@ class ManagerCoachingDemandController extends GetxController {
     );
   }
 
+  sendDemand({
+    id,
+  }) async {
+    var store = firestore.collection(usersCollection).doc(id);
+    await store.set(
+      {
+        'coaching': true,
+      },
+      SetOptions(merge: true),
+    );
+  }
+
   refuseAthlete({
     coaching,
     id,

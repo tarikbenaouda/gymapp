@@ -1,377 +1,193 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../consts/Colors.dart';
+import 'package:gymapp/consts/firebase_consts.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'package:gymapp/common_widgets/my_textformfield.dart';
+import 'package:gymapp/consts/images.dart';
+import 'package:gymapp/consts/Colors.dart';
+import 'package:gymapp/services/firestore_services.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import '../controlllers/manger_coaching_demand_controller.dart';
 
 class coaching_demand extends StatefulWidget {
+  const coaching_demand({super.key});
+
   @override
-  State<coaching_demand> createState() => coaching_demand_State();
+  State<coaching_demand> createState() => _coaching_demandState();
 }
 
-class coaching_demand_State extends State<coaching_demand> {
+class _coaching_demandState extends State<coaching_demand> {
+  var uid = currentUser!.uid;
   @override
-  int select_radio = 0;
   Widget build(BuildContext context) {
-    double statusBarHeight = MediaQuery.of(context).padding.top;
+    var controller = Get.put(ManagerCoachingDemandController());
     double screenwidth = MediaQuery.of(context).size.width;
-    double screenheight = MediaQuery.of(context).size.height;
-    double statusBarBottom = MediaQuery.of(context).padding.bottom;
-
+    double screenlength = MediaQuery.of(context).size.height;
     return Scaffold(
-        body: SingleChildScrollView(
-            child: SafeArea(
-                child: Stack(children: [
-      Container(
-          height: screenheight,
-          width: screenwidth,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("images/demand coaching background.jpg"),
-              fit: BoxFit.fill,
-            ),
-          ),
-          child: Column(children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                IconButton(
-                  padding: const EdgeInsets.only(top: 10),
-                  iconSize: 55,
-                  icon: Icon(
-                    Icons.keyboard_double_arrow_left_rounded,
+      body: StreamBuilder(
+          stream: FirestoreServices.getUser(uid),
+          builder:
+              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            if (snapshot.hasError) {
+              return const Text("Connection error");
+            }
+            if (!snapshot.hasData) {
+              return const Center(
+                  child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation(red)));
+            } else {
+              var docs = snapshot.data!.docs[0];
+
+              return Container(
+                height: screenlength,
+                width: screenwidth,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("images/16.jpg"), fit: BoxFit.fill)),
+                child: ListView(children: [
+                  // 2.heightBox,
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 10.0, bottom: 0, left: 10, right: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: const Icon(
+                            Icons.keyboard_double_arrow_left_outlined,
+                            color: Colors.red,
+                            size: 35,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                  color: red,
-                  onPressed: () {
-                    Get.back();
-                  },
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 16,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  " Coaching Demand ",
-                  style: TextStyle(
-                    color: white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25,
-                  ),
-                ),
-                Icon(
-                  Icons.person,
-                  color: white,
-                  size: 25,
-                )
-              ],
-            ),
-            SizedBox(
-              height: 0.03 * (screenheight),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                image: const DecorationImage(
-                  image:
-                      AssetImage("images/demand coaching mini background.jpg"),
-                  fit: BoxFit.fill,
-                ),
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: red, width: 0.1),
-              ),
-              height: screenheight * 0.7,
-              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-              // margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-              child: Column(
-                children: [
                   const Center(
                     child: Text(
-                      "Demand Formule",
+                      " Coaching demand ",
                       style: TextStyle(
-                          color: white,
-                          fontSize: 24,
+                          fontSize: 25,
+                          color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
-                  SizedBox(
-                    height: 0.05 * screenheight,
+                  15.heightBox,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 150),
+                    child: docs['imageUrl'] == ''
+                        ? Image.asset(
+                            icGoogleLogo,
+                            width: 60,
+                            fit: BoxFit.cover,
+                          ).box.roundedFull.clip(Clip.antiAlias).make()
+                        : Image.network(
+                            docs['imageUrl'],
+                            width: 60,
+                            fit: BoxFit.cover,
+                          ).box.roundedFull.clip(Clip.antiAlias).make(),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Old coach:",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            color: red,
-                            fontSize: 23),
-                      ),
-                      InkWell(
-                        child: Container(
-                          height: 17,
-                          width: 17,
-                          decoration: BoxDecoration(
-                              color: select_radio == 1 ? red : white,
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                  color: select_radio == 1 ? white : red,
-                                  width: 2)),
-                        ),
-                        onTap: () {
-                          setState(() {
-                            select_radio = 1;
-                          });
-                        },
-                      ),
-                      Text(
-                        "Yes",
-                        style: TextStyle(
-                            color: select_radio == 1 ? red : white,
-                            fontSize: 20),
-                      ),
-                      InkWell(
-                        child: Container(
-                          height: 17,
-                          width: 17,
-                          decoration: BoxDecoration(
-                              color: select_radio == 2 ? red : white,
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                  color: select_radio == 2 ? white : red,
-                                  width: 2)),
-                        ),
-                        onTap: () {
-                          setState(() {
-                            select_radio = 2;
-                          });
-                        },
-                      ),
-                      Text(
-                        "No",
-                        style: TextStyle(
-                            color: select_radio == 2 ? red : white,
-                            fontSize: 20),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 0.03 * screenheight,
-                  ),
-                  if ((select_radio == 1) || (select_radio == 0))
-                    Column(
+
+                  Center(
+                      child: "${docs['username']}"
+                          .text
+                          .white
+                          .size(20)
+                          .bold
+                          .make()),
+                  15.heightBox,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Coaching During :",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  color: red,
-                                  fontSize: 23),
-                            ),
-                          ],
+                        MyInfos(
+                          Textinput: " FullName ",
+                          Textinput2: docs['fullName'],
                         ),
-                        SizedBox(
-                          height: 0.02 * screenheight,
+                        const SizedBox(
+                          height: 3,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              height: screenheight * 0.05,
-                              width: 0.25 * screenwidth,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: white),
-                              child: const TextField(
-                                keyboardType: TextInputType.numberWithOptions(),
-                                maxLength: 3,
-                                textAlign: TextAlign.center,
-                                maxLines: 1,
-                                cursorColor: red,
-                                style: TextStyle(color: black, fontSize: 25),
-                                decoration: InputDecoration(
-                                  counterText: '',
-                                  border: InputBorder.none,
-                                ),
-                              ),
-                            ),
-                            const Text(
-                              "months",
-                              style: TextStyle(color: white, fontSize: 20),
-                            ),
-                            Container(
-                              height: screenheight * 0.05,
-                              width: 0.25 * screenwidth,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: white),
-                              child: const TextField(
-                                maxLength: 3,
-                                keyboardType: TextInputType.numberWithOptions(),
-                                maxLines: 1,
-                                textAlign: TextAlign.center,
-                                cursorColor: red,
-                                style: TextStyle(color: black, fontSize: 25),
-                                decoration: InputDecoration(
-                                    counterText: '',
-                                    border: InputBorder.none,
-                                    hintStyle:
-                                        TextStyle(color: red, fontSize: 25)),
-                              ),
-                            ),
-                            const Text(
-                              "years",
-                              style: TextStyle(color: white, fontSize: 20),
-                            ),
-                          ],
+                        MyInfos(
+                          Textinput: " Age ",
+                          Textinput2: "${docs['age']} Years old",
+                        ),
+                        const SizedBox(
+                          height: 3,
+                        ),
+                        MyInfos(
+                          Textinput: " Height ",
+                          Textinput2: "${docs['height']} cm",
+                        ),
+                        const SizedBox(
+                          height: 3,
+                        ),
+                        MyInfos(
+                          Textinput: " Weigth ",
+                          Textinput2: "${docs['weight']} Kg",
+                        ),
+                        const SizedBox(
+                          height: 3,
+                        ),
+                        MyInfos(
+                          Textinput: " Email ",
+                          Textinput2: docs['email'],
+                        ),
+                        const SizedBox(
+                          height: 3,
+                        ),
+                        MyInfos(
+                          Textinput: " Phone Number ",
+                          Textinput2: docs['phoneNumber'],
                         ),
                       ],
                     ),
-                  SizedBox(
-                    height: 0.03 * screenheight,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text(
-                        "Why you want coaching here :",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            color: red,
-                            fontSize: 23),
-                      ),
-                    ],
+                  const SizedBox(
+                    height: 10,
                   ),
-                  SizedBox(
-                    height: 0.03 * screenheight,
-                  ),
-                  Container(
-                    height: screenheight * 0.15,
-                    width: 0.9 * screenwidth,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10), color: white),
-                    child: const TextField(
-                      textAlign: TextAlign.start,
-                      cursorColor: red,
-                      maxLines: null,
-                      style: TextStyle(color: black, fontSize: 25),
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 0.07 * screenheight,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            contentPadding: EdgeInsets.zero,
-                            content: SingleChildScrollView(
-                              child: Container(
-                                width: screenwidth * 0.5,
-                                height: screenheight * 0.4,
-                                decoration: BoxDecoration(
-                                  image: const DecorationImage(
-                                    image: AssetImage(
-                                        "images/demand coaching mini background.jpg"),
-                                    fit: BoxFit.fill,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                            onPressed: () async {
+                              await controller.sendDemand(id: uid);
+                              Get.back();
+                            },
+                            child: Container(
+                              height: 50,
+                              width: 130,
+                              decoration: BoxDecoration(
+                                  color: Colors.red,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: const Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Center(
+                                    child: Text(
+                                      "Send demand ",
+                                      style: TextStyle(
+                                          fontSize: 18, color: Colors.white),
+                                    ),
                                   ),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Text(
-                                      'Your demand is sended',
-                                      style:
-                                          TextStyle(fontSize: 22, color: white),
-                                    ),
-                                    const Text(
-                                      'to administrator',
-                                      style:
-                                          TextStyle(fontSize: 22, color: white),
-                                    ),
-                                    SizedBox(
-                                      height: screenheight * 0.05,
-                                    ),
-                                    const Text(
-                                      'Wait for the answer',
-                                      style:
-                                          TextStyle(fontSize: 22, color: white),
-                                    ),
-                                    SizedBox(
-                                      height: 0.1 * screenheight,
-                                    ),
-                                    Container(
-                                      height: 0.05 * screenheight,
-                                      width: 0.4 * screenwidth,
-                                      decoration: BoxDecoration(
-                                          color: white,
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      child: TextButton(
-                                          onPressed: () {
-                                            Get.back();
-                                          },
-                                          child: Text(
-                                            'Return to Home',
-                                            style: TextStyle(
-                                              fontSize: 10 *
-                                                  (screenheight / screenwidth),
-                                              color: red,
-                                            ),
-                                          )),
-                                    ),
-                                  ],
-                                ),
+                                  Icon(
+                                    Icons.send,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
+                                ],
                               ),
-                            ),
-                          );
-                        },
-                      );
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      height: screenheight * 0.05,
-                      width: screenwidth * 0.3,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            "Send",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                          SizedBox(width: 0.03 * screenwidth),
-                          const Icon(
-                            Icons.send,
-                            color: white,
-                            size: 30,
-                          ),
-                        ],
-                      ),
+                            )),
+                      ],
                     ),
-                  )
-                ],
-              ),
-            ),
-          ]))
-    ]))));
+                  ),
+                ]),
+              );
+            }
+          }),
+    );
   }
 }
