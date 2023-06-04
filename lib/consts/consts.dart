@@ -13,7 +13,7 @@ export 'package:gymapp/ManagerUI/ProfileCoach.dart';
 export 'package:gymapp/authentication/Signup1.dart';
 export 'package:gymapp/authentication/Unboarding.dart';
 export 'package:gymapp/ManagerUI/edit_our_offers.dart';
-export 'package:gymapp/ManagerUI/edit_our_shop.dart';
+export 'package:gymapp/UserUI/shop.dart';
 export 'package:gymapp/ManagerUI/edit_schedule.dart';
 export 'package:gymapp/ManagerUI/home_page.dart';
 export 'package:gymapp/ManagerUI/listathletes.dart';

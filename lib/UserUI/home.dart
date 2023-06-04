@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:gymapp/ManagerUI/setting.dart';
 import 'package:gymapp/UserUI/gym_offre.dart';
+import 'package:gymapp/consts/consts.dart';
 import 'Profileuser.dart';
 import 'home_view.dart';
 
@@ -21,7 +22,7 @@ class _HomeView2State extends State<HomeView2> {
   final List<Widget> pages = [
     HomeViewAthlete(),
     ProfileUser(),
-    HomeViewAthlete(),
+    shop(),
     GymOffer(),
   ];
   int currentIndex = 0;

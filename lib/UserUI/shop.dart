@@ -22,12 +22,12 @@ class product_type {
   product_type({required this.typeName, required this.product_list});
 }
 
-class edit_our_shop extends StatefulWidget {
+class shop extends StatefulWidget {
   @override
-  State<edit_our_shop> createState() => edit_our_shop_State();
+  State<shop> createState() => shop_State();
 }
 
-class edit_our_shop_State extends State<edit_our_shop> {
+class shop_State extends State<shop> {
   Map<String, List<Product>> product_map = {
     'Protein': [
       Product(
@@ -94,8 +94,8 @@ class edit_our_shop_State extends State<edit_our_shop> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 IconButton(
-                  padding: const EdgeInsets.only(top: 30),
-                  iconSize: 25 * (screenheight / screenwidth),
+                  padding: const EdgeInsets.only(top: 10),
+                  iconSize: 50,
                   icon: const Icon(Icons.keyboard_double_arrow_left_rounded),
                   color: red,
                   onPressed: () {},
@@ -103,14 +103,17 @@ class edit_our_shop_State extends State<edit_our_shop> {
               ],
             ),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              const Text("Edit Our Shop",
+              const Text("Shop",
                   style: TextStyle(
                     color: white,
-                    fontSize: 20,
+                    fontSize: 25,
                   )),
               Icon(Icons.shopping_cart_sharp,
                   color: red, size: 20 * (screenheight / screenwidth))
             ]),
+            SizedBox(
+              height: 15,
+            ),
             Container(
               width: double.infinity,
               child: Column(
@@ -158,8 +161,7 @@ class edit_our_shop_State extends State<edit_our_shop> {
                   Container(
                       decoration: BoxDecoration(
                         image: const DecorationImage(
-                            image: AssetImage(
-                                "images/edit shop mini back ground back ground.jpg"),
+                            image: AssetImage("images/20.jpg"),
                             fit: BoxFit.fill),
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(color: red, width: 1),
@@ -168,7 +170,7 @@ class edit_our_shop_State extends State<edit_our_shop> {
                       height: screenheight -
                           statusBarBottom -
                           statusBarHeight -
-                          250,
+                          300,
                       margin: const EdgeInsets.all(10),
                       child: GridView.builder(
                         itemCount:
@@ -177,7 +179,7 @@ class edit_our_shop_State extends State<edit_our_shop> {
                                 0,
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
+                          crossAxisCount: 1,
                         ),
                         itemBuilder: (BuildContext context, int index) {
                           return GestureDetector(
@@ -230,115 +232,6 @@ class edit_our_shop_State extends State<edit_our_shop> {
                           );
                         },
                       )),
-                  FloatingActionButton(
-                    backgroundColor: white,
-                    onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                              backgroundColor: const Color(0xFF4F4F4F),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                              contentPadding: const EdgeInsets.symmetric(
-                                vertical: 50.0,
-                              ),
-                              title: Column(
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      IconButton(
-                                          icon: Icon(
-                                            Icons.close,
-                                            color: red,
-                                            size: 20 *
-                                                (screenheight / screenwidth),
-                                          ),
-                                          onPressed: () {
-                                            Get.back();
-                                          }),
-                                    ],
-                                  ),
-                                  Container(
-                                    width: 0.45 * screenwidth,
-                                    height: 0.3 * screenheight,
-                                    decoration: BoxDecoration(
-                                        color: white,
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                  ),
-                                ],
-                              ),
-                              content: SingleChildScrollView(
-                                  child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  myTextformfield(
-                                    hint: "Product Name",
-                                    icon: const Icon(
-                                      Icons.edit,
-                                      color: red,
-                                    ),
-                                  ),
-                                  myTextformfield(
-                                    hint: "Price",
-                                    icon: const Icon(
-                                      Icons.price_check,
-                                      color: red,
-                                    ),
-                                  ),
-                                  myTextformfield(
-                                    hint: "Our Quantity",
-                                    icon: const Icon(
-                                      Icons.shopping_cart_outlined,
-                                      color: red,
-                                    ),
-                                  ),
-                                ],
-                              )),
-                              actions: <Widget>[
-                                Center(
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        color: red,
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    height: screenheight * 0.05,
-                                    width: screenwidth * 0.3,
-                                    child: TextButton(
-                                        onPressed: () {},
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              'Save',
-                                              style: TextStyle(
-                                                fontSize: 10 *
-                                                    (screenheight /
-                                                        screenwidth),
-                                                color: white,
-                                              ),
-                                            ),
-                                            const Icon(Icons.check_circle,
-                                                color: white),
-                                          ],
-                                        )),
-                                  ),
-                                )
-                              ]);
-                        },
-                      );
-                    },
-                    child: Icon(
-                      Icons.add,
-                      color: black,
-                      size: 20 * (screenheight / screenwidth),
-                    ),
-                  )
                 ],
               ),
             ),
