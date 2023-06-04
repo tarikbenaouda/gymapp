@@ -171,7 +171,7 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         ],
                       ),
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
@@ -346,46 +346,6 @@ class _HomeViewState extends State<HomeView> {
                                     child: Text(
                                       softWrap: false,
                                       ' List  Of Coachs',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 15, vertical: 7),
-                            child: Container(
-                              width: (double.infinity),
-                              height: 160,
-                              decoration: BoxDecoration(
-                                // border:  Border.all(color: Colors.grey, width: 2),
-                                borderRadius: BorderRadius.circular(17.0),
-                                image: const DecorationImage(
-                                  image: AssetImage(
-                                    "images/admin-home pic2.jpg",
-                                  ),
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                              child: GestureDetector(
-                                onTap: () {
-                                  Get.to(() => OurstateAthlete());
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(17.0),
-                                  ),
-                                  child: const Align(
-                                    alignment: Alignment.bottomCenter,
-                                    child: Text(
-                                      softWrap: false,
-                                      ' Athletes Income',
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 22,
@@ -708,7 +668,7 @@ class _HomeViewState extends State<HomeView> {
                           color: Colors.white,
                         )),
                     onTap: () {
-                      Get.to(() => ModifyHelp());
+                      Get.to(() => const ModifyHelp());
                     },
                   ),
                   ListTile(
@@ -722,7 +682,7 @@ class _HomeViewState extends State<HomeView> {
                           color: Colors.white,
                         )),
                     onTap: () {
-                      Get.to(() => ModifyHelp());
+                      Get.to(() => const ModifyHelp());
                     },
                   ),
                   ListTile(
@@ -760,7 +720,7 @@ class _HomeViewState extends State<HomeView> {
                             side: const BorderSide(color: Colors.white),
                           ), // Change the background color
                         ),
-                        child: Row(
+                        child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(Icons.logout),
