@@ -101,9 +101,9 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                                   }),
                             ],
                           ),
-                          Row(
+                          const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
+                            children: [
                               Padding(
                                 padding: EdgeInsets.only(top: 10),
                                 child: Text(
@@ -185,7 +185,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                                 ),
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 5, vertical: 8.0),
-                                child: const Text('Gym State',
+                                child: const Text('Gym State : Open',
                                     style: TextStyle(color: Colors.white)),
                               ),
                             ],
@@ -193,10 +193,10 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                           const SizedBox(
                             height: 20,
                           ),
-                          Center(
+                          const Center(
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
+                              children: [
                                 Text(
                                   "Fire-",
                                   style: TextStyle(
@@ -406,7 +406,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                               ),
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.to(() => coaching_demand());
+                                  Get.to(() => const coaching_demand());
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -485,7 +485,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                               ),
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.to(() => EventsCompetition());
+                                  Get.to(() => const EventsCompetition());
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -715,9 +715,9 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                                     side: const BorderSide(color: Colors.white),
                                   ), // Change the background color
                                 ),
-                                child: Row(
+                                child: const Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
+                                  children: [
                                     Icon(Icons.logout),
                                     SizedBox(width: 8.0),
                                     Text('Log out',
