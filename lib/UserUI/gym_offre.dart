@@ -79,9 +79,10 @@ class GymOffer_State extends State<GymOffer> {
                         children: [
                           IconButton(
                             padding: const EdgeInsets.only(top: 10),
-                            iconSize: 30,
-                            icon: Icon(Icons.keyboard_double_arrow_left_rounded,
-                                size: 25 * (screenheight / screenwidth)),
+                            iconSize: 50,
+                            icon: Icon(
+                              Icons.keyboard_double_arrow_left_rounded,
+                            ),
                             color: red,
                             onPressed: () {
                               Get.back();
