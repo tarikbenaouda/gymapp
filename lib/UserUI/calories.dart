@@ -18,9 +18,9 @@ class _CaloriesState extends State<Calories> {
     double bmr;
     double activityFactor;
     if (increaseWeight) {
-      bmr = 66 + (6.23 * weight) + (12.7 * height) - (6.8 * age);
+      bmr = 88.3 + (10 * weight) + (6.25 * height) - (5 * age);
     } else {
-      bmr = 655 + (4.35 * weight) + (4.7 * height) - (4.7 * age);
+      bmr = 5.5 + (4.35 * weight) + (4.7 * height) - (4.7 * age);
     }
     switch (intensity) {
       case 'No Training':

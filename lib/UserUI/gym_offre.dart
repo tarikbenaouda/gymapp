@@ -90,6 +90,7 @@ class GymOffer_State extends State<GymOffer> {
                           ),
                         ],
                       ),
+                      SizedBox(height: 20,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
@@ -102,7 +103,7 @@ class GymOffer_State extends State<GymOffer> {
                             ),
                           ),
                           Icon(
-                            Icons.money,
+                            Icons.money_off_csred_rounded,
                             color: white,
                             size: 25,
                           )
@@ -121,7 +122,7 @@ class GymOffer_State extends State<GymOffer> {
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(width: 1),
                           ),
-                          height: 0.62 * screenheight,
+                          height: 0.75 * screenheight,
                           width: 0.9 * screenwidth,
                           margin: EdgeInsets.all(10),
                           child: docs.length > 0

@@ -22,7 +22,7 @@ class _HomeView2State extends State<HomeView2> {
   final List<Widget> pages = [
     HomeViewAthlete(),
     ProfileUser(),
-    shop(),
+
     GymOffer(),
   ];
   int currentIndex = 0;
@@ -53,12 +53,7 @@ class _HomeView2State extends State<HomeView2> {
               backgroundColor: Color(0xFFFD372A),
               textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            GButton(
-              icon: Icons.storefront_outlined,
-              text: 'Shop',
-              backgroundColor: Color(0xFFFD372A),
-              textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
+
             GButton(
               icon: Icons.local_offer_sharp,
               text: 'Offers',
