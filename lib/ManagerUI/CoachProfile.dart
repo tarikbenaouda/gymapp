@@ -75,7 +75,7 @@ class _CoachProfileState extends State<CoachProfile> {
                   ),
                   15.heightBox,
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 150),
+                    padding: const EdgeInsets.symmetric(horizontal: 150),
                     child: docs['imageUrl'] == ''
                         ? Image.asset(
                             icGoogleLogo,
@@ -163,9 +163,9 @@ class _CoachProfileState extends State<CoachProfile> {
                               decoration: BoxDecoration(
                                   color: Colors.red,
                                   borderRadius: BorderRadius.circular(20)),
-                              child: Row(
+                              child: const Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
+                                children: [
                                   Center(
                                     child: Text(
                                       " Accepte ",
@@ -193,9 +193,9 @@ class _CoachProfileState extends State<CoachProfile> {
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(20)),
-                              child: Row(
+                              child: const Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
+                                children: [
                                   Center(
                                     child: Text(
                                       " Refuse ",

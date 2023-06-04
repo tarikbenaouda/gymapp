@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:gymapp/consts/Colors.dart';
 
+import '../controlllers/schedule_controller.dart';
+
 class Edit_schedule extends StatefulWidget {
   @override
   State<Edit_schedule> createState() => _Edit_schedule_State();
@@ -12,7 +14,6 @@ class Edit_schedule extends StatefulWidget {
 class _Edit_schedule_State extends State<Edit_schedule> {
   final _userStream =
       FirebaseFirestore.instance.collection('schedule').snapshots();
-
   var _controller = ValueNotifier<bool>(false);
 
   int current = 0;
@@ -39,6 +40,7 @@ class _Edit_schedule_State extends State<Edit_schedule> {
               return const Text("Loading");
             }
             var docs = snapshot.data!.docs;
+
             morningBeginController.text = docs[current]['morningBegin'];
             morningEndController.text = docs[current]['morningEnd'];
             eveningBeginController.text = docs[current]['eveningBegin'];

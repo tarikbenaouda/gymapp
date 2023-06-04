@@ -5,13 +5,16 @@ import '../consts/firebase_consts.dart';
 
 class ScheduleController extends GetxController {
   gymState({
-    id,
+    stateGym,
   }) async {
-    var state = await firestore.collection('schedule').doc(id).get();
-    var store = firestore.collection('schedule').doc(id);
+    var state = await firestore
+        .collection('schedule')
+        .doc('3EoQCS9N72bPnUGNfBZb')
+        .get();
+    var store = firestore.collection('schedule').doc('3EoQCS9N72bPnUGNfBZb');
     await store.set(
       {
-        'gymState': !state['gymState'],
+        'GymState': stateGym,
       },
       SetOptions(merge: true),
     );
