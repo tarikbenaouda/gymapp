@@ -85,33 +85,48 @@ class Chronometer extends StatelessWidget {
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      IconButton(
-                          icon: const Icon(
-                            Icons.play_arrow,
-                            color: Colors.red,
-                            size: 35,
-                          ),
-                          onPressed: () {
-                            controller.resume();
-                          }),
-                      IconButton(
-                          icon: const Icon(
-                            Icons.pause,
-                            color: Colors.red,
-                            size: 35,
-                          ),
-                          onPressed: () {
-                            controller.pause();
-                          }),
-                      IconButton(
-                          icon: const Icon(
-                            Icons.repeat,
-                            color: Colors.red,
-                            size: 35,
-                          ),
-                          onPressed: () {
-                            controller.restart();
-                          }),
+                      Column(
+                        children: [
+                          IconButton(
+                              icon: const Icon(
+                                Icons.play_arrow,
+                                color: Colors.red,
+                                size: 35,
+                              ),
+                              onPressed: () {
+                                controller.resume();
+                              }),
+                          Text("Play", style: TextStyle(fontSize: 20, color: Colors.red),)
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          IconButton(
+                              icon: const Icon(
+                                Icons.pause,
+                                color: Colors.red,
+                                size: 35,
+                              ),
+                              onPressed: () {
+                                controller.pause();
+                              }),
+                          Text("Pause", style: TextStyle(fontSize: 20, color: Colors.red),)
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          IconButton(
+                              icon: const Icon(
+                                Icons.repeat,
+                                color: Colors.red,
+                                size: 35,
+                              ),
+                              onPressed: () {
+                                controller.restart();
+                              }),
+                          Text("Reply", style: TextStyle(fontSize: 20, color: Colors.red),)
+                        ],
+                      ),
                     ]),
               )
             ],

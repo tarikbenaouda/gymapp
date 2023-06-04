@@ -434,44 +434,7 @@ class _HomeViewAthleteState extends State<HomeViewAthlete> {
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 15, vertical: 7),
-                            child: Container(
-                              width: double.infinity,
-                              height: 160,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(17.0),
-                                image: const DecorationImage(
-                                  image: AssetImage(
-                                    "images/Shop.jpg",
-                                  ),
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                              child: GestureDetector(
-                                onTap: () {
-                                  Get.to(() => const ProductItemScreen());
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(17.0),
-                                  ),
-                                  child: const Align(
-                                    alignment: Alignment.bottomCenter,
-                                    child: Text(
-                                      'Your complements',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
+
                           const SizedBox(
                             height: 20,
                           ),
